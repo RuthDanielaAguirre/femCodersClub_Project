@@ -1,8 +1,14 @@
-import React from 'react'
+// import React from 'react'
+
+import SignUpForm from "../components/SignUpForm"
 
 const SignUpPage = () => {
     return (
-        <div>SignUpPage</div>
+        <>
+            {/* <SignUpForm /> 
+            */}
+            <h1>Hello World</h1>
+        </>
     )
 }
 
