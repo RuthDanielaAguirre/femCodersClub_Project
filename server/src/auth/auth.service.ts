@@ -4,7 +4,7 @@ import { UpdateAuthDto } from './dto/update-auth.dto';
 import { UserService } from 'src/user/user.service';
 import {JwtService } from '@nestjs/jwt'
 import { SignupDto } from './dto/signup.dto';
-import  * as bcrypt from 'bcrypt'
+import  { hash } from 'bcrypt'
 import { User } from 'src/user/entities/user.entity';
 
 @Injectable()
@@ -21,22 +21,23 @@ async signup ({
   userTelephone,
   userGender,
 }: SignupDto ) {
-  const user = await this.userService.findOneByEmail(userEmail);
-
-  if (user!==null){
+const user = await this.userService.findOneByEmail(userEmail);
+if (user!==null){
     throw new BadRequestException("Este usuario ya existe")
   }
 
-await this.userService.create({
+  const result = await this.userService.create({
   userName,
   userLastName,
   userEmail,
-  userPassword: await bcrypt.hash(userPassword,20),
+  userPassword: await hash(userPassword,10),
   userGender,
   userTelephone,
 });
+
+
 return {
-  User
+  result
 }
 }
   }
