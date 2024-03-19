@@ -5,6 +5,8 @@ export type User = {
 export type RegisterDto = {
     name: string;
     lastname: string;
+    gender?: string;
+    phoneNumber?: string;
     email: string;
-    password: string
+    password: string;
 }

@@ -13,10 +13,11 @@ const SignUpForm = () => {
     const [lastname, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [gender, setGender] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const navigate = useNavigate();
 
-    const mutationFn = async ({ name, lastname, email, password }: RegisterDto) => register(name, lastname, email, password);
+    const mutationFn = async ({ name, lastname, email, password }: RegisterDto) => register(name, lastname, gender, phoneNumber, email, password);
 
     const mutation = useMutation<User, Error, RegisterDto>(
         {
@@ -37,6 +38,10 @@ const SignUpForm = () => {
         setLastName(e.target.value);
     };
 
+    const onChangeGender= (e: ChangeEvent<HTMLSelectElement>) => {
+        setGender(e.target.value);
+    };
+
     const onChangePhoneNumber = (e: ChangeEvent<HTMLInputElement>) => {
         setPhoneNumber(e.target.value);
     };
@@ -53,7 +58,7 @@ const SignUpForm = () => {
         e.preventDefault();
         console.log('Submit button clicked');
         // setShowSpiner(true);
-        mutation.mutate({ name, lastname, email, password });
+        mutation.mutate({ name, lastname, gender, phoneNumber, email, password });
     };
 
     return (
@@ -89,10 +94,10 @@ const SignUpForm = () => {
                 </div>
 
                 <div className='flex gap-4 w-full m-0 p-0'>
-                    <div className='w-[200px] h-[100] flex flex-col justify-around '>
+                    <div className='w-[260px] h-[100] flex flex-col justify-between'>
                         <label htmlFor="gender" className="block text-[16px] leading-6 rounded-[18px] text-contrast">Género:</label>
-                        <select id="gender" className="block w-full h-[36px] rounded-[8px] bg-accent/5 border-0 text-gray-600 shadow-md shadow-accent/10 text-[16px] py-0 focus:ring-accent/50 focus:border-accent ">
-                            <option selected> -- seleccionar -- </option>
+                        <select id="gender" onChange={onChangeGender} className="block w-full h-[36px] rounded-[8px] bg-primary border-0 text-gray-600 shadow-md shadow-accent/10 text-[16px] py-0 focus:ring-accent/50 focus:border-accent">
+                            <option >- seleccionar -</option>
                             <option value="Femenino">femenino</option>
                             <option value="Masculino">masculino</option>
                             <option value="NoBinario">no binario</option>
@@ -110,7 +115,7 @@ const SignUpForm = () => {
                         </div> */}
                     </div>
 
-                    <div className=''>
+                    <div className='w-full'>
                         <label htmlFor="phone-number" className="block text-[16px] leading-6 rounded-[18px] text-contrast">Núm. de teléfono:</label>
                         <div className="mt-2">
                             <input
@@ -171,8 +176,11 @@ const SignUpForm = () => {
 
                 <TermsAndConditions />
 
+                {/* <div className="flex justify-center flex-col w-full py-[16px]">
+                    <button type="submit" className="text-primary bg-tertiary hover:text-contrast hover:bg-contrast/20 focus:ring-4 focus:ring-secondary-300 font-medium rounded-[8px] text-[18px] h-[40px] w-full shadow-lg border-b-2 border-contrast/5 shadow-accent/20 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Regístrarme</button>
+                </div> */}
                 <div className="py-[16px]">
-                    <SignUpButton />
+                    <SignUpButton onSubmit={onSubmit} />
                 </div>
             </form>
         </>
