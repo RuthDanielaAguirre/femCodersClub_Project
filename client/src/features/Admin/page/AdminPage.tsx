@@ -1,8 +1,11 @@
-import React from 'react'
+
+import AuthLayout from '../../../components/Layout/AuthLayout'
 
 const AdminPage = () => {
   return (
+    <AuthLayout>
     <div>AdminPage</div>
+    </AuthLayout>
   )
 }
 

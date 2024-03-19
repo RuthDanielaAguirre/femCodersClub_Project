@@ -14,16 +14,18 @@ const Router = () => {
   return (
     <BrowserRouter>
     <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/contacto" element={<ContactPage />} />
-        <Route path="/login" element={<LogInPage />} />
-        <Route path="/signin" element={<SignInPage />} />
-        <Route path="/eventos" element={<EventsPage />} />
-        <Route path="/sobrenosotras" element={<AboutPage />} />
-        <Route path="/faqs" element={<FaqsPage />} />
-        <Route path="/equipo" element={<TeamPage />} />
-        <Route path="/usuario" element={<UserPage />} />
-        <Route path="/admin" element={<AdminPage />} />
+       
+          <Route path="/" element={<HomePage />} />
+          <Route path="/contacto" element={<ContactPage />} />
+          <Route path="/login" element={<LogInPage />} />
+          <Route path="/signin" element={<SignInPage />} /> 
+          <Route path="/sobrenosotras" element={<AboutPage />} />
+          <Route path="/faqs" element={<FaqsPage />} />
+          <Route path="/equipo" element={<TeamPage />} />
+          <Route path="/eventos" element={<EventsPage />} />
+          <Route path="/usuario" element={<UserPage />} />
+          <Route path="/admin" element={<AdminPage />} />
+        
     </Routes>
 </BrowserRouter>
   )
