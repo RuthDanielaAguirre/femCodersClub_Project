@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 
-const NavbarAuth = () => {
+const NavbarAuthUser = () => {
   return (
     <>
       <nav className="bg-secondary">
@@ -80,4 +80,4 @@ const NavbarAuth = () => {
   )
 }
 
-export default NavbarAuth
+export default NavbarAuthUser
