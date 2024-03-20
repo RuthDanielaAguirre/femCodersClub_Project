@@ -6,6 +6,7 @@ import { useMutation } from '@tanstack/react-query';
 import { User, RegisterDto } from "../../../types/types";
 import { register } from '../../../api/registerApi';
 import TermsAndConditions from './TermsAndConditions';
+import { styles } from '../../../style';
 
 const SignUpForm = () => {
 
@@ -66,7 +67,7 @@ const SignUpForm = () => {
             <form onSubmit={onSubmit} className="space-y-1" action="#" method="POST dropdown dropdown-end">
 
                 <div>
-                    <label htmlFor="name" className="block text-[16px] leading-6 rounded-[8px] text-contrast">Nombre:</label>
+                    <label htmlFor="name" className={`${styles.label}`}>Nombre:</label>
                     <div className="mt-2">
                         <input
                             id="name"
@@ -75,12 +76,12 @@ const SignUpForm = () => {
                             value={name}
                             onChange={onChangeName}
                             required
-                            className="block w-full h-[36px] rounded-[8px] border-0 py-1.5 text-gray-900 shadow-md shadow-accent/10 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-accent/50 sm:text-sm sm:leading-6" />
+                            className={`${styles.input}`} />
                     </div>
                 </div>
 
                 <div>
-                    <label htmlFor="lastName" className="block text-[16px] leading-6 rounded-[18px] text-contrast">Apellido:</label>
+                    <label htmlFor="lastName" className={`${styles.label}`}>Apellido:</label>
                     <div className="mt-2">
                         <input
                             id="lastName"
@@ -89,13 +90,13 @@ const SignUpForm = () => {
                             value={lastname}
                             onChange={onChangeLastName}
                             required
-                            className="block w-full h-[36px] rounded-[8px] border-0 py-1.5 text-gray-900 shadow-md shadow-accent/10 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-accent/50 sm:text-sm sm:leading-6" />
+                            className={`${styles.input}`} />
                     </div>
                 </div>
 
                 <div className='flex gap-4 w-full m-0 p-0'>
                     <div className='w-[260px] h-[100] flex flex-col justify-between'>
-                        <label htmlFor="gender" className="block text-[16px] leading-6 rounded-[18px] text-contrast">Género:</label>
+                        <label htmlFor="gender" className={`${styles.label}`}>Género:</label>
                         <select id="gender" onChange={onChangeGender} className="block w-full h-[36px] rounded-[8px] bg-primary border-0 text-gray-600 shadow-md shadow-accent/10 text-[16px] py-0 focus:ring-accent/50 focus:border-accent">
                             <option >- seleccionar -</option>
                             <option value="Femenino">femenino</option>
@@ -116,7 +117,7 @@ const SignUpForm = () => {
                     </div>
 
                     <div className='w-full'>
-                        <label htmlFor="phone-number" className="block text-[16px] leading-6 rounded-[18px] text-contrast">Núm. de teléfono:</label>
+                        <label htmlFor="phone-number" className={`${styles.label}`}>Núm. de teléfono:</label>
                         <div className="mt-2">
                             <input
                                 id="phoneNumber"
@@ -125,13 +126,13 @@ const SignUpForm = () => {
                                 value={phoneNumber}
                                 onChange={onChangePhoneNumber}
                                 required
-                                className="block w-full h-[36px] rounded-[8px] border-0 py-1.5 text-gray-900 shadow-md shadow-accent/10 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-accent/50 sm:text-sm sm:leading-6" />
+                                className={`${styles.input}`} />
                         </div>
                     </div>
                 </div>
 
                 <div>
-                    <label htmlFor="email" className="block text-[16px] leading-6 rounded-[18px] text-contrast">Correo:</label>
+                    <label htmlFor="email" className={`${styles.label}`}>Correo:</label>
                     <div className="mt-2">
                         <input
                             id="email"
@@ -140,12 +141,12 @@ const SignUpForm = () => {
                             value={email}
                             onChange={onChangeEmail}
                             required
-                            className="block w-full h-[36px] rounded-[8px] border-0 py-1.5 text-gray-900 shadow-md shadow-accent/10 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-accent/50 sm:text-sm sm:leading-6" />
+                            className={`${styles.input}`} />
                     </div>
                 </div>
 
                 <div>
-                    <label htmlFor="password" className="block text-[16px] leading-6 rounded-[18px] text-contrast">Contraseña:</label>
+                    <label htmlFor="password" className={`${styles.label}`}>Contraseña:</label>
                     <div className="mt-2">
                         <input
                             id="password"
@@ -155,12 +156,12 @@ const SignUpForm = () => {
                             onChange={onChangePassword}
                             required
                             minLength={6} 
-                            className="block w-full h-[36px] rounded-[8px] border-0 py-1.5 text-gray-900 shadow-md shadow-accent/10 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-accent/50 sm:text-sm sm:leading-6" />
+                            className={`${styles.input}`} />
                     </div>
                 </div>
 
                 <div>
-                    <label htmlFor="password-confirmed" className="block text-[16px] leading-6 rounded-[18px] text-contrast">Confirmar contraseña:</label>
+                    <label htmlFor="password-confirmed" className={`${styles.label}`}>Confirmar contraseña:</label>
                     <div className="mt-2">
                         <input
                             // id="password"
@@ -170,7 +171,7 @@ const SignUpForm = () => {
                             // onChange={onChangePassword}
                             required
                             minLength={6} 
-                            className="block w-full h-[36px] rounded-[8px] border-0 py-1.5 text-gray-900 shadow-md shadow-accent/10 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-accent/50 sm:text-sm sm:leading-6" />
+                            className={`${styles.input}`} />
                     </div>
                 </div>
 
