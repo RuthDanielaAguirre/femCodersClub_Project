@@ -26,22 +26,22 @@ describe('SigUpForm', () => {
 
     it('should render label nombre', () => {
         expect(screen.getByRole('label', {name:'name'})).toBeInTheDocument()
-        expect(screen.getByLabelText(/Nombre/)).toBeInTheDocument()
+        expect(screen.getByRole('label', {name:'name'})).toHaveTextContent('Nombre:')
     })
 
     it('should render label apellido', () => {
         expect(screen.getByRole('label', {name:'lastName'})).toBeInTheDocument()
-        expect(screen.getByLabelText(/Apellido/)).toBeInTheDocument()
+        expect(screen.getByRole('label', {name:'lastName'})).toHaveTextContent('Apellido:')
     })
 
     it('should render label correo', () => {
         expect(screen.getByRole('label', {name:'email'})).toBeInTheDocument()
-        expect(screen.getByLabelText(/Correo/)).toBeInTheDocument()
+        expect(screen.getByRole('label', {name:'email'})).toHaveTextContent('Correo:')
     })
 
     it('should render label contraseña', () => {
         expect(screen.getByRole('label', {name:'password'})).toBeInTheDocument()
-        expect(screen.getByLabelText(/Contraseña/)).toBeInTheDocument()
+        expect(screen.getByRole('label', {name:'password'})).toHaveTextContent('Contraseña:')
     })
 });
 
