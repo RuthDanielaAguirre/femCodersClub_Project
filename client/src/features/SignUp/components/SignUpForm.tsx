@@ -66,7 +66,7 @@ const SignUpForm = () => {
             <form onSubmit={onSubmit} className="space-y-1" action="#" method="POST dropdown dropdown-end">
 
                 <div>
-                    <label htmlFor="name" className="block text-[16px] leading-6 rounded-[8px] text-contrast">Nombre:</label>
+                    <label htmlFor="name" aria-label='name' className="block text-[16px] leading-6 rounded-[8px] text-contrast">Nombre:</label>
                     <div className="mt-2">
                         <input
                             id="name"
