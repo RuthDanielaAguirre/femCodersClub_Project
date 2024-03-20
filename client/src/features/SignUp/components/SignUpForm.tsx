@@ -104,16 +104,6 @@ const SignUpForm = () => {
                             <option value="NoBinario">no binario</option>
                             <option value="PrefieroNoDecir">prefiero no decir</option>
                         </select>
-                        {/* <div className="mt-2">
-                            <input
-                                id="lastName"
-                                name="lastName"
-                                type="text"
-                                value={lastname}
-                                onChange={onChangeLastName}
-                                required
-                                className="block w-full h-[36px] rounded-[8px] border-0 py-1.5 text-gray-900 shadow-md shadow-accent/10 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-accent/50 sm:text-sm sm:leading-6" />
-                        </div> */}
                     </div>
 
                     <div className='w-full'>
@@ -164,11 +154,7 @@ const SignUpForm = () => {
                     <label htmlFor="password-confirmed" className={`${styles.label}`}>Confirmar contraseña:</label>
                     <div className="mt-2">
                         <input
-                            // id="password"
-                            // name="password"
                             type="password"
-                            // value={password}
-                            // onChange={onChangePassword}
                             required
                             minLength={6} 
                             className={`${styles.input}`} />
@@ -177,9 +163,6 @@ const SignUpForm = () => {
 
                 <TermsAndConditions />
 
-                {/* <div className="flex justify-center flex-col w-full py-[16px]">
-                    <button type="submit" className="text-primary bg-tertiary hover:text-contrast hover:bg-contrast/20 focus:ring-4 focus:ring-secondary-300 font-medium rounded-[8px] text-[18px] h-[40px] w-full shadow-lg border-b-2 border-contrast/5 shadow-accent/20 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Regístrarme</button>
-                </div> */}
                 <div className="py-[16px]">
                     <SignUpButton onSubmit={onSubmit} />
                 </div>
