@@ -67,7 +67,7 @@ const SignUpForm = () => {
             <form onSubmit={onSubmit} className="space-y-1" action="#" method="POST dropdown dropdown-end">
 
                 <div>
-                    <label htmlFor="name" className={`${styles.label}`}>Nombre:</label>
+                    <label htmlFor="name" role='label' aria-label='name' className={`${styles.label}`}>Nombre:</label>
                     <div className="mt-2">
                         <input
                             id="name"
@@ -81,7 +81,7 @@ const SignUpForm = () => {
                 </div>
 
                 <div>
-                    <label htmlFor="lastName" className={`${styles.label}`}>Apellido:</label>
+                    <label htmlFor="lastName" role='label' aria-label='lastName' className={`${styles.label}`}>Apellido:</label>
                     <div className="mt-2">
                         <input
                             id="lastName"
@@ -107,7 +107,7 @@ const SignUpForm = () => {
                     </div>
 
                     <div className='w-full'>
-                        <label htmlFor="phone-number" className={`${styles.label}`}>Núm. de teléfono:</label>
+                        <label htmlFor="phone-number" role='label' aria-label='phone' className={`${styles.label}`}>Núm. de teléfono:</label>
                         <div className="mt-2">
                             <input
                                 id="phoneNumber"
@@ -122,7 +122,7 @@ const SignUpForm = () => {
                 </div>
 
                 <div>
-                    <label htmlFor="email" className={`${styles.label}`}>Correo:</label>
+                    <label htmlFor="email" role='label' aria-label='email' className={`${styles.label}`}>Correo:</label>
                     <div className="mt-2">
                         <input
                             id="email"
@@ -136,7 +136,7 @@ const SignUpForm = () => {
                 </div>
 
                 <div>
-                    <label htmlFor="password" className={`${styles.label}`}>Contraseña:</label>
+                    <label htmlFor="password" role='label' aria-label='password' className={`${styles.label}`}>Contraseña:</label>
                     <div className="mt-2">
                         <input
                             id="password"
@@ -154,7 +154,11 @@ const SignUpForm = () => {
                     <label htmlFor="password-confirmed" className={`${styles.label}`}>Confirmar contraseña:</label>
                     <div className="mt-2">
                         <input
+                            // id="password"
+                            // name="password"
                             type="password"
+                            // value={password}
+                            // onChange={onChangePassword}
                             required
                             minLength={6} 
                             className={`${styles.input}`} />
@@ -162,7 +166,7 @@ const SignUpForm = () => {
                 </div>
 
                 <TermsAndConditions />
-
+                
                 <div className="py-[16px]">
                     <SignUpButton onSubmit={onSubmit} />
                 </div>
