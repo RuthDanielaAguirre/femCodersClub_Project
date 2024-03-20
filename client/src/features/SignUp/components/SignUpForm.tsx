@@ -1,12 +1,16 @@
-// import React from 'react'
+import React from 'react'
 import { ChangeEvent, FormEvent, useState } from 'react';
 import SignUpButton from './SignUpButton'
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
-import { User, RegisterDto } from "../../../types/types";
-import { register } from '../../../api/registerApi';
+import { User, RegisterDto, SignUpFormData } from "../../../types/types";
+import {    registerUser } from '../../../api/registerApi';
 import TermsAndConditions from './TermsAndConditions';
 import { styles } from '../../../style';
+
+import { z, ZodType} from 'zod';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod'
 
 const SignUpForm = () => {
 
@@ -18,7 +22,21 @@ const SignUpForm = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const navigate = useNavigate();
 
-    const mutationFn = async ({ name, lastname, email, password }: RegisterDto) => register(name, lastname, gender, phoneNumber, email, password);
+    const schema: ZodType<SignUpFormData> = z.object({
+        name: z.string().min(2).max(30),
+        lastName: z.string().min(2).max(30),
+        phoneNumber: z.string().min(10).max(13),
+        email: z.string().email(),
+        password: z.string().min(5).max(20),
+        confirmPassword: z.string().min(5).max(20),
+    }).refine((data) => data.password === data.confirmPassword, {
+        message: "las contraseñas no cohinciden",
+        path: ["confirmPassword"],
+    });
+
+    const {register, handleSubmit} = useForm<SignUpFormData>({resolver: zodResolver(schema)})
+
+    const mutationFn = async ({ name, lastname, email, password }: RegisterDto) => registerUser(name, lastname, gender, phoneNumber, email, password);
 
     const mutation = useMutation<User, Error, RegisterDto>(
         {
@@ -55,11 +73,17 @@ const SignUpForm = () => {
         setPassword(e.target.value);
     };
 
-    const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    const prueba = async (data: SignUpFormData) => {
+        console.log(data);
+        mutation.mutate({ name, lastname, gender, phoneNumber, email, password });
+    }
+
+    const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log('Submit button clicked');
         // setShowSpiner(true);
-        mutation.mutate({ name, lastname, gender, phoneNumber, email, password });
+        // mutation.mutate({ name, lastname, gender, phoneNumber, email, password });
+        handleSubmit(prueba)(e);
     };
 
     return (
@@ -71,6 +95,7 @@ const SignUpForm = () => {
                     <div className="mt-2">
                         <input
                             id="name"
+                            {...register('name')}
                             name="name"
                             type="text"
                             value={name}
@@ -85,6 +110,7 @@ const SignUpForm = () => {
                     <div className="mt-2">
                         <input
                             id="lastName"
+                            {...register('lastName')}
                             name="lastName"
                             type="text"
                             value={lastname}
@@ -111,6 +137,7 @@ const SignUpForm = () => {
                         <div className="mt-2">
                             <input
                                 id="phoneNumber"
+                                {...register('phoneNumber')}
                                 name="phoneNumber"
                                 type="text"
                                 value={phoneNumber}
@@ -126,6 +153,7 @@ const SignUpForm = () => {
                     <div className="mt-2">
                         <input
                             id="email"
+                            {...register('email')}
                             name="email"
                             type="email"
                             value={email}
@@ -140,6 +168,7 @@ const SignUpForm = () => {
                     <div className="mt-2">
                         <input
                             id="password"
+                            {...register('password')}
                             name="password"
                             type="password"
                             value={password}
@@ -154,11 +183,8 @@ const SignUpForm = () => {
                     <label htmlFor="password-confirmed" className={`${styles.label}`}>Confirmar contraseña:</label>
                     <div className="mt-2">
                         <input
-                            // id="password"
-                            // name="password"
                             type="password"
-                            // value={password}
-                            // onChange={onChangePassword}
+                            {...register('confirmPassword')}
                             required
                             minLength={6} 
                             className={`${styles.input}`} />

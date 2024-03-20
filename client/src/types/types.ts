@@ -10,3 +10,12 @@ export type RegisterDto = {
     email: string;
     password: string;
 }
+
+export type SignUpFormData = {
+    name: string;
+    lastName: string;
+    phoneNumber: string;
+    email: string;
+    password: string;
+    confirmPassword: string,
+}
