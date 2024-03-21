@@ -43,7 +43,7 @@ const Login = () => {
   <>
   <div>
     <form action="#" onSubmit={onSubmit} method="POST">
-      <div>
+      <div className="flex ">
         <label htmlFor="email" >Correo Electrónico</label>
         <input id="email" type="email" name="email" onChange={onChangeEmail} value={email} required  />
         
