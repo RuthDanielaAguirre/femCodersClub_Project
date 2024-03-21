@@ -1,10 +1,11 @@
-// import React from 'react'
+import { styles } from "../../../style"
 
-const SignUpButton = () => {
+const SignUpButton = ({onSubmit}) => {
     return (
-        <div className="flex justify-center flex-col w-[4rem]">
-            <button type="button" className="text-white bg-blue-700 hover:bg-blue-900 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Default</button>
-            <button type="submit" className="flex justify-center h- w-[200px] rounded-[8px] bg-blue-700 text-[18px] font-semibold leading-6 text-white shadow-sm">Iniciar sesión</button>
+        <div className="flex justify-center flex-col w-full">
+            <button type="submit" onSubmit={onSubmit} className={`${styles.primaryBtn}`}>Regístrarme</button>
+
+            {/* <button type="submit" onSubmit={onSubmit} className="text-primary bg-tertiary hover:text-contrast hover:bg-contrast/20 font-medium rounded-[8px] text-[18px] h-[40px] w-full shadow-lg border-b-2 border-contrast/5 shadow-accent/20 me-2">Regístrarme</button> */}
         </div>
     )
     }
