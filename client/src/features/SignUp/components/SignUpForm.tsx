@@ -5,26 +5,27 @@ import { User, SignUpFormData } from "../../../types/types";
 import { registerUser } from '../../../api/registerApi';
 import TermsAndConditions from './TermsAndConditions';
 import { styles } from '../../../style';
-// import { z, ZodType} from 'zod';
+import { z, ZodType} from 'zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
-// import { zodResolver } from '@hookform/resolvers/zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 const SignUpForm = () => {
     const navigate = useNavigate();
 
-    // const schema: ZodType<SignUpFormData> = z.object({
-    //     name: z.string().max(30),
-    //     lastName: z.string().min(2).max(30),
-    //     phoneNumber: z.string().min(9),
-    //     email: z.string().email(),
-    //     password: z.string().min(8).max(14),
-    //     confirmPassword: z.string().min(8).max(14),
-    // }).refine((data) => data.password === data.confirmPassword, {
-    //     message: "las contraseñas no cohinciden",
-    //     path: ["confirmPassword"],
-    // });
+    const schema: ZodType<SignUpFormData> = z.object({
+        name: z.string().min(2, { message: 'Por favor introduce un nombre válido' }).regex(/^[^\d]+$/, { message: 'El nombre no debe contener números' }),
+        lastName: z.string().min(2, { message: 'Por favor introduce un apellido válido' }).regex(/^[^\d]+$/, { message: 'El nombre no debe contener números' }),
+        gender: z.string(),
+        phoneNumber: z.string().min(9, { message: 'El número teléfono no es valido' }),
+        email: z.string().email({ message: 'El correo introducido no es válido'}),
+        password: z.string().min(8, { message: 'La contraseña debe tener al menos 8 caracteres'}).max(14),
+        confirmPassword: z.string().min(8, { message: 'La contraseña debe tener al menos 8 caracteres'}).max(14),
+    }).refine((data) => data.password === data.confirmPassword, {
+        message: "Las contraseñas no cohinciden",
+        path: ["confirmPassword"],
+    });
 
-    const {register, handleSubmit, formState: { errors, isSubmitting }} = useForm<SignUpFormData>()
+    const {register, handleSubmit, formState: { errors, isSubmitting }} = useForm<SignUpFormData>({resolver: zodResolver(schema)})
 
     const mutationFn = async ({ name, lastName, gender, phoneNumber, email, password }: SignUpFormData) => registerUser(name, lastName, gender, phoneNumber, email, password);
 
@@ -62,8 +63,9 @@ const SignUpForm = () => {
                     <label htmlFor="name" role='label' aria-label='name' className={`${styles.label}`}>Nombre:</label>
                     <div className="mt-2">
                         <input
-                            {...register('name', {required: 'Nombre no puede estar vacio', minLength:3})}
+                            {...register('name')}
                             type="text"
+                            aria-label='name'
                             className={`${styles.input}`} />
                             {errors.name && <span className='text-[14px] text-[#FF0000]'>{errors.name.message}</span>}
                     </div>
@@ -73,8 +75,9 @@ const SignUpForm = () => {
                     <label htmlFor="lastName" role='label' aria-label='lastName' className={`${styles.label}`}>Apellido:</label>
                     <div className="mt-2">
                         <input
-                            {...register('lastName', {required: 'Apellido no puede estar vacio', minLength:2})}
+                            {...register('lastName')}
                             type="text"
+                            aria-label='lastName'
                             className={`${styles.input}`} />
                             {errors.lastName && <span className='text-[14px] text-[#FF0000]'>{errors.lastName.message}</span>}
                     </div>
@@ -83,7 +86,7 @@ const SignUpForm = () => {
                 <div className='flex gap-4 w-full m-0 p-0'>
                     <div className='w-[260px] h-[100] flex flex-col justify-between'>
                         <label htmlFor="gender" className={`${styles.label}`}>Género:</label>
-                        <select id="gender" {...register('gender')}  className="block w-full h-[36px] rounded-[8px] bg-primary border-0 text-gray-600 shadow-md shadow-accent/10 text-[16px] py-0 focus:ring-accent/50 focus:border-accent">
+                        <select id="gender" role='label' aria-label='gender' {...register('gender')}  className="block w-full h-[36px] rounded-[8px] bg-primary border-0 text-gray-600 shadow-md shadow-accent/10 text-[16px] py-0 focus:ring-accent/50 focus:border-accent">
                             <option >- seleccionar -</option>
                             <option value="Femenino">femenino</option>
                             <option value="Masculino">masculino</option>
@@ -98,6 +101,7 @@ const SignUpForm = () => {
                             <input
                                 {...register('phoneNumber')}
                                 type="text"
+                                aria-label='phone'
                                 className={`${styles.input}`} />
                         </div>
                     </div>
@@ -108,14 +112,9 @@ const SignUpForm = () => {
                     <label htmlFor="email" role='label' aria-label='email' className={`${styles.label}`}>Correo:</label>
                     <div className="mt-2">
                         <input
-                            {...register('email', {required: 'Correo no puede estar vacio', validate: (value) => {
-                                if (!value.includes('@')){
-                                    return 'Debe introducir un correo valido'
-                                }
-                                return true;
-                                }
-                            })}
+                            {...register('email')}
                             type="email"
+                            aria-label='email'
                             className={`${styles.input}`} />
                         {errors.email && <span className='text-[14px] text-[#FF0000]'>{errors.email.message}</span>}
                     </div>
@@ -125,11 +124,10 @@ const SignUpForm = () => {
                     <label htmlFor="password" role='label' aria-label='password' className={`${styles.label}`}>Contraseña:</label>
                     <div className="mt-2">
                         <input
-                            {...register('password', {required: 'Contraseña no puede estar vacio', minLength:{
-                                value: 8,
-                                message: 'La contraseña debe contener al menos 8 caracteres'
-                            }})}
+                            {...register('password')}
                             type="password"
+                            role="passwordI"
+                            aria-label='passwordI'
                             className={`${styles.input}`} />
                         {errors.password && <span className='text-[14px] text-[#FF0000]'>{errors.password.message}</span>}
                     </div>
@@ -140,6 +138,8 @@ const SignUpForm = () => {
                     <div className="mt-2">
                         <input
                             type="password"
+                            role="passwordI"
+                            aria-label='confirmPassword'
                             {...register('confirmPassword')}
                             className={`${styles.input}`} />
                         {errors.confirmPassword && <span className='text-[14px] text-[#FF0000]'>{errors.confirmPassword.message}</span>}
@@ -149,7 +149,7 @@ const SignUpForm = () => {
                 <TermsAndConditions />
                 
                 <div className="py-[16px]">
-                    <SignUpButton disabled={isSubmitting} onSubmit={onSubmit} />
+                    <SignUpButton disabled={isSubmitting} onSubmit={handleSubmit(onSubmit)} />
                 </div>
             </form>
         </>

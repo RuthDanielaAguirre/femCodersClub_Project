@@ -1,11 +1,15 @@
-import { styles } from "../../../style"
+import { styles } from "../../../style";
 
-const SignUpButton = ({onSubmit, disabled}) => {
+type Props = {
+    onSubmit: () => void,
+    disabled: boolean,
+}
+const SignUpButton = ({onSubmit, disabled}: Props) => {
     return (
         <div className="flex justify-center flex-col w-full">
             <button type="submit" aria-label="signUpBtn" onSubmit={onSubmit} className={`${styles.primaryBtn}`}>
                 {
-                    disabled ? 'Cargando...' : 'Regístrarme'
+                    disabled ? 'Loading...' : 'Regístrarme'
                 }
                 </button>
         </div>
