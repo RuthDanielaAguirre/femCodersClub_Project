@@ -10,7 +10,6 @@ const SignUpPage = () => {
             <div className='absolute left-0 top-0  w-[55%] h-[100%] bg-gradient-to-r from-primary to-transparent z-[1]'/>
             <div className='absolute left-0 top-0  w-[55%] h-[100%] bg-gradient-to-r from-primary to-transparent z-[1]'/>
             <FormWraper />
-            {/* <h1>Hello World</h1> */}
         </section>
     )
 }
