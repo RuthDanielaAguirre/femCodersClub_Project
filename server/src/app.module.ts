@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -17,7 +18,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: ['dist/**/*.entity.js'],
       synchronize: false,
     }),
-    AuthModule, UserModule],
+    AuthModule, 
+    UserModule
+  ],
   controllers: [AppController],
   providers: [AppService],
   

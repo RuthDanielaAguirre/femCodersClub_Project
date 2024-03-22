@@ -4,9 +4,13 @@ import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { UserModule } from 'src/user/user.module';
 import { jwtConstants } from './jwt.constant';
+import { GoogleStrategy } from './utils/GoogleStrategy';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
-  imports: [UserModule, 
+  imports: [
+    UserModule, 
+    PassportModule.register({defaultStrategy:"google"}),
     JwtModule.register({
     global: true,
     secret: jwtConstants.secret,
@@ -14,6 +18,6 @@ import { jwtConstants } from './jwt.constant';
   }),
   ],
   controllers: [AuthController],
-  providers: [AuthService],
+  providers: [AuthService, GoogleStrategy],
 })
 export class AuthModule {}
