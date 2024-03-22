@@ -53,7 +53,7 @@ describe('AuthService', () => {
       userGender: 'female',
     };
 
-    await expect(authService.signup(signupDto)).rejects.toThrowError(BadRequestException);
+    await expect(authService.signup(signupDto)).rejects.toThrow(BadRequestException);
   });
 
   it('should create a new user', async () => {
