@@ -1,186 +1,155 @@
-// import React from 'react'
-import { ChangeEvent, FormEvent, useState } from 'react';
 import SignUpButton from './SignUpButton'
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
-import { User, RegisterDto } from "../../../types/types";
-import { register } from '../../../api/registerApi';
+import { User, SignUpFormData } from "../../../types/types";
+import { registerUser } from '../../../api/registerApi';
 import TermsAndConditions from './TermsAndConditions';
+import { styles } from '../../../style';
+import { z, ZodType} from 'zod';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod'
 
 const SignUpForm = () => {
-
-    const [name, setName] = useState('');
-    const [lastname, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [gender, setGender] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
     const navigate = useNavigate();
 
-    const mutationFn = async ({ name, lastname, email, password }: RegisterDto) => register(name, lastname, gender, phoneNumber, email, password);
+    const schema: ZodType<SignUpFormData> = z.object({
+        name: z.string().min(2, { message: 'Por favor introduce un nombre válido' }).regex(/^[^\d]+$/, { message: 'El nombre no debe contener números' }),
+        lastName: z.string().min(2, { message: 'Por favor introduce un apellido válido' }).regex(/^[^\d]+$/, { message: 'El nombre no debe contener números' }),
+        gender: z.string(),
+        phoneNumber: z.string().min(9, { message: 'El número teléfono no es valido' }),
+        email: z.string().email({ message: 'El correo introducido no es válido'}),
+        password: z.string().min(8, { message: 'La contraseña debe tener al menos 8 caracteres'}).max(14),
+        confirmPassword: z.string().min(8, { message: 'La contraseña debe tener al menos 8 caracteres'}).max(14),
+    }).refine((data) => data.password === data.confirmPassword, {
+        message: "Las contraseñas no cohinciden",
+        path: ["confirmPassword"],
+    });
 
-    const mutation = useMutation<User, Error, RegisterDto>(
+    const {register, handleSubmit, formState: { errors, isSubmitting }} = useForm<SignUpFormData>({resolver: zodResolver(schema)})
+
+    const mutationFn = async ({ name, lastName, gender, phoneNumber, email, password }: SignUpFormData) => registerUser(name, lastName, gender, phoneNumber, email, password);
+
+    // const mutationFn = async ({ name, lastName, email, password }: SignUpFormData) => registerUser(name, lastName, email, password);
+
+    const mutation = useMutation<User, Error, SignUpFormData>(
         {
             mutationFn,
             onSuccess: () => {
-                // setShowSpiner(false)
                 navigate('/');
             },
-            onError: (error) => console.error('Error:', error)
+            onError: (error) => console.error('Error:', error),
         }
     );
 
-    const onChangeName = (e: ChangeEvent<HTMLInputElement>) => {
-        setName(e.target.value);
-    };
+    const onSubmit: SubmitHandler<SignUpFormData> = async (data) => {
 
-    const onChangeLastName = (e: ChangeEvent<HTMLInputElement>) => {
-        setLastName(e.target.value);
-    };
+        console.log(data);
 
-    const onChangeGender= (e: ChangeEvent<HTMLSelectElement>) => {
-        setGender(e.target.value);
-    };
+        const  name = data.name;
+        const lastName = data.lastName;
+        const gender = data.gender;
+        const phoneNumber = data.phoneNumber;
+        const email = data.email;
+        const password = data.password;
 
-    const onChangePhoneNumber = (e: ChangeEvent<HTMLInputElement>) => {
-        setPhoneNumber(e.target.value);
-    };
-
-    const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
-        setEmail(e.target.value);
-    };
-
-    const onChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
-        setPassword(e.target.value);
-    };
-
-    const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        console.log('Submit button clicked');
-        // setShowSpiner(true);
-        mutation.mutate({ name, lastname, gender, phoneNumber, email, password });
-    };
+        mutation.mutate({ name, lastName, gender, phoneNumber, email, password });
+    }
 
     return (
         <>
-            <form onSubmit={onSubmit} className="space-y-1" action="#" method="POST dropdown dropdown-end">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-1" action="#" method="POST dropdown dropdown-end">
 
                 <div>
-                    <label htmlFor="name" className="block text-[16px] leading-6 rounded-[8px] text-contrast">Nombre:</label>
+                    <label htmlFor="name" role='label' aria-label='name' className={`${styles.label}`}>Nombre:</label>
                     <div className="mt-2">
                         <input
-                            id="name"
-                            name="name"
+                            {...register('name')}
                             type="text"
-                            value={name}
-                            onChange={onChangeName}
-                            required
-                            className="block w-full h-[36px] rounded-[8px] border-0 py-1.5 text-gray-900 shadow-md shadow-accent/10 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-accent/50 sm:text-sm sm:leading-6" />
+                            aria-label='name'
+                            className={`${styles.input}`} />
+                            {errors.name && <span className='text-[14px] text-[#FF0000]'>{errors.name.message}</span>}
                     </div>
                 </div>
 
                 <div>
-                    <label htmlFor="lastName" className="block text-[16px] leading-6 rounded-[18px] text-contrast">Apellido:</label>
+                    <label htmlFor="lastName" role='label' aria-label='lastName' className={`${styles.label}`}>Apellido:</label>
                     <div className="mt-2">
                         <input
-                            id="lastName"
-                            name="lastName"
+                            {...register('lastName')}
                             type="text"
-                            value={lastname}
-                            onChange={onChangeLastName}
-                            required
-                            className="block w-full h-[36px] rounded-[8px] border-0 py-1.5 text-gray-900 shadow-md shadow-accent/10 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-accent/50 sm:text-sm sm:leading-6" />
+                            aria-label='lastName'
+                            className={`${styles.input}`} />
+                            {errors.lastName && <span className='text-[14px] text-[#FF0000]'>{errors.lastName.message}</span>}
                     </div>
                 </div>
 
                 <div className='flex gap-4 w-full m-0 p-0'>
                     <div className='w-[260px] h-[100] flex flex-col justify-between'>
-                        <label htmlFor="gender" className="block text-[16px] leading-6 rounded-[18px] text-contrast">Género:</label>
-                        <select id="gender" onChange={onChangeGender} className="block w-full h-[36px] rounded-[8px] bg-primary border-0 text-gray-600 shadow-md shadow-accent/10 text-[16px] py-0 focus:ring-accent/50 focus:border-accent">
+                        <label htmlFor="gender" className={`${styles.label}`}>Género:</label>
+                        <select id="gender" role='label' aria-label='gender' {...register('gender')}  className="block w-full h-[36px] rounded-[8px] bg-primary border-0 text-gray-600 shadow-md shadow-accent/10 text-[16px] py-0 focus:ring-accent/50 focus:border-accent">
                             <option >- seleccionar -</option>
                             <option value="Femenino">femenino</option>
                             <option value="Masculino">masculino</option>
                             <option value="NoBinario">no binario</option>
                             <option value="PrefieroNoDecir">prefiero no decir</option>
                         </select>
-                        {/* <div className="mt-2">
-                            <input
-                                id="lastName"
-                                name="lastName"
-                                type="text"
-                                value={lastname}
-                                onChange={onChangeLastName}
-                                required
-                                className="block w-full h-[36px] rounded-[8px] border-0 py-1.5 text-gray-900 shadow-md shadow-accent/10 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-accent/50 sm:text-sm sm:leading-6" />
-                        </div> */}
                     </div>
 
                     <div className='w-full'>
-                        <label htmlFor="phone-number" className="block text-[16px] leading-6 rounded-[18px] text-contrast">Núm. de teléfono:</label>
+                        <label htmlFor="phone-number" role='label' aria-label='phone' className={`${styles.label}`}>Núm. de teléfono:</label>
                         <div className="mt-2">
                             <input
-                                id="phoneNumber"
-                                name="phoneNumber"
+                                {...register('phoneNumber')}
                                 type="text"
-                                value={phoneNumber}
-                                onChange={onChangePhoneNumber}
-                                required
-                                className="block w-full h-[36px] rounded-[8px] border-0 py-1.5 text-gray-900 shadow-md shadow-accent/10 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-accent/50 sm:text-sm sm:leading-6" />
+                                aria-label='phone'
+                                className={`${styles.input}`} />
                         </div>
                     </div>
                 </div>
+                {errors.phoneNumber && <span className='text-[14px] text-[#FF0000] flex justify-end'>{errors.phoneNumber.message}</span>}
 
                 <div>
-                    <label htmlFor="email" className="block text-[16px] leading-6 rounded-[18px] text-contrast">Correo:</label>
+                    <label htmlFor="email" role='label' aria-label='email' className={`${styles.label}`}>Correo:</label>
                     <div className="mt-2">
                         <input
-                            id="email"
-                            name="email"
+                            {...register('email')}
                             type="email"
-                            value={email}
-                            onChange={onChangeEmail}
-                            required
-                            className="block w-full h-[36px] rounded-[8px] border-0 py-1.5 text-gray-900 shadow-md shadow-accent/10 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-accent/50 sm:text-sm sm:leading-6" />
+                            aria-label='email'
+                            className={`${styles.input}`} />
+                        {errors.email && <span className='text-[14px] text-[#FF0000]'>{errors.email.message}</span>}
                     </div>
                 </div>
 
                 <div>
-                    <label htmlFor="password" className="block text-[16px] leading-6 rounded-[18px] text-contrast">Contraseña:</label>
+                    <label htmlFor="password" role='label' aria-label='password' className={`${styles.label}`}>Contraseña:</label>
                     <div className="mt-2">
                         <input
-                            id="password"
-                            name="password"
+                            {...register('password')}
                             type="password"
-                            value={password}
-                            onChange={onChangePassword}
-                            required
-                            minLength={6} 
-                            className="block w-full h-[36px] rounded-[8px] border-0 py-1.5 text-gray-900 shadow-md shadow-accent/10 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-accent/50 sm:text-sm sm:leading-6" />
+                            role="passwordI"
+                            aria-label='passwordI'
+                            className={`${styles.input}`} />
+                        {errors.password && <span className='text-[14px] text-[#FF0000]'>{errors.password.message}</span>}
                     </div>
                 </div>
 
                 <div>
-                    <label htmlFor="password-confirmed" className="block text-[16px] leading-6 rounded-[18px] text-contrast">Confirmar contraseña:</label>
+                    <label htmlFor="password-confirmed" className={`${styles.label}`}>Confirmar contraseña:</label>
                     <div className="mt-2">
                         <input
-                            // id="password"
-                            // name="password"
                             type="password"
-                            // value={password}
-                            // onChange={onChangePassword}
-                            required
-                            minLength={6} 
-                            className="block w-full h-[36px] rounded-[8px] border-0 py-1.5 text-gray-900 shadow-md shadow-accent/10 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-accent/50 sm:text-sm sm:leading-6" />
+                            role="passwordI"
+                            aria-label='confirmPassword'
+                            {...register('confirmPassword')}
+                            className={`${styles.input}`} />
+                        {errors.confirmPassword && <span className='text-[14px] text-[#FF0000]'>{errors.confirmPassword.message}</span>}
                     </div>
                 </div>
 
                 <TermsAndConditions />
-
-                {/* <div className="flex justify-center flex-col w-full py-[16px]">
-                    <button type="submit" className="text-primary bg-tertiary hover:text-contrast hover:bg-contrast/20 focus:ring-4 focus:ring-secondary-300 font-medium rounded-[8px] text-[18px] h-[40px] w-full shadow-lg border-b-2 border-contrast/5 shadow-accent/20 me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Regístrarme</button>
-                </div> */}
+                
                 <div className="py-[16px]">
-                    <SignUpButton onSubmit={onSubmit} />
+                    <SignUpButton disabled={isSubmitting} onSubmit={handleSubmit(onSubmit)} />
                 </div>
             </form>
         </>
