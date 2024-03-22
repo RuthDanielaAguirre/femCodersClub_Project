@@ -17,7 +17,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       entities: ['dist/**/*.entity.js'],
       synchronize: false,
     }),
-    AuthModule, UserModule],
+    AuthModule, 
+    UserModule
+  ],
   controllers: [AppController],
   providers: [AppService],
   
