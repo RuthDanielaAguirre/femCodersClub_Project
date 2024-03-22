@@ -29,7 +29,7 @@ export class AuthService {
       throw new BadRequestException('Este usuario ya existe');
     }
 
-    const result = await this.userService.create({
+    await this.userService.create({
       userName,
       userLastName,
       userEmail,
@@ -37,27 +37,22 @@ export class AuthService {
       userGender,
       userTelephone,
     });
-
     return {
-      result,
+      User,
     };
   }
-
   async login({ userEmail, userPassword }: LoginDto) {
-    const user = await this.userService.findOneByEmail(userEmail);
+    const user = await this.userService.findOneByEmail(userEmail );
 
     if (!user) {
-      throw new BadRequestException('El correo electrónico es incorrecto');
+      throw new BadRequestException('El correo electrónico o la contraseña es incorrecta');
     }
 
     if (!(await bcrypt.compare(userPassword, user.userPassword))) {
-      throw new BadRequestException('Contraseña incorrecta');
+      throw new BadRequestException('El correo electrónico o la contraseña es incorrecta');
     }
 
     const jwtToken = await this.jwtService.signAsync({ id: user.idUser });
-    return {
-      jwtToken,
-      User,
-    };
+    return { jwtToken };
   }
 }
