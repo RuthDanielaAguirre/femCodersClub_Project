@@ -18,15 +18,13 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post('signup')
-  signup(
-    @Body()
-    signupDto: SignupDto,
-  ) {
+  signup(@Body() signupDto: SignupDto) {
     return this.authService.signup(signupDto);
   }
 
   @Post('login')
   async login(@Body() loginDto: LoginDto) {
+    console.log("login start")
     return this.authService.login(loginDto);
   }
 }

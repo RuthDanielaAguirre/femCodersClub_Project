@@ -1,11 +1,11 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
-import { UserService } from 'src/user/user.service';
+import { UserService } from '../user/user.service';
 import { JwtService } from '@nestjs/jwt';
 import { SignupDto } from './dto/signup.dto';
 import * as bcrypt from 'bcrypt';
-import { User } from 'src/user/entities/user.entity';
+import { User } from '../user/entities/user.entity';
 import { LoginDto } from './dto/login.dto';
 
 
@@ -34,7 +34,7 @@ export class AuthService {
       userName,
       userLastName,
       userEmail,
-      userPassword: await bcrypt.hash(userPassword, 20),
+      userPassword: await bcrypt.hash(userPassword, 10),
       userGender,
       userTelephone,
     });
@@ -46,17 +46,14 @@ export class AuthService {
     const user = await this.userService.findOneByEmail(userEmail );
 
     if (!user) {
-      throw new BadRequestException('El correo electrónico es incorrecto');
+      throw new BadRequestException('El correo electrónico o la contraseña es incorrecta');
     }
 
     if (!(await bcrypt.compare(userPassword, user.userPassword))) {
-      throw new BadRequestException('Contraseña incorrecta');
+      throw new BadRequestException('El correo electrónico o la contraseña es incorrecta');
     }
 
     const jwtToken = await this.jwtService.signAsync({ id: user.idUser });
-    return {
-      jwtToken,
-      User,
-    };
+    return { jwtToken };
   }
 }
