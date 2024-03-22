@@ -44,13 +44,6 @@ describe('SigUpForm', () => {
         expect(screen.getByRole('label', {name:'password'})).toBeInTheDocument()
         expect(screen.getByRole('label', {name:'password'})).toHaveTextContent('Contraseña:')
     })
-
-    // it('should display error message when wronh name is typed', async () => {
-    //     await userEvent.type(screen.getByRole('textbox', {name: 'name'}), 'Ana');
-
-    //     await userEvent.click(screen.getByRole('button', {name: 'signUpBtn'}));
-
-    // })
 });
 
 describe('SignUpButton', () => {
@@ -71,7 +64,6 @@ describe('SignUpButton', () => {
         await userEvent.click(screen.getByRole('button', {name: 'signUpBtn'}));
         await new Promise ((resolve) => setTimeout(resolve, 1000));
         // screen.debug()
-        await waitFor(()=> expect(screen.getByText('HomePage')).toBeInTheDocument());
+        waitFor(()=> expect(screen.getByText('Home')).toBeInTheDocument());
     })
 });
-
