@@ -4,11 +4,14 @@ export type ChildrenProps ={
  export type User ={
     accesToken: string;
  }
-export type RegisterDto = {
+export type RegisterDto = {}
+
+export type SignUpFormData = {
     name: string;
-    lastname: string;
-    gender?: string;
-    phoneNumber?: string;
+    lastName: string;
+    gender: string;
+    phoneNumber: string;
     email: string;
     password: string;
+    confirmPassword?: string,
 }

@@ -6,7 +6,7 @@ import GoogleButton from "./GoogleButton"
 
 const SignUpPage = () => {
     return (
-        <div className="flex-wrap max-w-[550px] flex justify-center rounded-[24px] dropdown border-accent/10 border-2">
+        <div className="flex-wrap z-[10] max-w-[550px] flex justify-center rounded-[24px] dropdown border-accent/10 border-2">
             <div className="flex-1 flex-col justify-center w-[520px] my-[25px] rounded-[10px]">
                 <FormHeader />
                 <div className="mt-2 sm:mx-auto sm:w-full sm:max-w-sm">
