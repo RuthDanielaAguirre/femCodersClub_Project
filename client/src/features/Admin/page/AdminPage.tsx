@@ -8,6 +8,7 @@ import { MdVolunteerActivism } from "react-icons/md";
 import { GoSponsorTiers } from "react-icons/go";
 import { BiCalendar } from "react-icons/bi";
 import { RiQuestionnaireFill } from "react-icons/ri";
+import SponsorContainer from '../components/sponsor/SponsorContainer';
 
 'use client';
 
@@ -56,7 +57,7 @@ const AdminPage = () => {
             )}
             {selectedTab === 3 && (
               <>
-                { <h1>Sponsors</h1> }
+                { <SponsorContainer/> }
               </>
             )}
             {selectedTab === 4 && (
