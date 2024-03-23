@@ -20,10 +20,10 @@ const AdminPage = () => {
   
   return (
     <Layout>
-      <div className="flex flex-col lg:flex-row justify-center items-start bg-[url('../../../public/bg-admin2.svg')] bg-no-repeat bg-cover bg-fixed py-[100px] lg:px-[100px] sm:px-10 px-3">
-        <Sidebar aria-label="Admin-navbar" className='py-0 m-0'>
-          <Sidebar.Items className='py-0 m-0'>
-            <Sidebar.ItemGroup className='flex flex-row lg:flex-col gap-2 py-0 m-0'>
+      <div className="flex flex-col lg:flex-row justify-center items-start bg-[url('../../../public/bg-admin2.svg')] bg-no-repeat bg-cover h-fit bg-fixed py-[100px] lg:px-[100px] sm:px-10 px-3">
+        <Sidebar aria-label="Admin-navbar" className='p-0 m-0'>
+          <Sidebar.Items className='p-0 m-0'>
+            <Sidebar.ItemGroup className='flex flex-row lg:flex-col gap-2 p-0 m-0'>
               <Sidebar.Item href="#" icon={IoPeopleSharp}  className={[styles.item, selectedTab === 1 ? styles.active : null].join(" ")} onClick={() => handleTabClick(1)}>
                 <span className='lg:flex hidden'>Miembros</span>
               </Sidebar.Item>
@@ -42,7 +42,7 @@ const AdminPage = () => {
             </Sidebar.ItemGroup>
           </Sidebar.Items>
         </Sidebar>
-        <div className="bg-primary border-2 rounded-[24px] border border-base-300 rounded-box lg:mt-[18px] mt-[1px] p-10 lg:w-[1000px] w-full h-fit min-h-[500px] overflow-auto">
+        <div className="bg-primary border-2 rounded-[24px] border border-base-300 rounded-box lg:mt-[0px] mt-2 p-10 lg:w-[1000px] w-full h-fit min-h-[70vh] overflow-auto">
           <div className="">
             {selectedTab === 1 && (
               <>
@@ -66,7 +66,10 @@ const AdminPage = () => {
             )}
             {selectedTab === 5 && (
               <>
-                { <h1>FAQs</h1> }
+                { <>
+                <h1>FAQs</h1> 
+                <div className='flex h-[900px]'></div>
+                </>}
               </>
             )}
               
