@@ -19,5 +19,5 @@ export const styles = {
 
     active:"bg-primary font-bold",
 
-    item: "bg-primary/50 text-center p-4 text-secondary font-semibold0 rounded-[16px]",
+    item: "bg-primary/50 text-center p-4 text-secondary font-semibold0 rounded-[16px] text-[30px] lg:text-[20px]",
 }
