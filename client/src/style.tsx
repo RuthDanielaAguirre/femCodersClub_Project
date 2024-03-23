@@ -15,5 +15,7 @@ export const styles = {
     
     text: "text-contrast text-[18px]",
 
-    cards: "rounded-[24px] shadow-md shadow-contrast/40"
+    cards: "rounded-[24px] shadow-md shadow-contrast/40",
+    
+    hoverIcon: "hover:bg-contrast/80"
 }
