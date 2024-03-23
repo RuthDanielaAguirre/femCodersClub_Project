@@ -7,9 +7,8 @@ export const registerUser = async (name: string, lastname: string, gender: strin
         return result.data;
 }
 
-// const url = 'https://backend-marketplace-1l2b.onrender.com/auth/register';
-
-// export const registerUser = async (name: string, lastname: string, email: string, password: string): Promise<User> => {
-//         const result = await axios.post(url, { user_name:name, user_lastname:lastname, user_email:email, user_password:password });
-//         return result.data;
-// }
+const googleUrl = '';
+export const googleRegister = async () => {
+        const result = await axios.post(googleUrl);
+        return result.data;
+}
