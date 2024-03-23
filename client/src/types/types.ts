@@ -1,6 +1,10 @@
-export type User = {
-    accessToken: string;
+export type ChildrenProps ={
+    children: React.ReactNode
 }
+ export type User ={
+    accesToken: string;
+ }
+export type RegisterDto = {}
 
 export type SignUpFormData = {
     name: string;

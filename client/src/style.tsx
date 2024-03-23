@@ -1,6 +1,6 @@
 export const styles = {
     primaryBtn: "text-primary bg-tertiary hover:bg-contrast/80 font-medium rounded-[8px] text-[18px] h-[40px] w-full shadow-lg border-b-2 border-contrast/5 shadow-accent/20 me-2",
-    secondaryBtn: "flex justify-center items-center gap-2 text-contrast bg-primary hover:text-primary hover:bg-contrast/80 focus:ring-4 focus:ring-secondary-300 rounded-[8px] text-[18px] h-[40px] w-full border-2 border-accent/5 hover:border-none shadow-lg shadow-accent/20 me-2 focus:outline-none",
+    secondaryBtn: "flex justify-center items-center gap-2 text-contrast bg-primary hover:text-primary hover:bg-contrast/80 rounded-[8px] text-[18px] h-[40px] w-full border-2 border-accent/5 hover:border-none shadow-lg shadow-accent/20 me-2 focus:outline-none",
     tertiaryBtn:"text-accent hover:text-primary hover:bg-contrast/80 font-medium rounded-[8px] text-[18px] h-[40px] w-full shadow-lg border-2 border-accent hover:border-none shadow-accent/20 me-2",
 
     label: "block text-[16px] leading-6 text-contrast",
@@ -17,5 +17,9 @@ export const styles = {
 
     cards: "rounded-[24px] shadow-md shadow-contrast/40",
     
-    hoverIcon: "hover:bg-contrast/80"
+    hoverIcon: "hover:bg-contrast/80",
+
+    active:"bg-primary font-bold",
+
+    item: "bg-primary/50 text-center p-4 text-secondary font-semibold0 rounded-[16px] text-[30px] lg:text-[20px]",
 }
