@@ -1,5 +1,6 @@
-import { Footer } from "flowbite-react";
+
 import Header from "../Header";
+import FccFooter from "../Footer/Footer";
 
 interface LayoutProps{
     children: React.ReactNode;
@@ -11,7 +12,7 @@ export const Layout = ({children}: LayoutProps) => {
     <main>
         {children}
     </main>
-    <Footer/>
+    <FccFooter/>
     </>
   )
 }

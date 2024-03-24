@@ -1,14 +1,10 @@
 import { Dispatch, createContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import { useLocalStorage } from "./useLocalStorage";
+import { ChildrenProps, User } from "../types/types";
 
 
-type ChildrenProps ={
-    children: React.ReactNode
-}
-type User ={
-    accesToken: string;
-}
+
 
 type CurrentUserType =[User | null, Dispatch<User>];
 

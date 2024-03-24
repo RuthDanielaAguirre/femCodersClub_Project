@@ -1,20 +1,41 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
-import { UserService } from 'src/user/user.service';
+import { UserService } from '../user/user.service';
 import { JwtService } from '@nestjs/jwt';
 import { SignupDto } from './dto/signup.dto';
 import { hash } from 'bcrypt';
 import * as bcrypt from 'bcrypt';
-import { User } from 'src/user/entities/user.entity';
+import { User } from '../user/entities/user.entity';
 import { LoginDto } from './dto/login.dto';
+import { UserDetails } from 'src/utils/types';
+import { InjectRepository } from '@nestjs/typeorm';
+import { privateDecrypt } from 'crypto';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class AuthService {
   constructor(
     private readonly userService: UserService,
     private readonly jwtService: JwtService,
-  ) {}
+    @InjectRepository(User) private readonly userRepository: Repository<User>,
+  ) { }
+
+  async validateUser(details: UserDetails) {
+    console.log('AuthService');
+    console.log(details);
+    const user = await this.userRepository.findOneBy({ userEmail: details.userEmail });
+    if (user) return user;
+    const newUser = this.userRepository.create(details);
+    return this.userRepository.save(newUser);
+
+  }
+
+  async findUser(idUser: number){
+    const user = await this.userRepository.findOneBy({idUser})
+    return user;
+    
+  }
 
   async signup({
     userName,
@@ -29,7 +50,7 @@ export class AuthService {
       throw new BadRequestException('Este usuario ya existe');
     }
 
-    const result = await this.userService.create({
+    await this.userService.create({
       userName,
       userLastName,
       userEmail,
@@ -37,27 +58,22 @@ export class AuthService {
       userGender,
       userTelephone,
     });
-
     return {
-      result,
+      User,
     };
   }
-
   async login({ userEmail, userPassword }: LoginDto) {
-    const user = await this.userService.findOneByEmail(userEmail);
+    const user = await this.userService.findOneByEmail(userEmail );
 
     if (!user) {
-      throw new BadRequestException('El correo electrónico es incorrecto');
+      throw new BadRequestException('El correo electrónico o la contraseña es incorrecta');
     }
 
     if (!(await bcrypt.compare(userPassword, user.userPassword))) {
-      throw new BadRequestException('Contraseña incorrecta');
+      throw new BadRequestException('El correo electrónico o la contraseña es incorrecta');
     }
 
     const jwtToken = await this.jwtService.signAsync({ id: user.idUser });
-    return {
-      jwtToken,
-      User,
-    };
+    return { jwtToken };
   }
 }
