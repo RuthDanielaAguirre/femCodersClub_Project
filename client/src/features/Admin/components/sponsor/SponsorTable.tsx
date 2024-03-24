@@ -10,9 +10,8 @@ const SponsorTable = () => {
                 <TableHeadCell className='text-start font-semibold'>Entidad</TableHeadCell>
                 <TableHeadCell className='text-start font-semibold'>Teléfono</TableHeadCell>
                 <TableHeadCell className='text-start font-semibold'>Status</TableHeadCell>
-                {/* <TableHeadCell className='text-start font-semibold'>
-                    <span className="text-primary font-semibold">Editar</span>
-                </TableHeadCell> */}
+                <TableHeadCell >
+                </TableHeadCell>
             </TableHead>
             <TableBody className="divide-y text-contrast">
                 <TableRow className="bg-white py-4 dark:border-gray-700 dark:bg-gray-800">

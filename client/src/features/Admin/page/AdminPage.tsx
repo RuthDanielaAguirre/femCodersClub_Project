@@ -22,7 +22,7 @@ const AdminPage = () => {
   return (
     <Layout>
       <div className="flex flex-col lg:flex-row justify-center items-start bg-[url('../../../public/bg-admin2.svg')] bg-no-repeat bg-cover h-fit bg-fixed py-[100px] lg:px-[100px] sm:px-10 px-3">
-        <Sidebar aria-label="Admin-navbar" className='p-0 m-0'>
+        <Sidebar aria-label="Admin-navbar" className='p-0 m-0 w-fit'>
           <Sidebar.Items className='p-0 m-0'>
             <Sidebar.ItemGroup className='flex flex-row lg:flex-col w-fit gap-2 p-0 m-0'>
               <Sidebar.Item href="#" icon={IoPeopleSharp}  className={[styles.item, selectedTab === 1 ? styles.active : null].join(" ")} onClick={() => handleTabClick(1)}>

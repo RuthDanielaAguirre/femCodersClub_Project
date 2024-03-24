@@ -22,5 +22,5 @@ export const styles = {
 
     active:"bg-primary font-bold",
 
-    item: "bg-primary/50 text-center p-4 text-secondary font-semibold0 rounded-[16px] text-[30px] lg:text-[20px]",
+    item: "bg-primary/50 text-center lg:p-4 pl-3 pr-0 text-secondary font-semibold rounded-[16px] text-[30px] lg:text-[20px] w-fit lg:min-w-[200px]",
 }
