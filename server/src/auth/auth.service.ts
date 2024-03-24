@@ -8,13 +8,34 @@ import { hash } from 'bcrypt';
 import * as bcrypt from 'bcrypt';
 import { User } from '../user/entities/user.entity';
 import { LoginDto } from './dto/login.dto';
+import { UserDetails } from 'src/utils/types';
+import { InjectRepository } from '@nestjs/typeorm';
+import { privateDecrypt } from 'crypto';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class AuthService {
   constructor(
     private readonly userService: UserService,
     private readonly jwtService: JwtService,
-  ) {}
+    @InjectRepository(User) private readonly userRepository: Repository<User>,
+  ) { }
+
+  async validateUser(details: UserDetails) {
+    console.log('AuthService');
+    console.log(details);
+    const user = await this.userRepository.findOneBy({ userEmail: details.userEmail });
+    if (user) return user;
+    const newUser = this.userRepository.create(details);
+    return this.userRepository.save(newUser);
+
+  }
+
+  async findUser(idUser: number){
+    const user = await this.userRepository.findOneBy({idUser})
+    return user;
+    
+  }
 
   async signup({
     userName,
