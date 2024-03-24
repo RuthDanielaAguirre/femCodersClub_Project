@@ -5,6 +5,7 @@ export const styles = {
     addBtn: "text-primary bg-gradient-to-r from-tertiary to-accent hover:bg-gradient-to-l hover:bg-contrast/80 font-medium rounded-[8px] text-[18px] h-[40px] w-[140px] shadow-lg border-b-2 border-contrast/5 shadow-accent/20 me-2",
 
     label: "block text-[16px] leading-6 text-contrast",
+    label2: "block text-[16px] leading-6 text-primary",
     input: "block w-full h-[36px] rounded-[8px] border-0 py-1.5 text-gray-900 shadow-md shadow-accent/10 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-accent/50 sm:text-sm sm:leading-6",
 
     headingForm: "text-secondary text-3xl font-bold leading-9",

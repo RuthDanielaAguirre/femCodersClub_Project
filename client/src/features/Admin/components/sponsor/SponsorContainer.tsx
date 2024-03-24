@@ -1,10 +1,12 @@
-import AddButton from '../AddButton'
 import SponsorTable from './SponsorTable'
+import AddSponsorModal from './addSponsorModal'
 
 const SponsorContainer = () => {
     return (
         <div>
-            <AddButton />
+            <div className="flex items-end flex-col w-full mb-5">
+                <AddSponsorModal/>
+            </div>
             <SponsorTable/>
         </div>
     )
