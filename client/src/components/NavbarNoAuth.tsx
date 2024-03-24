@@ -33,7 +33,7 @@ const NavbarNoAuth = () => {
             </li>
             <div>
               <Link to="/login"><button type="button" className="text-primary bg-tertiary hover:bg-[#CC5D3D] font-headerText font-bold rounded-lg text-sm px-5 py-2 me-2 sm: my-4">Iniciar sesión</button></Link>
-              <Link to="/signin"><button type="button" className="text-white border hover:bg-accent font-headerText font-bold rounded-lg text-sm px-5 py-2 me-2 sm: my-4">Registrarse</button></Link>
+              <Link to="/signup"><button type="button" className="text-white border hover:bg-accent font-headerText font-bold rounded-lg text-sm px-5 py-2 me-2 sm: my-4">Registrarse</button></Link>
             </div>
           </ul>
         </div>
