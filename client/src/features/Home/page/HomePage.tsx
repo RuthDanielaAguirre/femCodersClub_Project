@@ -1,5 +1,6 @@
 import { Layout } from '../../../components/Layout/Layout'
 import CarouselContactHome from '../components/CarouselContactHome'
+import CardsEventsHome from '../components/CardsEventsHome'
 
 
 const HomePage = () => {
@@ -12,6 +13,12 @@ const HomePage = () => {
           <br />
           <h2 className="text-2xl font-bold text-secondary font-headerText"><span className="text-tertiary">Juntas</span>  potenciamos el <br />crecimiento y liderazgo de las <br /> mujeres tech.</h2>
         </div>
+      </section>
+
+      <section className='h-screen w-full flex flex-row justify-center items-center'>
+        <h1>¡Próximos eventos!</h1>
+        <CardsEventsHome/>
+        <p>Ver todos los evzentos</p>
       </section>
 
       <section className="bg-[url('../../../bg-values-home.png')] bg-no-repeat bg-righ w-full h-screen">
