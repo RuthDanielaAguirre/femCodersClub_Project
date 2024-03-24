@@ -4,7 +4,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from 
 const SponsorTable = () => {
     return (
         <div className="overflow-x-auto">
-        <Table>
+        <Table className='bg-transparent'>
             <TableHead className='text-primary text-[18px] bg-secondary'>
                 <TableHeadCell className='text-start font-semibold p-2'>Nombre</TableHeadCell>
                 <TableHeadCell className='text-start font-semibold'>Entidad</TableHeadCell>
