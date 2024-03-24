@@ -1,6 +1,6 @@
 
 import { AuthProvider } from "../../hooks/useAuthContext";
-import Footer from "../Footer";
+import FccFooter from "../Footer/Footer";
 import Header from "../Header";
 
 
@@ -15,7 +15,7 @@ const AuthLayout = ({children}: LayoutProps) =>
     <main>
       {children}
     </main>
-    <Footer/>
+    <FccFooter/>
  
 </AuthProvider>
   )
