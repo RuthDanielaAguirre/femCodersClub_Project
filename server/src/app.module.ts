@@ -6,6 +6,9 @@ import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PassportModule } from '@nestjs/passport';
 
+import { FaqModule } from './faq/faq.module';
+import { MemberModule } from './member/member.module';
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -20,7 +23,9 @@ import { PassportModule } from '@nestjs/passport';
     }),
     AuthModule, 
     UserModule,
-    PassportModule.register({session: true})
+    PassportModule.register({session: true}),
+    FaqModule,
+    MemberModule
   ],
   controllers: [AppController],
   providers: [AppService],
