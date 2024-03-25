@@ -6,7 +6,7 @@ import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({origin:true});
+  app.enableCors({origin: true, methods: ["GET", "POST", "PUT", "DELETE"]});
   app.use(session({
     secret: 'qwertyuiop',
 saveUninitialized: false,
