@@ -12,7 +12,7 @@ import CookiePolicyModal from './Modals/Cookies';
 const FccFooter = () => {
   return (
 
-    <Footer className='w-full h-[13.75rem] bg-gradient-to-r from-primary mx-auto via-accent to-secondary text-primary rounded-none' >
+    <Footer className='w-full h-[300px] bg-gradient-to-r from-primary mx-auto via-accent to-secondary text-primary rounded-none flex flex-end  bottom-0' >
       <div className="w-full h-full">
         <div className=" w-full mt-2 mx-auto px-4 justify-between sm:flex sm:justify-between md:flex grid grid-cols-1 md:grid-cols-3 gap-4 container">
 
@@ -25,11 +25,11 @@ const FccFooter = () => {
           <div className="mt-4 flex flex-col space-y-4 sm:mt-0 sm:justify-center text-tertiary">
             <div>
               <Footer.Title className='text-primary' title="Síguenos en:" />
-              <div className="flex mt-4 space-x-6">
-                <Footer.Icon href="#" icon={BsSpotify} className={styles.hoverIcon} />
-                <Footer.Icon href="#" icon={BsInstagram} className={styles.hoverIcon} />
-                <Footer.Icon href="#" icon={BsLinkedin} className={styles.hoverIcon} />
-                <Footer.Icon href="#" icon={BsYoutube} className={styles.hoverIcon} />
+              <div className="flex mt-4 text-tertiary space-x-6">
+                <Footer.Icon href="#" icon={BsSpotify} className={`${styles.hoverIcon} text-tertiary`}/>
+                <Footer.Icon href="#" icon={BsInstagram} className={`${styles.hoverIcon} text-tertiary`} />
+                <Footer.Icon href="#" icon={BsLinkedin} className={`${styles.hoverIcon} text-tertiary`} />
+                <Footer.Icon href="#" icon={BsYoutube} className={`${styles.hoverIcon} text-tertiary`} />
               </div>
             </div>
             <div>
@@ -46,7 +46,7 @@ const FccFooter = () => {
 
         </div>
         <Footer.Divider />
-        <div className='w-full flex flex flex-col'>
+        <div className='w-full flex flex flex-col bg-gradient-to-r from-primary mx-auto via-accent to-secondary text-primary rounded-none'>
           <h2 className='text-primary text-center'>© 2024 FemCoders Club. Todos los derechos reservados.</h2>
         </div>
       </div>
