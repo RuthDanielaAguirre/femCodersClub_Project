@@ -2,7 +2,7 @@ export const styles = {
     primaryBtn: "text-primary bg-tertiary hover:bg-contrast/80 font-medium rounded-[8px] text-[18px] h-[40px] w-full shadow-lg border-b-2 border-contrast/5 shadow-accent/20 me-2",
     secondaryBtn: "flex justify-center items-center gap-2 text-contrast bg-primary hover:text-primary hover:bg-contrast/80 rounded-[8px] text-[18px] h-[40px] w-full border-2 border-accent/5 hover:border-none shadow-lg shadow-accent/20 me-2 focus:outline-none",
     tertiaryBtn:"text-accent hover:text-primary hover:bg-contrast/80 font-medium rounded-[8px] text-[18px] h-[40px] w-full shadow-lg border-2 border-accent hover:border-none shadow-accent/20 me-2",
-    basicModalBtn: "font-medium rounded-[8px] text-[18px] h-[40px] shadow-lg border-b-2 border-contrast/5 shadow-accent/20 me-2", 
+    basicModalBtn: "text-primary font-medium rounded-[8px] text-[18px] h-[40px] shadow-lg border-b-2 border-contrast/5 shadow-accent/20", 
 
     label: "block text-[16px] leading-6 text-contrast",
     label2: "block text-[16px] leading-6 text-primary",

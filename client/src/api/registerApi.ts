@@ -7,8 +7,9 @@ export const registerUser = async (name: string, lastname: string, gender: strin
         return result.data;
 }
 
-const googleUrl = '';
+const googleUrl = 'https://femcodersclub-project.onrender.com/auth/google/login';
 export const googleRegister = async () => {
-        const result = await axios.post(googleUrl);
+        const result = await axios.get(googleUrl);
+        console.log(result)
         return result.data;
 }
