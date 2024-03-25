@@ -7,11 +7,11 @@ const SponsorContainer = () => {
         <div>
             <div className="flex items-end flex-col w-full mb-5">
                 <AdminModal 
-                    text= 'agregar'
+                    text = 'agregar'
                     width = '120px'
                     bg = 'tertiary'
-                    bgHover = 'contrast'
-                    children={<AddSponsorForm/>}/>
+                    children={<AddSponsorForm/>}
+                />
             </div>
             <SponsorTable/>
         </div>

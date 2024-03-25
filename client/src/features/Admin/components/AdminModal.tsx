@@ -9,7 +9,6 @@ interface ModalProps{
     text: string,
     width: string,
     bg: string,
-    bgHover: string,
 }
 
 function AdminModal(element:ModalProps) {
@@ -20,7 +19,6 @@ function AdminModal(element:ModalProps) {
                 className={`${styles.basicModalBtn} 
                     w-[${element.width}]
                     bg-${element.bg}
-                    hover:bg-${element.bgHover}/80
                     `}>
                 {element.text}
             </button>
