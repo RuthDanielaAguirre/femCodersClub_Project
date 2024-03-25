@@ -9,11 +9,11 @@ function AddSponsorModal() {
     return (
         <>
             <Button onClick={() => setOpenModal(true)} className={`${styles.addBtn}`}>Agregar</Button>
-            <Modal show={openModal} onClose={() => setOpenModal(false)} className="bg-contrast">
+            <Modal show={openModal} onClose={() => setOpenModal(false)}>
                 <div className='fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center'>
                     <div className="relative w-[800px] h-[700px] flex flex-col justify-center bg-primary rounded-[24px] px-24 bg-[url('../../../public/bg-modal.svg')] bg-no-repeat bg-contain">
                         <button className="absolute right-3 top-2 text-primary text-2xl place-self-end" onClick={() => setOpenModal(false)}>(x)</button>
-                        <h1 className={`${styles.heading4} text-center mb-5`}>¿Que te gustaria editar?</h1>
+                        {/* <h1 className={`${styles.heading4} text-center mb-5`}>¿Que te gustaria editar?</h1>
                         <div className="flex flex-col w-full h-fit p-10 gap-4 bg-accent/90 rounded-[24px]">
                             <form action="#" method="POST" className="flex flex-col items-start gap-1">
                                     <label htmlFor="email" className={`${styles.label2}`}>Nombre:</label>
@@ -35,7 +35,7 @@ function AddSponsorModal() {
                                     <button className={`${styles.primaryBtn} shadow-md shadow-secondary w-[180px]`}>Guardar</button>
                                     </div>
                             </form>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </Modal>
