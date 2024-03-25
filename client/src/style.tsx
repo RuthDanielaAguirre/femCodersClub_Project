@@ -21,7 +21,7 @@ export const styles = {
     
     hoverIcon: "hover:bg-contrast/80",
 
-    active:"bg-primary font-bold",
+    active:" text-accent font-bold",
 
-    item: "bg-primary/50 text-center lg:p-4 pl-3 pr-0 text-secondary font-semibold rounded-[16px] text-[30px] lg:text-[20px] w-fit lg:min-w-[200px]",
+    item: "flex items-center gap-2 bg-primary/50 hover:bg-primary/30 text-center p-4 rounded-[16px] text-[30px] lg:text-[20px] w-fit lg:w-full",
 }

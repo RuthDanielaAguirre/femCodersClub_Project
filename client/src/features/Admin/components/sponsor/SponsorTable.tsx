@@ -6,11 +6,11 @@ const SponsorTable = () => {
         <div className="overflow-x-auto">
         <Table className='bg-transparent'>
             <TableHead className='text-primary text-[18px] bg-secondary'>
-                <TableHeadCell className='text-start font-semibold p-2'>Nombre</TableHeadCell>
-                <TableHeadCell className='text-start font-semibold'>Entidad</TableHeadCell>
-                <TableHeadCell className='text-start font-semibold'>Teléfono</TableHeadCell>
-                <TableHeadCell className='text-start font-semibold'>Status</TableHeadCell>
-                <TableHeadCell >
+                <TableHeadCell className='text-start font-semibold p-2 bg-transparent'>Nombre</TableHeadCell>
+                <TableHeadCell className='text-start font-semibold bg-transparent'>Entidad</TableHeadCell>
+                <TableHeadCell className='text-start font-semibold bg-transparent'>Teléfono</TableHeadCell>
+                <TableHeadCell className='text-start font-semibold bg-transparent'>Status</TableHeadCell>
+                <TableHeadCell className=' bg-transparent' >
                 </TableHeadCell>
             </TableHead>
             <TableBody className="divide-y text-contrast">
