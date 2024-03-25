@@ -37,6 +37,6 @@ export class MemberService {
   async remove(idMember: number) {
     const member = await this.findOne(idMember);
     await this.memberRepository.remove(member);
-    return "Pregunta frecuente eliminada exitosamente";
+    return "Integrante eliminada exitosamente";
   }
 }
