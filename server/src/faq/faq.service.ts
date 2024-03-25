@@ -12,8 +12,7 @@ export class FaqService {
     private readonly faqRepository: Repository<Faq>,
   ){}
   async create(createFaqDto: CreateFaqDto) {
-    const faq = this.faqRepository.create(createFaqDto);
-    await this.faqRepository.save(faq);
+    await this.faqRepository.save(createFaqDto);
     return "La Pregunta frecuente fue agregada exitosamente";
   }
 

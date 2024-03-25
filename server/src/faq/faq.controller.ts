@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
 import { FaqService } from './faq.service';
 import { CreateFaqDto } from './dto/create-faq.dto';
 import { UpdateFaqDto } from './dto/update-faq.dto';
@@ -22,8 +22,13 @@ export class FaqController {
     return this.faqService.findOne(idFaq);
   }
 
+  @Put(':idFaq')
+  update(@Param('idFaq') idFaq: number, @Body() updateFaqDto: CreateFaqDto) {
+    return this.faqService.update(idFaq, updateFaqDto);
+  }
+
   @Patch(':idFaq')
-  update(@Param('idFaq') idFaq: number, @Body() partialUpdateFaqDto: Partial<UpdateFaqDto>) {
+  partialUpdate(@Param('idFaq') idFaq: number, @Body() partialUpdateFaqDto: Partial<UpdateFaqDto>) {
     return this.faqService.update(idFaq, partialUpdateFaqDto);
   }
 
