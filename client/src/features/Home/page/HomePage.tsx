@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <Layout>
 
-      <section className="bg-[url('../../../hero-img.svg')] bg-no-repeat bg-righ w-full h-screen" >
+      <section className="bg-[url('../../../hero-img.svg')] bg-no-repeat bg-righ w-full h-screen bg-cover" >
         <div className="h-screen px-24 justify-start content-center mt-70">
           <h1 className="text-6xl font-bold text-secondary font-headerText">FemCoders Club</h1>
           <br />
@@ -21,11 +21,11 @@ const HomePage = () => {
         <p>Ver todos los evzentos</p>
       </section>
 
-      <section className="bg-[url('../../../bg-values-home.png')] bg-no-repeat bg-righ w-full h-screen">
+      <section className="bg-[url('../../../bg-values-home.png')] bg-no-repeat bg-righ bg-cover w-full h-screen">
         <div></div>
       </section>
 
-      <section className='h-screen w-full'>
+      <section className='h-screen w-full py-24'>
         <CarouselContactHome/>
       </section>
     </Layout>
