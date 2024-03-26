@@ -8,6 +8,8 @@ import { PassportModule } from '@nestjs/passport';
 
 import { FaqModule } from './faq/faq.module';
 import { MemberModule } from './member/member.module';
+import { SponsorModule } from './sponsor/sponsor.module';
+import { AdminModule } from './admin/admin.module';
 
 @Module({
   imports: [
@@ -25,7 +27,9 @@ import { MemberModule } from './member/member.module';
     UserModule,
     PassportModule.register({session: true}),
     FaqModule,
-    MemberModule
+    MemberModule,
+    SponsorModule,
+    AdminModule
   ],
   controllers: [AppController],
   providers: [AppService],
