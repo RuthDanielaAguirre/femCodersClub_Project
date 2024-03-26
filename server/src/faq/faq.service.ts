@@ -1,19 +1,21 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateFaqDto } from './dto/create-faq.dto';
 import { UpdateFaqDto } from './dto/update-faq.dto';
-import { InjectRepository } from '@nestjs/typeorm';
+import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 import { Faq } from './entities/faq.entity';
-import { FindOneOptions, Repository } from 'typeorm';
+import { DataSource, FindOneOptions, Repository } from 'typeorm';
 
 @Injectable()
 export class FaqService {
   constructor(
     @InjectRepository(Faq) 
     private readonly faqRepository: Repository<Faq>,
+    @InjectDataSource()
+    private dataSource: DataSource,
   ){}
-  async create(createFaqDto: CreateFaqDto) {
-    await this.faqRepository.save(createFaqDto);
-    return "La Pregunta frecuente fue agregada exitosamente";
+  create(createFaqDto: CreateFaqDto) {
+     this.faqRepository.save(createFaqDto);
+    
   }
 
 async findAll() {
