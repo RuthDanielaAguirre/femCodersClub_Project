@@ -1,6 +1,6 @@
-import DeleteFaqModal from "./DeleteFaqModal";
-import UpdateFaqForm from "./UpdateFaqForm";
 
+import DeleteFaqModal from "./DeleteFaqModal";
+import UpdateFaqForm from "./UpdateFaqForm"; // Importa UpdateFaqForm en lugar de DeleteFaqModal
 
 interface FaqProps {
   faq: {
@@ -10,7 +10,7 @@ interface FaqProps {
   };
 }
 
-const Faq = ({ faq }: FaqProps) => {
+const FaqCard = ({ faq }: FaqProps) => {
   return (
     <div className="container mx-auto">
       <div className="max-w-xs rounded overflow-hidden shadow-lg my-2 mx-auto">
@@ -18,8 +18,8 @@ const Faq = ({ faq }: FaqProps) => {
           <div className="font-bold text-xl mb-2">{faq.faqQuestion}</div>
           <p className="text-gray-700 text-base">{faq.faqAnswer}</p>
           <div className="">
-            <DeleteFaqModal/>
-            <UpdateFaqForm/>
+            <DeleteFaqModal idFaq={faq.idFaq} /> 
+            <UpdateFaqForm />
           </div>
         </div>
       </div>
@@ -27,4 +27,4 @@ const Faq = ({ faq }: FaqProps) => {
   );
 };
 
-export default Faq;
+export default FaqCard;

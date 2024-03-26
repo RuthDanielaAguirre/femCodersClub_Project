@@ -38,6 +38,7 @@ export type Faq ={
 }
 
 export type AddFaqFormData ={
+    
     faqQuestion: string;
     faqAnswer: string;
 

@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
-import Faq from "./Faq";
 import axios from 'axios';
 import AddFaqForm from "./AddFaqForm";
+import { Faq } from "../../../../types/types";
+import FaqCard from "./Faq";
+import Spinner from "../../../../components/Spinner";
 
-interface Faq {
-  idFaq: number;
-  faqQuestion: string;
-  faqAnswer: string;
-}
 
 export const FaqList = () => {
   const [faqs, setFaqs] = useState<Faq[]>([]);
-
+  const [loading, setLoading] = useState<boolean>(true); 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('');
+        const response = await axios.get<Faq[]>('https://femcodersclub-project.onrender.com/faq');
+        console.log('Respuesta del servidor:', response.data);
         setFaqs(response.data);
+        setLoading(false); 
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error al obtener datos:', error);
+        setLoading(false); 
       }
     };
 
@@ -29,11 +29,15 @@ export const FaqList = () => {
     <div>
       <div className="">
         <AddFaqForm/>
-        {faqs.map((faq) => (
-          <div className="col-1" key={faq.idFaq}>
-            <Faq faq={faq} />
-          </div>
-        ))}
+        {loading ? ( 
+          <Spinner />
+        ) : (
+          faqs.map((faq) => (
+            <div className="col-lg-3" key={faq.idFaq} >
+              <FaqCard faq={faq} />
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
