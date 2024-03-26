@@ -1,4 +1,4 @@
-import { ChangeEvent, ChangeEventHandler, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import { useNavigate } from "react-router-dom";
 import authApi from "../../../api/authApi";
@@ -6,6 +6,8 @@ import { useMutation } from "@tanstack/react-query";
 import { User } from "../../../types/types";
 import { styles } from "../../../style";
 import GoogleButton from "./GoogleButton";
+import FemCodersClubLogo from '../../../../public/FemCodersClubLogo.png'
+
 
 type LoginDto ={
   email: string;
@@ -15,7 +17,7 @@ const Login = () => {
 
   const [email,setEmail]= useState('');
   const [password, setPassword]= useState('');
-  const[user, setUser] = useLocalStorage('user', '');
+  const[, setUser] = useLocalStorage('user', '');
   const navigate = useNavigate();
   const mutationFn = async ({email, password}: LoginDto) => authApi(email, password);
 
@@ -48,7 +50,7 @@ const Login = () => {
     <form action="#" onSubmit={onSubmit} method="POST" className="flex flex-col items-center ">
       <div className="flex flex-col w-96 justify-center   ">
         <div className=" flex flex-col justify-center items-center">
-        <img src="../../../../public/FemCodersClub-Logo.png" alt="logo femCodersClub" className="w-[120px]" />
+        <img src={FemCodersClubLogo} alt="logo femCodersClub" className="w-[120px]" />
         <h1 className={`${styles.headingForm} mb-8` }>¡Bienvenida!</h1>
         </div>
         <label htmlFor="email" className={`${styles.label}`}>Correo Electrónico</label>
@@ -62,7 +64,7 @@ const Login = () => {
                     <p className="w-full text-center mb-2">- ó -</p>   
                     <GoogleButton/>
                     <p className="mt-4 text-end text-sm text-contrast/70">
-                        ¿No tienes cuanta todavia? <a href="/signup" className="font-semibold leading-6 text-tertiary hover:text-[#fd8c82]">Regístrate</a>
+                        ¿No tienes cuenta todavia? <a href="/signup" className="font-semibold leading-6 text-tertiary hover:text-[#fd8c82]">Regístrate</a>
                     </p>
       </div>
    
