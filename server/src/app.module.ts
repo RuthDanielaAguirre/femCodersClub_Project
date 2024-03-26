@@ -5,6 +5,11 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { VolunteerModule } from './volunteer/volunteer.module';
+import { PassportModule } from '@nestjs/passport';
+import { FaqModule } from './faq/faq.module';
+import { MemberModule } from './member/member.module';
+import { SponsorModule } from './sponsor/sponsor.module';
+import { AdminModule } from './admin/admin.module';
 
 @Module({
   imports: [
@@ -19,7 +24,13 @@ import { VolunteerModule } from './volunteer/volunteer.module';
       synchronize: false,
     }),
     AuthModule, 
-    UserModule, VolunteerModule
+    UserModule, 
+    VolunteerModule,
+    PassportModule.register({session: true}),
+    FaqModule,
+    MemberModule,
+    SponsorModule,
+    AdminModule
   ],
   controllers: [AppController],
   providers: [AppService],
