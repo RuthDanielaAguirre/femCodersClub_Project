@@ -13,7 +13,7 @@ const CookiePolicyModal = () => {
 
   return (
     <>
-      <button onClick={openModal} className="text-primary hover:text-tertiary font-bold py-2  rounded">
+      <button onClick={openModal} className="text-primary hover:text-tertiary text py-2  rounded">
         Política de cookies
       </button>
       {isOpen && (
