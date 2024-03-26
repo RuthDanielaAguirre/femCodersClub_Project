@@ -29,14 +29,16 @@ async findAll() {
   }
   
   async update(idFaq: number, updateFaqDto: UpdateFaqDto) {
-    const faq = await this.findOne(idFaq);
-    await this.faqRepository.save(faq);
+    await this.findOne(idFaq);
+    await this.faqRepository.update(idFaq,updateFaqDto);
     return "La pregunta frecuente fue actualizada";
   }
 
+
+
   async remove(idFaq: number) {
     const faq = await this.findOne(idFaq);
-    await this.faqRepository.remove(faq);
+    await this.faqRepository.delete(faq);
     return "Pregunta frecuente eliminada exitosamente";
   }
 }
