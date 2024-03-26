@@ -9,6 +9,7 @@ import { BiCalendar } from "react-icons/bi";
 import { RiQuestionnaireFill } from "react-icons/ri";
 import SponsorContainer from '../components/sponsor/SponsorContainer';
 import bgAdmin2 from '../../../../public/bgAdmin2.svg'
+import FaqContainer from '../components/faq/FaqContainer';
 
 'use client';
 
@@ -72,8 +73,10 @@ const AdminPage = () => {
             {selectedTab === 5 && (
               <>
                 { <>
-                <h1>FAQs</h1> 
-                <div className='flex h-[900px]'></div>
+              
+                <div className='flex h-[900px]'>
+                  <FaqContainer/>
+                </div>
                 </>}
               </>
             )}

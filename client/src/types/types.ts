@@ -30,3 +30,15 @@ export type AddSponsorFormData ={
     sponsorsEmail: string;
     sponsorsTelephone: string;
 }
+
+export type Faq ={
+    idFaq: number;
+    faqQuestion: string;
+    faqAnswer: string;
+}
+
+export type AddFaqFormData ={
+    faqQuestion: string;
+    faqAnswer: string;
+
+}
