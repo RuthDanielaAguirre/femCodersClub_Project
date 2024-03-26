@@ -22,15 +22,15 @@ export class VolunteerService {
   
   }
 
-  async findVolunteer(id: number): Promise<Volunteer> {
-    return this.volunteerRepository.findOne({ where: { id } } as any);
-}
-
-  update(id: number, updateVolunteerDto: UpdateVolunteerDto) {
-    return JSON.stringify(updateVolunteerDto);
+  async findOneById(id: number): Promise<Volunteer> {
+    return this.volunteerRepository.findOne({ where: { idVolunteer: id } });
   }
 
-  remove(id: number) {
-    return `volunteer with ${id} has been removed`;
+  update(id: number, updateVolunteerDto: UpdateVolunteerDto) {
+    return this.volunteerRepository.update(id, updateVolunteerDto);
+  }
+
+  async remove(idVolunteer: number) {
+    return await this.volunteerRepository.delete(idVolunteer);
   }
 }

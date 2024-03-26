@@ -17,14 +17,10 @@ export class VolunteerController {
   findAll() {
     return this.volunteerService.findVolunteers();
   }
-  
-  @Get(':userId')
-  findUser(
-    @Req() req: Request,
-    @Param('userId') id: number) {
-    return this.volunteerService.findVolunteer(id);
+  @Get(':idVolunteer')
+  findOneById(@Param('idVolunteer') idVolunteer:number){
+  return this.volunteerService.findOneById(idVolunteer);
   }
-
 
   @Put(':id')
   update(@Param('id') id: number, @Body() updateVolunteerDto: UpdateVolunteerDto) {
