@@ -11,12 +11,13 @@ export const styles = {
 
     headingForm: "text-secondary text-3xl font-bold leading-9",
 
-    heading1: "text-secondary text-4xl font-bold leading-9",
-    heading2: "text-secondary text-3xl font-semibold leading-9",
-    heading3: "text-primary text-3xl font-semibold leading-9",
-    heading4: "text-primary text-xl font-semibold leading-9",
+    heading1: "text-secondary text-6xl font-bold leading-9",
+    heading2: "text-secondary text-5xl font-bold leading-9",
+    heading3: "text-primary text-5xl font-semibold leading-9",
+    heading4: "text-primary font-headerText font-bold ",
+    heading5: "text-primary text-xl font-semibold leading-9",
     
-    text: "text-contrast text-[18px]",
+    text: "text-contrast text-[16px]",
 
     cards: "rounded-[24px] shadow-md shadow-contrast/40",
     
