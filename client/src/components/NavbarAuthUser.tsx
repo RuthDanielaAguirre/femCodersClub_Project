@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import  avatarUser  from '../../public/avatarUser.png'
+import FemCodersClubLogo from '../../public/FemCodersClubLogo.png'
 
 
 const NavbarAuthUser = () => {
@@ -8,7 +9,7 @@ const NavbarAuthUser = () => {
       <nav className="bg-gradient-to-r from-primary via-accent to-secondary">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-24">
           <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-            <Link to="/"><img src="FemCodersClub-Logo.png" className="w-24" alt="Fem Coder Club Logo" /></Link>
+            <Link to="/"><img src={FemCodersClubLogo} className="w-24" alt="Fem Coder Club Logo" /></Link>
           </a>
           <button data-collapse-toggle="navbar-dropdown" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-primary rounded-lg md:hidden hover:bg-tertiary" aria-controls="navbar-dropdown" aria-expanded="false">
             <span className="sr-only">Open main menu</span>
