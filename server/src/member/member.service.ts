@@ -30,7 +30,7 @@ export class MemberService {
 
   async update(idMember: number, updateMemberDto: UpdateMemberDto) {
     await this.findOne(idMember);
-    await this.memberRepository.save(updateMemberDto)
+    await this.memberRepository.update(idMember,updateMemberDto)
     return `La información de la integrante ${idMember} fue actualizada`;
   }
 
