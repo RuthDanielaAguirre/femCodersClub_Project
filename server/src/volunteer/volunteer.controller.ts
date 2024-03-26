@@ -17,8 +17,8 @@ export class VolunteerController {
   findAll() {
     return this.volunteerService.findVolunteers();
   }
-  @Get(':idVolunteer')
-  findOneById(@Param('idVolunteer') idVolunteer:number){
+  @Get(':id')
+  findOneById(@Param('id') idVolunteer:number){
   return this.volunteerService.findOneById(idVolunteer);
   }
 

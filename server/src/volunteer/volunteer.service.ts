@@ -22,8 +22,8 @@ export class VolunteerService {
   
   }
 
-  async findOneById(id: number): Promise<Volunteer> {
-    return this.volunteerRepository.findOne({ where: { idVolunteer: id } });
+  async findOneById(idVolunteer: number): Promise<Volunteer> {
+    return this.volunteerRepository.findOneBy({idVolunteer});
   }
 
   update(id: number, updateVolunteerDto: UpdateVolunteerDto) {
