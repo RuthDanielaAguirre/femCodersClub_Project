@@ -4,14 +4,17 @@ import CarouselContactHome from '../components/CarouselContactHome'
 import CardsEventsHome from '../components/CardsEventsHome'
 import ValuesCardsHome from '../components/ValuesCardsHome';
 import { styles } from "../../../style";
-
-
+import heroImg from '../../../../public/heroImg.svg'
+import bgValuesHome from '../../../../public/bgValuesHome.png'
 
 const HomePage = () => {
   return (
     <Layout>
 
-      <section className="bg-[url('../../../hero-img.svg')] bg-no-repeat bg-righ w-full h-[680px] bg-cover" >
+      {/* <section className="bg-[url('../../../hero-img.svg')] bg-no-repeat bg-righ w-full h-[680px] bg-cover" > */}
+      <div className='flex flex-col gap-[250px]'>
+      <section className="w-full h-[680px] relative" >
+        <div className='absolute z-[-1] w-full'><img src={heroImg} alt="" className='w-full'/></div>
         <div className="h-screen px-24 justify-start content-center mt-70">
           <h1 className="text-6xl font-bold text-secondary font-headerText">FemCoders Club</h1>
           <br />
@@ -31,7 +34,10 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="bg-[url('../../../bg-values-home.png')] bg-no-repeat bg-righ bg-cover w-full h-[650px] flex justify-center items-center">
+      {/* <section className="bg-[url('../../../bg-values-home.png')] bg-no-repeat bg-righ bg-cover w-full h-[650px] flex justify-center items-center"> */}
+
+      <section className="relative w-full h-[650px] flex justify-center items-center">
+        <img src={bgValuesHome} className="absolute z-[-1] w-full" alt="" />
         <div className='flex flex-col items-center'>
           <h1 className="text-6xl font-bold text-primary font-headerText pb-2">En FemCoders Club </h1>
           <p className="text-2xl text-primary font-bodyText pb-12">Somos un vibrante equipo de mujeres apasionadas por la tecnologia y el desarrollo web</p>
@@ -44,7 +50,7 @@ const HomePage = () => {
       <section className='h-screen w-full mb-24 mt-24 px-24'>
         <CarouselContactHome />
       </section>
-
+      </div>
 
 
     </Layout>

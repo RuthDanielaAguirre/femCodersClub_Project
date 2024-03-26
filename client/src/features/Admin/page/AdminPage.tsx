@@ -1,6 +1,5 @@
 
 import { Layout } from '../../../components/Layout/Layout'
-import { Sidebar } from 'flowbite-react';
 import { useState } from 'react';
 import { styles } from '../../../style';
 import { IoPeopleSharp } from "react-icons/io5";
