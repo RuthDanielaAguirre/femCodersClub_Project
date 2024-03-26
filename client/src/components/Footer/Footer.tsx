@@ -7,7 +7,7 @@ import { styles } from '../../style';
 import SlackButton from './SlackButton';
 import PrivacyPolicyModal from './Modals/Privacidad';
 import CookiePolicyModal from './Modals/Cookies';
-
+import FemCodersClubLogo from '../../../public/FemCodersClubLogo.png'
 
 const FccFooter = () => {
   return (
@@ -18,7 +18,7 @@ const FccFooter = () => {
 
           <div className='items-center  flex flex-col justify-center align-center'>
             <a href="#" className="flex items-center space-x-3 justify-center align-center rtl:space-x-reverse">
-              <Link to="/"><img src="FemCodersClub-Logo.png" className="w-24" alt="Fem Coders Club Logo" /></Link>
+              <Link to="/"><img src={FemCodersClubLogo} className="w-24" alt="Fem Coders Club Logo" /></Link>
             </a>
           </div>
 
