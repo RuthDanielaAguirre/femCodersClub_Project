@@ -11,7 +11,7 @@ const HomePage = () => {
   return (
     <Layout>
 
-      {/* <section className="bg-[url('../../../hero-img.svg')] bg-no-repeat bg-righ w-full h-[680px] bg-cover" > */}
+      
       <div className='flex flex-col gap-[250px]'>
       <section className="w-full h-[680px] relative" >
         <div className='absolute z-[-1] w-full'><img src={heroImg} alt="" className='w-full'/></div>
@@ -34,7 +34,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* <section className="bg-[url('../../../bg-values-home.png')] bg-no-repeat bg-righ bg-cover w-full h-[650px] flex justify-center items-center"> */}
+      
 
       <section className="relative w-full h-[650px] flex justify-center items-center">
         <img src={bgValuesHome} className="absolute z-[-1] w-full" alt="" />
