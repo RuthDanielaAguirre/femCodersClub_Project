@@ -8,6 +8,7 @@ import { GoSponsorTiers } from "react-icons/go";
 import { BiCalendar } from "react-icons/bi";
 import { RiQuestionnaireFill } from "react-icons/ri";
 import SponsorContainer from '../components/sponsor/SponsorContainer';
+import bgAdmin2 from '../../../../public/bgAdmin2.svg'
 
 'use client';
 
@@ -20,7 +21,8 @@ const AdminPage = () => {
   
   return (
     <Layout>
-      <div className="flex flex-col gap-2 lg:flex-row justify-center items-start bg-[url('../../../public/bg-admin2.svg')] bg-no-repeat bg-cover h-fit bg-fixed py-[100px] lg:px-[100px] sm:px-10 px-3">
+      <div className="flex flex-col gap-2 lg:flex-row justify-center items-start h-fit bg-fixed py-[100px] lg:px-[100px] sm:px-10 px-3">
+        <img src={bgAdmin2} className='absolute top-0 z-[-1]' alt="" />
         <nav aria-label="Admin-navbar" className='flex flex-col p-0 m-0 w-fit lg:rounded-[24px] overflow-hidden bg-gray-40 text-secondary font-semibold'>
             <ul className='flex flex-row lg:flex-col w-fit lg:min-w-[200px] gap-2 p-0 m-0'>
               <li className={[styles.item, selectedTab === 1 ? styles.active : null].join(" ")} onClick={() => handleTabClick(1)}>

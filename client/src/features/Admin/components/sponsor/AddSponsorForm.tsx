@@ -33,7 +33,7 @@ const AddSponsorForm = () => {
     }
 
     return (
-        <>
+        <div className="z-[10]">
         <h1 className={`${styles.heading4} mb-8`}>¿Que te gustaria editar?</h1>
         <form onSubmit={handleSubmit(onSubmit)} action="#" method="POST" className="flex flex-col bg-accent/90 w-full h-fit rounded-[24px] p-8">
             <label htmlFor="name" className={`${styles.label2}`}>Nombre del sponsor:</label>
@@ -65,8 +65,7 @@ const AddSponsorForm = () => {
                 className={`${styles.input} mt-1 mb-4`}
             />
 
-            <div className="flex w-full justify-around mt-5 gap-2">
-                <button className={`${styles.cancelModalBtn} w-[200px]`}>Cancelar</button>
+            <div className="flex w-full justify-center mt-5 gap-2">
                 <button disabled={isSubmitting} onSubmit={handleSubmit(onSubmit)} className={`${styles.primaryBtn} w-[200px]`}>
                     {
                         isSubmitting? 'Cargando...' : 'Guardar'
@@ -74,7 +73,7 @@ const AddSponsorForm = () => {
                 </button>
             </div>
         </form>
-        </>
+        </div>
     )
 }
 
