@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import DescripciónFoto from "/AboutUs2.png";
 import { Layout } from '../../../components/Layout/Layout'
 
@@ -13,8 +12,6 @@ const AboutPage= () => {
           <h1 className="text-4xl lg:text-6xl font-bold text-secondary">FemCoders Club</h1>
         
       <div className="relative bg-gray-100 mt-10">
-           
-            
                 <p className="container">
                 FemCoders Club es una comunidad de mujeres desarrolladoras, cuyo principal objetivo es romper la brecha de género digital y ser un referente que fomente la inclusión femenina en el mundo tecnológico. 
 Somos un grupo de mujeres dedicadas al ámbito de la tecnología que buscan promover la participación real de las mujeres dentro del sector IT. 
