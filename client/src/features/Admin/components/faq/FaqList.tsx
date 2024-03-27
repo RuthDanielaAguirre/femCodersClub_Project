@@ -28,7 +28,7 @@ export const FaqList = () => {
   return (
     <div>
       <div className="">
-        <AddFaqForm/>
+     
         {loading ? ( 
           <Spinner />
         ) : (

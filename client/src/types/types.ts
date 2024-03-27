@@ -32,14 +32,24 @@ export type AddSponsorFormData ={
 }
 
 export type Faq ={
-    idFaq: number;
+    
+    faqQuestion: string;
+    faqAnswer: string;}
+
+
+export type AddFaqFormData ={
     faqQuestion: string;
     faqAnswer: string;
 }
 
-export type AddFaqFormData ={
+export type EditFaqFormData ={
     
     faqQuestion: string;
     faqAnswer: string;
 
+}
+export type faq={
+    idFaq: number;
+    faqQuestion: string;
+    faqAnswer: string;
 }

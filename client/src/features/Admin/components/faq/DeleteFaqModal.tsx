@@ -3,7 +3,7 @@ import axios from 'axios';
 import { styles } from "../../../../style";
 
 interface DeleteFaqFormProps {
-    idFaq: number | undefined; // Cambiado a número o undefined
+    idFaq: number | undefined; 
 }
 
 const DeleteFaqModal = ({ idFaq }: DeleteFaqFormProps) => {
@@ -12,7 +12,7 @@ const DeleteFaqModal = ({ idFaq }: DeleteFaqFormProps) => {
     const handleDelete = async () => {
         if (idFaq === undefined) {
             console.error('El ID de la pregunta frecuente es undefined');
-            return; // Detener la ejecución si id es undefined
+            return; 
         }
 
         try {
