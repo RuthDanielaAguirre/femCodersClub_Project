@@ -61,4 +61,19 @@ export class SponsorService {
         const result = await this.sponsorRepository.delete({ idPotential_Sponsors: +sponsor_Id });
         if (result) return { message: 'delete OK' };
     }
+
+    
+    async findAll () {
+        const sponsors = await this.sponsorRepository.find({ 
+        });
+        return sponsors;
+    }
+
+    async findOneById(sponsor_id: number) {
+        const sponsor = await this.sponsorRepository.find({ where: { idPotential_Sponsors: sponsor_id } });
+        if(!sponsor){
+            throw new HttpException(`No sponsor found`, 404);
+        }
+        return sponsor;
+    }
 }
