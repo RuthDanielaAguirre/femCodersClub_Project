@@ -11,16 +11,21 @@ import { FaqModule } from './faq/faq.module';
 import { MemberModule } from './member/member.module';
 import { SponsorModule } from './sponsor/sponsor.module';
 import { AdminModule } from './admin/admin.module';
+import { ConfigModule } from '@nestjs/config';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'mysql-femcodersclub-femcodersclubproject-p8.a.aivencloud.com',
-      port: 20668,
-      username: 'avnadmin',
-      password: 'AVNS_LRnQtzlbOaJUUkubhbp',
-      database: 'mydb',
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT),
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
       entities: ['dist/**/*.entity.js'],
       synchronize: false,
     }),
@@ -32,7 +37,8 @@ import { AdminModule } from './admin/admin.module';
     FaqModule,
     MemberModule,
     SponsorModule,
-    AdminModule
+    AdminModule,
+    HttpModule
   ],
   controllers: [AppController],
   providers: [AppService],

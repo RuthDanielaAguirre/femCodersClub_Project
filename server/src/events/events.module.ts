@@ -14,21 +14,3 @@ import { HttpModule } from '@nestjs/axios';
   providers: [EventbriteService],
 })
 export class EventsModule {}
-
-
-
-
-
-// @Module({
-//   imports: [
-//     HttpModule.registerAsync({
-  //useFactory: async (consigService: ConfigService) => ({
-//       timeout: configService.get('HTTP_TIMEOUT'),
-//       maxRedirects: configService.get('HTTP_MAX_REDIRECTS')
-//     })
-//})
-//   ],
-//   controllers: [EventsController],
-//   providers: [EventsService],
-// })
-// export class EventsModule {}
