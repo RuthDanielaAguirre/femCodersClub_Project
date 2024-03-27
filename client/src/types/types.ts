@@ -30,3 +30,11 @@ export type AddSponsorFormData ={
     sponsorsEmail: string;
     sponsorsTelephone: string;
 }
+
+export type Volunteer={
+    idVolunteer: number;
+    volunteerName: string;
+    volunteerLastName: string;
+    volunteerEmail: string;
+    volunteerGender: string;
+}

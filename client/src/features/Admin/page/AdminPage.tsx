@@ -8,6 +8,8 @@ import { GoSponsorTiers } from "react-icons/go";
 import { BiCalendar } from "react-icons/bi";
 import { RiQuestionnaireFill } from "react-icons/ri";
 import SponsorContainer from '../components/sponsor/SponsorContainer';
+import CardVolunteer from '../components/volunteer/CardVolunteer';
+
 
 'use client';
 
@@ -54,7 +56,7 @@ const AdminPage = () => {
             )}
             {selectedTab === 2 && (
               <>
-                { <h1>Voluntarios</h1> }
+                { <CardVolunteer/>}
               </>
             )}
             {selectedTab === 3 && (
