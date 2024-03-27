@@ -4,33 +4,33 @@ import { UpdateEventDto } from './dto/update-event.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Event } from './entities/event.entity';
 import { Repository } from 'typeorm';
+import { HttpService } from '@nestjs/axios';
 
 @Injectable()
 export class EventsService {
+  constructor(private readonly httpService: HttpService) {}
 
-  constructor(
-    @InjectRepository(Event) private readonly eventRepository: Repository<Event>
-  ){}
-
-  findOne(idEvent: number): Promise<Event>{
-    return this.eventRepository.findOneBy({ idEvent });
+  async updateEvent(idEvent: number, updateEventDto: UpdateEventDto){
+    const updateEvent = {
+      updateEventDto: UpdateEventDto,
+    };
+    return this.httpService
+      .post(`https://www.eventbriteapi.com/v3/events/${idEvent}`, {
+        headers: {
+          Authorization: `Bearer ${process.env.EVENT_API_KEY}`,
+          Accept: 'application / json',
+        },
+      })
+      .pipe(map((response) => response.data));
   }
 
-  create(event: CreateEventDto) {
-    return this.eventRepository.save(this.eventRepository.create(event));
+  async findAll() {
+    this.httpService
+      .get(`https://www.eventbriteapi.com/v3/categories/`, {
+        headers: {
+          Authorization: `Bearer ${process.env.EVENTBRITE_API_KEY}`,
+        },
+      })
+      .pipe(map((response) => response.data));
   }
-
-  async update(idEvent: number, event: UpdateEventDto) {
-    const updateEvent = await this.eventRepository.update(idEvent, event)
-    if(updateEvent) return {message: 'Actualización realizada correctamente'};
-  }
-  
-  async removeEvent(idEvent: number) {
-    const deleteEvent = await this.eventRepository.delete(idEvent)
-    if(deleteEvent) return {message: 'Evento borrado correctamente'};
-  }
-
-  // findAll() {
-  //   return `This action returns all events`;
-  // }
 }

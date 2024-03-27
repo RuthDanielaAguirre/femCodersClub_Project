@@ -6,9 +6,14 @@ import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PassportModule } from '@nestjs/passport';
 import { EventsModule } from './events/events.module';
+import { ConfigModule } from '@nestjs/config';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.DB_HOST,
@@ -22,7 +27,8 @@ import { EventsModule } from './events/events.module';
     AuthModule, 
     UserModule,
     PassportModule.register({session: true}),
-    EventsModule
+    EventsModule,
+    HttpModule
   ],
   controllers: [AppController],
   providers: [AppService],
