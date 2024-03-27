@@ -40,4 +40,21 @@ export class AdminService {
         }
     }
 
+    async findAllSponsors( ) {
+        try{
+            const sponsors = await this.sponsorService.findAll();
+                return sponsors
+        }catch (err){
+            throw new BadRequestException('something went wrong');
+        }
+    }
+
+    async findSponsorById( sponsor_id:number ) {
+        try{
+            const sponsor = await this.sponsorService.findOneById(sponsor_id);
+                return sponsor
+        }catch (err){
+            throw new BadRequestException('Sponsor does not exist');
+        }
+    }
 }
