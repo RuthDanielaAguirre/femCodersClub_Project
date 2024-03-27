@@ -1,12 +1,13 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
+import FemCodersClubLogo from '../../public/FemCodersClubLogo.png'
 
 const NavbarNoAuth = () => {
   return (
     <nav className="bg-gradient-to-r from-primary via-accent to-secondary">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-24">
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <Link to="/"><img src="FemCodersClub-Logo.png" className="w-24" alt="Fem Coder Club Logo" /></Link>
+          <Link to="/"><img src={FemCodersClubLogo} className="w-24" alt="Fem Coder Club Logo" /></Link>
         </a>
         <button data-collapse-toggle="navbar-dropdown" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-primary rounded-lg md:hidden hover:bg-tertiary" aria-controls="navbar-dropdown" aria-expanded="false">
           <span className="sr-only">Open main menu</span>
@@ -33,7 +34,7 @@ const NavbarNoAuth = () => {
             </li>
             <div>
               <Link to="/login"><button type="button" className="text-primary bg-tertiary hover:bg-[#CC5D3D] font-headerText font-bold rounded-lg text-sm px-5 py-2 me-2 sm: my-4">Iniciar sesión</button></Link>
-              <Link to="/signin"><button type="button" className="text-white border hover:bg-accent font-headerText font-bold rounded-lg text-sm px-5 py-2 me-2 sm: my-4">Registrarse</button></Link>
+              <Link to="/signup"><button type="button" className="text-white border hover:bg-accent font-headerText font-bold rounded-lg text-sm px-5 py-2 me-2 sm: my-4">Registrarse</button></Link>
             </div>
           </ul>
         </div>

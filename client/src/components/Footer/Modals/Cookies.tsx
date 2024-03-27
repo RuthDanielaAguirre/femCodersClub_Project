@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const CookiePolicyModal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,12 +13,12 @@ const CookiePolicyModal = () => {
 
   return (
     <>
-      <button onClick={openModal} className="text-primary hover:text-tertiary font-bold py-2  rounded">
+      <button onClick={openModal} className="text-primary hover:text-tertiary text py-2  rounded">
         Política de cookies
       </button>
       {isOpen && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-8 max-w-xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl overflow-y-auto rounded-lg">
+        <div className="fixed z-20 top-0 left-0  w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-8  max-w-xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl overflow-y-auto rounded-lg">
             <h2 className="text-2xl mb-4 text-black">Política de cookies</h2>
             <p className="text-black">
               Las cookies son pequeños fragmentos de texto enviados por su navegador web por un sitio web que visita. Un archivo cookie se almacena en su navegador web y permite que el Servicio o un tercero lo reconozca y haga que su próxima visita sea más fácil y que el Servicio le resulte más útil.

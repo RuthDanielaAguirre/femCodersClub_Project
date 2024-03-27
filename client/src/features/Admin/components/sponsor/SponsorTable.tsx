@@ -1,33 +1,50 @@
 
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from 'flowbite-react';
+import AdminModal from '../AdminModal';
+import EditSponsorForm from './EdditSponsorForm';
+import DeleteSponsor from './DeleteSponsor';
 
 const SponsorTable = () => {
     return (
         <div className="overflow-x-auto">
-        <Table>
-            <TableHead className='text-secondary text-[18px]'>
-                <TableHeadCell className='text-start'>Nombre</TableHeadCell>
-                <TableHeadCell className='text-start'>Entidad</TableHeadCell>
-                <TableHeadCell className='text-start'>Teléfono</TableHeadCell>
-                <TableHeadCell className='text-start'>Status</TableHeadCell>
-                <TableHeadCell className='text-start'>
-                    <span className="sr-only">Edit</span>
+        <Table className='bg-transparent'>
+            <TableHead className='text-primary text-[18px] bg-secondary'>
+                <TableHeadCell className='text-start font-semibold p-2 bg-transparent'>Nombre</TableHeadCell>
+                <TableHeadCell className='text-start font-semibold bg-transparent'>Entidad</TableHeadCell>
+                <TableHeadCell className='text-start font-semibold bg-transparent'>Teléfono</TableHeadCell>
+                <TableHeadCell className='text-start font-semibold bg-transparent'>Status</TableHeadCell>
+                <TableHeadCell className=' bg-transparent' >
                 </TableHeadCell>
             </TableHead>
             <TableBody className="divide-y text-contrast">
                 <TableRow className="bg-white py-4 dark:border-gray-700 dark:bg-gray-800">
-                    <TableCell className="whitespace-nowrap text-contrast dark:text-white">Sponsor1</TableCell>
+                    <TableCell className="whitespace-nowrap text-contrast dark:text-white p-2">Sponsor1</TableCell>
                     <TableCell>Entidad1</TableCell>
                     <TableCell>Telefono1</TableCell>
                     <TableCell>pending</TableCell>
-                    <TableCell>
-                    <a href="#" className="font-medium text-accent hover:underline dark:text-cyan-500">
-                        ver mas
-                    </a>
+                    <TableCell className='w-[250px] px-0 space-x-2'>
+                        <div className='flex w-full justify-end'>
+                        <AdminModal 
+                            text = 'editar'
+                            width = '120px'
+                            fontColor = 'tertiary'
+                            fonthover= 'primary'
+                            bg = 'primary'
+                            children={<EditSponsorForm/>}
+                        />
+                        <AdminModal 
+                            text = 'borrar'
+                            width = '120px'
+                            fontColor = 'secondary'
+                            fonthover= 'primary'
+                            bg = 'primary'
+                            children={<DeleteSponsor/>}
+                        />
+                        </div>
                     </TableCell>
                 </TableRow>
                 <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                    <TableCell className="whitespace-nowrap text-contrast dark:text-white">Sponsor2</TableCell>
+                    <TableCell className="whitespace-nowrap text-contrast dark:text-white p-2">Sponsor2</TableCell>
                     <TableCell>Entidad2</TableCell>
                     <TableCell>Telefono2</TableCell>
                     <TableCell>activo</TableCell>
@@ -38,7 +55,7 @@ const SponsorTable = () => {
                     </TableCell>
                 </TableRow>
                 <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                    <TableCell className="whitespace-nowrap text-contrast dark:text-white">Sponsor3</TableCell>
+                    <TableCell className="whitespace-nowrap text-contrast dark:text-white p-2">Sponsor3</TableCell>
                     <TableCell>Entidad3</TableCell>
                     <TableCell>Telefono3</TableCell>
                     <TableCell>activo</TableCell>

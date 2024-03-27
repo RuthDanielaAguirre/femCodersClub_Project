@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const PrivacyPolicyModal= () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,12 +26,12 @@ const PrivacyPolicyModal= () => {
 
   return (
     <>
-      <button onClick={openModal} className="text-primary hover:text-tertiary font-bold py-2 rounded">
+      <button onClick={openModal} className="text-primary hover:text-tertiary text py-2 rounded">
         Política de Privacidad
       </button>
       {isOpen && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
-          <div ref={modalRef} className="bg-white p-8 max-w-4xl w-full sm:max-w-full h-full overflow-y-auto rounded-lg">
+        <div className="fixed z-20 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+          <div ref={modalRef} className="bg-white p-8  max-w-xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl h-full overflow-y-auto rounded-lg">
             <h2 className="text-2xl mb-4 text-black">Política de Privacidad y Términos de Uso</h2>
             <p className="text-black">
               En FemCoders Club, valoramos profundamente tu privacidad. Esta Política de Privacidad y los Términos de Uso describen cómo recopilamos, usamos y divulgamos la información obtenida de nuestras integrantes en nuestro directorio web. Al proporcionarnos tu información, aceptas que tu información personal se manejará según lo descrito en esta Política. Tu uso en nuestro sitio y cualquier disputa sobre la privacidad están sujetos a esta Política y a los Términos de Uso de nuestro sitio, que incluyen limitaciones aplicables a los daños y la resolución de disputas. Los Términos de Uso del sitio web de FemCoders Club se incorporan por referencia en esta Política.
