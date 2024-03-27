@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { AdminService } from './admin.service';
 import { CreateSponsorDto } from 'src/sponsor/dto/create-sponsor.dto';
 import { ModifySponsorDto } from 'src/sponsor/dto/modify-sponsor.dto';
@@ -7,6 +7,15 @@ import { ModifySponsorDto } from 'src/sponsor/dto/modify-sponsor.dto';
 export class AdminController {
     constructor(private readonly adminService: AdminService) {}
 
+    @Get()
+    findAllSponsors() {
+        return this.adminService.findAllSponsors();
+    }
+    @Get(':sponsor_id')
+    findSponsorById(@Param('sponsor_id') sponsor_id:number){
+        return this.adminService.findSponsorById(sponsor_id);
+    }
+    
     @Post()
     addSponsor( @Body() addSponsor: CreateSponsorDto ){
         return this.adminService.addSponsor(addSponsor);
