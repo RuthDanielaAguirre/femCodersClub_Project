@@ -1,5 +1,6 @@
 import AdminModal from '../AdminModal'
 import AddFaqForm from './AddFaqForm'
+import FaqList from './FaqList'
 
 
 const FaqContainer = () => {
@@ -13,7 +14,7 @@ const FaqContainer = () => {
                     children={<AddFaqForm/>}
                 />
             </div>
-            
+            <FaqList/>
         </div>
     )
 }

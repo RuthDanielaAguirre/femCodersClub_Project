@@ -1,8 +1,13 @@
 
-const Spinner = () => {
+import { Spinner } from "flowbite-react";
+
+function femSpinner() {
   return (
-    <div>Spinner</div>
-  )
+    <div className="flex flex-wrap gap-2">
+ 
+      <Spinner color="purple" aria-label="Purple spinner example" size={"lg"}/>
+    </div>
+  );
 }
 
-export default Spinner
+export default femSpinner
