@@ -3,8 +3,11 @@ import { styles } from "../../../../style"
 import { AddSponsorFormData, Sponsor } from "../../../../types/types"
 import { useMutation } from "@tanstack/react-query"
 import { addSponsor } from "../../../../api/sponsorApi"
+import { useContext } from "react"
+import { SponsorContext } from "../../../../hooks/useSponsorContext"
 
 const EditSponsorForm = () => {
+    const sponsors = useContext(SponsorContext);
 
     const {register, handleSubmit, formState: { isSubmitting }} = useForm<AddSponsorFormData>()
 
@@ -41,6 +44,7 @@ const EditSponsorForm = () => {
                     {...register('sponsorsName')}
                     type="text"
                     aria-label='name'
+                    value = {sponsors?.sponsorsName}
                     className={`${styles.input} mt-1 mb-4`} 
                 />
                 
@@ -48,6 +52,7 @@ const EditSponsorForm = () => {
                 <input 
                     {...register('sponsorsCompany')}
                     type="text" 
+                    value = {sponsors?.sponsorsEmail}
                     className={`${styles.input} mt-1 mb-4`}
                 />
 
@@ -55,6 +60,7 @@ const EditSponsorForm = () => {
                 <input
                     {...register('sponsorsEmail')}
                     type="text"
+                    value = {sponsors?.sponsorsEmail}
                     className={`${styles.input} mt-1 mb-4`}
                 />
 
@@ -62,6 +68,7 @@ const EditSponsorForm = () => {
                 <input 
                     {...register('sponsorsTelephone')}
                     type="text" 
+                    value = {sponsors?.sponsorsTelephone}
                     className={`${styles.input} mt-1 mb-4`}
                 />
 

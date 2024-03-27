@@ -1,14 +1,16 @@
 
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from 'flowbite-react';
 import AdminModal from '../AdminModal';
-import EditSponsorForm from './EdditSponsorForm';
+import EditSponsorForm from './EditSponsorForm';
 import DeleteSponsor from './DeleteSponsor';
 import { getSponsors } from '../../../../api/sponsorApi';
 import { useQuery } from '@tanstack/react-query';
+import { SponsorContext } from '../../../../hooks/useSponsorContext';
+import { Sponsor } from '../../../../types/types';
 
 const SponsorTable = () => {
 
-    const { data } = useQuery(
+    const { data } = useQuery<Sponsor[]>(
         {
             queryKey: ['sponsors'],
             queryFn: getSponsors,
@@ -30,9 +32,10 @@ const SponsorTable = () => {
             <TableBody className="divide-y text-contrast">
                 {
                     data?.map( (sponsors) =>
-                        <TableRow key={sponsors.id} className="bg-white py-4 dark:border-gray-700 dark:bg-gray-800">
+                        <TableRow key={sponsors.idPotential_Sponsors} className="bg-white py-4 dark:border-gray-700 dark:bg-gray-800">
                             <TableCell className="whitespace-nowrap text-contrast dark:text-white p-2 pl-5">
                                 { sponsors.sponsorsName }
+                                <span id={sponsors.idPotential_Sponsors}>{sponsors.sponsorsName}</span>
                             </TableCell>
                                 
                             <TableCell className='text-contrast z-[100]'>
@@ -49,22 +52,25 @@ const SponsorTable = () => {
                             
                             <TableCell className='w-[250px] px-0 space-x-2'>
                                 <div className='flex w-full justify-end'>
-                                <AdminModal 
-                                    text = 'editar'
-                                    width = '120px'
-                                    fontColor = 'tertiary'
-                                    fonthover= 'primary'
-                                    bg = 'primary'
-                                    children={<EditSponsorForm/>}
-                                />
-                                <AdminModal 
-                                    text = 'borrar'
-                                    width = '120px'
-                                    fontColor = 'secondary'
-                                    fonthover= 'primary'
-                                    bg = 'primary'
-                                    children={<DeleteSponsor/>}
-                                />
+                                    <SponsorContext.Provider value={sponsors}>
+                                        <AdminModal
+                                            text = 'editar'
+                                            width = '120px'
+                                            fontColor = 'tertiary'
+                                            fonthover= 'primary'
+                                            bg = 'primary'
+                                        >
+                                            <EditSponsorForm/>
+                                        </AdminModal>
+                                    </SponsorContext.Provider>
+                                    <AdminModal 
+                                        text = 'borrar'
+                                        width = '120px'
+                                        fontColor = 'secondary'
+                                        fonthover= 'primary'
+                                        bg = 'primary'
+                                        children={<DeleteSponsor/>}
+                                    />
                                 </div>
                             </TableCell>
                     </TableRow>
