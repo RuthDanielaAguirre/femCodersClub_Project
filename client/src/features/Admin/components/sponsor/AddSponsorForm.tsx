@@ -34,7 +34,7 @@ const AddSponsorForm = () => {
 
     return (
         <div className="z-[10]">
-        <h1 className={`${styles.heading4} mb-8`}>¿Que te gustaria editar?</h1>
+        <h1 className={`${styles.heading4} mb-8 pl-4`}>LLena el formulario para agregar Sponsor</h1>
         <form onSubmit={handleSubmit(onSubmit)} action="#" method="POST" className="flex flex-col bg-accent/90 w-full h-fit rounded-[24px] p-8">
             <label htmlFor="name" className={`${styles.label2}`}>Nombre del sponsor:</label>
             <input 

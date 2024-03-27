@@ -21,8 +21,8 @@ const AdminPage = () => {
   
   return (
     <Layout>
-      <div className="flex flex-col gap-2 lg:flex-row justify-center items-start h-fit bg-fixed py-[100px] lg:px-[100px] sm:px-10 px-3">
-        <img src={bgAdmin2} className='absolute top-0 z-[-1]' alt="" />
+      <div className="relative overflow-hidden flex flex-col gap-2 lg:flex-row justify-center items-start h-fit bg-fixed py-[100px] lg:px-[100px] sm:px-10 px-3">
+        <img src={bgAdmin2} className='absolute top-0 z-[-1] w-full' alt="" />
         <nav aria-label="Admin-navbar" className='flex flex-col p-0 m-0 w-fit lg:rounded-[24px] overflow-hidden bg-gray-40 text-secondary font-semibold'>
             <ul className='flex flex-row lg:flex-col w-fit lg:min-w-[200px] gap-2 p-0 m-0'>
               <li className={[styles.item, selectedTab === 1 ? styles.active : null].join(" ")} onClick={() => handleTabClick(1)}>

@@ -11,6 +11,8 @@ interface ModalProps{
     text: string,
     width: string,
     bg: string,
+    fontColor?: string,
+    fonthover?: string,
 }
 
 function AdminModal(element:ModalProps) {
@@ -19,9 +21,11 @@ function AdminModal(element:ModalProps) {
         <>
             <button onClick={() => setOpenModal(true)} 
                 className={`${styles.basicModalBtn} 
-                    w-[${element.width}]
-                    bg-${element.bg}
-                    `}>
+                w-[${element.width}]
+                bg-${element.bg}
+                text-${element.fontColor}
+                hover:text-${element.fonthover}
+                `}>
                 {element.text}
             </button>
             <Modal show={openModal} onClose={() => setOpenModal(false)}>
