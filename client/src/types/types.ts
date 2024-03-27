@@ -18,10 +18,10 @@ export type SignUpFormData = {
 
 export type Sponsor ={
     id: number;
-    name: string;
-    company: string;
-    email: string;
-    telephone: string;
+    sponsorsName: string;
+    sponsorsCompany: string;
+    sponsorsEmail: string;
+    sponsorsTelephone: string;
 }
 
 export type AddSponsorFormData ={

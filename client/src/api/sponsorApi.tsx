@@ -6,3 +6,8 @@ export const addSponsor = async (sponsorsName:string, sponsorsCompany:string, sp
         const result = await axios.post(url, { sponsorsName:sponsorsName, sponsorsCompany:sponsorsCompany, sponsorsEmail:sponsorsEmail, sponsorsTelephone:sponsorsTelephone});
         return result.data;
 }
+
+export const getSponsors = async (): Promise<Sponsor[]> => {
+        const response = await axios.get(url);
+        return response.data;
+};
