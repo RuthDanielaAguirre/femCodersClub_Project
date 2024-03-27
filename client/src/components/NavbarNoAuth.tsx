@@ -1,11 +1,12 @@
 
 import { Link } from 'react-router-dom'
 import FemCodersClubLogo from '../../public/FemCodersClubLogo.png'
+import { styles } from '../style'
 
 const NavbarNoAuth = () => {
   return (
-    <nav className="bg-gradient-to-r from-primary via-accent to-secondary">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-24">
+    <nav className="bg-gradient-to-r from-primary via-accent to-secondary px-8">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
           <Link to="/"><img src={FemCodersClubLogo} className="w-24" alt="Fem Coder Club Logo" /></Link>
         </a>
@@ -17,24 +18,24 @@ const NavbarNoAuth = () => {
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
           <ul className="flex flex-col font-headerText font-bold p-4 md:p-0 md:space-x-8 md:flex-row flex items-center">
-            <li className="flex items-center block px-3 text-primary rounded md:bg-transparent md:text-primary md:p-0 hover:text-tertiary sm: my-4">
+            <li className="flex items-center block px-3 text-[18px] font-semibold text-bodyTexttext-primary rounded md:bg-transparent md:text-primary md:p-0 hover:text-tertiary sm: my-4">
               <Link to="/sobrenosotras">Sobre nosotras</Link>
             </li>
-            <li className="flex items-center block px-3 text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0 sm: my-4">
+            <li className="flex items-center block px-3 text-[18px] font-semibold text-bodyText text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0 sm: my-4">
               <Link to="/equipo">Equipo</Link>
             </li>
-            <li className="flex items-center block px-3 text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0 sm: my-4">
+            <li className="flex items-center block px-3 text-[18px] font-semibold text-bodyText text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0 sm: my-4">
               <Link to="/eventos">Eventos</Link>
             </li>
-            <li className="flex items-center block px-3 text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0 sm: my-4">
+            <li className="flex items-center block px-3 text-[18px] font-semibold text-bodyText text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0 sm: my-4">
               <Link to="/contacto">Contacto</Link>
             </li>
-            <li className="flex items-center block px-3 text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:terciary md:p-0 sm: my-4">
+            <li className="flex items-center block px-3 text-[18px] font-semibold text-bodyText text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:terciary md:p-0 sm: my-4">
               <Link to="/faqs">FAQs</Link>
             </li>
-            <div>
-              <Link to="/login"><button type="button" className="text-primary bg-tertiary hover:bg-[#CC5D3D] font-headerText font-bold rounded-lg text-sm px-5 py-2 me-2 sm: my-4">Iniciar sesión</button></Link>
-              <Link to="/signup"><button type="button" className="text-white border hover:bg-accent font-headerText font-bold rounded-lg text-sm px-5 py-2 me-2 sm: my-4">Registrarse</button></Link>
+            <div className='flex gap-4'>
+              <Link to="/login"><button className={`${styles.primaryBtn} w-[150px] h-[40px]`}>Iniciar sesión</button></Link>
+              <Link to="/signup"><button className={`${styles.outlineBtn} w-[150px] h-[40px]`}>Registrarse</button></Link>
             </div>
           </ul>
         </div>
