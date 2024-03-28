@@ -31,6 +31,16 @@ export type AddSponsorFormData ={
     sponsorsTelephone: string;
 }
 
+export type EditSponsorFormData = {
+    idPotential_Sponsors: string;
+    updatedSponsor:{
+        sponsorsName: string;
+        sponsorsCompany: string;
+        sponsorsEmail: string;
+        sponsorsTelephone: string;
+    }
+}
+
 export type Faq ={
     idFaq: number;
     faqQuestion: string;

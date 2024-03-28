@@ -35,7 +35,6 @@ const SponsorTable = () => {
                         <TableRow key={sponsors.idPotential_Sponsors} className="bg-white py-4 dark:border-gray-700 dark:bg-gray-800">
                             <TableCell className="whitespace-nowrap text-contrast dark:text-white p-2 pl-5">
                                 { sponsors.sponsorsName }
-                                <span id={sponsors.idPotential_Sponsors}>{sponsors.sponsorsName}</span>
                             </TableCell>
                                 
                             <TableCell className='text-contrast z-[100]'>
