@@ -10,6 +10,7 @@ import { RiQuestionnaireFill } from "react-icons/ri";
 import SponsorContainer from '../components/sponsor/SponsorContainer';
 import bgAdmin2 from '../../../../public/bgAdmin2.svg'
 import FaqContainer from '../components/faq/FaqContainer';
+import { VolunteerContainer } from '../components/volunteer/VolunteerContainer';
 
 'use client';
 
@@ -57,7 +58,7 @@ const AdminPage = () => {
             )}
             {selectedTab === 2 && (
               <>
-                { <h1>Voluntarios</h1> }
+                { <VolunteerContainer/>}
               </>
             )}
             {selectedTab === 3 && (
