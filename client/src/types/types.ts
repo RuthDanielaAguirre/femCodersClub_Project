@@ -17,11 +17,11 @@ export type SignUpFormData = {
 }
 
 export type Sponsor ={
-    id: number;
-    name: string;
-    company: string;
-    email: string;
-    telephone: string;
+    idPotential_Sponsors: string;
+    sponsorsName: string;
+    sponsorsCompany: string;
+    sponsorsEmail: string;
+    sponsorsTelephone: string;
 }
 
 export type AddSponsorFormData ={
@@ -29,6 +29,20 @@ export type AddSponsorFormData ={
     sponsorsCompany: string;
     sponsorsEmail: string;
     sponsorsTelephone: string;
+}
+
+export type EditSponsorFormData = {
+    idPotential_Sponsors: string;
+    updatedSponsor:{
+        sponsorsName: string;
+        sponsorsCompany: string;
+        sponsorsEmail: string;
+        sponsorsTelephone: string;
+    }
+}
+
+export type DeleteSponsorType = {
+    sponsorId: string;
 }
 
 export type Faq ={

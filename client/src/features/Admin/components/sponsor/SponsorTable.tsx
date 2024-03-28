@@ -1,70 +1,80 @@
 
 import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from 'flowbite-react';
 import AdminModal from '../AdminModal';
-import EditSponsorForm from './EdditSponsorForm';
+import EditSponsorForm from './EditSponsorForm';
 import DeleteSponsor from './DeleteSponsor';
+import { getSponsors } from '../../../../api/sponsorApi';
+import { useQuery } from '@tanstack/react-query';
+import { SponsorContext } from '../../../../hooks/useSponsorContext';
+import { Sponsor } from '../../../../types/types';
 
 const SponsorTable = () => {
+
+    const { data } = useQuery<Sponsor[]>(
+        {
+            queryKey: ['sponsors'],
+            queryFn: getSponsors,
+        }
+        );
+        console.log(data);
+
     return (
         <div className="overflow-x-auto">
         <Table className='bg-transparent'>
             <TableHead className='text-primary text-[18px] bg-secondary'>
-                <TableHeadCell className='text-start font-semibold p-2 bg-transparent'>Nombre</TableHeadCell>
-                <TableHeadCell className='text-start font-semibold bg-transparent'>Entidad</TableHeadCell>
-                <TableHeadCell className='text-start font-semibold bg-transparent'>Teléfono</TableHeadCell>
-                <TableHeadCell className='text-start font-semibold bg-transparent'>Status</TableHeadCell>
+                <TableHeadCell className='text-start font-semibold p-2 pl-5 text-[16px] bg-transparent'>Nombre</TableHeadCell>
+                <TableHeadCell className='text-start font-semibold text-[16px] bg-transparent'>Entidad</TableHeadCell>
+                <TableHeadCell className='text-start font-semibold text-[16px] bg-transparent'>Teléfono</TableHeadCell>
+                <TableHeadCell className='text-start font-semibold text-[16px] bg-transparent'>Status</TableHeadCell>
                 <TableHeadCell className=' bg-transparent' >
                 </TableHeadCell>
             </TableHead>
             <TableBody className="divide-y text-contrast">
-                <TableRow className="bg-white py-4 dark:border-gray-700 dark:bg-gray-800">
-                    <TableCell className="whitespace-nowrap text-contrast dark:text-white p-2">Sponsor1</TableCell>
-                    <TableCell>Entidad1</TableCell>
-                    <TableCell>Telefono1</TableCell>
-                    <TableCell>pending</TableCell>
-                    <TableCell className='w-[250px] px-0 space-x-2'>
-                        <div className='flex w-full justify-end'>
-                        <AdminModal 
-                            text = 'editar'
-                            width = '120px'
-                            fontColor = 'tertiary'
-                            fonthover= 'primary'
-                            bg = 'primary'
-                            children={<EditSponsorForm/>}
-                        />
-                        <AdminModal 
-                            text = 'borrar'
-                            width = '120px'
-                            fontColor = 'secondary'
-                            fonthover= 'primary'
-                            bg = 'primary'
-                            children={<DeleteSponsor/>}
-                        />
-                        </div>
-                    </TableCell>
-                </TableRow>
-                <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                    <TableCell className="whitespace-nowrap text-contrast dark:text-white p-2">Sponsor2</TableCell>
-                    <TableCell>Entidad2</TableCell>
-                    <TableCell>Telefono2</TableCell>
-                    <TableCell>activo</TableCell>
-                    <TableCell>
-                    <a href="#" className="font-medium text-accent hover:underline dark:text-cyan-500">
-                        ver mas
-                    </a>
-                    </TableCell>
-                </TableRow>
-                <TableRow className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                    <TableCell className="whitespace-nowrap text-contrast dark:text-white p-2">Sponsor3</TableCell>
-                    <TableCell>Entidad3</TableCell>
-                    <TableCell>Telefono3</TableCell>
-                    <TableCell>activo</TableCell>
-                    <TableCell>
-                    <a href="#" className="font-medium text-accent hover:underline dark:text-cyan-500">
-                    ver mas
-                    </a>
-                    </TableCell>
-                </TableRow>
+                {
+                    data?.map( (sponsors) =>
+                        <TableRow key={sponsors.idPotential_Sponsors} className="bg-white py-4 dark:border-gray-700 dark:bg-gray-800">
+                            <TableCell className="whitespace-nowrap text-contrast dark:text-white p-2 pl-5">
+                                { sponsors.sponsorsName }
+                            </TableCell>
+                                
+                            <TableCell className='text-contrast z-[100]'>
+                                { sponsors.sponsorsCompany }
+                            </TableCell>
+
+                            <TableCell>
+                                { sponsors.sponsorsEmail }
+                            </TableCell>
+
+                            <TableCell>
+                                { sponsors.sponsorsTelephone }
+                            </TableCell>
+                            
+                            <TableCell className='w-[250px] px-0 space-x-2'>
+                                <div className='flex w-full justify-end'>
+                                    <SponsorContext.Provider value={sponsors}>
+                                        <AdminModal
+                                            text = 'editar'
+                                            width = '120px'
+                                            fontColor = 'tertiary'
+                                            fonthover= 'primary'
+                                            bg = 'primary'
+                                        >
+                                            <EditSponsorForm/>
+                                        </AdminModal>
+                                        <AdminModal 
+                                            text = 'borrar'
+                                            width = '120px'
+                                            fontColor = 'secondary'
+                                            fonthover= 'primary'
+                                            bg = 'primary'
+                                        >
+                                            <DeleteSponsor/>
+                                        </AdminModal>
+                                    </SponsorContext.Provider>
+                                </div>
+                            </TableCell>
+                    </TableRow>
+                    )}
             </TableBody>
         </Table>
         </div>
