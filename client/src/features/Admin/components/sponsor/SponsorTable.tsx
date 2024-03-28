@@ -61,15 +61,16 @@ const SponsorTable = () => {
                                         >
                                             <EditSponsorForm/>
                                         </AdminModal>
+                                        <AdminModal 
+                                            text = 'borrar'
+                                            width = '120px'
+                                            fontColor = 'secondary'
+                                            fonthover= 'primary'
+                                            bg = 'primary'
+                                        >
+                                            <DeleteSponsor/>
+                                        </AdminModal>
                                     </SponsorContext.Provider>
-                                    <AdminModal 
-                                        text = 'borrar'
-                                        width = '120px'
-                                        fontColor = 'secondary'
-                                        fonthover= 'primary'
-                                        bg = 'primary'
-                                        children={<DeleteSponsor/>}
-                                    />
                                 </div>
                             </TableCell>
                     </TableRow>

@@ -17,3 +17,8 @@ export const updateSponsor = async (idPotential_Sponsors: string, updatedSponsor
         return response.data;
 };
 
+export const deleteSponsor = async (idPotential_Sponsors: string): Promise<Sponsor> => {
+        const response = await axios.delete(`${url}/${idPotential_Sponsors}`);
+        return response.data;
+};
+

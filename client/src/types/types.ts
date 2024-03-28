@@ -41,6 +41,10 @@ export type EditSponsorFormData = {
     }
 }
 
+export type DeleteSponsorType = {
+    sponsorId: string;
+}
+
 export type Faq ={
     idFaq: number;
     faqQuestion: string;
