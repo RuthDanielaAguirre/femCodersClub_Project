@@ -4,11 +4,8 @@ import { SponsorContext } from "../../../../hooks/useSponsorContext";
 import { deleteSponsor } from "../../../../api/sponsorApi";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { DeleteSponsorType, Sponsor } from "../../../../types/types";
-// import { useNavigate } from "react-router-dom";
 
 const DeleteSponsor = () => {
-
-    // const navigate = useNavigate();
     const [sponsorId, setSponsorId] = useState('');
     
     const sponsors = useContext(SponsorContext);
