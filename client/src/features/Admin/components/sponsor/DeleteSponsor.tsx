@@ -2,13 +2,13 @@ import { useContext, useEffect, useState } from "react";
 import { styles } from "../../../../style"
 import { SponsorContext } from "../../../../hooks/useSponsorContext";
 import { deleteSponsor } from "../../../../api/sponsorApi";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { DeleteSponsorType, Sponsor } from "../../../../types/types";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const DeleteSponsor = () => {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [sponsorId, setSponsorId] = useState('');
     
     const sponsors = useContext(SponsorContext);
@@ -22,12 +22,14 @@ const DeleteSponsor = () => {
 
     const mutationFn = async ({sponsorId}: DeleteSponsorType) => deleteSponsor(sponsorId);
 
+    const queryClient = useQueryClient();
+    
     const mutation = useMutation<Sponsor, Error, DeleteSponsorType>(
         {
             mutationFn,
-            onSuccess: () => {
-                console.log("this is working")
-            navigate('/signup');
+            onSuccess: async () => {
+                queryClient.invalidateQueries();
+                await queryClient.refetchQueries();
             },
             onError: (error) => console.error('Error:', error),
         }

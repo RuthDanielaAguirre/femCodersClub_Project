@@ -1,29 +1,32 @@
 import { SubmitHandler, useForm } from "react-hook-form"
 import { styles } from "../../../../style"
 import { AddSponsorFormData, Sponsor } from "../../../../types/types"
-import { useMutation } from "@tanstack/react-query"
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { addSponsor } from "../../../../api/sponsorApi"
+import { useNavigate } from "react-router-dom"
 
 const AddSponsorForm = () => {
-
+    const navigate = useNavigate();
+    
     const {register, handleSubmit, formState: { isSubmitting }} = useForm<AddSponsorFormData>()
-
+    
     const mutationFn = async ({ sponsorsName, sponsorsCompany, sponsorsEmail, sponsorsTelephone }: AddSponsorFormData) => addSponsor(sponsorsName, sponsorsCompany, sponsorsEmail, sponsorsTelephone);
-
+    
+    const queryClient = useQueryClient();
+    
     const mutation = useMutation<Sponsor, Error, AddSponsorFormData>(
         {
             mutationFn,
-            onSuccess: () => {
-                // navigate('/');
+            onSuccess: async () => {
+                queryClient.invalidateQueries();
+                await queryClient.refetchQueries();
+                navigate('/admin')
             },
             onError: (error) => console.error('Error:', error),
         }
     );
 
     const onSubmit: SubmitHandler<AddSponsorFormData> = async (data) => {
-
-        console.log(data);
-
         const sponsorsName = data.sponsorsName;
         const sponsorsCompany = data.sponsorsCompany;
         const sponsorsEmail = data.sponsorsEmail;

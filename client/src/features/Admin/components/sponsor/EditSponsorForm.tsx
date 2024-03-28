@@ -22,12 +22,15 @@ const EditSponsorForm = () => {
     }, []);
 
     const mutationFn = async ({ idPotential_Sponsors, updatedSponsor:{sponsorsName, sponsorsCompany, sponsorsEmail, sponsorsTelephone} }: EditSponsorFormData) => updateSponsor(idPotential_Sponsors, {sponsorsName, sponsorsCompany, sponsorsEmail, sponsorsTelephone});
+    
+    const queryClient = useQueryClient();
 
     const mutation = useMutation<Sponsor, Error, EditSponsorFormData>(
         {
             mutationFn,
-            onSuccess: () => {
-                // navigate('/');
+            onSuccess: async() => {
+                queryClient.invalidateQueries();
+                await queryClient.refetchQueries();
             },
             onError: (error) => console.error('Error:', error),
         }
@@ -49,14 +52,12 @@ const EditSponsorForm = () => {
 		setSponsorsEmail(e.target.value);
     }
 
-    const queryClient = useQueryClient();
+
 
 	const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
         const idPotential_Sponsors = sponsors.idPotential_Sponsors; 
 		mutation.mutate({ idPotential_Sponsors, updatedSponsor:{sponsorsName, sponsorsCompany, sponsorsEmail, sponsorsTelephone} })
-        queryClient.invalidateQueries();
-		await queryClient.refetchQueries();
     };
 
     return (
