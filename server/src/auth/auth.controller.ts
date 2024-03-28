@@ -6,6 +6,7 @@ import { SignupDto } from './dto/signup.dto';
 import { LoginDto } from './dto/login.dto';
 import { GoogleAuthGuard } from './utils/Guards';
 import { Request } from 'express';
+import { User } from 'src/user/entities/user.entity';
 
 
 @Controller('auth')
@@ -28,8 +29,7 @@ export class AuthController {
 @Get ('google/login')
 @UseGuards(GoogleAuthGuard)
 async handleLogin(){
-
-  return {msg:"google authentication"}
+  return User
 }
 
 @Get ('google/redirect')
