@@ -38,6 +38,14 @@ export type Volunteer={
     volunteerEmail: string;
     volunteerGender: string;
 }
+
+export type AddVolunteerData ={
+volunteersName: string;
+volunteersLastname: string;
+volunteersEmail: string;
+volunteersGender: string;
+}
+
 export type Faq ={
     
     faqQuestion: string;
