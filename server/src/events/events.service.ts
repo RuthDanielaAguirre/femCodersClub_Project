@@ -4,7 +4,7 @@ import { UpdateEventDto } from './dto/update-event.dto';
 import { HttpService } from '@nestjs/axios';
 import { AxiosResponse } from 'axios';
 import { Observable, catchError, identity, map, tap } from 'rxjs';
-import { log } from 'console';
+
 
 @Injectable()
 export class EventbriteService {
@@ -32,7 +32,6 @@ export class EventbriteService {
 
   async findAll() {
     // console.log(idOrganization);
-    
     return this.httpService
       .get(`https://www.eventbriteapi.com/v3/organizations/2076189237573/events/`
       ,
