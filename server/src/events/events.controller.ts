@@ -27,7 +27,7 @@ export class EventsController {
     @Param('idEvent') idEvent: number,
     @Body() event: UpdateEventDto,
   ) {
-   
+    console.log('prueba de si está entrando esta función o no');
     return this.eventbriteService.updateEvent(idEvent, event);
   }
 

@@ -57,7 +57,7 @@ export class EventbriteService {
     console.log('Iniciando solicitud de actualización del evento...')
     return this.httpService
       .post(
-        `https://www.eventbriteapi.com/v3/events/${idEvent}`,
+        `https://www.eventbriteapi.com/v3/events/${idEvent}/`,
         updateEventDto,
         {
           headers: {
