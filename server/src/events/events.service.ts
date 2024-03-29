@@ -50,29 +50,29 @@ export class EventbriteService {
       );
   }
 
-  // updateEvent(
-  //   idEvent: number,
-  //   updateEventDto: UpdateEventDto,
-  // ): Observable<any> {
-  //   console.log('Iniciando solicitud de actualización del evento...')
-  //   return this.httpService
-  //     .post(
-  //       `https://www.eventbriteapi.com/v3/events/${idEvent}`,
-  //       updateEventDto,
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer DCSSDPUMSEBOT4WC5R2C`,
-  //           Accept: 'application/json',
-  //         },
-  //       },
-  //     )
-  //     .pipe(
-  //       map((response) => {
-  //         console.log('Respuesta recibida:', response);
-  //         return response.data}),
-  //       catchError((error) => {
-  //         throw error;
-  //       }),
-  //     );      
-  // }
+  updateEvent(
+    idEvent: number,
+    updateEventDto: UpdateEventDto,
+  ): Observable<any> {
+    console.log('Iniciando solicitud de actualización del evento...')
+    return this.httpService
+      .post(
+        `https://www.eventbriteapi.com/v3/events/${idEvent}`,
+        updateEventDto,
+        {
+          headers: {
+            Authorization: `Bearer DCSSDPUMSEBOT4WC5R2C`,
+            Accept: 'application/json',
+          },
+        },
+      )
+      .pipe(
+        map((response) => {
+          console.log('Respuesta recibida:', response);
+          return response.data}),
+        catchError((error) => {
+          throw error;
+        }),
+      );      
+  }
 }
