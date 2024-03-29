@@ -13,11 +13,11 @@ export class EventbriteService {
   createEvent(createEventDto: CreateEventDto): Observable<any> {
     return this.httpService
       .post(
-        `${process.env.EVENTBRITE_URL_CREATE_EVENT}`,
+        'https://www.eventbriteapi.com/v3/organizations/2076189237573/events/',
         createEventDto,
         {
           headers: {
-            Authorization: `Bearer ${process.env.EVENTBRITE_API_KEY}`,
+            Authorization: `Bearer DCSSDPUMSEBOT4WC5R2C`,
             'Content-Type': 'application/json',
           },
         },
@@ -37,7 +37,7 @@ export class EventbriteService {
       ,
         {
           headers: {
-            Authorization: `Bearer ${process.env.EVENTBRITE_API_KEY}`,
+            Authorization: `Bearer DCSSDPUMSEBOT4WC5R2C`,
           },
         },
       )
@@ -61,7 +61,7 @@ export class EventbriteService {
   //       updateEventDto,
   //       {
   //         headers: {
-  //           Authorization: `Bearer ${process.env.EVENTBRITE_API_KEY}`,
+  //           Authorization: `Bearer DCSSDPUMSEBOT4WC5R2C`,
   //           Accept: 'application/json',
   //         },
   //       },
