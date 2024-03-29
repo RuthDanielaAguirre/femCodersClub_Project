@@ -25,7 +25,7 @@ import { HttpModule } from '@nestjs/axios';
       port: 20668,
       username: 'avnadmin',
       password: 'AVNS_LRnQtzlbOaJUUkubhbp',
-      database: 'defaultdb',
+      database: 'mydb',
       entities: ['dist/**/*.entity.js'],
       synchronize: false,
     }),
