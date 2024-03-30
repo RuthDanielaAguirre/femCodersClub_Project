@@ -32,7 +32,7 @@ const SponsorTable = () => {
             <TableBody className="divide-y text-contrast">
                 {
                     data?.map( (sponsors) =>
-                        <TableRow key={sponsors.idPotential_Sponsors} className="bg-white py-4 dark:border-gray-700 dark:bg-gray-800">
+                        <TableRow key={sponsors.idPotential_Sponsors} className="bg-accent/10 border-2  border-primary py-4 dark:border-gray-700 dark:bg-gray-800">
                             <TableCell className="whitespace-nowrap text-contrast dark:text-white p-2 pl-5">
                                 { sponsors.sponsorsName }
                             </TableCell>
@@ -50,10 +50,10 @@ const SponsorTable = () => {
                             </TableCell>
                             
                             <TableCell className='w-[250px] px-0 space-x-2'>
-                                <div className='flex w-full justify-end'>
+                                <div className='flex w-full justify-start gap-2 mr-2'>
                                     <SponsorContext.Provider value={sponsors}>
                                         <AdminModal
-                                            text = 'editar'
+                                            text = 'Editar'
                                             width = '120px'
                                             fontColor = 'tertiary'
                                             fonthover= 'primary'
@@ -62,7 +62,7 @@ const SponsorTable = () => {
                                             <EditSponsorForm/>
                                         </AdminModal>
                                         <AdminModal 
-                                            text = 'borrar'
+                                            text = 'Borrar'
                                             width = '120px'
                                             fontColor = 'secondary'
                                             fonthover= 'primary'
