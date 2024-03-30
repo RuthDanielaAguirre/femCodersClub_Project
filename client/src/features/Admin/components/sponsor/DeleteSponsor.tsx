@@ -4,9 +4,11 @@ import { SponsorContext } from "../../../../hooks/useSponsorContext";
 import { deleteSponsor } from "../../../../api/sponsorApi";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { DeleteSponsorType, Sponsor } from "../../../../types/types";
+import SpinerModal from "../../../../components/SpinnerModal";
 
 const DeleteSponsor = () => {
     const [sponsorId, setSponsorId] = useState('');
+    const [loading, setLoading] = useState<boolean>(false);
     
     const sponsors = useContext(SponsorContext);
 
@@ -27,6 +29,7 @@ const DeleteSponsor = () => {
             onSuccess: async () => {
                 queryClient.invalidateQueries();
                 await queryClient.refetchQueries();
+                setLoading(false);
             },
             onError: (error) => console.error('Error:', error),
         }
@@ -34,6 +37,7 @@ const DeleteSponsor = () => {
 
     const handleClick = () => {
         mutation.mutate({sponsorId});
+        setLoading(true);
     }
 
     return (
@@ -43,6 +47,7 @@ const DeleteSponsor = () => {
             <button onClick={handleClick} className={`${styles.cancelModalBtn} w-[200px] self-center`}>
                 Aceptar
             </button>
+            <SpinerModal isVisible={loading} />
         </div>
     )
 }
