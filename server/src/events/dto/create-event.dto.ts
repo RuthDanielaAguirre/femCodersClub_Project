@@ -1,20 +1,16 @@
-
-
 export class CreateEventDto {
-
-    start: {
-        timezone: string;
-        utc: string; 
-    };
-
-    end: {
-        timezone: string;
-        utc: string; 
-    };
-
-    currency: string;
-    
+  event: {
     name: {
-        html: string; 
+      html: string;
     };
+    start: {
+      timezone: string;
+      utc: Date;
+    };
+    end: {
+      timezone: string;
+      utc: Date;
+    };
+    currency: string;
+  };
 }

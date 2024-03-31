@@ -33,6 +33,9 @@ function AdminModal(element:ModalProps) {
                     <div className="relative w-[800px] h-[700px] flex flex-col justify-center bg-primary rounded-[24px] px-24 overflow-hidden">
                         <img src={bgModal} className="absolute top-0 left-0" alt="" />
                         <button className="absolute right-3 top-2 text-primary text-2xl place-self-end" onClick={() => setOpenModal(false)}>(x)</button>
+                        <div className="w-full flex justify-center items-center">
+                            <button className={`${styles.cancelModalBtn} w-[250px] z-[3] absolute bottom-[250px]`} onClick={() => setOpenModal(false)}>aceptar</button>
+                        </div>
                         {element.children}
                     </div>
                 </div>

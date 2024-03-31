@@ -3,7 +3,8 @@ import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
 import { HttpService } from '@nestjs/axios';
 import { AxiosResponse } from 'axios';
-import { Observable, catchError, map } from 'rxjs';
+import { Observable, catchError, identity, map, tap } from 'rxjs';
+
 
 @Injectable()
 export class EventbriteService {
@@ -12,7 +13,7 @@ export class EventbriteService {
   createEvent(createEventDto: CreateEventDto): Observable<any> {
     return this.httpService
       .post(
-        `https://www.eventbriteapi.com/v3/organizations/2076189237573/events/`,
+        'https://www.eventbriteapi.com/v3/organizations/2076189237573/events/',
         createEventDto,
         {
           headers: {
@@ -30,16 +31,18 @@ export class EventbriteService {
   }
 
   async findAll() {
-    this.httpService
-      .get(
-        `https://www.eventbriteapi.com/v3/organizations/${process.env.EVENTBRITE_ID_ORGANIZATION}/events`,
+    // console.log(idOrganization);
+    return this.httpService
+      .get(`https://www.eventbriteapi.com/v3/organizations/2076189237573/events/`
+      ,
         {
           headers: {
-            Authorization: `Bearer ${process.env.EVENTBRITE_API_KEY}`,
+            Authorization: `Bearer DCSSDPUMSEBOT4WC5R2C`,
           },
         },
       )
       .pipe(
+        tap((response) => console.log(response.data)),
         map((response) => response.data),
         catchError((error) => {
           throw error;
@@ -51,9 +54,10 @@ export class EventbriteService {
     idEvent: number,
     updateEventDto: UpdateEventDto,
   ): Observable<any> {
+    console.log('Iniciando solicitud de actualización del evento...')
     return this.httpService
       .post(
-        `https://www.eventbriteapi.com/v3/events/${idEvent}`,
+        `https://www.eventbriteapi.com/v3/events/${idEvent}/`,
         updateEventDto,
         {
           headers: {
@@ -63,10 +67,12 @@ export class EventbriteService {
         },
       )
       .pipe(
-        map((response) => response.data),
+        map((response) => {
+          console.log('Respuesta recibida:', response);
+          return response.data}),
         catchError((error) => {
           throw error;
         }),
-      );
+      );      
   }
 }

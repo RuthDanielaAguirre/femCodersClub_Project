@@ -1,7 +1,7 @@
 export const styles = {
     primaryBtn: "text-primary bg-tertiary hover:bg-contrast/80 font-medium rounded-[8px] text-[18px] h-[40px] shadow-lg border-b-2 border-contrast/5 shadow-accent/20",
-    secondaryBtn: "flex justify-center items-center gap-2 text-contrast/60 font-semibold bg-primary hover:text-primary hover:bg-contrast/80 rounded-[8px] text-[18px] h-[40px] w-full border-2 border-accent/5 hover:border-none shadow-lg shadow-accent/20 me-2 focus:outline-none",
-    tertiaryBtn:"text-accent hover:text-primary hover:bg-contrast/80 font-medium rounded-[8px] text-[18px] h-[40px] w-full shadow-lg border-2 border-accent hover:border-none shadow-accent/20 me-2",
+    secondaryBtn: "flex justify-center items-center gap-2 text-contrast/60 font-semibold bg-primary hover:text-primary hover:bg-contrast/80 rounded-[8px] text-[18px] h-[40px] w-full border-2 border-accent/5 hover:border-none shadow-lg shadow-accent/20 focus:outline-none",
+    tertiaryBtn:"text-accent hover:text-primary hover:bg-contrast/80 font-medium rounded-[8px] text-[18px] h-[40px] shadow-lg border-2 border-accent hover:border-none shadow-accent/20",
     outlineBtn: "text-primary border-primary hover:bg-accent font-medium rounded-[8px] text-[18px] h-[40px] shadow-lg border border-contrast/5 shadow-accent/20",
     basicModalBtn: "hover:bg-secondary/80 text-primary font-medium rounded-[8px] text-[18px] h-[40px] shadow-lg border-b-2 border-contrast/5 shadow-accent/20", 
     cancelModalBtn: "text-primary bg-secondary hover:bg-contrast font-semibold rounded-[8px] text-[18px] h-[40px] shadow-lg border-b-2 border-contrast/5 shadow-contrast/30 ",
@@ -24,7 +24,12 @@ export const styles = {
     
     hoverIcon: "hover:bg-contrast/80",
 
-    active:" text-accent font-bold",
+    active:"text-accent font-bold bg-primary",
 
-    item: "flex items-center gap-2 bg-primary/50 hover:bg-primary/30 text-center p-4 rounded-[16px] text-[30px] lg:text-[20px] w-fit lg:w-full",
+    item: "hidden md:flex items-center gap-2 border-2 hover:bg-primary/80 text-center p-4 lg:rounded-r-none lg:rounded-l-[16px] rounded-t-[16px] text-[30px] lg:text-[20px] w-fit lg:w-full",
+    
+    item2: "flex items-center gap-2 border-2 hover:bg-primary/80 text-center p-4 lg:rounded-r-none lg:rounded-l-[16px] rounded-t-[16px] text-[30px] lg:text-[20px] w-fit lg:w-full",
+
+    itemScan: "flex items-center gap-2 bg-primary/50 hover:bg-primary/30 text-center p-4 rounded-[16px] text-[30px] lg:text-[20px] w-fit lg:w-full",
+
 }
