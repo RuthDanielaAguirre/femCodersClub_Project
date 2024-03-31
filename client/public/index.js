@@ -31,6 +31,7 @@ import imgEvents from "./imgEvents.png";
 import imgSponsor from "./imgSponsor.png";
 import imgVolunteer from "./imgVolunteer.png";
 import slack from "./slack.png";
+import bgUserDashboard from "./bgUserDashboard";
 
 export {
     AboutUs2,
@@ -66,4 +67,5 @@ export {
     imgSponsor, 
     imgVolunteer, 
     slack, 
+    bgUserDashboard,
 };
