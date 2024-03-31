@@ -12,7 +12,7 @@ import SponsorContainer from '../components/sponsor/SponsorContainer';
 import bgAdmin2 from '../../../../public/bgAdmin2.svg'
 import FaqContainer from '../components/faq/FaqContainer';
 import { VolunteerContainer } from '../components/volunteer/VolunteerContainer';
-import ScannerContainer from '../components/qrCode/ScannerContainer';
+import QrScanner from '../components/qrCode/QrScanner';
 
 'use client';
 
@@ -89,7 +89,7 @@ const AdminPage = () => {
             )}
             {selectedTab === 6 && (
               <>
-                { <ScannerContainer/> }
+                { <QrScanner/> }
               </>
             )}
               

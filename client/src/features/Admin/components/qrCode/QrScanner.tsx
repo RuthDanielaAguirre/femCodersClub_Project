@@ -29,13 +29,14 @@ const QrScanner = () => {
     
     return (
         <div className='flex justify-center w-full h-full'>
-            {
-            scanResult ?
+            {scanResult 
+            ?
             <div className='text-xl text-contrast w-full h-fit overflow-hidden'>
                 <h1>Lectura exitosa!!</h1>
                 <p>Asistente: {scanResult}</p>
             </div>
-            :<div className='w-full text-contrast text-xl flex flex-col items-center justify-center' id='reader'></div>
+            :
+            <div className='w-[300px] text-contrast text-xl flex flex-col items-center justify-center' id='reader'></div>
             }
         </div>
     )
