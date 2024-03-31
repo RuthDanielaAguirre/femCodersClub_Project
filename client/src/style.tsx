@@ -24,9 +24,11 @@ export const styles = {
     
     hoverIcon: "hover:bg-contrast/80",
 
-    active:" text-accent font-bold",
+    active:"text-accent font-bold bg-primary",
 
-    item: "hidden md:flex items-center gap-2 bg-primary/50 hover:bg-primary/30 text-center p-4 rounded-[16px] text-[30px] lg:text-[20px] w-fit lg:w-full",
+    item: "hidden md:flex items-center gap-2 border-2 hover:bg-primary/80 text-center p-4 lg:rounded-r-none lg:rounded-l-[16px] rounded-t-[16px] text-[30px] lg:text-[20px] w-fit lg:w-full",
+    
+    item2: "flex items-center gap-2 border-2 hover:bg-primary/80 text-center p-4 lg:rounded-r-none lg:rounded-l-[16px] rounded-t-[16px] text-[30px] lg:text-[20px] w-fit lg:w-full",
 
     itemScan: "flex items-center gap-2 bg-primary/50 hover:bg-primary/30 text-center p-4 rounded-[16px] text-[30px] lg:text-[20px] w-fit lg:w-full",
 
