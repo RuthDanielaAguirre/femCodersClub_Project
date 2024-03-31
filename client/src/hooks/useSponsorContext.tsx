@@ -1,7 +1,14 @@
 import { createContext, useContext } from 'react';
 import { Sponsor } from '../types/types'
 
-export const SponsorContext = createContext <Sponsor | undefined>(undefined);
+const initialState:Sponsor = {
+	idPotential_Sponsors: "",
+	sponsorsName: "",
+	sponsorsCompany: "",
+	sponsorsEmail: "",
+	sponsorsTelephone: "",
+}
+export const SponsorContext = createContext <Sponsor>(initialState);
 
 export const useSponsorContext = () => {
 	const sponsors = useContext(SponsorContext);
