@@ -3,6 +3,7 @@ import { Layout } from "../../../components/Layout/Layout";
 import { styles } from "../../../style";
 import { BsCalendarHeart, BsFillPersonFill } from "react-icons/bs";
 import bgUserDashboard from '../../../../public/bgUserDashboard.svg'
+import UserProfile from "../components/UserProfile";
 
 const UserPage = () => {
   const [selectedTab, setSelectedTab] = useState<number>(1);
@@ -32,7 +33,7 @@ const UserPage = () => {
           <div className="">
             {selectedTab === 1 && (
               <>
-                { <h1>Mi perfil</h1> }
+                { <UserProfile/> }
               </>
             )}
             {selectedTab === 2 && (
