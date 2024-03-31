@@ -79,7 +79,7 @@ export class AuthService {
       token: jwtToken,
       name: user.userName,
       lastName: user.userLastName,
-      gender: user.userLastName,
+      gender: user.userGender,
       email: user.userEmail,
       telephone: user.userTelephone,
       role: user.userRole,
