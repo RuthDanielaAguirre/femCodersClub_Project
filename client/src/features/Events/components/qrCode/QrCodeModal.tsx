@@ -11,7 +11,7 @@ function QrCodeModal() {
     const [src, setSrc] = useState('');
 
     const generate = () => {
-        QRCode.toDataURL(`https://github.com${userName}`).then(setSrc);
+        QRCode.toDataURL(`${userName}`).then(setSrc);
         setOpenModal(true);
     }
 
@@ -32,7 +32,8 @@ function QrCodeModal() {
                         <h1 className="text-3xl text-secondary font-bold">¡Se ha confirmado tu reserva!</h1>
                         <p className="text-contrast w-[360px] text-center">No te olvides de tener a mano tu código QR cuando llegues al evento.</p>
                         <p className="text-contrast">¡Nos vemos!</p>
-                        <button className={`${styles.primaryBtn} w-[250px] mt-2`}>Aceptar</button>
+                        <button className={`${styles.primaryBtn} w-[250px] mt-2`} onClick={() => setOpenModal(false)}>Aceptar</button>
+                        <a href={src} download className={`${styles.tertiaryBtn} w-[250px] mt-2 flex items-center justify-center`} onClick={() => setOpenModal(false)}>Descargar codigo QR</a>
                     </div>
                 </div>
             </Modal>
