@@ -8,6 +8,7 @@ import bgAdmin2 from "./bgAdmin2.svg";
 import bgContactSponsors from "./bgContactSponsors.png";
 import bgContact from "./bgContact.png";
 import bgEvents from "./bgEvents.svg";
+import bgEvents1 from ".bgEvents1.png";
 import bgFaqs from "./bgFaqs.svg";
 import bgLogin from "./bgLogin.svg";
 import bgModal from "./bgModal.svg";
@@ -43,6 +44,7 @@ export {
     bgContactSponsors,
     bgContact,
     bgEvents,
+    bgEvents1,
     bgFaqs,
     bgLogin,
     bgModal,
