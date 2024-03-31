@@ -20,6 +20,9 @@ dependencies:
   flowbite-react:
     specifier: ^0.7.3
     version: 0.7.3(react-dom@18.2.0)(react@18.2.0)(tailwindcss@3.4.1)
+  html5-qrcode:
+    specifier: 2.1.5
+    version: 2.1.5
   prop-types:
     specifier: ^15.8.1
     version: 15.8.1
@@ -2278,6 +2281,10 @@ packages:
     dependencies:
       whatwg-encoding: 3.1.1
     dev: true
+
+  /html5-qrcode@2.1.5:
+    resolution: {integrity: sha512-3cOA0lPIcKtMd7Sz9BZm5ERAokv5uj35zT3o59LMVF6wLesYJ4WZaD28Z0OPnsfxe4dHGFgZ3RZ1si8f2AfOGw==}
+    dev: false
 
   /http-proxy-agent@7.0.2:
     resolution: {integrity: sha512-T1gkAiYYDWYx3V5Bmyu7HcfcvL7mUrTWiM6yOfa3PIphViJ/gFPbvidQ+veqSOHci/PxBcDabeUNCzpOODJZig==}

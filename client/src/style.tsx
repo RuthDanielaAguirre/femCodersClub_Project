@@ -26,5 +26,8 @@ export const styles = {
 
     active:" text-accent font-bold",
 
-    item: "flex items-center gap-2 bg-primary/50 hover:bg-primary/30 text-center p-4 rounded-[16px] text-[30px] lg:text-[20px] w-fit lg:w-full",
+    item: "hidden md:flex items-center gap-2 bg-primary/50 hover:bg-primary/30 text-center p-4 rounded-[16px] text-[30px] lg:text-[20px] w-fit lg:w-full",
+
+    itemScan: "flex items-center gap-2 bg-primary/50 hover:bg-primary/30 text-center p-4 rounded-[16px] text-[30px] lg:text-[20px] w-fit lg:w-full",
+
 }

@@ -7,10 +7,12 @@ import { MdVolunteerActivism } from "react-icons/md";
 import { GoSponsorTiers } from "react-icons/go";
 import { BiCalendar } from "react-icons/bi";
 import { RiQuestionnaireFill } from "react-icons/ri";
+import { BsQrCodeScan } from "react-icons/bs";
 import SponsorContainer from '../components/sponsor/SponsorContainer';
 import bgAdmin2 from '../../../../public/bgAdmin2.svg'
 import FaqContainer from '../components/faq/FaqContainer';
 import { VolunteerContainer } from '../components/volunteer/VolunteerContainer';
+import ScannerContainer from '../components/qrCode/ScannerContainer';
 
 'use client';
 
@@ -23,8 +25,8 @@ const AdminPage = () => {
   
   return (
     <Layout>
-      <div className="relative overflow-hidden flex flex-col gap-2 lg:flex-row justify-center items-start h-fit bg-fixed py-[100px] lg:px-[100px] sm:px-10 px-3">
-        <img src={bgAdmin2} className='absolute top-0 z-[-1] w-full' alt="" />
+      <div className="relative overflow-hidden flex flex-col gap-2 lg:flex-row justify-center items-start h-fit bg-fixed py-[100px] lg:px-[50px] sm:px-10 px-3">
+        <img src={bgAdmin2} className='absolute left-0 top-0 z-[-1] w-full' alt="" />
         <nav aria-label="Admin-navbar" className='flex flex-col p-0 m-0 w-fit lg:rounded-[24px] overflow-hidden bg-gray-40 text-secondary font-semibold'>
             <ul className='flex flex-row lg:flex-col w-fit lg:min-w-[200px] gap-2 p-0 m-0'>
               <li className={[styles.item, selectedTab === 1 ? styles.active : null].join(" ")} onClick={() => handleTabClick(1)}>
@@ -46,6 +48,10 @@ const AdminPage = () => {
               <li className={[styles.item, selectedTab === 5 ? styles.active : null].join(" ")} onClick={() => handleTabClick(5)}>
                 <RiQuestionnaireFill/>
                 <span className='lg:flex hidden'>FAQs</span>
+              </li>
+              <li className={[styles.itemScan, selectedTab === 6 ? styles.active : null].join(" ")} onClick={() => handleTabClick(6)}>
+                <BsQrCodeScan />
+                <span className='lg:flex hidden'>QR Scanner</span>
               </li>
             </ul>
         </nav>
@@ -79,6 +85,11 @@ const AdminPage = () => {
                   <FaqContainer/>
                 </div>
                 </>}
+              </>
+            )}
+            {selectedTab === 6 && (
+              <>
+                { <ScannerContainer/> }
               </>
             )}
               

@@ -16,6 +16,7 @@
     "@types/qrcode": "^1.5.5",
     "axios": "^1.6.8",
     "flowbite-react": "^0.7.3",
+    "html5-qrcode": "2.1.5",
     "prop-types": "^15.8.1",
     "qrcode": "^1.5.3",
     "react": "^18.2.0",
