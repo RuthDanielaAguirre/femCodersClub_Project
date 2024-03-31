@@ -7,7 +7,7 @@ import { styles } from "../../../../style";
 export const AddVolunteerForm = () => {
     const {register, handleSubmit, formState: {isSubmitting}}= useForm<AddVolunteerData>();
 
-    const mutationFn = async ({volunteersName, volunteersLastname, volunteersEmail, volunteersGender}: AddVolunteerData) => addVolunteer(volunteersName, volunteersLastname, volunteersEmail, volunteersGender);
+    const mutationFn = async ({volunteerName, volunteerLastName, volunteerEmail, volunteerGender}: AddVolunteerData) => addVolunteer(volunteerName, volunteerLastName, volunteerEmail, volunteerGender);
 
     const mutation = useMutation<Volunteer, Error, AddVolunteerData>({
       mutationFn, 
@@ -18,12 +18,12 @@ export const AddVolunteerForm = () => {
     })
 
     const onSubmit: SubmitHandler<AddVolunteerData>= async(data) =>{
-      const volunteersName = data.volunteersName;
-      const volunteersLastname= data.volunteersLastname;
-      const volunteersEmail= data.volunteersEmail;
-      const volunteersGender= data.volunteersGender;
+      const volunteerName = data.volunteerName;
+      const volunteerLastName= data.volunteerLastName;
+      const volunteerEmail= data.volunteerEmail;
+      const volunteerGender= data.volunteerGender;
 
-      mutation.mutate({volunteersName, volunteersLastname, volunteersEmail, volunteersGender})
+      mutation.mutate({volunteerName, volunteerLastName, volunteerEmail, volunteerGender})
     }
 
   return (
@@ -32,16 +32,16 @@ export const AddVolunteerForm = () => {
         <h1>Agrega un voluntario:</h1>
         <form action="#">
           <label htmlFor="name">Nombre:</label>
-          <input {...register('volunteersName')} type="text" aria-label="name" className={`${styles.input}`} />
+          <input {...register('volunteerName')} type="text" aria-label="name" className={`${styles.input}`} />
 
           <label htmlFor="lastName">Apellido/s:</label>
-          <input {...register('volunteersLastname')} type="text" />
+          <input {...register('volunteerLastName')} type="text" />
 
           <label htmlFor="email">Correo Electrónico:</label>
-          <input {...register('volunteersEmail')} type="text" />
+          <input {...register('volunteerEmail')} type="text" />
 
           <label htmlFor="gender">Género:</label>
-          <select {...register('volunteersGender')} name="SelectedGender" id="gender">
+          <select {...register('volunteerGender')} name="SelectedGender" id="gender">
             <option value="mujer">Mujer</option>
             <option value="hombre">Hombre</option>
             <option value="nobinario">No Binario</option>
