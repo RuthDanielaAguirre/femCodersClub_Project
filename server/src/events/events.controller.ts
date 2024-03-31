@@ -22,14 +22,14 @@ export class EventsController {
     return this.eventbriteService.createEvent(createEventDto);
   }
 
-  // @Post('update/event/:idEvent')
-  // updateEvent(
-  //   @Param('idEvent') idEvent: number,
-  //   @Body() event: UpdateEventDto,
-  // ) {
-  //   // console.log('prueba de si está entrando esta función o no');
-  //   return this.eventbriteService.updateEvent(idEvent, event);
-  // }
+  @Post('update/event/:idEvent')
+  updateEvent(
+    @Param('idEvent') idEvent: number,
+    @Body() event: UpdateEventDto,
+  ) {
+    console.log('prueba de si está entrando esta función o no');
+    return this.eventbriteService.updateEvent(idEvent, event);
+  }
 
   @Get('api/list')
   findAll() {
