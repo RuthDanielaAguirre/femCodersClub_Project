@@ -41,34 +41,34 @@ export const AddVolunteerForm = () => {
 
   return (
    <> 
-   {/* {showMessage? (
+   {showMessage? (
 
-    <div>
-      <h1>Voluntario agregado con exito</h1>
+    <div className="bg-primary z-[1] py-20 rounded-[24px]">
+      <h1 className="text-center text-xl font-semibold text-contrast">Voluntario agregado con exito</h1>
     </div>
-   ):( */}
-    <>
-      <div className="z-10">
-        <h1>Agrega un voluntario:</h1>
-        <form onSubmit={handleSubmit(onSubmit)} action="#" method="POST">
-          <label htmlFor="name">Nombre:</label>
+   ):(
+    <> 
+    <h1 className={`${styles.heading4} mb-8 pl-4 z-[10]`}>Agrega un voluntario:</h1>
+      <div className="z-10 flex flex-col content-end bg-primary rounded-[24px]  "> 
+        <form onSubmit={handleSubmit(onSubmit)} action="#" method="POST" className="flex flex-col bg-accent/90 w-full h-fit rounded-[24px] p-8">
+          <label htmlFor="name" className={`${styles.label2}`}>Nombre:</label >
           <input {...register('volunteerName')} type="text" aria-label="name" className={`${styles.input}`} />
 
-          <label htmlFor="lastName">Apellido/s:</label>
-          <input {...register('volunteerLastName')} type="text" />
+          <label htmlFor="lastName" className={`${styles.label2}`}>Apellido/s:</label>
+          <input {...register('volunteerLastName')} type="text" className={`${styles.input} mt-1 mb-4`}  />
 
-          <label htmlFor="email">Correo Electrónico:</label>
-          <input {...register('volunteerEmail')} type="text" />
+          <label htmlFor="email" className={`${styles.label2}`}>Correo Electrónico:</label>
+          <input {...register('volunteerEmail')} type="text" className={`${styles.input} mt-1 mb-4`} />
 
-          <label htmlFor="gender">Género:</label>
-          <select {...register('volunteerGender')} name="SelectedGender" id="gender">
+          <label htmlFor="gender" className={`${styles.label2}`}>Género:</label>
+          <select {...register('volunteerGender')} name="SelectedGender" id="gender" className={`${styles.input}`}>
             <option value="Mujer">Mujer</option>
             <option value="Hombre">Hombre</option>
             <option value="No binario">No Binario</option>
             <option value="no-option">Prefiero no decirlo</option>
             <option value="Otro">Otro</option>
           </select>
-          {/* <input {...register('volunteerGender')} type="text"  /> */}
+  
           <div>
             <button disabled={isSubmitting} onSubmit={handleSubmit(onSubmit)} className={`${styles.primaryBtn}`}>
               {
@@ -78,10 +78,10 @@ export const AddVolunteerForm = () => {
           </div>
         </form> 
       </div> 
-      {/* <SpinerModal isVisible={loading} />  */}
+      <SpinerModal isVisible={loading} /> 
       </>
      
-   {/* )} */}
+   )}
    </>
   )
 }
