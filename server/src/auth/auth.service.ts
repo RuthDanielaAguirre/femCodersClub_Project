@@ -75,16 +75,14 @@ export class AuthService {
 
     const jwtToken = await this.jwtService.signAsync({ id: user.idUser });
 
-    const userData = {
-      token: jwtToken,
-      name: user.userName,
-      lastName: user.userLastName,
-      gender: user.userGender,
-      email: user.userEmail,
-      telephone: user.userTelephone,
-      role: user.userRole,
-    }
+    const token = jwtToken;
+    const name= user.userName;
+    const lastName= user.userLastName;
+    const gender= user.userGender;
+    const email = user.userEmail;
+    const telephone = user.userTelephone;
+    const role = user.userRole;
 
-    return { userData };
+    return { token, name, lastName, gender, email, telephone, role };
   }
 }
