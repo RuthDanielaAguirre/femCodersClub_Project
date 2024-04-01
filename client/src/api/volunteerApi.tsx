@@ -9,7 +9,7 @@ export const getVolunteers = async (): Promise<Volunteer[]> => {
 
 
 export const addVolunteer = async (volunteerName:string, volunteerLastName:string, volunteerEmail:string, volunteerGender:string): Promise<Volunteer> => {
-        const result = await axios.post(API_URL, { volunteerName:volunteerName, volunteerLastName:volunteerLastName, volunteersEmail:volunteerEmail, volunteersGender:volunteerGender});
+        const result = await axios.post(API_URL, { volunteerName:volunteerName, volunteerLastName:volunteerLastName, volunteerEmail:volunteerEmail, volunteerGender:volunteerGender});
         return result.data;
 }
 

@@ -54,10 +54,10 @@ export type Volunteer={
 }
 
 export type AddVolunteerData ={
-volunteerName: string;
-volunteerLastName: string;
-volunteerEmail: string;
-volunteerGender: string;
+    volunteerName: string;
+    volunteerLastName: string;
+    volunteerEmail: string;
+    volunteerGender: string;
 }
 
 
