@@ -76,6 +76,7 @@ export class AuthService {
     const jwtToken = await this.jwtService.signAsync({ id: user.idUser });
 
     const token = jwtToken;
+    const idUser = user.idUser;
     const name= user.userName;
     const lastName= user.userLastName;
     const gender= user.userGender;
@@ -83,6 +84,6 @@ export class AuthService {
     const telephone = user.userTelephone;
     const role = user.userRole;
 
-    return { token, name, lastName, gender, email, telephone, role };
+    return { token, idUser, name, lastName, gender, email, telephone, role };
   }
 }
