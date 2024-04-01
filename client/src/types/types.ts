@@ -6,6 +6,17 @@ export type User = {
     accesToken: string;
 }
 
+export type EditUserFormData = {
+    idUser: string,
+    updatedUser: {
+        userName: string,
+        userLastName: string,
+        userGender: string,
+        userEmail: string,
+        userTelephone: string,
+    }
+}
+
 export type SignUpFormData = {
     name: string;
     lastName: string;

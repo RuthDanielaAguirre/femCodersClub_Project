@@ -1,4 +1,5 @@
-import { styles } from "../../../style"
+import AdminModal from "../../Admin/components/AdminModal";
+import EditProfileForm from "./EditProfileForm";
 
 const UserProfile = () => {
     const item = localStorage.getItem('user');
@@ -30,7 +31,17 @@ const UserProfile = () => {
                 <span className="font-semibold">Número de teléfono:</span>
                 <span>{telephone}</span>
             </div>
-            <button className={`${styles.primaryBtn} w-[150px] flex items-center justify-center self-end`}>Editar</button>
+            <div className="flex w-full justify-end">
+                <AdminModal
+                    text = 'Editar'
+                    width = '120px'
+                    fontColor = 'tertiary'
+                    fonthover= 'primary'
+                    bg = 'primary'
+                >
+                    <EditProfileForm/>
+                </AdminModal>
+            </div>
         </div>
     )
 }
