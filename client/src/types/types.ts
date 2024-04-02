@@ -64,7 +64,7 @@ export type Volunteer={
     volunteerGender: string;
 }
 export type Faq ={
-    
+    idFaq: number;
     faqQuestion: string;
     faqAnswer: string;}
 
