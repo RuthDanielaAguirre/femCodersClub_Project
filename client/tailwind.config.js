@@ -8,7 +8,8 @@ module.exports = {
       sm: '480px',
       md: '768px',
       lg: '976px',
-      xl: '1440px',
+      xl: '1200px',
+      xxl: '1440px',
     },
     fontFamily: {
       'headerText': ["Montserrat", "sans-serif"],

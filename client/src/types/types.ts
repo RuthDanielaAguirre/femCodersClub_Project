@@ -6,6 +6,17 @@ export type User = {
     accesToken: string;
 }
 
+export type EditUserFormData = {
+    userId: string,
+    updatedUser: {
+        userName: string,
+        userLastName: string,
+        userGender: string,
+        userEmail: string,
+        userTelephone: string,
+    }
+}
+
 export type SignUpFormData = {
     name: string;
     lastName: string;
@@ -46,14 +57,36 @@ export type DeleteSponsorType = {
 }
 
 export type Volunteer={
-    idVolunteer: number;
+    idVolunteer: string;
     volunteerName: string;
     volunteerLastName: string;
     volunteerEmail: string;
     volunteerGender: string;
 }
+
+export type AddVolunteerData ={
+    volunteerName: string;
+    volunteerLastName: string;
+    volunteerEmail: string;
+    volunteerGender: string;
+}
+
+export type EditVolunteerData = {
+    idVolunteer: string;
+    updatedVolunteer:{
+        volunteerName: string;
+        volunteerLastName: string;
+        volunteerEmail: string;
+        volunteerGender: string;
+    }
+}
+
+export type DeleteVolunteerData ={
+    idVolunteer : string;
+}
+
 export type Faq ={
-    
+    idFaq: number;
     faqQuestion: string;
     faqAnswer: string;}
 
@@ -73,4 +106,11 @@ export type faq={
     idFaq: number;
     faqQuestion: string;
     faqAnswer: string;
+}
+
+export type Member={
+    idVolunteer: number;
+    memberName: string;
+    memberLastName: string;
+    memberDescription: string;
 }

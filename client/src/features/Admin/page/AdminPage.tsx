@@ -13,6 +13,7 @@ import bgAdmin2 from '../../../../public/bgAdmin2.svg'
 import FaqContainer from '../components/faq/FaqContainer';
 import { VolunteerContainer } from '../components/volunteer/VolunteerContainer';
 import QrScanner from '../components/qrCode/QrScanner';
+import MemberContainer from '../components/member/MemberContainer';
 
 'use client';
 
@@ -25,8 +26,9 @@ const AdminPage = () => {
   
   return (
     <Layout>
-      <div className="relative overflow-hidden flex flex-col lg:flex-row justify-center items-start h-fit bg-fixed py-[100px] lg:px-[50px] sm:px-10 px-3">
-        <img src={bgAdmin2} className='absolute left-0 top-0 z-[-1] w-full' alt="" />
+      <div className="relative overflow-hidden flex flex-col lg:flex-row justify-center items-start h-fit bg-fixed py-[100px] lg:px-[50px] sm:px-10 px-3" 
+        style={{backgroundImage: `url(${bgAdmin2})`, backgroundSize: 'cover'}}
+      >
         <nav aria-label="Admin-navbar" className='flex flex-col p-0 m-0 w-fit text-secondary font-semibold'>
             <ul className='flex flex-row lg:flex-col w-fit lg:min-w-[200px] p-0 m-0'>
               <li className={[styles.item, selectedTab === 1 ? styles.active : null].join(" ")} onClick={() => handleTabClick(1)}>
@@ -59,7 +61,7 @@ const AdminPage = () => {
           <div className="">
             {selectedTab === 1 && (
               <>
-                { <h1>Miembros</h1> }
+                { <MemberContainer/>}
               </>
             )}
             {selectedTab === 2 && (
