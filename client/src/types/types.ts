@@ -7,7 +7,7 @@ export type User = {
 }
 
 export type EditUserFormData = {
-    idUser: string,
+    userId: string,
     updatedUser: {
         userName: string,
         userLastName: string,

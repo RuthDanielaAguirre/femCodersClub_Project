@@ -14,8 +14,9 @@ const UserPage = () => {
   
   return (
     <Layout>
-      <div className="relative overflow-hidden flex flex-col lg:flex-row justify-center items-start h-fit bg-fixed py-[100px] lg:px-[50px] sm:px-10 px-3">
-        <img src={bgUserDashboard} className='absolute left-0 top-0 z-[-1] w-full opacity-80' alt="" />
+      <div className="relative overflow-hidden bg-bgUserDashboard flex flex-col lg:flex-row justify-center items-start h-fit bg-fixed py-[100px] lg:px-[50px] sm:px-10 px-3"
+        style={{backgroundImage: `url(${bgUserDashboard})`, backgroundSize: 'cover'}}
+      >
         <nav aria-label="User-navbar" className='flex flex-col p-0 m-0 w-fit text-secondary font-semibold'>
             <ul className='flex flex-row lg:flex-col w-fit lg:min-w-[200px] p-0 m-0'>
               <li className={[styles.item2, selectedTab === 1 ? styles.active : null].join(" ")} onClick={() => handleTabClick(1)}>

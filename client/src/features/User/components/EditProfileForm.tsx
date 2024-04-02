@@ -4,9 +4,10 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react"
 import SpinerModal from "../../../components/SpinnerModal"
 import { updateUser } from "../../../api/userApi"
 import { EditUserFormData, User } from "../../../types/types"
+import { useLocalStorage } from "../../../hooks/useLocalStorage"
 
 const EditProfileForm = () => {
-    const [idUser, setIdUser] = useState('');
+    const [userId, setUserId] = useState('');
     const [userName, setUserName] = useState('');
     const [userLastName, setUserLastName] = useState('');
     const [userEmail, setUserEmail] = useState('');
@@ -15,16 +16,13 @@ const EditProfileForm = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [showMessage, setShowMessage] = useState<boolean>(false);
 
-    const item = localStorage.getItem('user');
-    const user = JSON.parse(item as string);
-
-    console.log(user);
-
-    const { id, name, lastName, email, gender, telephone} = user
+    const[currentUser, setCurrentUser] = useLocalStorage('user', '');
     
     useEffect(() => {
-        if(user !== null){
-            setIdUser(id);
+        console.log(currentUser);
+        if(currentUser !== null){
+            const { idUser, name, lastName, email, gender, telephone} = currentUser
+            setUserId(idUser);
             setUserName(name);
             setUserLastName(lastName);
             setUserEmail(email);
@@ -33,7 +31,7 @@ const EditProfileForm = () => {
         }
     },[])
 
-    const mutationFn = async ({ idUser, updatedUser:{userName, userLastName, userGender, userEmail, userTelephone}}:EditUserFormData) => updateUser(idUser, {userName, userLastName, userGender, userEmail, userTelephone});
+    const mutationFn = async ({ userId, updatedUser:{userName, userLastName, userGender, userEmail, userTelephone}}:EditUserFormData) => updateUser(userId, {userName, userLastName, userGender, userEmail, userTelephone});
     
     const queryClient = useQueryClient();
 
@@ -41,10 +39,19 @@ const EditProfileForm = () => {
         {
             mutationFn,
             onSuccess: async() => {
-                queryClient.invalidateQueries();
-                await queryClient.refetchQueries();
                 setLoading(false);
                 setShowMessage(true);
+                const newUser={
+                    ...currentUser,
+                    name: userName,
+                    lastName: userLastName,
+                    gender: userGender,
+                    telephone: userTelephone,
+                    email: userEmail,
+                }
+                setCurrentUser(newUser);
+                queryClient.invalidateQueries();
+                await queryClient.refetchQueries();
             },
             onError: (error) => console.error('Error:', error),
         }
@@ -66,14 +73,13 @@ const EditProfileForm = () => {
 		setUserEmail(e.target.value);
     }
 
-
     const onChangeTelephone= (e: ChangeEvent<HTMLInputElement>) => {
 		setUserTelephone(e.target.value);
     }
 
 	const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		mutation.mutate({ idUser, updatedUser:{userName, userLastName, userGender, userEmail, userTelephone} })
+		mutation.mutate({ userId, updatedUser:{userName, userLastName, userGender, userEmail, userTelephone} })
     
         setLoading(true);
     };
@@ -90,7 +96,7 @@ const EditProfileForm = () => {
             <div className="z-[10] flex flex-col content-end bg-primary rounded-[24px]">
             <form onSubmit={onSubmit} action="#" method="POST" className="flex flex-col bg-accent/90 w-full h-fit rounded-[24px] p-8">
 
-                <label htmlFor="name" className={`${styles.label2}`}>Nombre:</label>
+                <label htmlFor="name" className={`${styles.label2}`}>Nombre: {userId}</label>
                 <input 
                     onChange={onChangeName}
                     type="text"
