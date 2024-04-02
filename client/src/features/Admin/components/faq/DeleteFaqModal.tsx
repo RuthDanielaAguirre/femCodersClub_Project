@@ -11,7 +11,7 @@ const DeleteFaqModal = ({ idFaq }: DeleteFaqFormProps) => {
 
     const handleDelete = async () => {
         if (idFaq === undefined) {
-            console.error('El ID de la pregunta frecuente es undefined');
+            console.error('La pregunta no existe');
             return; 
         }
 
@@ -29,7 +29,7 @@ const DeleteFaqModal = ({ idFaq }: DeleteFaqFormProps) => {
         <div className="z-[10]">
             <h1 className={`${styles.heading4} mb-8`}>Eliminar Pregunta Frecuente</h1>
             <button onClick={handleDelete} disabled={isDeleting} className={`${styles.secondaryBtn} w-[200px]`}>
-                {isDeleting ? 'Eliminando...' : 'Eliminar'}
+                {isDeleting ? 'Borrando...' : 'Borrar'}
             </button>
         </div>
     );

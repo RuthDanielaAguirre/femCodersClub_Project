@@ -64,7 +64,7 @@ export type Volunteer={
     volunteerGender: string;
 }
 export type Faq ={
-    
+    idFaq: number;
     faqQuestion: string;
     faqAnswer: string;}
 
@@ -84,4 +84,11 @@ export type faq={
     idFaq: number;
     faqQuestion: string;
     faqAnswer: string;
+}
+
+export type Member={
+    idVolunteer: number;
+    memberName: string;
+    memberLastName: string;
+    memberDescription: string;
 }

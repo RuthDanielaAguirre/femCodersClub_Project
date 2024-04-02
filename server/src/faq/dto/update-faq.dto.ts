@@ -1,4 +1,10 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateFaqDto } from './create-faq.dto';
-
-export class UpdateFaqDto extends PartialType(CreateFaqDto) {}
+export class UpdateFaqDto {
+    faqQuestion: string = '';
+    faqAnswer: string = '';  
+  
+    constructor(faqQuestion: string, faqAnswer: string) {
+      this.faqQuestion = faqQuestion;
+      this.faqAnswer = faqAnswer;
+    }
+  }
+  

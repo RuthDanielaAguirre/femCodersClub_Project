@@ -14,7 +14,7 @@ export class FaqService {
     private dataSource: DataSource,
   ){}
   create(createFaqDto: CreateFaqDto) {
-     this.faqRepository.save(createFaqDto);
+    return this.faqRepository.save(createFaqDto);
     
   }
 
