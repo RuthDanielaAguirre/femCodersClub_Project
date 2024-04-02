@@ -20,8 +20,8 @@ export const AddVolunteerForm = () => {
       onSuccess: async () =>{
         queryClient.invalidateQueries();
         await queryClient.refetchQueries();
-        // setLoading(false);
-        // setShowMessage(true);
+         setLoading(false);
+         setShowMessage(true);
         console.log(mutation)
       }, 
       onError: (error) => console.log('Error', error)
@@ -35,7 +35,7 @@ export const AddVolunteerForm = () => {
       const volunteerGender= data.volunteerGender;
      
       mutation.mutate({volunteerName, volunteerLastName, volunteerEmail, volunteerGender});
-      // setLoading(true);
+       setLoading(true);
   
     }
 

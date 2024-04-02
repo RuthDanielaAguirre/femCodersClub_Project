@@ -46,7 +46,7 @@ export type DeleteSponsorType = {
 }
 
 export type Volunteer={
-    idVolunteer: number;
+    idVolunteer: string;
     volunteerName: string;
     volunteerLastName: string;
     volunteerEmail: string;
@@ -60,6 +60,19 @@ export type AddVolunteerData ={
     volunteerGender: string;
 }
 
+export type EditVolunteerData = {
+    idVolunteer: string;
+    updatedVolunteer:{
+        volunteerName: string;
+        volunteerLastName: string;
+        volunteerEmail: string;
+        volunteerGender: string;
+    }
+}
+
+export type DeleteVolunteerData ={
+    idVolunteer : string;
+}
 
 export type Faq ={
     
