@@ -1,4 +1,4 @@
 export class CreateFaqDto {
-         faqQuestion: string;
+        faqQuestion: string;
         faqAnswer: string;
-       }
+}
