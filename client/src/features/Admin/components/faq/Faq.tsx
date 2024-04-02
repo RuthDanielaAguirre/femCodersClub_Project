@@ -21,17 +21,21 @@ const FaqCard = ({ faq }: FaqProps) => {
             {faq.faqAnswer}
           </p>
           <div className="flex justify-between  items-center bg-accent/10">
-            <div className="flex w-full justify-start gap-2 items-center">
+            <div className="flex w-full justify-end mx-2 my-2 gap-2 items-center">
               <AdminModal 
-                text='editar'
+                text='Editar'
                 width='120px'
-                bg='tertiary'
+                fontColor = 'tertiary'
+                fonthover= 'primary'
+                bg = 'primary'
                 children={<EditFaqModal idFaq={faq.idFaq} />}
               />
               <AdminModal 
-                text='eliminar'
+                text='Borrar'
                 width='120px'
-                bg='secondary'
+                fontColor = 'secondary'
+                fonthover= 'primary'
+                bg = 'primary'
                 children={<DeleteFaqModal  idFaq={faq.idFaq} />}
               />
             </div>
