@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useState } from "react";
 import { Faq } from "../../../types/types";
