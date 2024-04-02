@@ -36,4 +36,14 @@ export class EventsController {
     console.log('está entrando esta función?');
     return this.eventbriteService.findAll();
   }
+
+  @Get('api/list/past')
+  findAllPastEvents() {
+    return this.eventbriteService.findAllPastEvents();
+  }
+
+  @Get('api/list/upcoming')
+  findAllUpcomingEvents() {
+    return this.eventbriteService.findAllUpcomingEvents();
+  }
 }

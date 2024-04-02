@@ -1,25 +1,26 @@
-"use client"
-import { Card } from "flowbite-react";
+import { styles } from "../../../style";
 import imgEvents from '../../../../public/imgEvents.png'
+import iconDate from '../../../../public/iconDate.png';
+import iconLocation from '../../../../public/iconLocation.png'
 
-function CardPastEvents({title, image, date, location, description}) {
+function CardPastEvents({title, image, date, location, description }:{title:string, image:string, date:string, location:string, description:string}) {
     return (
 
-        <Card
-            className="w-[350px] rounded-2xl p-0"
-
-            renderImage={() => <div className="h-60 flex items-end rounded-t-2xl relative overflow-hidden"><img src={image||imgEvents} className="absolute w-full rounded-t-[16px]" alt="" /><h2 className="text-primary font-headerText font-bold ml-4 mb-4 z-[2]">{title}</h2></div>}>
-
-            <div className="flex w-full justify-between">
-                <h5 className="text-[14px] text-contrast/70 font-headerText font-bold">
-                    {date}
-                </h5 >
-                <span className="text-[14px] text-contrast/70 font-headerText font-bold">{location}</span>
+        <div className="w-full flex flex-col items-center bg-primary max-w-[400px] border rounded-3xl shadow md:flex-row md:max-w-4xl">
+            <img className="object-cover w-full rounded-t-3xl min-h-48 md:h-auto md:w-72 md:rounded-none md:rounded-s-3xl" src={image || imgEvents} alt="" />
+            <div className="flex flex-col w-full justify-between p-4 mr-4 leading-normal">
+                <h5 className={`${styles.heading6} pl-2 mb-2 font-bold text-secondary`}>{title}</h5>
+                <div className="flex items-center gap-2 mb-2">
+                    <img src={iconDate} alt="Icon date" className="opacity-70 h-4 pl-2"/>
+                    <p className="text-bodyText text-contrast/80">{date}</p>
+                </div>
+                <div className="flex items-center gap-2 pl-2">
+                    <img src={iconLocation} alt="Icon date" className="opacity-70 h-4"/>
+                    <p className="text-bodyText text-contrast/80">{location}</p>
+                </div>
+                <p className="pt-3 pl-2 text-bodyText text-contrast">{description}</p>
             </div>
-            <p className="text-[16px] text-contrast font-bodyText pb-2">
-                {description}
-            </p>
-        </Card>
+        </div>
 
     );
 }

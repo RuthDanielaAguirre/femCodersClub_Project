@@ -17,6 +17,7 @@ export const styles = {
     heading3: "text-primary text-5xl font-semibold leading-9",
     heading4: "text-primary font-headerText font-bold ",
     heading5: "text-primary text-xl font-semibold leading-9",
+    heading6: "text-primary text-3xl font-semibold leading-9",
     
     text: "text-contrast text-[16px]",
 

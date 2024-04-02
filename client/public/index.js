@@ -18,6 +18,7 @@ import FemCodersClubLogo from "./apple.png";
 import heroImg from "./heroImg.svg";
 import iconBalance from "./iconBalance.png";
 import iconCollaboration from "./iconCollaboration.png";
+import iconDate from "./iconDate.png"
 import iconDeveloper from "./iconDeveloper.png";
 import iconDiversity from "./iconDiversity.png";
 import iconEmpowerment from "./iconEmpowerment.png";
@@ -25,6 +26,7 @@ import iconEquity from "./iconEquity.png";
 import iconEthics from "./iconEthics.png";
 import iconGoogle from "./iconGoogle.png";
 import iconInclusion from "./iconInclusion.png"
+import iconLocation from "./iconLocation";
 import iconResponsibility from "./iconResponsibility.png"
 import iconVisibility from "./iconVisibility.png"
 import imgContact from "./imgContact.png";
@@ -55,6 +57,7 @@ export {
     heroImg,
     iconBalance,
     iconCollaboration,
+    iconDate,
     iconDeveloper,
     iconDiversity,
     iconEmpowerment,
@@ -62,6 +65,7 @@ export {
     iconEthics,
     iconGoogle,
     iconInclusion,
+    iconLocation,
     iconResponsibility,
     iconVisibility,
     imgContact, 
