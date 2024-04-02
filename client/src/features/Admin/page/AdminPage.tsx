@@ -13,6 +13,7 @@ import bgAdmin2 from '../../../../public/bgAdmin2.svg'
 import FaqContainer from '../components/faq/FaqContainer';
 import { VolunteerContainer } from '../components/volunteer/VolunteerContainer';
 import QrScanner from '../components/qrCode/QrScanner';
+import MemberContainer from '../components/member/MemberContainer';
 
 'use client';
 
@@ -59,7 +60,7 @@ const AdminPage = () => {
           <div className="">
             {selectedTab === 1 && (
               <>
-                { <h1>Miembros</h1> }
+                { <MemberContainer/>}
               </>
             )}
             {selectedTab === 2 && (

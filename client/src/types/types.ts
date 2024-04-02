@@ -74,3 +74,10 @@ export type faq={
     faqQuestion: string;
     faqAnswer: string;
 }
+
+export type Member={
+    idVolunteer: number;
+    memberName: string;
+    memberLastName: string;
+    memberDescription: string;
+}
