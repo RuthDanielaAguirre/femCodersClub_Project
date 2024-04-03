@@ -26,10 +26,6 @@ export class MemberController {
     return this.memberService.update(idMember, updateMemberDto);
   }
 
-  @Patch(':idMember')
-  partialUpdate(@Param('idMember') idMember: number, @Body() updateMemberDto: UpdateMemberDto) {
-    return this.memberService.update(idMember, updateMemberDto);
-  }
 
   @Delete(':idMember')
   remove(@Param('idMember') idMember: number) {

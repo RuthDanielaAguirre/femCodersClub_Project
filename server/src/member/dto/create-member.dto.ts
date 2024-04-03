@@ -3,4 +3,5 @@ export class CreateMemberDto {
 memberLastName: string;
 memberDescription: string;
 memberRole: string;
+memberImage: string;
 }

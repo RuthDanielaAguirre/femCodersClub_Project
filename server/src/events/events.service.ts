@@ -50,6 +50,46 @@ export class EventbriteService {
       );
   }
 
+  async findAllPastEvents() {
+    // console.log(idOrganization);
+    return this.httpService
+      .get(`https://www.eventbriteapi.com/v3/organizations/2076189237573/events/?status=ended&expand=venue`
+      ,
+        {
+          headers: {
+            Authorization: `Bearer DCSSDPUMSEBOT4WC5R2C`,
+          },
+        },
+      )
+      .pipe(
+        tap((response) => console.log(response.data)),
+        map((response) => response.data),
+        catchError((error) => {
+          throw error;
+        }),
+      );
+  }
+
+  async findAllUpcomingEvents() {
+    // console.log(idOrganization);
+    return this.httpService
+      .get(`https://www.eventbriteapi.com/v3/organizations/2076189237573/events/?status=live&expand=venue`
+      ,
+        {
+          headers: {
+            Authorization: `Bearer DCSSDPUMSEBOT4WC5R2C`,
+          },
+        },
+      )
+      .pipe(
+        tap((response) => console.log(response.data)),
+        map((response) => response.data),
+        catchError((error) => {
+          throw error;
+        }),
+      );
+  }
+
   updateEvent(
     idEvent: number,
     updateEventDto: UpdateEventDto,
