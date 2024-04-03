@@ -16,3 +16,9 @@ export const updateFaq = async (idFaq: number, updateFaqDto: UpdateFaqDto): Prom
             throw new Error('Error updating FAQ: ' );
         }
     }
+
+    const API_URL = 'https://femcodersclub-project.onrender.com/faq'
+export const getFaq = async (): Promise<Faq[]> => {
+    const response = await axios.get(API_URL);
+    return response.data;
+};

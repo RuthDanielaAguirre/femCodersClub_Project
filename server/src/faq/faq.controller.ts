@@ -23,14 +23,10 @@ export class FaqController {
   }
 
   @Put(':idFaq')
-  update(@Param('idFaq') idFaq: number, @Body() updateFaqDto: CreateFaqDto) {
+  update(@Param('idFaq') idFaq: number, @Body() updateFaqDto: UpdateFaqDto) {
     return this.faqService.update(idFaq, updateFaqDto);
   }
 
-  @Patch(':idFaq')
-  partialUpdate(@Param('idFaq') idFaq: number, @Body() partialUpdateFaqDto: Partial<UpdateFaqDto>) {
-    return this.faqService.update(idFaq, partialUpdateFaqDto);
-  }
 
   @Delete(':idFaq')
   remove(@Param('idFaq') idFaq: number) {

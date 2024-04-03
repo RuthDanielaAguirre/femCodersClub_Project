@@ -16,7 +16,7 @@ interface EditFaqFormProps {
 const EditFaqModal = ({ idFaq }: EditFaqFormProps) => {
     const { register, handleSubmit, setValue } = useForm<FaqData>();
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(true); // Cambiado a true para mostrar el modal directamente
+    const [isModalOpen] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -40,7 +40,6 @@ const EditFaqModal = ({ idFaq }: EditFaqFormProps) => {
         setIsSubmitting(true);
         try {
             await axios.put(`https://femcodersclub-project.onrender.com/faq/${data.idFaq}`, data);
-           
         } catch (error) {
             console.error('Error al editar la pregunta frecuente:', error);
         } finally {

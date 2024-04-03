@@ -6,6 +6,17 @@ export type User = {
     accesToken: string;
 }
 
+export type EditUserFormData = {
+    userId: string,
+    updatedUser: {
+        userName: string,
+        userLastName: string,
+        userGender: string,
+        userEmail: string,
+        userTelephone: string,
+    }
+}
+
 export type SignUpFormData = {
     name: string;
     lastName: string;
@@ -17,11 +28,11 @@ export type SignUpFormData = {
 }
 
 export type Sponsor ={
-    id: number;
-    name: string;
-    company: string;
-    email: string;
-    telephone: string;
+    idPotential_Sponsors: string;
+    sponsorsName: string;
+    sponsorsCompany: string;
+    sponsorsEmail: string;
+    sponsorsTelephone: string;
 }
 
 export type AddSponsorFormData ={
@@ -31,15 +42,51 @@ export type AddSponsorFormData ={
     sponsorsTelephone: string;
 }
 
+export type EditSponsorFormData = {
+    idPotential_Sponsors: string;
+    updatedSponsor:{
+        sponsorsName: string;
+        sponsorsCompany: string;
+        sponsorsEmail: string;
+        sponsorsTelephone: string;
+    }
+}
+
+export type DeleteSponsorType = {
+    sponsorId: string;
+}
+
 export type Volunteer={
-    idVolunteer: number;
+    idVolunteer: string;
     volunteerName: string;
     volunteerLastName: string;
     volunteerEmail: string;
     volunteerGender: string;
 }
+
+export type AddVolunteerData ={
+    volunteerName: string;
+    volunteerLastName: string;
+    volunteerEmail: string;
+    volunteerGender: string;
+}
+
+export type EditVolunteerData = {
+    idVolunteer: string;
+    updatedVolunteer:{
+        volunteerName: string;
+        volunteerLastName: string;
+        volunteerEmail: string;
+        volunteerGender: string;
+    }
+}
+
+export type DeleteVolunteerData ={
+    idVolunteer : string;
+}
+
 export type Faq ={
-    
+    idFaq: number;
     faqQuestion: string;
     faqAnswer: string;}
 
@@ -59,4 +106,45 @@ export type faq={
     idFaq: number;
     faqQuestion: string;
     faqAnswer: string;
+}
+
+export type Member={
+    idMember: number;
+    memberName: string;
+    memberLastName: string;
+    memberDescription: string;
+    memberRole: string;
+    memberImage: string;
+}
+
+export type member={
+    idMember: number;
+    memberName: string;
+    memberLastName: string;
+    memberDescription: string;
+    memberRole: string;
+    memberImage: string;
+}
+
+export type AddMemberFormData ={
+    memberName: string;
+    memberLastName: string;
+    memberDescription: string;
+    memberRole: string;
+    memberImage: string;
+}
+
+export type EditMemberFormData = {
+    idMember: number;
+    updatedMember:{
+        memberName: string;
+        memberLastName: string;
+        memberDescription: string;
+        memberRole: string;
+        memberImage: string;
+    }
+}
+
+export type DeleteMemberType = {
+    sponsorId: number;
 }

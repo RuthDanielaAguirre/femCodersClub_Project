@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
-import AddFaqForm from "./AddFaqForm";
 import { Faq } from "../../../../types/types";
 import FaqCard from "./Faq";
-import Spinner from "../../../../components/Spinner";
+import SpinnerModal from "../../../../components/SpinnerModal";
 
 
 export const FaqList = () => {
@@ -30,7 +29,7 @@ export const FaqList = () => {
       <div className="">
      
         {loading ? ( 
-          <Spinner />
+          <SpinnerModal isVisible={loading} />
         ) : (
           faqs.map((faq) => (
             <div className="col-lg-3" key={faq.idFaq} >
