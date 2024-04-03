@@ -81,12 +81,7 @@ const AdminPage = () => {
             )}
             {selectedTab === 5 && (
               <>
-                { <>
-              
-                <div className='flex h-[900px]'>
-                  <FaqContainer/>
-                </div>
-                </>}
+                { <FaqContainer/> }
               </>
             )}
             {selectedTab === 6 && (

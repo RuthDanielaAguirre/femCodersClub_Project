@@ -5,7 +5,7 @@ import FaqList from './FaqList'
 
 const FaqContainer = () => {
     return (
-        <div>
+        <div className='h-[600px]'>
             <div className="flex items-end flex-col w-full mb-5">
                 <AdminModal 
                     text = 'agregar'
