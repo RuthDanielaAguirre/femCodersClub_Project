@@ -22,9 +22,9 @@ export class VolunteerController {
   return this.volunteerService.findOneById(idVolunteer);
   }
 
-  @Put(':id')
-  update(@Param('id') id: number, @Body() updateVolunteerDto: UpdateVolunteerDto) {
-    return this.volunteerService.update(+id, updateVolunteerDto);
+  @Put(':idVolunteer')
+  update(@Param('idVolunteer') idVolunteer: number, @Body() updateVolunteerDto: UpdateVolunteerDto) {
+    return this.volunteerService.update(+idVolunteer, updateVolunteerDto);
   }
 
   @Delete(':id')
