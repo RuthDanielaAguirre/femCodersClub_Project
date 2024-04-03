@@ -8,8 +8,8 @@ const FaqsPage = () => {
 
   return (
     <Layout>
-            <div className="w-full flex flex-col items-center md:py-[100px] xl:py-[150px] bg-cover"
-                    style={{backgroundImage: `url(${bgFaqs})`, backgroundPositionX:'left', backgroundPositionY:'top',backgroundRepeat:'no-repeat'}}
+            <div className="w-full flex flex-col items-center md:py-[100px] xl:py-[150px] bg-cover "
+                    style={{backgroundImage: `url(${bgFaqs})`,backgroundRepeat:'no-repeat'}}
             >
               <h1 className={`${styles.heading3} my-24`}>Preguntas Frecuentes</h1>
               <FaqAccordion /> 
