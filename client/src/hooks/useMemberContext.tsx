@@ -13,11 +13,11 @@ const initialState:Member = {
 }
 export const MemberContext = createContext <Member>(initialState);
 
-export const useSponsorContext = () => {
+export const useMemberContext = () => {
 	const members = useContext(MemberContext);
 
 	if(members === undefined) {
-		throw new Error('useMemberContext must be used with a SponsorContext');
+		throw new Error('must be used with a MemberContext');
 	}
 	return members
 

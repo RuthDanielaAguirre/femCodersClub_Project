@@ -57,7 +57,7 @@ export type DeleteSponsorType = {
 }
 
 export type Volunteer={
-    idVolunteer: string;
+        idVolunteer: string;
     volunteerName: string;
     volunteerLastName: string;
     volunteerEmail: string;
@@ -145,6 +145,7 @@ export type EditMemberFormData = {
     }
 }
 
-export type DeleteMemberType = {
-    sponsorId: number;
+export type DeleteMemberData = {
+    idMember: number;
+
 }

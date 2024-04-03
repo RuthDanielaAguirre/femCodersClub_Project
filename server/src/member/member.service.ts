@@ -12,7 +12,7 @@ export class MemberService {
     private readonly memberRepository: Repository<Member>,
   ){}
   async create(createMemberDto: CreateMemberDto) {
-    await this.memberRepository.save(createMemberDto);
+    await this.memberRepository.save(this.memberRepository.create(createMemberDto));
     return '¡Nueva integrante en el equipo!';
   }
 
@@ -35,8 +35,6 @@ export class MemberService {
   }
 
   async remove(idMember: number) {
-    const member = await this.findOne(idMember);
-    await this.memberRepository.remove(member);
-    return "Integrante eliminada exitosamente";
+    return await this.memberRepository.delete(idMember);
   }
 }
