@@ -3,12 +3,16 @@ import { VolunteerService } from './volunteer.service';
 import { CreateVolunteerDto } from './dto/create-volunteer.dto';
 import { UpdateVolunteerDto } from './dto/update-volunteer.dto';
 import { Volunteer } from './entities/volunteer.entity';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Volunteer')
 @Controller('volunteer')
 export class VolunteerController {
   constructor(private readonly volunteerService: VolunteerService) {}
 
   @Post()
+  @ApiOperation({summary:'It creates a volunteer'})
+  @ApiResponse({status: 201,description:'A Volunteer has been succesfully created'})
   create(@Body() createVolunteerDto: CreateVolunteerDto) {
     return this.volunteerService.create(createVolunteerDto);
   }
