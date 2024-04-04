@@ -1,14 +1,10 @@
-
-import AuthLayout from '../../../components/Layout/AuthLayout'
+import { Layout } from '../../../components/Layout/Layout';
 import bgEvents1 from '../../../../public/bgEvents1.png'
 import CardPastEvents from '../components/CardPastEvents'
 import { styles } from "../../../style";
 import { useQuery } from '@tanstack/react-query';
 import { getPastEvents, getUpcomingEvents } from '../../../api/eventsApi';
 import CardUpcomingEvent from '../components/CardUpcomingEvent';
-// import EmbeddedCheckout from '../components/EmbeddedCheckout';
-
-
 
 const EventsPage = () => {
   const { data: pastEventsData, isLoading: isLoadingPastEvents } = useQuery(
@@ -28,8 +24,7 @@ const EventsPage = () => {
 
 
   return (
-    <AuthLayout>
-      {/* <EmbeddedCheckout/> */}
+    <Layout>
       <section className="flex justify-center text-center items-center bg-center" style={{ backgroundImage: `url(${bgEvents1})`, backgroundSize: 'cover', backgroundRepeat: "no-repeat", height: '500px' }}>
         <h1 className={`${styles.heading3} font-headerText`}>
           Próximos eventos
@@ -37,7 +32,7 @@ const EventsPage = () => {
       </section>
 
       <section className='mb-16'>
-        <div className='mt-16 flex items-center justify-center flex-col gap-y-8'>
+        <div className='mt-16 flex items-center justify-center flex-col gap-y-8 p-5'>
           {!isLoadingUpcomingEvents && upcomingEventsData.events.map((event: { start: { local: string | number | Date; }; name: { text: string; }; logo: { original: { url: string; }; }; venue: { address: { localized_address_display: string; }; }; description: { text: string; }; id:string}) => {
 
             const date = new Date(event?.start?.local)
@@ -76,7 +71,7 @@ const EventsPage = () => {
         </div>
       </section>
 
-    </AuthLayout>
+    </Layout>
   )
 }
 
