@@ -25,9 +25,7 @@ export const FaqList = () => {
   }, []);
 
   return (
-    <div>
-      <div className="">
-     
+    <>
         {loading ? ( 
           <SpinnerModal isVisible={loading} />
         ) : (
@@ -37,8 +35,7 @@ export const FaqList = () => {
             </div>
           ))
         )}
-      </div>
-    </div>
+    </>
   );
 };
 
