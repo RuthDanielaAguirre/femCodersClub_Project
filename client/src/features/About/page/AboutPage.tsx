@@ -5,6 +5,8 @@ import bgAbout from '../../../../public/bgAbout.png'
 import AboutUs2 from '../../../../public/AboutUs2.png'
 import iconMission from '../../../../public/iconMission.png'
 import iconVision from '../../../../public/iconVision.png'
+import iconCommitment from '../../../../public/iconCommitment.png'
+import imgCommitment from '../../../../public/imgCommitment.png'
 import FemCodersClubLogo from '../../../../public/FemCodersClubLogo.png'
 
 
@@ -25,7 +27,8 @@ const AboutPage = () => {
             FemCoders Club
           </h1>
         </div>
-        <div className='flex flex-col mx-24 mt-16 md:flex-row md:items-center gap-8'>
+
+        <div className='flex flex-col mx-8 mt-16 md:flex-row md:items-center md:mx-16 gap-8'>
           <img src={AboutUs2} className="max-w-2xl md:max-w-none md:w-full md:order-2 md:max-h-sm" alt="Icono de equidad" />
           <div className="md:w-1/2 md:order-1 ">
             <p className='text-bodyText text-base text-contrast text-justify '>FemCoders Club es una comunidad de mujeres desarrolladoras, cuyo principal objetivo es romper la brecha de género digital y ser un referente que fomente la inclusión femenina en el mundo tecnológico.
@@ -37,7 +40,7 @@ const AboutPage = () => {
             </p>
           </div>
         </div>
-        <p className='mx-24 my-8 text-bodyText text-base text-contrast text-justify'>
+        <p className='mx-8 my-8 text-bodyText text-base text-contrast text-justify md:mx-16'>
           Nuestra labor es promover la inclusión y equidad de género en el sector IT. Nos unimos para apoyarnos mutuamente, compartir conocimientos y ofrecer un espacio de networking y crecimiento profesional. Buscamos derribar barreras y estereotipos, fomentando un entorno donde todas las mujeres se sientan empoderadas para prosperar en sus carreras tecnológicas.
           A través de eventos, talleres y recursos, trabajamos juntas para crear un impacto duradero en la industria y en las vidas de nuestros miembros.
           <br />
@@ -65,8 +68,24 @@ const AboutPage = () => {
 
       <section className='py-16'>
         <h3 className={`${styles.heading6} text-secondary font-headerTex my-2 text-center`}>Nuestro valores</h3>
-        <CarouselValues/>
+        <CarouselValues />
       </section>
+
+      <section>
+        <div className='flex flex-col mx-16 mt-16 md:flex-row md:items-center gap-8'>
+          <img src={imgCommitment} className="md:order-2 md:max-h-sm" alt="Icono de equidad" />
+          <div className='flex flex-col items-center justify-center '>
+            <img src={iconCommitment} alt="" />
+            <h3 className={`${styles.heading6} text-secondary font-headerText my-2`}>Nuestros compromisos</h3>
+            <p className='text-bodyText text-base text-contrast text-justify md:w-[550px] '>
+              Nuestra comunidad se compromete a realizar un esfuerzo real por disminuir la brecha de género digital, a fomentar la inclusión y a generar oportunidades para que las mujeres encuentren su lugar en la industria tecnológica.
+              Nos comprometemos a ser el espacio en el cual las mujeres encuentren motivación y recursos que les permitan crecer personal y profesionalmente, donde puedan y elijan crear comunidad para potenciar todo tipo de crecimiento.
+            </p>
+          </div>
+        </div>
+      </section>
+
+
 
 
 

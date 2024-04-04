@@ -16,11 +16,12 @@ import bgSignup from "./bgSignup.svg";
 import bgValuesHome from "./bgValuesHome.png";
 import FemCodersClubLogo from "./apple.png";
 import heroImg from "./heroImg.svg";
-import iconArrowR from "./iconArrowR",
-import iconArrowL from "./iconArrowL",
+import iconArrowR from "./iconArrowR";
+import iconArrowL from "./iconArrowL";
 import iconBalance from "./iconBalance.png";
 import iconCollaboration from "./iconCollaboration.png";
-import iconDate from "./iconDate.png"
+import iconCommitment from "./iconCommitment.png";
+import iconDate from "./iconDate.png";
 import iconDeveloper from "./iconDeveloper.png";
 import iconDiversity from "./iconDiversity.png";
 import iconEmpowerment from "./iconEmpowerment.png";
@@ -30,9 +31,10 @@ import iconGoogle from "./iconGoogle.png";
 import iconInclusion from "./iconInclusion.png"
 import iconLocation from "./iconLocation.png";
 import iconMission from "./iconMission.png";
-import iconResponsibility from "./iconResponsibility.png"
-import iconVisibility from "./iconVisibility.png"
-import iconVision from "./iconVision.png"
+import iconResponsibility from "./iconResponsibility.png";
+import iconVisibility from "./iconVisibility.png";
+import iconVision from "./inconVision.png";
+import imgCommitment from "./imgCommitment.png";
 import imgContact from "./imgContact.png";
 import imgEvents from "./imgEvents.png";
 import imgSponsor from "./imgSponsor.png";
@@ -63,6 +65,7 @@ export {
     iconArrowL,
     iconBalance,
     iconCollaboration,
+    iconCommitment,
     iconDate,
     iconDeveloper,
     iconDiversity,
@@ -75,7 +78,8 @@ export {
     iconMission,
     iconResponsibility,
     iconVisibility,
-    inconVision,
+    iconVision,
+    imgCommitment,
     imgContact, 
     imgEvents, 
     imgSponsor, 
