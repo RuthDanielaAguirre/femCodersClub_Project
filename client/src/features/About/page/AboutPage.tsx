@@ -28,7 +28,7 @@ const AboutPage = () => {
         <div className='flex flex-col mx-24 mt-16 md:flex-row md:items-center gap-8'>
           <img src={AboutUs2} className="max-w-2xl md:max-w-none md:w-full md:order-2 md:max-h-sm" alt="Icono de equidad" />
           <div className="md:w-1/2 md:order-1 ">
-            <p className='text-bodyText text-base text-contrast text-justify'>FemCoders Club es una comunidad de mujeres desarrolladoras, cuyo principal objetivo es romper la brecha de género digital y ser un referente que fomente la inclusión femenina en el mundo tecnológico.
+            <p className='text-bodyText text-base text-contrast text-justify '>FemCoders Club es una comunidad de mujeres desarrolladoras, cuyo principal objetivo es romper la brecha de género digital y ser un referente que fomente la inclusión femenina en el mundo tecnológico.
               Somos un grupo de mujeres dedicadas al ámbito de la tecnología que buscan promover la participación real de las mujeres dentro del sector IT.
               <br />
               <br />
@@ -52,19 +52,19 @@ const AboutPage = () => {
           <div className="flex flex-col items-center justify-center bg-accent/20 py-16">
             <img src={iconMission} alt="" />
             <h3 className={`${styles.heading6} text-secondary font-headerText my-2`}>Misión</h3>
-            <p className='text-bodyText text-base text-contrast px-6 md:px-40 text-center'>Nuestra misión es empoderar y elevar a las mujeres en el mundo del desarrollo web. Nos esforzamos por cerrar la brecha de género en la tecnología, fomentando una comunidad que nutre habilidades, conocimientos y confianza. A través de eventos, talleres y recursos, trabajamos incansablemente para crear un impacto duradero en la industria y en las vidas de nuestras miembros.</p>
+            <p className='text-bodyText text-base text-contrast px-6 md:px-40 text-center w-full'>Nuestra misión es empoderar y elevar a las mujeres en el mundo del desarrollo web. Nos esforzamos por cerrar la brecha de género en la tecnología, fomentando una comunidad que nutre habilidades, conocimientos y confianza. A través de eventos, talleres y recursos, trabajamos incansablemente para crear un impacto duradero en la industria y en las vidas de nuestras miembros.</p>
           </div>
 
           <div className="flex flex-col items-center justify-center bg-tertiary/20 py-16">
             <img src={iconVision} alt="" />
             <h3 className={`${styles.heading6} text-secondary font-headerTex my-2`}>Visión</h3>
-            <p className='text-bodyText text-base text-contrast px-6 md:px-40 text-center'>Nuestra visión es un futuro donde las mujeres desarrolladoras web lideren, innoven y den forma al panorama digital. Aspiramos a un sector IT equitativo e inclusivo, donde la diversidad y la inclusión sean principios fundamentales que impulsen el progreso tecnológico. Nuestro club aspira a ser el catalizador del cambio, donde cada mujer, sin importar su origen, encuentre estímulo, recursos y una comunidad vibrante para destacarse como codificadora y líder.</p>
+            <p className='text-bodyText text-base text-contrast px-6 md:px-40 text-center w-full'>Nuestra visión es un futuro donde las mujeres desarrolladoras web lideren, innoven y den forma al panorama digital. Aspiramos a un sector IT equitativo e inclusivo, donde la diversidad y la inclusión sean principios fundamentales que impulsen el progreso tecnológico. Nuestro club aspira a ser el catalizador del cambio, donde cada mujer, sin importar su origen, encuentre estímulo, recursos y una comunidad vibrante para destacarse como codificadora y líder.</p>
           </div>
         </div>
       </section>
 
-      <section>
-        <h2>Nuestro valores</h2>
+      <section className='py-16'>
+        <h3 className={`${styles.heading6} text-secondary font-headerTex my-2 text-center`}>Nuestro valores</h3>
         <CarouselValues/>
       </section>
 
