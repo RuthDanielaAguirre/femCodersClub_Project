@@ -26,7 +26,7 @@ const AdminPage = () => {
   
   return (
     <Layout>
-      <div className="relative overflow-hidden flex flex-col lg:flex-row justify-center items-start h-fit bg-fixed py-[100px] lg:px-[50px] sm:px-10 px-3" 
+      <div className="relative overflow-hidden flex flex-col lg:flex-row justify-center items-start h-fit bg-fixed py-[100px] lg:px-[50px] md:px-10 px-3" 
         style={{backgroundImage: `url(${bgAdmin2})`, backgroundSize: 'cover'}}
       >
         <nav aria-label="Admin-navbar" className='flex flex-col p-0 m-0 w-fit text-secondary font-semibold'>
@@ -57,8 +57,8 @@ const AdminPage = () => {
               </li>
             </ul>
         </nav>
-        <div className="bg-primary rounded-r-[24px] rounded-b-[24px] rounded-box lg:mt-[0px] p-10 lg:w-[1000px] w-full h-fit min-h-[70vh] overflow-auto">
-          <div className="">
+        <div className="bg-primary rounded-r-[24px] rounded-b-[24px] rounded-box lg:mt-[0px] p-10 lg:w-[1000px] w-full md:h-[830px] h-fit min-h-[70vh] overflow-auto">
+          <div className="hidden md:block">
             {selectedTab === 1 && (
               <>
                 { <MemberContainer/>}
@@ -90,6 +90,9 @@ const AdminPage = () => {
               </>
             )}
               
+          </div>
+          <div key="qrScanner" className="flex md:hidden">
+            { <QrScanner/> }
           </div>
         </div>
       </div>
