@@ -16,7 +16,7 @@ const FccFooter = () => {
       <div className="w-full h-full mb-2 md:mb-6 md:mt-6">
         <div className=" w-full mt-2 mx-auto px-4 justify-between sm:justify-between sm:flex sm:justify-between md:flex grid grid-cols-1 md:grid-cols-3 gap-4 container">
           <div className='items-center  flex flex-col justify-center align-center'>
-            <a href="#" className="flex items-center space-x-3 justify-center align-center rtl:space-x-reverse hidden sm:block">
+            <a href="#" className="flex items-center space-x-3 justify-center align-center rtl:space-x-reverse hidden md:block">
               <Link to="/"><img src={FemCodersClubLogo} className="w-[8.75rem]" alt="Fem Coders Club Logo" /></Link>
             </a>
           </div>
@@ -35,8 +35,8 @@ const FccFooter = () => {
               <SlackButton />
             </div>
           </div>
-          <div className="flex flex-col-reverse md:flex-col text-align items-center justify-center text-right mb-2">
-            <div className="flex flex-row md:flex-col gap-1 border-t sm:border-none">
+          <div className="flex flex-col-reverse sm:flex-col text-align items-center justify-center text-right mb-2">
+            <div className="flex flex-row md:flex-col gap-1 border-t sm:border-none sm:mr-2 ">
             <CookiePolicyModal />
             <PrivacyPolicyModal />
             </div>
