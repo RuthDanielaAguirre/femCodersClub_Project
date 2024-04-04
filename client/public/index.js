@@ -16,6 +16,8 @@ import bgSignup from "./bgSignup.svg";
 import bgValuesHome from "./bgValuesHome.png";
 import FemCodersClubLogo from "./apple.png";
 import heroImg from "./heroImg.svg";
+import iconArrowR from "./iconArrowR",
+import iconArrowL from "./iconArrowL",
 import iconBalance from "./iconBalance.png";
 import iconCollaboration from "./iconCollaboration.png";
 import iconDate from "./iconDate.png"
@@ -26,9 +28,11 @@ import iconEquity from "./iconEquity.png";
 import iconEthics from "./iconEthics.png";
 import iconGoogle from "./iconGoogle.png";
 import iconInclusion from "./iconInclusion.png"
-import iconLocation from "./iconLocation";
+import iconLocation from "./iconLocation.png";
+import iconMission from "./iconMission.png";
 import iconResponsibility from "./iconResponsibility.png"
 import iconVisibility from "./iconVisibility.png"
+import iconVision from "./iconVision.png"
 import imgContact from "./imgContact.png";
 import imgEvents from "./imgEvents.png";
 import imgSponsor from "./imgSponsor.png";
@@ -55,6 +59,8 @@ export {
     bgValuesHome,
     FemCodersClubLogo,
     heroImg,
+    iconArrowR,
+    iconArrowL,
     iconBalance,
     iconCollaboration,
     iconDate,
@@ -66,8 +72,10 @@ export {
     iconGoogle,
     iconInclusion,
     iconLocation,
+    iconMission,
     iconResponsibility,
     iconVisibility,
+    inconVision,
     imgContact, 
     imgEvents, 
     imgSponsor, 

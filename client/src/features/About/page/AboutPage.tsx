@@ -1,7 +1,10 @@
 import { Layout } from '../../../components/Layout/Layout'
 import { styles } from "../../../style";
+import CarouselValues from '../components/CarouselValues';
 import bgAbout from '../../../../public/bgAbout.png'
 import AboutUs2 from '../../../../public/AboutUs2.png'
+import iconMission from '../../../../public/iconMission.png'
+import iconVision from '../../../../public/iconVision.png'
 import FemCodersClubLogo from '../../../../public/FemCodersClubLogo.png'
 
 
@@ -43,6 +46,28 @@ const AboutPage = () => {
           FemCoders Club es un espacio donde nuestra principal misión es empoderar a las mujeres y así lograr que cada una de nosotras pueda tener una carrera de éxito con igualdad de posibilidades, mientras nos conectamos unas con otras.
         </p>
       </section>
+
+      <section>
+        <div className='grid grid-cols-1 md:grid-cols-2'>
+          <div className="flex flex-col items-center justify-center bg-accent/20 py-16">
+            <img src={iconMission} alt="" />
+            <h3 className={`${styles.heading6} text-secondary font-headerText my-2`}>Misión</h3>
+            <p className='text-bodyText text-base text-contrast px-6 md:px-40 text-center'>Nuestra misión es empoderar y elevar a las mujeres en el mundo del desarrollo web. Nos esforzamos por cerrar la brecha de género en la tecnología, fomentando una comunidad que nutre habilidades, conocimientos y confianza. A través de eventos, talleres y recursos, trabajamos incansablemente para crear un impacto duradero en la industria y en las vidas de nuestras miembros.</p>
+          </div>
+
+          <div className="flex flex-col items-center justify-center bg-tertiary/20 py-16">
+            <img src={iconVision} alt="" />
+            <h3 className={`${styles.heading6} text-secondary font-headerTex my-2`}>Visión</h3>
+            <p className='text-bodyText text-base text-contrast px-6 md:px-40 text-center'>Nuestra visión es un futuro donde las mujeres desarrolladoras web lideren, innoven y den forma al panorama digital. Aspiramos a un sector IT equitativo e inclusivo, donde la diversidad y la inclusión sean principios fundamentales que impulsen el progreso tecnológico. Nuestro club aspira a ser el catalizador del cambio, donde cada mujer, sin importar su origen, encuentre estímulo, recursos y una comunidad vibrante para destacarse como codificadora y líder.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Nuestro valores</h2>
+        <CarouselValues/>
+      </section>
+
 
 
     </Layout>
