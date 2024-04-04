@@ -16,23 +16,37 @@ import iconBalance from '../../../../public/iconBalance.png';
 import iconResponsibility from '../../../../public/iconResponsibility.png';
 
 
+function getInitialDeviceWidth(){
+
+  if (window.innerWidth <= 976) {
+    return "tablet"
+  }
+
+  if (window.innerWidth <= 768) {
+    return "mobile"
+  }
+
+  return "desktop"
+}
+
+
 function CarouselValues() {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isIPad, setIsIPad] = useState(false);
+  const [deviceType, setDeviceType] = useState<"desktop" | "tablet" | "mobile">(getInitialDeviceWidth);
+
 
   useEffect(() => {
     const handleResize = () => {
 
-      if (window.innerWidth <= 768) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
+      if (window.innerWidth > 976) {
+        setDeviceType("desktop")
       }
 
-      if (window.innerWidth <= 1024) {
-        setIsIPad(true);
-      } else {
-        setIsIPad(false);
+      if (window.innerWidth <= 976) {
+        setDeviceType("tablet")
+      }
+
+      if (window.innerWidth <= 768) {
+        setDeviceType("mobile")
       }
 
     };
@@ -48,7 +62,7 @@ function CarouselValues() {
   return (
     <div className="h-[350px] w-full">
 
-      {isIPad && !isMobile && <Carousel slide={false}
+      { deviceType === "tablet" && <Carousel slide={false}
         rightControl={""} leftControl={""}>
 
         <div className="grid justify-items-center items-center grid-cols-2 w-[720px]">
@@ -68,7 +82,6 @@ function CarouselValues() {
               independientemente de sus antecedentes o experiencias.</p>
           </div>
         </div>
-
 
         <div className="grid justify-items-center items-center md:grid-cols-2 w-[720px]">
           <div className="flex flex-col items-center justify-center bg-primary rounded-3xl w-[320px] h-[330px]"
@@ -157,7 +170,7 @@ function CarouselValues() {
       </Carousel>}
 
 
-      {isMobile && !isIPad && <Carousel slide={false}
+      {deviceType === "mobile" && <Carousel slide={false}
         rightControl={""} leftControl={""}>
 
         <div className="flex flex-col items-center justify-center bg-primary py-8 rounded-3xl w-[280px] h-[350px]"
@@ -254,8 +267,8 @@ function CarouselValues() {
       </Carousel>}
 
 
-      {!isMobile && !isIPad && <Carousel slide={false}
-        rightControl={<img className="pr-24" src={iconArrowR} />} leftControl={<img className="pl-24" src={iconArrowL} />}>
+      {deviceType === "desktop" && <Carousel slide={false}
+        rightControl={<img className="pr-8" src={iconArrowR} />} leftControl={<img className="pl-8" src={iconArrowL} />}>
 
         <div className="grid justify-items-center items-center md:grid-cols-3 max-w-6xl">
 

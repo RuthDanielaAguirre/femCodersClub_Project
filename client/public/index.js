@@ -28,6 +28,7 @@ import iconEmpowerment from "./iconEmpowerment.png";
 import iconEquity from "./iconEquity.png";
 import iconEthics from "./iconEthics.png";
 import iconGoogle from "./iconGoogle.png";
+import iconIdea from "./iconIdea.png";
 import iconInclusion from "./iconInclusion.png"
 import iconLocation from "./iconLocation.png";
 import iconMission from "./iconMission.png";
@@ -73,6 +74,7 @@ export {
     iconEquity,
     iconEthics,
     iconGoogle,
+    iconIdea,
     iconInclusion,
     iconLocation,
     iconMission,
