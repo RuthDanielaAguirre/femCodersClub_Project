@@ -1,18 +1,18 @@
-// import { Test, TestingModule } from '@nestjs/testing';
-// import { EventbriteService } from './events.service';
+import { Test, TestingModule } from '@nestjs/testing';
+import { EventbriteService } from './events.service';
 
-// describe('EventsService', () => {
-//   let service: EventbriteService;
+describe('EventsService', () => {
+  let service: EventbriteService;
 
-//   beforeEach(async () => {
-//     const module: TestingModule = await Test.createTestingModule({
-//       providers: [EventbriteService],
-//     }).compile();
+  beforeEach(async () => {
+    const module: TestingModule = await Test.createTestingModule({
+      providers: [EventbriteService],
+    }).compile();
 
-//     service = module.get<EEventbriteService>(EventbriteService);
-//   });
+    service = module.get<EventbriteService>(EventbriteService);
+  });
 
-//   it('should be defined', () => {
-//     expect(service).toBeDefined();
-//   });
-// });
+  it('should be defined', () => {
+    expect(service).toBeDefined();
+  });
+});

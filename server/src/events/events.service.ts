@@ -31,7 +31,7 @@ export class EventbriteService {
   }
 
   async findAll() {
-    // console.log(idOrganization);
+   
     return this.httpService
       .get(`https://www.eventbriteapi.com/v3/organizations/2076189237573/events/`
       ,
@@ -51,7 +51,7 @@ export class EventbriteService {
   }
 
   async findAllPastEvents() {
-    // console.log(idOrganization);
+    
     return this.httpService
       .get(`https://www.eventbriteapi.com/v3/organizations/2076189237573/events/?status=ended&expand=venue`
       ,
@@ -71,7 +71,7 @@ export class EventbriteService {
   }
 
   async findAllUpcomingEvents() {
-    // console.log(idOrganization);
+    
     return this.httpService
       .get(`https://www.eventbriteapi.com/v3/organizations/2076189237573/events/?status=live&expand=venue`
       ,

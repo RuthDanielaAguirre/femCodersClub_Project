@@ -1,12 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req, Res, HttpStatus } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
 import { SignupDto } from './dto/signup.dto';
 import { LoginDto } from './dto/login.dto';
 import { GoogleAuthGuard } from './utils/Guards';
-import { Request } from 'express';
+import { Response, Request } from 'express';
 import { User } from 'src/user/entities/user.entity';
+
+
 
 
 @Controller('auth')
@@ -28,15 +30,22 @@ export class AuthController {
   
 @Get ('google/login')
 @UseGuards(GoogleAuthGuard)
-async handleLogin(){
-  return User
+async auth(){
 }
 
 @Get ('google/redirect')
 @UseGuards(GoogleAuthGuard)
-async handleRedirect() {
+async googleAuthRedirect(@Req() req, @Res() res: Response) {
 
-  return {msg: "just redirect"}
+  const token = await this.authService.signIn(req.user);
+  
+  res.cookie('access_token',token,{
+    maxAge: 60000,
+    sameSite: true,
+    secure: false,
+  });
+
+  return res.status(HttpStatus.OK);
 }
 
 @Get('status')

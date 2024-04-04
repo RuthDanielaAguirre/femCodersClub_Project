@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, InternalServerErrorException } from '@nestjs/common';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
 import { UserService } from '../user/user.service';
@@ -12,6 +12,7 @@ import { UserDetails } from 'src/utils/types';
 import { InjectRepository } from '@nestjs/typeorm';
 import { privateDecrypt } from 'crypto';
 import { Repository } from 'typeorm';
+import { generateFromEmail } from 'unique-username-generator';
 
 @Injectable()
 export class AuthService {
@@ -21,20 +22,57 @@ export class AuthService {
     @InjectRepository(User) private readonly userRepository: Repository<User>,
   ) { }
 
-  async validateUser(details: UserDetails) {
-    console.log('AuthService');
-    console.log(details);
-    const user = await this.userRepository.findOneBy({ userEmail: details.userEmail });
-    if (user) return user;
-    const newUser = this.userRepository.create(details);
-    return this.userRepository.save(newUser);
+  generateJwt(payload) {
+    return this.jwtService.sign(payload);
+  }
+
+  async signIn(user) {
+    if (!user) {
+      throw new BadRequestException('Unauthenticated');
+    }
+    const userExist = await this.findUserByEmail(user.userEmail)
+
+    if (!userExist) {
+      return this.registerUser(user);
+    }
+    return this.generateJwt({
+      sub: userExist.idUser,
+      email: userExist.userEmail,
+    });
+  }
+
+  async registerUser(user: LoginDto) {
+    try {
+      const newUser = this.userRepository.create(user);
+      newUser.userName = generateFromEmail(user.userEmail, 5)
+
+      await this.userRepository.save(newUser);
+
+      return this.generateJwt({
+        sub: newUser.idUser,
+        email: newUser.userEmail,
+      });
+
+
+    } catch {
+      throw new InternalServerErrorException();
+    }
+  }
+
+  async findUserByEmail(userEmail) {
+    const user = await this.userRepository.findOneBy({ userEmail })
+
+    if (!user) {
+      return null;
+    }
+    return user;
 
   }
 
-  async findUser(idUser: number){
-    const user = await this.userRepository.findOneBy({idUser})
+  async findUser(idUser: number) {
+    const user = await this.userRepository.findOneBy({ idUser })
     return user;
-    
+
   }
 
   async signup({
@@ -63,7 +101,7 @@ export class AuthService {
     };
   }
   async login({ userEmail, userPassword }: LoginDto) {
-    const user = await this.userService.findOneByEmail(userEmail );
+    const user = await this.userService.findOneByEmail(userEmail);
 
     if (!user) {
       throw new BadRequestException('El correo electrónico o la contraseña es incorrecta');
@@ -77,9 +115,9 @@ export class AuthService {
 
     const token = jwtToken;
     const idUser = user.idUser;
-    const name= user.userName;
-    const lastName= user.userLastName;
-    const gender= user.userGender;
+    const name = user.userName;
+    const lastName = user.userLastName;
+    const gender = user.userGender;
     const email = user.userEmail;
     const telephone = user.userTelephone;
     const role = user.userRole;
