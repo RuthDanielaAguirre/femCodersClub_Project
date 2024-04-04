@@ -4,7 +4,7 @@ import CarouselContactHome from '../components/CarouselContactHome'
 import CardsEventsHome from '../components/CardsEventsHome'
 import ValuesCardsHome from '../components/ValuesCardsHome';
 import { styles } from "../../../style";
-import heroImg from '../../../../public/heroImg.svg'
+import heroImg2 from '../../../../public/heroImg2.png'
 import bgValuesHome from '../../../../public/bgValuesHome.png'
 
 const HomePage = () => {
@@ -13,7 +13,7 @@ const HomePage = () => {
 
       <div className='flex flex-col'>
       <section className="w-full h-screen relative" >
-        <div className='absolute z-[-1] w-full'><img src={heroImg} alt="" className='w-full h-full'/></div>
+        <div className='absolute z-[-1] w-full'><img src={heroImg2} alt="" className='w-full h-full'/></div>
         <div className="h-screen relative px-24 content-center">
           <h1 className={`${styles.heading1} font-headerText`}>FemCoders Club</h1>
           <br />

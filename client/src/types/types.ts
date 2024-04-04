@@ -57,7 +57,7 @@ export type DeleteSponsorType = {
 }
 
 export type Volunteer={
-    idVolunteer: string;
+        idVolunteer: string;
     volunteerName: string;
     volunteerLastName: string;
     volunteerEmail: string;
@@ -109,8 +109,43 @@ export type faq={
 }
 
 export type Member={
-    idVolunteer: number;
+    idMember: number;
     memberName: string;
     memberLastName: string;
     memberDescription: string;
+    memberRole: string;
+    memberImage: string;
+}
+
+export type member={
+    idMember: number;
+    memberName: string;
+    memberLastName: string;
+    memberDescription: string;
+    memberRole: string;
+    memberImage: string;
+}
+
+export type AddMemberFormData ={
+    memberName: string;
+    memberLastName: string;
+    memberDescription: string;
+    memberRole: string;
+    memberImage: string;
+}
+
+export type EditMemberFormData = {
+    idMember: number;
+    updatedMember:{
+        memberName: string;
+        memberLastName: string;
+        memberDescription: string;
+        memberRole: string;
+        memberImage: string;
+    }
+}
+
+export type DeleteMemberData = {
+    idMember: number;
+
 }

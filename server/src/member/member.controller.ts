@@ -22,17 +22,13 @@ export class MemberController {
     return this.memberService.findOne(idMember);
   }
   @Put(':idMember')
-  update(@Param('idMember') idMember: number, @Body() updateMemberDto: CreateMemberDto) {
+  update(@Param('idMember') idMember: number, @Body() updateMemberDto: UpdateMemberDto) {
     return this.memberService.update(idMember, updateMemberDto);
   }
 
-  @Patch(':idMember')
-  partialUpdate(@Param('idMember') idMember: number, @Body() updateMemberDto: UpdateMemberDto) {
-    return this.memberService.update(idMember, updateMemberDto);
-  }
 
-  @Delete(':idMember')
-  remove(@Param('idMember') idMember: number) {
-    return this.memberService.remove(idMember);
+  @Delete(':id')
+  remove(@Param('id') id: number) {
+    return this.memberService.remove(id);
   }
 }

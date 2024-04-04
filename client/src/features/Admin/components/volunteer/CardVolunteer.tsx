@@ -22,33 +22,32 @@ export const CardVolunteer = () => {
     <>
       <div className="flex flex-wrap">
         {data?.map((volunteer) => (
-          <div key={volunteer.idVolunteer} className={`${styles.cards} relative bg-white flex flex-col items-center m-4 max-w-[24rem] w-[260px] h-[300px] overflow-hidden`} >
+          <div key={volunteer.idVolunteer} className={`${styles.cards} relative flex flex-col items-center m-4 px-5 max-w-[24rem] w-[260px] h-[300px] overflow-hidden`} >
             <div className="absolute inset-0 bg-gradient-to-br from-accent to-tertiary opacity-50"></div>
-            <img src="\imgUser.png" alt="avatar image" className="w-[100px] relative z-10 mt-4" />
-            <div className="flex flex-col mt-4">
-              <h5 className={`${styles.text}relative z-10 flex items-center gap-2`} ><FaUser />{volunteer.volunteerName} {volunteer.volunteerLastName}</h5>
-              <p className="relative z-10 flex items-center gap-2 "><IoIosMail />{volunteer.volunteerEmail}</p>
-              <p className="relative z-10 flex items-center gap-2 "><IoTransgender />{volunteer.volunteerGender}</p>
-            </div>
-            <div className="z-10 mt-5 space-x-2 ">
-              <VolunteerContext.Provider value={volunteer}>
-                <AdminModal
-                  text='Editar'
-                  width='120px'
-                  bg='tertiary'
-                >
-                  <EditVolunteerForm />
-                </AdminModal>
-                <AdminModal
-                  text='Borrar'
-                  width='120px'
-                  bg='secondary'
-                >
-                  <DeleteVolunteer />
-                </AdminModal>
-              </VolunteerContext.Provider>
-
-            </div>
+              <img src="\imgUser.png" alt="avatar image" className="w-[100px] relative z-10 mt-4" />
+              <div className="flex flex-col items-start mt-4 w-full">
+                <h5 className={`${styles.text}relative z-10 flex items-center gap-2`} ><FaUser />{volunteer.volunteerName} {volunteer.volunteerLastName}</h5>
+                <p className="relative z-10 flex items-center gap-2 "><IoIosMail />{volunteer.volunteerEmail}</p>
+                <p className="relative z-10 flex items-center gap-2 "><IoTransgender />{volunteer.volunteerGender}</p>
+              </div>
+              <div className="z-10 mt-5 w-full flex justify-center gap-3">
+                <VolunteerContext.Provider value={volunteer}>
+                  <AdminModal
+                    text='Borrar'
+                    width='100px'
+                    bg='secondary'
+                  >
+                    <DeleteVolunteer />
+                  </AdminModal>
+                  <AdminModal
+                    text='Editar'
+                    width='100px'
+                    bg='tertiary'
+                  >
+                    <EditVolunteerForm />
+                  </AdminModal>
+                </VolunteerContext.Provider>
+              </div>
           </div>
         ))}
       </div>

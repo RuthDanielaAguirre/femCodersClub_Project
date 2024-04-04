@@ -1,29 +1,19 @@
-import { useQuery } from '@tanstack/react-query';
-import { getFaq } from '../../../api/faqApi';
+
 import { Layout } from '../../../components/Layout/Layout'
+import { styles } from '../../../style';
 import FaqAccordion from '../components/FaqAccordion';
-
-
-
+import bgFaqs from '../../../../public/bgFaqs.svg'
 
 const FaqsPage = () => {
-  const { data } = useQuery({
-    queryKey: ["faq"],
-    queryFn: getFaq,
-  });
+
   return (
     <Layout>
-  
-        <div>
-            <div className="flex items-end flex-col w-full mb-5">
-            <div className="max-w-3xl mx-auto">
-      <h1 className="text-2xl font-bold my-4">Preguntas Frecuentes</h1>
-      {data ? <FaqAccordion faqs={data} /> : <p>Cargando...</p>}
-    </div>
-            </div>
-            
-        </div>
-   
+            <div className="w-full flex flex-col items-center md:py-[100px] xl:py-[150px] bg-cover "
+                    style={{backgroundImage: `url(${bgFaqs})`,backgroundRepeat:'no-repeat'}}
+            >
+              <h1 className={`${styles.heading3} my-24`}>Preguntas Frecuentes</h1>
+              <FaqAccordion /> 
+          </div>
     </Layout>
   )
 }

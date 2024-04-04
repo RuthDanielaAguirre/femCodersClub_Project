@@ -1,35 +1,57 @@
-import { useQuery } from "@tanstack/react-query"
-import { styles } from "../../../../style"
-import { IoTransgender } from "react-icons/io5"
-import { FaUser } from "react-icons/fa"
-import { IoIosMail } from "react-icons/io"
-import { getMember } from "../../../../api/memberApi"
+import { useQuery } from "@tanstack/react-query";
+import { FaUser } from "react-icons/fa";
+import { PiFileMagnifyingGlassBold } from "react-icons/pi";
+import { getMember } from "../../../../api/memberApi";
+import { styles } from "../../../../style";
+import { HiUserGroup } from "react-icons/hi";
+import { Member } from "../../../../types/types";
+import { MemberContext } from "../../../../hooks/useMemberContext";
+import AdminModal from "../AdminModal";
+import EditMember from "./EditMember";
+import DeleteMember from "./DeleteMember";
 
-
-export  const CardVolunteer = () => {
-
-  const {data} = useQuery(
-    {
-    queryKey:['members'],
+const CardMember = () => {
+  const { data } = useQuery<Member[]>({
+    queryKey: ['members'],
     queryFn: getMember
-  })
- 
+  });
+
   return (
     <>
-    <div className="flex">
-  {data?.map((volunteer) => (
-    <div key={volunteer.idVolunteer} className={`${styles.cards} relative bg-white flex flex-col items-center m-4 max-w-[24rem] w-[250px] h-[300px] overflow-hidden`} >
-      <div className="absolute inset-0 bg-gradient-to-br from-accent to-tertiary opacity-50"></div>
-      <img src="\imgUser.png" alt="avatar image" className="w-[100px] relative z-10 mt-4"  />
-      <div className="flex flex-col mt-4">
-      <h5 className={`${styles.text}relative z-10 flex items-center gap-2`} ><FaUser />{volunteer.volunteerName} {volunteer.volunteerLastName}</h5>
-      <p className="relative z-10 flex items-center gap-2 "><IoIosMail />{volunteer.volunteerEmail}</p>
-      <p className="relative z-10 flex items-center gap-2 "><IoTransgender />{volunteer.volunteerGender}</p>
-      </div>
-    </div>
-  ))}
-</div>
+      {data?.map((member) => (
+        <div key={member.idMember} className={`${styles.cards} flex bg-gradient-to-br from-accent/40 to-tertiary/40 p-8 mb-8 w-full gap-6`}>
+          <img src={member.memberImage} alt="member image" className="w-48 h-48 rounded-full" />
+          <div className="flex-1 z-2 text space-y-3 text-secondary">
+            <h5 className="flex font-semibold text-xl items-center gap-2"><FaUser />{member.memberName} {member.memberLastName}</h5>
+            <p className={`${styles.text} flex items-start gap-2`}><span><PiFileMagnifyingGlassBold className="text-xl text-secondary"/></span>{member.memberDescription}</p>
+            <p className={`${styles.text} flex items-center gap-2`}><span><HiUserGroup  className="text-xl text-secondary" /></span>{member.memberRole}</p>
+            <div className='flex w-full justify-end gap-4 mr-2'>
+              <MemberContext.Provider value={member}>
+                <AdminModal
+                    text = 'Editar'
+                    width = '120px'
+                    fontColor = 'tertiary'
+                    fonthover= 'primary'
+                    bg = 'primary'
+                >
+                    <EditMember/>
+                </AdminModal>
+                <AdminModal 
+                    text = 'Borrar'
+                    width = '120px'
+                    fontColor = 'secondary'
+                    fonthover= 'primary'
+                    bg = 'primary'
+                >
+                    <DeleteMember/>
+                </AdminModal>
+              </MemberContext.Provider>
+            </div>
+          </div>
+        </div>
+      ))}
     </>
-  )
-}
-export default CardVolunteer
+  );
+};
+
+export default CardMember;
