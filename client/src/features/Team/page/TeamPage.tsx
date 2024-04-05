@@ -1,24 +1,20 @@
 import { Layout } from '../../../components/Layout/Layout';
 import { styles } from '../../../style';
 import CardTeamMember from '../components/CardTeamMember';
-import bgTeam from '../../../../public/bgTeam.svg'
+import bgTeam from '../../../../public/bgTeam.png'
 
 const TeamPage = () => {
 
   return (
     <Layout>
-      <section className="flex flex-col justify-center text-center items-center bg-center" style={{ backgroundImage: `url(${bgTeam})`, backgroundSize: 'cover', backgroundRepeat: "no-repeat", height: '600px',  backgroundPosition: "center bottom" }}>
+      <section className="flex flex-col lg:pt-[100px] xl:pb-[150px] xxl:pt-[200px] xxl:pb-[260px] pt-10 pb-[100px] text-center items-center bg-center xxl:gap-12 gap-10 h-fit px-5" style={{ backgroundImage: `url(${bgTeam})`, backgroundSize: 'cover', backgroundRepeat: "no-repeat",  backgroundPosition: "center top" }}>
         <h1 className={`${styles.heading3} font-headerText`}>
           Conoce nuestro equipo
         </h1> 
-        <p className={`${styles.text} text-primary font-semibold font-headerText px-[300px] pt-6 `}>Somos una vibrante comunidad de mujeres apasionadas por la tecnología, el crecimiento personal y el empoderamiento femenino.
+        <p className="text-xl bg-gradient-to-b from-[#ffff] via-accent to-secondary xl:via-primary xl:to-primary font-semibold inline-block text-transparent bg-clip-text font-headerText max-w-[1000px]">Somos una vibrante comunidad de mujeres apasionadas por la tecnología, el crecimiento personal y el empoderamiento femenino.
           En FemCoders Club, nos dedicamos a crear un espacio seguro y enriquecedor donde mujeres tecnólogas puedan reunirse, colaborar y crecer juntas. Creemos firmemente en el poder de la diversidad y la fuerza colectiva para superar barreras y lograr un impacto significativo en la industria tecnológica.</p>
       </section>
-      <section>
-        
-       
-      </section>
-      <div className='px-[350px] py-[100px]'>
+      <div className='flex justify-center px-5 pb-24'>
       <CardTeamMember/>
       </div>
     </Layout>

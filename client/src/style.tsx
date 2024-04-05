@@ -33,4 +33,6 @@ export const styles = {
 
     itemScan: "flex items-center gap-2 bg-primary/50 hover:bg-primary/30 text-center p-4 rounded-[16px] text-[30px] lg:text-[20px] w-fit lg:w-full",
 
+    smHidden: 'sm:hidden',
+
 }

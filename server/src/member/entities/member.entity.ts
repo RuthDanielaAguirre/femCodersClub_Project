@@ -27,4 +27,8 @@ memberDescription: string;
 @IsString()
 memberRole: string;
 
+@Column()
+@IsString()
+memberImage: string;
+
 }
