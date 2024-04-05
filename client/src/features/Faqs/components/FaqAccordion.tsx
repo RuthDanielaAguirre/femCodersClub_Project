@@ -33,8 +33,8 @@ function FaqAccordion() {
           </div>
           {activeIndex === index && (
             <div className='bg-primary rounded-b-xl'>
-            <div className="px-4 pb-4 bg-gradient-to-r from-accent/80 to-tertiary/80 rounded-b-xl">
-              <p className='bg-primary rounded-[24px] p-8 mx-4 mb-4'>{faq.faqAnswer}</p>
+            <div className="md:px-4 md:pb-4 pb-2 bg-gradient-to-r from-accent/80 to-tertiary/80 rounded-b-xl">
+              <p className='bg-primary rounded-[24px] md:p-8 p-5 mx-4 mb-4'>{faq.faqAnswer}</p>
             </div>
             </div>
           )}
