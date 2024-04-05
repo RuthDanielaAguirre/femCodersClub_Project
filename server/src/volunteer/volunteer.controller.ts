@@ -11,7 +11,7 @@ export class VolunteerController {
   constructor(private readonly volunteerService: VolunteerService) {}
 
   @Post()
-  @ApiOperation({summary:'It creates a volunteer'})
+  @ApiOperation({summary:'Create a volunteer'})
   @ApiResponse({status: 201,description:'A Volunteer has been succesfully created'})
   @ApiBadRequestResponse({status:404, description: 'Bad Request'})
   @ApiInternalServerErrorResponse({ status:500, description: 'Internal Server Error'})
