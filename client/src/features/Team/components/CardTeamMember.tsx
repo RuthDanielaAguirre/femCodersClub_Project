@@ -25,9 +25,9 @@ const CardTeamMember = () => {
     }
    
     return (
-        <div className="grid grid-cols-3 gap-4 justify-items-center items-start">
+        <div className="flex flex-wrap lg:gap-24 md:gap-16 gap-8 justify-center items-start max-w-[1200px] p-5">
             {data?.map((member) => (
-                <div key={member.idMember} className={`${styles.cards} relative bg-gradient-to-br from-accent/40 to-tertiary/40 text p-4 w-full h-full`}>
+                <div key={member.idMember} className={`${styles.cards} relative bg-gradient-to-br from-accent/40 to-tertiary/40 text p-4 w-64 h-72`}>
                     <div className="flex flex-col h-full">
                         <div>
                             <img src={member.memberImage} alt="member image" className="w-24 h-24 rounded-full mb-4" />
