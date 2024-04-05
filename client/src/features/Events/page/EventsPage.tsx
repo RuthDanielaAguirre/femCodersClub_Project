@@ -51,7 +51,7 @@ const EventsPage = () => {
         </div>
       </section>
 
-      <section className="bg-gradient-to-b from-accent/40 to-primary mb-20 pt-8">
+      <section className="bg-gradient-to-b from-accent/40 to-primary mb-20 pt-8 p-5">
         <h1 className={`${styles.heading6} font-headerText text-secondary flex justify-center text-center mb-8`}>Eventos Pasados</h1>
         <div className='flex items-center justify-center flex-col gap-y-8'>
           {!isLoadingPastEvents && pastEventsData.events.map((event: { start: { local: string | number | Date; }; name: { text: any; }; logo: { original: { url: any; }; }; venue: { address: { localized_address_display: any; }; }; description: { text: any; }; }) => {
