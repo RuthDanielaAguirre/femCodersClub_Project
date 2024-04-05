@@ -3,7 +3,6 @@ import { Footer } from 'flowbite-react';
 import { BsInstagram, BsLinkedin, BsSpotify, BsYoutube } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { ApoyanosButton } from './ApoyanosButton';
-import { styles } from '../../style';
 import SlackButton from './SlackButton';
 import PrivacyPolicyModal from './Modals/Privacidad';
 import CookiePolicyModal from './Modals/Cookies';
