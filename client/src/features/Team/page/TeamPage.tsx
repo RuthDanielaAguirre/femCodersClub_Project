@@ -20,7 +20,7 @@ const TeamPage = () => {
         </h1> 
       </section>
       <section className='w-full flex flex-col items-center py-10 lg:py-16 gap-10 xl:gap-20'>
-        <p className="text-xl text-contrast font-semibold font-headerText max-w-[1200px] text-center md:mx-10 mx-3">Somos una vibrante comunidad de mujeres apasionadas por la tecnología, el crecimiento personal y el empoderamiento femenino.
+        <p className="text-xl text-contrast font-semibold font-headerText max-w-[1200px] text-center md:mx-10 lg:mx-20 sm:mx-10 mx-5">Somos una vibrante comunidad de mujeres apasionadas por la tecnología, el crecimiento personal y el empoderamiento femenino.
           En FemCoders Club, nos dedicamos a crear un espacio seguro y enriquecedor donde mujeres tecnólogas puedan reunirse, colaborar y crecer juntas. Creemos firmemente en el poder de la diversidad y la fuerza colectiva para superar barreras y lograr un impacto significativo en la industria tecnológica.</p>
         <CardTeamMember/>
       </section>
