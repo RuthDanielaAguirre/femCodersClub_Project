@@ -1,13 +1,25 @@
 import { Layout } from '../../../components/Layout/Layout'
 import { Link } from "react-router-dom";
 import CarouselContactHome from '../components/CarouselContactHome'
-import CardsEventsHome from '../components/CardsEventsHome'
+import CardUpcomingEvent from '../../Events/components/CardUpcomingEvent';
 import { styles } from "../../../style";
 import heroImg2 from '../../../../public/heroImg2.png'
 import bgValuesHome from '../../../../public/bgValuesHome.png'
 import CarouselValues from '../../About/components/CarouselValues';
+import { useQuery } from '@tanstack/react-query';
+import { getUpcomingEvents } from '../../../api/eventsApi';
+
+
 
 const HomePage = () => {
+
+  const { data: upcomingEventsData, isLoading: isLoadingUpcomingEvents } = useQuery(
+    {
+      queryKey: ['upcomingEvents'],
+      queryFn: getUpcomingEvents,
+    }
+  );
+
   return (
     <Layout>
 
@@ -32,7 +44,7 @@ const HomePage = () => {
           <h2 className={`${styles.heading2} font-headerText mb-16`}>¡Próximos eventos!</h2>
           <Link to="/eventos"><p className={`${styles.text}text-xl font-bold text-secondary font-headerText py-2 absolute ml-20 hover:border-b-2 border-tertiary`}>Ver todos los eventos</p></Link>
           </div>
-          <CardsEventsHome />
+          <CardUpcomingEvent />
         </div>
       </section>
 
@@ -47,7 +59,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className='flex flex-col items-center justify-center w-full my-24 px-24'>
+      <section className='h-full w-full flex flex-col items-center justify-center px-8 py-20 lg:px-40 lg:h-screen '>
         <CarouselContactHome />
       </section>
 
