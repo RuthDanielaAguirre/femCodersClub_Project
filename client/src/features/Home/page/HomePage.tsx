@@ -26,7 +26,7 @@ const HomePage = () => {
       <section className='lg:h-screen h-full w-full flex flex-col lg:flex-row'>
 
 
-        <div className="h-full flex flex-col justify-center items-center text-center px-2 order-2 lg:order-1 lg:px-16 lg:text-left ">
+        <div className="h-full flex flex-col justify-center items-center text-center px-6 order-2 lg:order-1 lg:px-16 lg:text-left ">
           <h1 className={`${styles.heading1} px-4 py-4 font-headerText leading-none text-center lg:text-left`}>FemCoders Club</h1>
           <br />
           <h2 className="text-2xl font-bold text-secondary font-headerText px-4"><span className="text-tertiary">Juntas</span>  potenciamos el crecimiento y liderazgo de las mujeres tech.</h2>
@@ -42,10 +42,10 @@ const HomePage = () => {
 
 
       <section className='h-full w-full flex justify-center items-center px-4 my-16'>
+
         <div className='flex flex-col items-center gap-y-8'>
           <div className='flex'>
             <h2 className={`${styles.heading2} font-headerText my-8 text-center leading-none`}>¡Próximos eventos!</h2>
-            <Link to="/eventos"><p className={`${styles.text}text-xl font-bold text-secondary font-headerText py-2 absolute ml-20 hover:border-b-2 border-tertiary`}>Ver todos los eventos</p></Link>
           </div>
           {!isLoadingUpcomingEvents && upcomingEventsData.events.map((event: { start: { local: string | number | Date; }; name: { text: string; }; logo: { original: { url: string; }; }; venue: { address: { localized_address_display: string; }; }; description: { text: string; }; id: string }) => {
 
@@ -61,7 +61,11 @@ const HomePage = () => {
               eventId={event.id}
             />
           })}
+          
+          <Link to="/eventos"><p className={`${styles.text}text-xl font-bold text-secondary font-headerText hover:border-b-2 border-tertiary`}>Ver todos los eventos</p></Link>
+
         </div>
+        
       </section>
 
 
@@ -75,7 +79,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className='h-full w-full flex flex-col items-center justify-center px-8 py-20 lg:px-40 lg:h-screen '>
+      <section className='h-full w-full flex flex-col items-center justify-center px-8 py-20 lg:px-40 lg:h-screen'>
         <CarouselContactHome />
       </section>
 
