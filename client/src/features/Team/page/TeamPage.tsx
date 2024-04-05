@@ -7,14 +7,15 @@ const TeamPage = () => {
 
   return (
     <Layout>
-      <section className="flex px-5 py-[100px] lg:py-[200px] xl:py-[250px] xxl:py-[300px] justify-center text-center h-fit relative" style={{ backgroundImage: `url(${bgTeam})`, backgroundSize: 'cover', backgroundRepeat: "no-repeat",  backgroundPosition: "center top" }}>
-        <div className='absolute w-full h-[27%] bottom-0 bg-gradient-to-t from-primary/40 to-transparent'/>
-        <div className='absolute w-full h-[25%] bottom-0 bg-gradient-to-t from-primary/50 to-transparent'/>
-        <div className='absolute w-full h-[22%] bottom-0 bg-gradient-to-t from-primary/60 to-transparent'/>
-        <div className='absolute w-full h-[20%] bottom-0 bg-gradient-to-t from-primary/80 to-transparent'/>
-        <div className='absolute w-full h-[18%] bottom-0 bg-gradient-to-t from-primary/90 to-transparent'/>
-        <div className='absolute w-full h-[10%] bottom-0 bg-gradient-to-t from-primary to-transparent'/>
-        <div className='absolute w-full h-[10%] bottom-0 bg-gradient-to-t from-primary to-transparent'/>
+      <section className="flex px-5 py-[100px] lg:py-[200px] xl:py-[250px]  justify-center text-center h-fit relative" style={{ backgroundImage: `url(${bgTeam})`, backgroundSize: 'cover', backgroundRepeat: "no-repeat",  backgroundPosition: "center top" }}>
+        <div className='absolute w-full h-[27%] block xxl:hidden bottom-0 bg-gradient-to-t from-primary/40 to-transparent'/>
+        <div className='absolute w-full h-[25%] block xxl:hidden bottom-0 bg-gradient-to-t from-primary/50 to-transparent'/>
+        <div className='absolute w-full h-[22%] block xxl:hidden bottom-0 bg-gradient-to-t from-primary/60 to-transparent'/>
+        <div className='absolute w-full h-[20%] block xxl:hidden bottom-0 bg-gradient-to-t from-primary/80 to-transparent'/>
+        <div className='absolute w-full h-[18%] block xxl:hidden bottom-0 bg-gradient-to-t from-primary/90 to-transparent'/>
+        <div className='absolute w-full h-[10%] block xxl:hidden bottom-0 bg-gradient-to-t from-primary to-transparent'/>
+        <div className='absolute w-full h-[10%] block xxl:hidden bottom-0 bg-gradient-to-t from-primary to-transparent'/>
+        <div className='absolute w-full h-[5%] xxl:block hidden bottom-0 bg-gradient-to-t from-primary to-transparent'/>
         <h1 className={`${styles.heading3} font-headerText`}>
           Conoce nuestro equipo
         </h1> 
