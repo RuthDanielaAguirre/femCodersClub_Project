@@ -4,6 +4,7 @@ import { InjectDataSource, InjectRepository } from '@nestjs/typeorm';
 import { DataSource, Repository } from 'typeorm';
 import { User } from './entities/user.entity';
 import { UpdateUserDto } from './dto/update-user.dto';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UserService {
@@ -64,4 +65,20 @@ export class UserService {
             await queryRunner.release();
         }
     }
+
+    async createWithGoogle(userEmail: string, userName: string) {
+      const newUser = await this.userRepository.create({
+        userEmail, userName
+      })
+      await this.userRepository.save(newUser);
+      return newUser;
+    }
+
+    async setCurrentRefreshToken(refreshToken: string, userId: number) {
+      const currentHashedRefreshToken = await bcrypt.hash(refreshToken, 10);
+      await this.userRepository.update(userId, {
+        // currentHashedRefreshToken habría que ponerlo en la tabla user de la bbdd y ponerlo en la entity
+      });
+    }
+
 }
