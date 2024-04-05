@@ -3,7 +3,7 @@ import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { UserModule } from 'src/user/user.module';
-import { jwtConstants } from './jwt.constant';
+import { jwtConstants } from './tokenPayload.interface';
 import { GoogleStrategy } from './utils/GoogleStrategy';
 import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
