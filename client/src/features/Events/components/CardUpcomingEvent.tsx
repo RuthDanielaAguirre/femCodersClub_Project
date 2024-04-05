@@ -4,11 +4,20 @@ import iconDate from '../../../../public/iconDate.png';
 import iconLocation from '../../../../public/iconLocation.png'
 import EmbeddedCheckout from "./EmbeddedCheckout";
 import { useState } from "react";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
+import { useNavigate } from "react-router-dom";
 
 function CardUpcomingEvent({title, image, date, location, description, eventId}:{title:string, image:string, date:string, location:string, description:string, eventId:string}) {
   const [showModal, setShowModal] = useState(false);
-
+  const[currentUser]= useLocalStorage("user","");
+  const navigate = useNavigate();
+  
   const handleClick = () => {
+    const user = currentUser.token;
+    console.log(currentUser.token)
+    if (user==null){
+      navigate('/login');
+    }
     setShowModal(true);
   }
   

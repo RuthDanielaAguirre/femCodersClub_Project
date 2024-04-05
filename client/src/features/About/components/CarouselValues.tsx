@@ -62,7 +62,7 @@ function CarouselValues() {
   return (
     <div className="h-[350px] w-full">
 
-      {deviceType === "mobile" && <Carousel indicators={false} slide={false}
+      {deviceType === "mobile" && <Carousel slide={false}
         rightControl={""} leftControl={""}>
 
         <div className="flex flex-col items-center justify-center bg-primary py-8 rounded-3xl w-[300px] h-[350px]"
