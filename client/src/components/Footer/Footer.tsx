@@ -24,7 +24,7 @@ const FccFooter = () => {
               <p className='text-primary text-center text-bodyText'>Síguenos en:</p>
               <div className="flex mt-4 text-tertiary  space-x-6">
                 <Footer.Icon href="https://open.spotify.com/user/31wgl44unbqdv6nh4igsgw5pp6t4?si=29d0152b29404e44" icon={BsSpotify} className="text-tertiary hover:text-contrast" />
-                <Footer.Icon href="#" icon={BsInstagram} className="text-tertiary hover:text-contrast" />
+                <Footer.Icon href="https://www.instagram.com/femcoders_club/" icon={BsInstagram} className="text-tertiary hover:text-contrast" />
                 <Footer.Icon href="https://www.linkedin.com/company/fem-coders-club/" icon={BsLinkedin} className="text-tertiary hover:text-contrast" />
                 <Footer.Icon href="https://www.youtube.com/@FemcodersClub" icon={BsYoutube} className="text-tertiary hover:text-contrast" />
               </div>
