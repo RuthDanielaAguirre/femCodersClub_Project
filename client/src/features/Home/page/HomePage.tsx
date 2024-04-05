@@ -47,7 +47,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className='h-screen w-full mb-24 mt-24 px-24'>
+      <section className='flex flex-col items-center justify-center w-full my-24 px-24'>
         <CarouselContactHome />
       </section>
 
