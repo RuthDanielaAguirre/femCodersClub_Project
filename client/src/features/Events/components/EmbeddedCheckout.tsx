@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import QrCodeModal from "./qrCode/QrCodeModal";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import QRCode from 'qrcode';
+import { AiFillCloseCircle } from "react-icons/ai";
 
 const EmbeddedCheckout = ({ isVisible, onClose, eventId}: { isVisible: boolean, onClose: () => void, eventId:string}) => {
 
@@ -44,9 +45,9 @@ const EmbeddedCheckout = ({ isVisible, onClose, eventId}: { isVisible: boolean, 
         {isVisible?
         <>
             {createPortal(
-                <div className='fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center'>
+                <div className='fixed inset-0 bg-contrast bg-opacity-25 backdrop-blur-sm flex justify-center items-center'>
                     <div className="relative rounded-2xl overflow-hidden w-[960px]">
-                        <button className="absolute right-3 top-2 text-primary text-2xl place-self-end" onClick={closeModal}>(x)</button>
+                        <button className="absolute right-3 top-3" onClick={closeModal}><AiFillCloseCircle className="text-contrast/90 bg-primary rounded-full text-3xl" /></button>
                         <div id={`eventbrite-widget-container-${eventId}`} className="w-full">
                         </div>
                     </div>
