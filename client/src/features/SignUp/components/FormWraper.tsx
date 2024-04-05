@@ -5,10 +5,10 @@ import GoogleButton from "./GoogleButton"
 
 const SignUpPage = () => {
     return (
-        <div className="flex-wrap z-[10] max-w-[550px] flex justify-center rounded-[24px] dropdown border-accent/10 border-2 bg-primary">
-            <div className="flex-1 flex-col justify-center w-[520px] my-[25px] rounded-[10px]">
+        <div className="flex-wrap z-[10] w-[550px] flex justify-center rounded-[24px] border-accent/10 border-2 bg-primary">
+            <div className="flex-1 flex-col justify-center my-[25px] w-full rounded-[10px]">
                 <FormHeader />
-                <div className="mt-2 sm:mx-auto sm:w-full sm:max-w-sm">
+                <div className="mt-2 lg:px-[32px] px-5 w-full">
                     <SignUpForm /> 
                     <p className="w-full text-center mb-2">- ó -</p>
                     <GoogleButton />

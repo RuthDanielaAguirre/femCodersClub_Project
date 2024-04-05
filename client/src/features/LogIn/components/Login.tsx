@@ -64,7 +64,7 @@ const Login = () => {
           <p className="w-full text-center mb-2">- ó -</p>   
           <GoogleButton/>
           <p className="mt-4 text-end text-sm text-contrast/70">
-            ¿No tienes cuenta todavia? <a href="/signup" className="font-semibold leading-6 text-tertiary hover:text-[#fd8c82]">Regístrate</a>
+            ¿No tienes cuenta todavia? <a href="/signup" className="font-semibold leading-6 text-tertiary hover:text-contrast/80">Regístrate</a>
           </p>
         </form>
       </div>
