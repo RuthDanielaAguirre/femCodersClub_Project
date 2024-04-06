@@ -8,13 +8,12 @@ import { styles } from "../../../style";
 import GoogleButton from "./GoogleButton";
 import FemCodersClubLogo from '../../../../public/FemCodersClubLogo.png'
 
-
 type LoginDto ={
   email: string;
   password: string;
 }
-const Login = () => {
 
+const Login = () => {
   const [email,setEmail]= useState('');
   const [password, setPassword]= useState('');
   const[, setUser] = useLocalStorage('user', '');
