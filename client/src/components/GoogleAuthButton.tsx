@@ -1,11 +1,12 @@
 import { useGoogleLogin } from '@react-oauth/google';
-import { styles } from '../../../style';
+import { styles } from '../style';
 // import axios from 'axios';
-import { useLocalStorage } from '../../../hooks/useLocalStorage';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 import { useNavigate } from 'react-router-dom';
-import { googleAuth } from '../../../api/googleOAuth';
+import { googleAuth } from '../api/googleOAuth';
+import iconGoogle from '../../public/iconGoogle.svg'
 
-const GoogleAuth = () => {
+const GoogleAuthButton = () => {
     const[, setUser] = useLocalStorage('user', '');
     const navigate = useNavigate();
     
@@ -27,13 +28,13 @@ const GoogleAuth = () => {
     });
 
     return (
-        <div className=' w-[300px]'>
-            <h2>React Google Login</h2>
-            <br />
-            <br />
-            <button onClick={() => login()} className={`${styles.secondaryBtn}`}>Continuar con Google</button>;
+        <div className=' '>
+            <button onClick={() => login()} className={`${styles.secondaryBtn}`}>
+                <img src={iconGoogle} alt="icon-google" className="w-5" />
+                Continuar con Google
+            </button>;
         </div>
     )
 }
 
-export default GoogleAuth
+export default GoogleAuthButton;
