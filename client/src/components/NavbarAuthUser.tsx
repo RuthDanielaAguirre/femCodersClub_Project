@@ -16,7 +16,7 @@ const NavbarAuthUser = () => {
   return (
     <>
       <nav className="bg-gradient-to-r from-primary via-accent to-secondary">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-24">
+        <div className="flex flex-wrap items-center justify-between w-full px-16 ">
           <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
             <Link to="/"><img src={FemCodersClubLogo} className="w-24" alt="Fem Coder Club Logo" /></Link>
           </a>
@@ -47,15 +47,12 @@ const NavbarAuthUser = () => {
                 <img id="avatarButton" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" className="w-10 h-10 rounded-full cursor-pointer" src={avatarUser} alt="User dropdown" />
                 <div id="userDropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                   <ul className="py-2 text-sm text-contrast" aria-labelledby="avatarButton">
-                    <li className="font-bodyText text-[16px] block px-4 py-2 hover:bg-gray-100">
-                      <Link to="">Mi perfil</Link>
-                    </li>
-                    <li className="font-bodyText text-[16px] block px-4 py-2 hover:bg-gray-100 ">
-                      <Link to="">Mis eventos</Link>
+                    <li className="font-bodyText text-[16px] text-contrast block px-4 py-2 hover:bg-gray-100">
+                      <Link to="/usuario">Mi perfil</Link>
                     </li>
                   </ul>
                   <div className="py-1">
-                    <button className="font-bodyText text-[16px] block px-4 py-2 text-sm text-contrast hover:bg-gray-100 " onClick={handleLogout} >Salir de sesión</button>
+                    <button className="w-full font-bodyText text-left text-[16px] block px-4 py-2 text-contrast hover:bg-gray-100 " onClick={handleLogout} >Salir de sesión</button>
                   </div>
                 </div>
               </div>

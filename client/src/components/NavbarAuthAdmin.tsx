@@ -15,7 +15,7 @@ const NavbarAuthAdmin = () => {
     return (
         <>
             <nav className="bg-gradient-to-r from-primary via-accent to-secondary">
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-24">
+                <div className="flex flex-wrap items-center justify-between px-24">
                     <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
                         <Link to="/"><img src={FemCodersClubLogo} className="w-24" alt="Fem Coder Club Logo" /></Link>
                     </a>
@@ -47,10 +47,7 @@ const NavbarAuthAdmin = () => {
                                 <div id="userDropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                                     <ul className="py-2 text-sm text-contrast" aria-labelledby="avatarButton">
                                         <li className="font-bodyText text-[16px] block px-4 py-2 hover:bg-gray-100">
-                                            <Link to="">Mi perfil</Link>
-                                        </li>
-                                        <li className="font-bodyText text-[16px] block px-4 py-2 hover:bg-gray-100 ">
-                                            <Link to="">Mis eventos</Link>
+                                            <Link to="/admin">Mi perfil</Link>
                                         </li>
                                     </ul>
                                     <div className="py-1">

@@ -5,8 +5,8 @@ import { styles } from '../style'
 
 const NavbarNoAuth = () => {
   return (
-    <nav className="bg-gradient-to-r from-primary via-accent to-secondary px-8">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+    <nav className="bg-gradient-to-r from-primary via-accent to-secondary ">
+      <div className=" flex flex-wrap items-center justify-between w-full px-16">
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
           <Link to="/"><img src={FemCodersClubLogo} className="w-24" alt="Fem Coder Club Logo" /></Link>
         </a>
