@@ -16,10 +16,19 @@ const GoogleAuthButton = () => {
                 // const res = await axios.get("https://www.googleapis.com/oauth2/v3/userinfo?access_token=" + response.access_token);
                 // console.log(res);
                 
+                // const authUser = {
+                //     name: res.data.given_name,
+                //     lastName: res.data.family_name,
+                //     gender: '',
+                //     email: res.data.email,
+                //     telephone:'',
+                // }
+                // setUser(authUser);
+                
                 const tokenData = response.access_token;
                 const authUser = googleAuth(tokenData);
-                
-                setUser(authUser)
+                setUser(authUser);
+
                 navigate('/')
             } catch (err) {
                 console.log(err);
@@ -32,7 +41,7 @@ const GoogleAuthButton = () => {
             <button onClick={() => login()} className={`${styles.secondaryBtn}`}>
                 <img src={iconGoogle} alt="icon-google" className="w-5" />
                 Continuar con Google
-            </button>;
+            </button>
         </div>
     )
 }

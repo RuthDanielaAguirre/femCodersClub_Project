@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import SignUpForm from "../components/SignUpForm"
 import FormHeader from "./FormHeader"
-import GoogleButton from "./GoogleButton"
+import GoogleAuthButton from "../../../components/GoogleAuthButton"
 
 const SignUpPage = () => {
     return (
@@ -11,7 +11,7 @@ const SignUpPage = () => {
                 <div className="mt-2 lg:px-[32px] px-5 w-full">
                     <SignUpForm /> 
                     <p className="w-full text-center mb-2">- ó -</p>
-                    <GoogleButton />
+                    <GoogleAuthButton />
                     <p className="mt-4 text-end text-sm text-contrast/70">
                         ¿Ya tienes cuenta? <a href="#" className="font-bold leading-6 text-tertiary hover:text-contrast/80 text-[16px]"><Link to="/login">Iniciar sesión</Link></a>
                     </p>
