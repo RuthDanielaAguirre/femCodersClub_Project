@@ -20,8 +20,6 @@ const EventsPage = () => {
       queryFn: getUpcomingEvents,
     }
   );
-  console.log(pastEventsData);
-
 
   return (
     <Layout>
