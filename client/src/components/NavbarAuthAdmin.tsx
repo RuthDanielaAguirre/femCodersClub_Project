@@ -1,8 +1,17 @@
 import { Link } from 'react-router-dom';
-import  avatarAdmin  from '../../public/avatrAdmin.png'
+import avatarAdmin from '../../public/avatrAdmin.png'
 import FemCodersClubLogo from '../../public/FemCodersClubLogo.png'
+import { useLocalStorage } from '../hooks/useLocalStorage';
 
 const NavbarAuthAdmin = () => {
+
+    const [_, setCurrentUser]= useLocalStorage('user', '');
+  
+    const handleLogout = () => {
+        setCurrentUser("")
+      window.location.href="/";
+    };
+  
     return (
         <>
             <nav className="bg-gradient-to-r from-primary via-accent to-secondary">
@@ -41,11 +50,11 @@ const NavbarAuthAdmin = () => {
                                             <Link to="">Mi perfil</Link>
                                         </li>
                                         <li className="font-bodyText text-[16px] block px-4 py-2 hover:bg-gray-100 ">
-                                            <Link to="/admin">Panel</Link>
+                                            <Link to="">Mis eventos</Link>
                                         </li>
                                     </ul>
                                     <div className="py-1">
-                                        <a href="#" className="font-bodyText text-[16px] block px-4 py-2 text-sm text-contrast hover:bg-gray-100 ">Salir de sesión</a>
+                                        <button className="font-bodyText text-[16px] block px-4 py-2 text-sm text-contrast hover:bg-gray-100 " onClick={handleLogout} >Salir de sesión</button>
                                     </div>
                                 </div>
                             </div>
