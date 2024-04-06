@@ -96,7 +96,7 @@ export class AuthService {
     return { token, idUser, name, lastName, gender, email, telephone, role };
   }
 
-  // Todo el código que hay por debajo es para gestionar el token con cookies 
+  // Todo el código que hay por debajo es para gestionar el token con cookies del login con google
 
   public getCookieWithJwtAccessToken(userId: number) {
     const payload: TokenPayload = { userId};
@@ -118,5 +118,13 @@ export class AuthService {
       cookie,
       token
     }
+  }
+
+  // Para gestionar las cookies en el logOut: Cuando un usuario inicia sesión en una palicación web, el servidor envía una o más cookies al navegador del usuario para autentincarlo.Cuando el usuario desea cerrar sesión, el servidor debe invalidar esas cookies para evitar que el usuario acceda a recursos protegidos sin autenticarse nuevamente. Cuando el servidor recibe una solicitud de cierre de sesión, devuelve una respuesta http que incluye estas dos cookies. El navegador del usuario eliminará las cookies anteriores y el usuario quedará desautenticado. Todo este comentario es para eliminar. Solo es para que de entienda cuales son los pasos que se están haciendo.
+  public getCookiesForLogOut() {
+    return [
+      'Authentication=; HttpOnly; Path=/; Max-Age=0',
+      'Refresh=; HttpOnly; Path=/; Max-Age=0'
+    ];
   }
 }
