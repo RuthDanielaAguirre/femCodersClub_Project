@@ -1,6 +1,4 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { CreateGoogleAuthenticationDto } from './dto/create-google-authentication.dto';
-import { UpdateGoogleAuthenticationDto } from './dto/update-google-authentication.dto';
 import { UserService } from 'src/user/user.service';
 import { ConfigService } from '@nestjs/config';
 import { google, Auth } from 'googleapis';
@@ -16,7 +14,6 @@ constructor(
   private readonly userService: UserService,
   private readonly configService: ConfigService,
   private readonly authService: AuthService,
-  // Hay que crear un service para devolver la información del usuario.
 ){
   const clientID = this.configService.get('208630831814-2om7gu45dvrqti9207do7j1kkfosr9bn.apps.googleusercontent.com')
   const clientSecret = this.configService.get('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')

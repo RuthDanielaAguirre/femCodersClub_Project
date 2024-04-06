@@ -26,12 +26,12 @@ export class GoogleAuthenticationController {
     @Body() tokenData: TokenVerificationDto,
     @Req() request: Request,
   ) {
-    const { accesTokenCookie, refreshTokenCookie, user } =
+    const { accessTokenCookie, refreshTokenCookie, user } =
       await this.googleAuthenticationService.authenticate(tokenData.token);
 
-    request.res.setHeader('Set-Cookie', [accesTokenCookie, refreshTokenCookie]);
+    request.res.setHeader('Set-Cookie', [accessTokenCookie, refreshTokenCookie]);
 
     return user;
   }
-  // Above, we expect the frontend to call the /google-authentication endpoint with the access token.
+  // Arriba, esperamos que el frontend llame al endpoint /google-authentication con el token de acceso
 }
