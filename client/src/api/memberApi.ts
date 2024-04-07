@@ -9,6 +9,7 @@ export const getMember = async (): Promise<Member[]> => {
     return response.data;
 };
 
+
 export const addMember = async (memberName:string, memberLastName:string,memberDescription:string, memberRole:string, memberImage:string): Promise<Member> => {
     const result = await axios.post(url, { memberName:memberName, memberLastName:memberLastName,  memberDescription:memberDescription, memberRole:memberRole, memberImage:memberImage});
     return result.data;
