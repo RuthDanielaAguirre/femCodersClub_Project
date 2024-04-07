@@ -1,14 +1,14 @@
 import { useGoogleLogin } from '@react-oauth/google';
 import { styles } from '../style';
 // import axios from 'axios';
-import { useLocalStorage } from '../hooks/useLocalStorage';
-import { useNavigate } from 'react-router-dom';
+// import { useLocalStorage } from '../hooks/useLocalStorage';
+// import { useNavigate } from 'react-router-dom';
 import { googleAuth } from '../api/googleOAuth';
 import iconGoogle from '../../public/iconGoogle.svg'
 
 const GoogleAuthButton = () => {
-    const[, setUser] = useLocalStorage('user', '');
-    const navigate = useNavigate();
+    // const[, setUser] = useLocalStorage('user', '');
+    // const navigate = useNavigate();
     
     const login = useGoogleLogin({
         onSuccess: async (response) => {
@@ -25,11 +25,14 @@ const GoogleAuthButton = () => {
                 // }
                 // setUser(authUser);
                 
-                const tokenData = response.access_token;
-                const authUser = googleAuth(tokenData);
-                setUser(authUser);
+                const accessToken = response.access_token;
 
-                navigate('/')
+                const tokenData = JSON.stringify({token: accessToken})
+                const authUser = await googleAuth(tokenData)
+                // console.log(authUser);
+                // setUser(authUser);
+
+                // navigate('/')
             } catch (err) {
                 console.log(err);
             }
