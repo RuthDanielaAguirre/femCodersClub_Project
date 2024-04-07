@@ -16,9 +16,9 @@ const NavbarAuthAdmin = () => {
         <>
             <nav className="bg-gradient-to-r from-primary via-accent to-secondary">
                 <div className="flex flex-wrap items-center justify-between px-24">
-                    <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-                        <Link to="/"><img src={FemCodersClubLogo} className="w-24" alt="Fem Coder Club Logo" /></Link>
-                    </a>
+                 
+                        <Link to="/"><img src={FemCodersClubLogo} className="w-24 flex items-center space-x-3 rtl:space-x-reverse" alt="Fem Coder Club Logo" /></Link>
+                  
                     <button data-collapse-toggle="navbar-dropdown" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-primary rounded-lg md:hidden hover:bg-tertiary" aria-controls="navbar-dropdown" aria-expanded="false">
                         <span className="sr-only">Open main menu</span>
                         <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -43,8 +43,8 @@ const NavbarAuthAdmin = () => {
                                 <Link to="/faqs">FAQs</Link>
                             </li>
                             <div>
-                                <img id="avatarButton" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" className="w-10 h-10 rounded-full cursor-pointer" src={avatarAdmin} alt="User dropdown" />
-                                <div id="userDropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                                <img id="avatarButton" data-dropdown-toggle="userDropdownAdmin" data-dropdown-placement="bottom-start" className="w-10 h-10 rounded-full cursor-pointer" src={avatarAdmin} alt="User dropdown" />
+                                <div id="userDropdownAdmin" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                                     <ul className="py-2 text-sm text-contrast" aria-labelledby="avatarButton">
                                         <li className="font-bodyText text-[16px] block px-4 py-2 hover:bg-gray-100">
                                             <Link to="/admin">Mi perfil</Link>
