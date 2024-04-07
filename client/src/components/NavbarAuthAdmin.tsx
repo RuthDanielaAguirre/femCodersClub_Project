@@ -21,7 +21,7 @@ const NavbarAuthAdmin = () => {
 
           <Link to="/"><img src={FemCodersClubLogo} className="w-24 flex items-center space-x-3 rtl:space-x-reverse" alt="Fem Coder Club Logo" /></Link>
 
-          <Dropdown className='w-full'
+          <Dropdown className='w-full z-20'
             label=""
             renderTrigger={() => <button type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-primary rounded-lg md:hidden hover:bg-tertiary" aria-controls="navbar-dropdown" aria-expanded="false">
               <span className="sr-only">Open main menu</span>
