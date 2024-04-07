@@ -9,8 +9,8 @@ export const getMember = async (): Promise<Member[]> => {
     return response.data;
 };
 
-export const addMember = async (memberName:string, memberLastName:string,memberDescription:string, memberRole:string, memberImage:string): Promise<Member> => {
-    const result = await axios.post(url, { memberName:memberName, memberLastName:memberLastName,  memberDescription:memberDescription, memberRole:memberRole, memberImage:memberImage});
+export const addMember = async (memberName:string, memberLastName:string,memberDescription:string, memberRole:string, memberImage:string, memberLinkedin:string): Promise<Member> => {
+    const result = await axios.post(url, { memberName:memberName, memberLastName:memberLastName,  memberDescription:memberDescription, memberRole:memberRole, memberImage:memberImage, memberLinkedin:memberLinkedin });
     return result.data;
 };
 
