@@ -15,7 +15,7 @@ const AddMember = () => {
     
     const {register, handleSubmit, formState: { isSubmitting }} = useForm<AddMemberFormData>()
     
-    const mutationFn = async ({ memberName, memberLastName, memberDescription, memberRole, memberImage }: AddMemberFormData) => addMember(memberName, memberLastName,memberDescription, memberRole, memberImage);
+    const mutationFn = async ({ memberName, memberLastName, memberDescription, memberRole, memberImage, memberLinkedin }: AddMemberFormData) => addMember(memberName, memberLastName,memberDescription, memberRole, memberImage, memberLinkedin);
     
     const queryClient = useQueryClient();
     
@@ -38,8 +38,9 @@ const AddMember = () => {
         const memberDescription = data.memberDescription;
         const memberRole = data.memberRole;
         const memberImage = data.memberImage;
+        const memberLinkedin = data.memberLinkedin;
 
-        mutation.mutate({ memberName, memberLastName, memberDescription, memberRole, memberImage });
+        mutation.mutate({ memberName, memberLastName, memberDescription, memberRole, memberImage, memberLinkedin });
     
         setLoading(true);
     }
@@ -87,6 +88,13 @@ const AddMember = () => {
                     <label htmlFor="image"  className={`${styles.label2}`}>URL de la imagen</label>
                     <input 
                         {...register('memberImage')}
+                        type="text" 
+                        className={`${styles.input} mt-1 mb-4`}
+                    />
+
+                    <label htmlFor="Linkedin"  className={`${styles.label2}`}>URL del Linkedin</label>
+                    <input 
+                        {...register('memberLinkedin')}
                         type="text" 
                         className={`${styles.input} mt-1 mb-4`}
                     />
