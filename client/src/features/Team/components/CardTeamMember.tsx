@@ -16,11 +16,13 @@ const CardTeamMember = () => {
   const [selectedMember, setSelectedMember] = useState<Member | null>(null);
 
   const handleClick = (member: Member) => {
-    setSelectedMember(member);
+    setSelectedMember(member); 
+    document.body.style.overflow = 'hidden';
   };
 
   const handleCloseModal = () => {
     setSelectedMember(null);
+    document.body.style.overflow = 'auto';
   };
 
   return (
@@ -48,20 +50,19 @@ const CardTeamMember = () => {
         </div>
       ))}
       {selectedMember && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-8 rounded-[30px] max-w-md">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 ">
+          <div className=" bg-white bg-gradient-to-br from-primary to-accent/40 p-8 rounded-[30px] overflow-y-auto lg:max-w-[40vw] max-h-[100vh]  md:max-w-[70vw] max-h-[100vh] sm: max-w-[80vw] max-h-[100vh] ">
             <div className="flex flex-col items-center">
             <img src={selectedMember.memberImage} alt="member image" className="w-44 h-44 rounded-full mb-4" />
-            </div>
-            <h5 className={`${styles.text} font-bold flex items-center gap-2`}><FaUser />{selectedMember.memberName} {selectedMember.memberLastName}</h5>
-            <p className={`${styles.text} flex items-center gap-2`}><HiUserGroup />{selectedMember.memberRole}</p>
-            <p className={`${styles.text} flex items-start gap-2 mb-4`}>
-            <div >
-              <PiFileMagnifyingGlassBold />
-            </div>
+            <h5 className={`${styles.heading5} text-secondary font-bold flex items-center gap-2`}>{selectedMember.memberName} {selectedMember.memberLastName}</h5>  
+            <p className={`${styles.text} flex items-center pt-2 gap-2`}>| {selectedMember.memberRole} |</p>
+           </div> 
+           <p className={`${styles.text} flex text-center items-start gap-2 pb-4 pt-4`}>
               <span>{selectedMember.memberDescription}</span>
             </p> 
-             <button onClick={handleCloseModal} >Close</button>
+            <div className="flex flex-col items-center">
+             <button className={`${styles.primaryBtn} w-[80px]`} onClick={handleCloseModal} >Cerrar</button>
+          </div>
           </div>
         
         </div>
