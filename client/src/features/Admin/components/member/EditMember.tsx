@@ -55,6 +55,10 @@ export const EditMember = () => {
     if(member) setMember({ ...member, memberImage: e.target.value });
   }
 
+  const onChangeLinkedin = (e: ChangeEvent<HTMLInputElement>) => {
+    if(member) setMember({ ...member, memberLinkedin: e.target.value });
+  }
+
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if(member && member.idMember) {
@@ -113,6 +117,14 @@ export const EditMember = () => {
                 onChange={onChangeImage}
                 type="text"
                 value={member?.memberImage || ''}
+                className={`${styles.input} mt-1 mb-4`}
+              />
+
+              <label htmlFor="Linkedin" className={`${styles.label2}`}>Linkedin:</label>
+              <input
+                onChange={onChangeLinkedin}
+                type="text"
+                value={member?.memberLinkedin || ''}
                 className={`${styles.input} mt-1 mb-4`}
               />
 

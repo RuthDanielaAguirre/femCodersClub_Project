@@ -115,6 +115,7 @@ export type Member={
     memberDescription: string;
     memberRole: string;
     memberImage: string;
+    memberLinkedin: string;
 }
 
 export type member={
@@ -124,6 +125,7 @@ export type member={
     memberDescription: string;
     memberRole: string;
     memberImage: string;
+    memberLinkedin: string;
 }
 
 export type AddMemberFormData ={
@@ -132,6 +134,7 @@ export type AddMemberFormData ={
     memberDescription: string;
     memberRole: string;
     memberImage: string;
+    memberLinkedin: string;
 }
 
 export type EditMemberFormData = {
@@ -142,6 +145,7 @@ export type EditMemberFormData = {
         memberDescription: string;
         memberRole: string;
         memberImage: string;
+        memberLinkedin: string;
     }
 }
 

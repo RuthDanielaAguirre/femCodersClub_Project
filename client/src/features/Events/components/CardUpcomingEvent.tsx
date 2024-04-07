@@ -2,7 +2,7 @@ import { styles } from "../../../style";
 import imgEvents from '../../../../public/imgEvents.png'
 import iconDate from '../../../../public/iconDate.png';
 import iconLocation from '../../../../public/iconLocation.png'
-import EmbeddedCheckout from "./EmbeddedCheckout";
+//import EmbeddedCheckout from "./EmbeddedCheckout";
 import { useState } from "react";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import { useNavigate } from "react-router-dom";
@@ -37,7 +37,7 @@ function CardUpcomingEvent({title, image, date, location, description, eventId}:
             <p className="pt-3 pl-2 text-bodyText text-contrast">{description}</p>
             <div className="w-full flex justify-center md:justify-end">
               <button className={`${styles.primaryBtn} w-[150px] h-[35px] mt-4`} onClick={handleClick}>Apuntarse</button>
-              <EmbeddedCheckout isVisible={showModal} onClose={()=> setShowModal(false)} eventId={eventId}/>
+              {/* <EmbeddedCheckout isVisible={showModal} onClose={()=> setShowModal(false)} eventId={eventId}/> */}
             </div>
         </div>
       </div>
