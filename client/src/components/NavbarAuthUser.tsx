@@ -31,15 +31,15 @@ const NavbarAuthUser = () => {
             </button>}
             arrowIcon={false}
             inline>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base' to="/sobrenosotras">Sobre nosotras</Link></Dropdown.Item>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base' to="/equipo">Equipo</Link></Dropdown.Item>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base' to="/eventos">Eventos</Link></Dropdown.Item>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base' to="/contacto">Contacto</Link></Dropdown.Item>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base' to="/faqs">FAQs</Link></Dropdown.Item>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base' to="/usuario">Mi perfil</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/sobrenosotras">Sobre nosotras</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/equipo">Equipo</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/eventos">Eventos</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/contacto">Contacto</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/faqs">FAQs</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/usuario">Mi perfil</Link></Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item>
-              <button className="font-bodyText text-contrast text-base" onClick={handleLogout} >Salir de sesión</button>
+              <button className="font-bodyText text-contrast text-base w-full text-left" onClick={handleLogout} >Salir de sesión</button>
             </Dropdown.Item>
           </Dropdown>
 
@@ -65,10 +65,10 @@ const NavbarAuthUser = () => {
                   label={<Avatar alt="User settings" img={avatarUser} rounded />}
                   arrowIcon={false}
                   inline>
-                  <Dropdown.Item><Link className='font-bodyText text-contrast text-base' to="/usuario">Mi perfil</Link></Dropdown.Item>
+                  <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left font-normal' to="/usuario">Mi perfil</Link></Dropdown.Item>
                   <Dropdown.Divider />
                   <Dropdown.Item>
-                    <button className="font-bodyText text-contrast text-base" onClick={handleLogout} >Salir de sesión</button>
+                    <button className="font-bodyText text-contrast text-base w-full text-left font-normal" onClick={handleLogout} >Salir de sesión</button>
                   </Dropdown.Item>
                 </Dropdown>
               </div>
