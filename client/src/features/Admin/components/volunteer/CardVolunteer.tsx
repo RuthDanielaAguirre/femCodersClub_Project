@@ -32,6 +32,13 @@ export const CardVolunteer = () => {
               </div>
               <div className="z-10 mt-5 w-full flex justify-center gap-3">
                 <VolunteerContext.Provider value={volunteer}>
+                   <AdminModal
+                    text='Editar'
+                    width='100px'
+                    bg='tertiary'
+                  >
+                    <EditVolunteerForm />
+                  </AdminModal>
                   <AdminModal
                     text='Borrar'
                     width='100px'
@@ -39,13 +46,7 @@ export const CardVolunteer = () => {
                   >
                     <DeleteVolunteer />
                   </AdminModal>
-                  <AdminModal
-                    text='Editar'
-                    width='100px'
-                    bg='tertiary'
-                  >
-                    <EditVolunteerForm />
-                  </AdminModal>
+                 
                 </VolunteerContext.Provider>
               </div>
           </div>

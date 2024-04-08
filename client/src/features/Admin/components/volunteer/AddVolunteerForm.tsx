@@ -62,6 +62,7 @@ export const AddVolunteerForm = () => {
 
           <label htmlFor="gender" className={`${styles.label2}`}>Género:</label>
           <select {...register('volunteerGender')} name="SelectedGender" id="gender" className={`${styles.input}`}>
+            <option value="#">Selecciona una opción</option>
             <option value="Mujer">Mujer</option>
             <option value="Hombre">Hombre</option>
             <option value="No binario">No Binario</option>
@@ -69,13 +70,13 @@ export const AddVolunteerForm = () => {
             <option value="Otro">Otro</option>
           </select>
   
-          <div>
-            <button disabled={isSubmitting} onSubmit={handleSubmit(onSubmit)} className={`${styles.primaryBtn}`}>
-              {
-                isSubmitting ? 'Cargando...' : 'Guardar'
-              }
-            </button>
-          </div>
+          <div className="flex w-full justify-center mt-5 gap-2">
+                    <button disabled={isSubmitting} onSubmit={handleSubmit(onSubmit)} className={`${styles.primaryBtn} w-[200px]`}>
+                        {
+                            isSubmitting? 'Cargando...' : 'Guardar'
+                        }
+                    </button>
+                </div>
         </form> 
       </div> 
       <SpinerModal isVisible={loading} /> 

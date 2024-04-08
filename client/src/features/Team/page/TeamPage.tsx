@@ -18,7 +18,7 @@ const TeamPage = () => {
         <div className='absolute w-full h-[5%] xxl:block hidden bottom-0 bg-gradient-to-t from-primary to-transparent'/>
         <h1 className={`${styles.heading3} font-headerText `}>
           Conoce nuestro equipo
-        </h1> |
+        </h1> 
       </section>
       <section className='w-full flex flex-col items-center py-10 lg:py-16 gap-10 xl:gap-20'>
         <p className="text-xl text-contrast font-semibold font-headerText max-w-[1200px] text-center md:mx-10 lg:mx-20 sm:mx-10 mx-5">Somos una vibrante comunidad de mujeres apasionadas por la tecnología, el crecimiento personal y el empoderamiento femenino.

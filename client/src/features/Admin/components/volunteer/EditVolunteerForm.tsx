@@ -106,7 +106,7 @@ export const EditVolunteerForm = () => {
                 <option value="Mujer">Mujer</option>
             <option value="Hombre">Hombre</option>
             <option value="No binario">No Binario</option>
-            <option value="no-option">Prefiero no decirlo</option>
+            <option value="Prefiero no decirlo">Prefiero no decirlo</option>
             <option value="Otro">Otro</option>
               </select>
 

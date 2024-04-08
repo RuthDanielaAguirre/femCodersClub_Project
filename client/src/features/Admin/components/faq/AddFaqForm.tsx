@@ -31,7 +31,8 @@ const AddFaqForm = () => {
 
     return (
         <div className="z-[10]">
-            <h1 className={`${styles.heading4} mb-8`}>Agregar Pregunta Frecuente</h1>
+            <h1 className={`${styles.heading4} mb-8`}>Agrega la pregunta frecuente:</h1>
+            <div className="z-[10] flex flex-col content-end bg-primary rounded-[24px]">
             <form onSubmit={handleSubmit(onSubmit)} action="#" method="POST" className="flex flex-col bg-accent/90 w-full h-fit rounded-[24px] p-8">
                 <label htmlFor="question" className={`${styles.label2}`}>Pregunta:</label>
                 <input 
@@ -56,6 +57,7 @@ const AddFaqForm = () => {
                     </button>
                 </div>
             </form>
+            </div>
         </div>
     )
 }

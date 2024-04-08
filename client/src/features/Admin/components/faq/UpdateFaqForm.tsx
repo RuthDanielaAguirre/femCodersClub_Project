@@ -51,7 +51,8 @@ const EditFaqModal = ({ idFaq }: EditFaqFormProps) => {
         <>
             {isModalOpen && (
                 <div className="z-[10]">
-                    <h1 className={`${styles.heading4} mb-8`}>Editar Pregunta Frecuente</h1>
+                    <h1 className={`${styles.heading4} mb-8`}>Edita la pregunta frecuente</h1>
+                  <div className="z-[10] flex flex-col content-end bg-primary rounded-[24px]">
                     <form onSubmit={handleSubmit(onSubmit)} action="#" method="PUT" className="flex flex-col bg-accent/90 w-full h-fit rounded-[24px] p-8">
                         <label htmlFor="question" className={`${styles.label2}`}>Pregunta:</label>
                         <input 
@@ -79,6 +80,7 @@ const EditFaqModal = ({ idFaq }: EditFaqFormProps) => {
                             </button>
                         </div>
                     </form>
+                    </div>
                 </div>
             )}
         </>

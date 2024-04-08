@@ -51,10 +51,10 @@ const DeleteMember = () => {
       ) : (
         <div className="flex flex-col gap-5 rounded-[16px] z-[10] bg-primary p-10">
           <h1 className="text-contrast text-xl font-semibold ">
-            ¿Estás seguro de que deseas borrar este registro?
+            ¿Estás segura de que deseas borrar este registro?
           </h1>
           <p className="text-contrast">
-            Haz clic en aceptar para borrar el registro de forma permanente.
+            Haz click en aceptar para borrar el registro de forma permanente.
           </p>
           <button
             onClick={handleClick}

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { styles } from "../../../../style";
+import SpinerModal from '../../../../components/SpinnerModal';
 
 interface DeleteFaqFormProps {
     idFaq: number | undefined; 
@@ -26,12 +27,14 @@ const DeleteFaqModal = ({ idFaq }: DeleteFaqFormProps) => {
     };
 
     return (
-        <div className="z-[10]">
-            <h1 className={`${styles.heading4} mb-8`}>Eliminar Pregunta Frecuente</h1>
-            <button onClick={handleDelete} disabled={isDeleting} className={`${styles.secondaryBtn} w-[200px]`}>
-                {isDeleting ? 'Borrando...' : 'Borrar'}
-            </button>
-        </div>
+        <div className="flex flex-col gap-5 rounded-[16px] z-[10] bg-primary p-10">
+        <h1 className="text-contrast text-xl font-semibold ">¿Estas segura que deseas borrar este registro?</h1>
+        <p className="text-contrast">Haz click en aceptar para borrar el registro de forma permanente.</p>
+        <button onClick={handleDelete} className={`${styles.cancelModalBtn} w-[200px] self-center`}>
+            Aceptar
+        </button>
+        <SpinerModal isVisible={isDeleting} />
+    </div>
     );
 };
 
