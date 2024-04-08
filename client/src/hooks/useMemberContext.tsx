@@ -9,7 +9,8 @@ const initialState:Member = {
     memberLastName: "",
     memberDescription: "",
     memberRole: "",
-    memberImage: ""
+    memberImage: "",
+    memberLinkedin: ""
 }
 export const MemberContext = createContext <Member>(initialState);
 
