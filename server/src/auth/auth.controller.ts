@@ -8,12 +8,17 @@ import { Request } from 'express';
 import { User } from 'src/user/entities/user.entity';
 import { ApiBadRequestResponse, ApiInternalServerErrorResponse, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import TokenVerificationDto from '../google-authentication/dto/tokenVerificationDto.dto';
+import { UserService } from 'src/user/user.service';
+import JwtRefreshGuard from './jwt_refreshguard';
+import RequestWithUser from './requestWithUser.interface';
 
 
 @ApiTags('Authentication')
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService,
+    private readonly userService: UserService
+  ) {}
 
   @Post('signup')
   @ApiOperation({ summary: 'Sign up a new user' })
@@ -48,6 +53,37 @@ user(@Req() request: Request) {
   } else {
     return { msg: 'Not Authenticated' };
   }
+}
+
+// Todo el código que está debajo es para el tema del refresh token
+
+@Post('log-in')
+async logIn(@Req() request: RequestWithUser) {
+  const { user } = request;
+  const accessTokenCookie = this.authService.getCookieWithJwtAccessToken(user.idUser);
+  const {
+    cookie: refreshTokenCookie,
+    token: refreshToken
+  } = this.authService.getCookieWithJwtRefreshToken(user.idUser);
+
+  await this.userService.setCurrentRefreshToken(refreshToken, user.idUser);
+
+  request.res.setHeader('Set-Cookie', [accessTokenCookie, refreshTokenCookie]);
+  return user;
+}
+
+@UseGuards(JwtRefreshGuard)
+@Get('refresh')
+refresh(@Req() request: RequestWithUser) {
+  const accessTokenCookie = this.authService.getCookieWithJwtAccessToken(request.user.idUser);
+  request.res.setHeader('Set-Cookie', accessTokenCookie);
+  return request.user;
+}
+
+@Post('log-out')
+async logOut(@Req() request: RequestWithUser) {
+  await this.userService.removeRefreshToken(request.user.idUser);
+  request.res.setHeader('Set-Cookie', this.authService.getCookiesForLogOut())
 }
 
 

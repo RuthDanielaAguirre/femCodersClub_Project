@@ -74,6 +74,9 @@ dependencies:
   passport-google-oidc:
     specifier: ^0.1.0
     version: 0.1.0
+  passport-jwt:
+    specifier: ^4.0.1
+    version: 4.0.1
   passport-local:
     specifier: ^1.0.0
     version: 1.0.0
@@ -4883,6 +4886,13 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       passport-openidconnect: 0.1.2
+    dev: false
+
+  /passport-jwt@4.0.1:
+    resolution: {integrity: sha512-UCKMDYhNuGOBE9/9Ycuoyh7vP6jpeTp/+sfMJl7nLff/t6dps+iaeE0hhNkKN8/HZHcJ7lCdOyDxHdDoxoSvdQ==}
+    dependencies:
+      jsonwebtoken: 9.0.2
+      passport-strategy: 1.0.0
     dev: false
 
   /passport-local@1.0.0:
