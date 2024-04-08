@@ -60,7 +60,7 @@ function CarouselValues() {
   }, []);
 
   return (
-    <div className="h-[350px] w-full">
+    <div className="h-[500px] w-full">
 
       {deviceType === "mobile" && <Carousel slide={false}
         rightControl={""} leftControl={""}>
