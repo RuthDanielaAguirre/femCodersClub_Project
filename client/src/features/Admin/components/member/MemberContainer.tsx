@@ -8,7 +8,7 @@ export const MemberContainer = () => {
     <>
     <div className="flex items-end flex-col w-full mb-5">
       <AdminModal 
-          text = 'agregar'
+          text = 'Agregar'
           width = '120px'
           bg = 'tertiary'
           children={<AddMember/>}

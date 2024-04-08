@@ -50,7 +50,7 @@ export const AddVolunteerForm = () => {
     <> 
     <h1 className={`${styles.heading4} mb-8 pl-4 z-[10]`}>Agrega un voluntario:</h1>
       <div className="z-10 flex flex-col content-end bg-primary rounded-[24px]  "> 
-        <form onSubmit={handleSubmit(onSubmit)} action="#" method="POST" className="flex flex-col bg-accent/90 w-full h-fit rounded-[24px] p-8">
+        <form onSubmit={handleSubmit(onSubmit)} action="#" method="POST" className="flex flex-col bg-secondary/80 w-full h-fit rounded-[24px] p-8">
           <label htmlFor="name" className={`${styles.label2}`}>Nombre:</label >
           <input {...register('volunteerName')} type="text" aria-label="name" className={`${styles.input}`} />
 
@@ -62,6 +62,7 @@ export const AddVolunteerForm = () => {
 
           <label htmlFor="gender" className={`${styles.label2}`}>Género:</label>
           <select {...register('volunteerGender')} name="SelectedGender" id="gender" className={`${styles.input}`}>
+            <option value="#">Selecciona una opción</option>
             <option value="Mujer">Mujer</option>
             <option value="Hombre">Hombre</option>
             <option value="No binario">No Binario</option>
@@ -69,13 +70,13 @@ export const AddVolunteerForm = () => {
             <option value="Otro">Otro</option>
           </select>
   
-          <div>
-            <button disabled={isSubmitting} onSubmit={handleSubmit(onSubmit)} className={`${styles.primaryBtn}`}>
-              {
-                isSubmitting ? 'Cargando...' : 'Guardar'
-              }
-            </button>
-          </div>
+          <div className="flex w-full justify-center mt-5 gap-2">
+                    <button disabled={isSubmitting} onSubmit={handleSubmit(onSubmit)} className={`${styles.primaryBtn} w-[200px]`}>
+                        {
+                            isSubmitting? 'Cargando...' : 'Guardar'
+                        }
+                    </button>
+                </div>
         </form> 
       </div> 
       <SpinerModal isVisible={loading} /> 

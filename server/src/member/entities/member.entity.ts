@@ -31,4 +31,7 @@ memberRole: string;
 @IsString()
 memberImage: string;
 
+@Column()
+@IsString()
+memberLinkedin: string;
 }

@@ -4,6 +4,7 @@ export class UpdateMemberDto {
         public memberLastName: string = '',
         public memberDescription: string = '',
         public memberRole: string = '',
-        public memberImage: string = ''
+        public memberImage: string = '',
+        public memberLinkedin: string = ''
     ) {}
 }

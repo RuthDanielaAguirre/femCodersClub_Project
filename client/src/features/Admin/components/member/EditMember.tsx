@@ -55,6 +55,10 @@ export const EditMember = () => {
     if(member) setMember({ ...member, memberImage: e.target.value });
   }
 
+  const onChangeLinkedin = (e: ChangeEvent<HTMLInputElement>) => {
+    if(member) setMember({ ...member, memberLinkedin: e.target.value });
+  }
+
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if(member && member.idMember) {
@@ -73,7 +77,7 @@ export const EditMember = () => {
         <>
           <h1 className={`${styles.heading4} mb-8 z-[10]`} >¿Qué te gustaría editar?</h1>
           <div className="z-[10] flex flex-col content-end bg-primary rounded-[24px]">
-            <form action="" onSubmit={onSubmit} className="flex flex-col bg-accent/90 w-full h-fit rounded-[24px] p-8">
+            <form action="" onSubmit={onSubmit} className="flex flex-col bg-secondary/80 w-full h-fit rounded-[24px] p-8">
 
               <label htmlFor="name" className={`${styles.label2}`}>Nombre:</label>
               <input
@@ -113,6 +117,14 @@ export const EditMember = () => {
                 onChange={onChangeImage}
                 type="text"
                 value={member?.memberImage || ''}
+                className={`${styles.input} mt-1 mb-4`}
+              />
+
+              <label htmlFor="Linkedin" className={`${styles.label2}`}>Linkedin:</label>
+              <input
+                onChange={onChangeLinkedin}
+                type="text"
+                value={member?.memberLinkedin || ''}
                 className={`${styles.input} mt-1 mb-4`}
               />
 

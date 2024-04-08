@@ -16,7 +16,7 @@ const TeamPage = () => {
         <div className='absolute w-full h-[10%] block xxl:hidden bottom-0 bg-gradient-to-t from-primary to-transparent'/>
         <div className='absolute w-full h-[10%] block xxl:hidden bottom-0 bg-gradient-to-t from-primary to-transparent'/>
         <div className='absolute w-full h-[5%] xxl:block hidden bottom-0 bg-gradient-to-t from-primary to-transparent'/>
-        <h1 className={`${styles.heading3} font-headerText`}>
+        <h1 className={`${styles.heading3} font-headerText `}>
           Conoce nuestro equipo
         </h1> 
       </section>

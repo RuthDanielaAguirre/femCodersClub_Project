@@ -36,12 +36,12 @@ const ContactForm = () => {
         <>
         {showMessage ? (
           <div className="bg-primary z-[1] py-20 rounded-[24px]">
-              <h1 className="text-center text-xl font-semibold text-contrast">Mensaje enviado!</h1>
+              <h1 className="text-center text-xl font-semibold text-contrast">¡Mensaje enviado!</h1>
           </div>
         ):(
           <>
             <div className="z-[10] flex flex-col content-end bg-primary rounded-[24px] md:w-[550px] lg:min-w-[500px] sm:w-[400px] w-[360px]">
-            <form ref={form} onSubmit={handleSubmit} action="#" method="POST" className="flex flex-col bg-accent/90 w-full h-fit rounded-[24px] p-8">
+            <form ref={form} onSubmit={handleSubmit} action="#" method="POST" className="flex flex-col bg-secondary/80 w-full h-fit rounded-[24px] p-8">
 
                 <label htmlFor="name" className={`${styles.label2}`}>Nombre:</label>
                 <input 
@@ -49,7 +49,7 @@ const ContactForm = () => {
                   type="text"
                   aria-label='name'
                   name = 'userName'
-                  placeholder = 'Escribe tu nombre aqui'
+                  placeholder = 'Escribe tu nombre aquí'
                   className={`${styles.input} mt-1 mb-4`} 
                 />
 
@@ -73,11 +73,11 @@ const ContactForm = () => {
                   className={`${styles.input} mt-1 mb-4`}
                 />
 
-                <label htmlFor="phone"  className={`${styles.label2}`}>Mensage:</label>
+                <label htmlFor="phone"  className={`${styles.label2}`}>Mensaje:</label>
                 <textarea 
                   required 
                   name = 'message'
-                  placeholder = 'Escribe tu mensage aqui'
+                  placeholder = 'Escribe tu mensaje aquí'
                   className="block w-full h-[200px] rounded-[8px] border-0 py-1.5 text-gray-900 shadow-md shadow-accent/10 placeholder:text-gray-400 focus:ring-1 focus:ring-inset focus:ring-accent/50 sm:text-sm sm:leading-6 mt-1 mb-4"
                 />
 

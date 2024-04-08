@@ -15,7 +15,7 @@ const AddMember = () => {
     
     const {register, handleSubmit, formState: { isSubmitting }} = useForm<AddMemberFormData>()
     
-    const mutationFn = async ({ memberName, memberLastName, memberDescription, memberRole, memberImage }: AddMemberFormData) => addMember(memberName, memberLastName,memberDescription, memberRole, memberImage);
+    const mutationFn = async ({ memberName, memberLastName, memberDescription, memberRole, memberImage, memberLinkedin }: AddMemberFormData) => addMember(memberName, memberLastName,memberDescription, memberRole, memberImage, memberLinkedin);
     
     const queryClient = useQueryClient();
     
@@ -38,8 +38,9 @@ const AddMember = () => {
         const memberDescription = data.memberDescription;
         const memberRole = data.memberRole;
         const memberImage = data.memberImage;
+        const memberLinkedin = data.memberLinkedin;
 
-        mutation.mutate({ memberName, memberLastName, memberDescription, memberRole, memberImage });
+        mutation.mutate({ memberName, memberLastName, memberDescription, memberRole, memberImage, memberLinkedin });
     
         setLoading(true);
     }
@@ -54,7 +55,7 @@ const AddMember = () => {
                 <>
                 <h1 className={`${styles.heading4} mb-8 pl-4 z-[10]`}>LLena el formulario para agregar Integrante</h1>
                 <div className="z-[10] flex flex-col content-end bg-primary rounded-[24px]">
-                <form onSubmit={handleSubmit(onSubmit)} action="#" method="POST" className="flex flex-col bg-accent/90 w-full h-fit rounded-[24px] p-8">
+                <form onSubmit={handleSubmit(onSubmit)} action="#" method="POST" className="flex flex-col bg-secondary/80 w-full h-fit rounded-[24px] p-8">
                     <label htmlFor="name" className={`${styles.label2}`}>Nombre:</label>
                     <input 
                         {...register('memberName')}
@@ -87,6 +88,13 @@ const AddMember = () => {
                     <label htmlFor="image"  className={`${styles.label2}`}>URL de la imagen</label>
                     <input 
                         {...register('memberImage')}
+                        type="text" 
+                        className={`${styles.input} mt-1 mb-4`}
+                    />
+
+                    <label htmlFor="Linkedin"  className={`${styles.label2}`}>URL del Linkedin</label>
+                    <input 
+                        {...register('memberLinkedin')}
                         type="text" 
                         className={`${styles.input} mt-1 mb-4`}
                     />

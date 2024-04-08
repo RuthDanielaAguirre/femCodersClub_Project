@@ -27,4 +27,10 @@ export class CreateMemberDto {
         example: 'https://example.com/image.jpg',
     })
     memberImage: string;
+
+    @ApiProperty({
+        description: 'The image URL of the member',
+        example: 'https://www.linkedin.com',
+    })
+    memberLinkedin: string;
 }

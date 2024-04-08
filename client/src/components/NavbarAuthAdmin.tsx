@@ -1,58 +1,81 @@
-import { Link } from 'react-router-dom';
-import  avatarAdmin  from '../../public/avatrAdmin.png'
+import { Link, useNavigate } from 'react-router-dom';
+import avatarAdmin from '../../public/avatrAdmin.png'
 import FemCodersClubLogo from '../../public/FemCodersClubLogo.png'
+import { useLocalStorage } from '../hooks/useLocalStorage';
+import { Avatar, Dropdown } from "flowbite-react";
 
 const NavbarAuthAdmin = () => {
+
+    const [_, setCurrentUser] = useLocalStorage('user', '');
+    const navigate = useNavigate();
+  
+    const handleLogout = () => {
+      setCurrentUser("");
+      navigate("/");
+    };
+  
     return (
         <>
-            <nav className="bg-gradient-to-r from-primary via-accent to-secondary">
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-24">
-                    <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-                        <Link to="/"><img src={FemCodersClubLogo} className="w-24" alt="Fem Coder Club Logo" /></Link>
-                    </a>
-                    <button data-collapse-toggle="navbar-dropdown" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-primary rounded-lg md:hidden hover:bg-tertiary" aria-controls="navbar-dropdown" aria-expanded="false">
-                        <span className="sr-only">Open main menu</span>
-                        <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
-                        </svg>
-                    </button>
-                    <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-                        <ul className="flex flex-col font-headerText font-bold p-4 md:p-0 md:space-x-8 md:flex-row flex items-center ">
-                            <li className="flex items-center block px-3 text-primary rounded md:bg-transparent md:text-primary md:p-0 hover:text-tertiary">
-                                <Link to="/sobrenosotras">Sobre nosotras</Link>
-                            </li>
-                            <li className="flex items-center block px-3 text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0">
-                                <Link to="/equipo">Equipo</Link>
-                            </li>
-                            <li className="flex items-center block px-3 text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0">
-                                <Link to="/eventos">Eventos</Link>
-                            </li>
-                            <li className="flex items-center block px-3 text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0">
-                                <Link to="/contacto">Contacto</Link>
-                            </li>
-                            <li className="flex items-center block px-3 text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:terciary md:p-0">
-                                <Link to="/faqs">FAQs</Link>
-                            </li>
-                            <div>
-                                <img id="avatarButton" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" className="w-10 h-10 rounded-full cursor-pointer" src={avatarAdmin} alt="User dropdown" />
-                                <div id="userDropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                                    <ul className="py-2 text-sm text-contrast" aria-labelledby="avatarButton">
-                                        <li className="font-bodyText text-[16px] block px-4 py-2 hover:bg-gray-100">
-                                            <Link to="">Mi perfil</Link>
-                                        </li>
-                                        <li className="font-bodyText text-[16px] block px-4 py-2 hover:bg-gray-100 ">
-                                            <Link to="/admin">Panel</Link>
-                                        </li>
-                                    </ul>
-                                    <div className="py-1">
-                                        <a href="#" className="font-bodyText text-[16px] block px-4 py-2 text-sm text-contrast hover:bg-gray-100 ">Salir de sesión</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+           <nav className="bg-gradient-to-r from-primary via-accent to-secondary">
+        <div className="flex flex-wrap items-center justify-between w-full px-8 lg:px-16  ">
+
+          <Link to="/"><img src={FemCodersClubLogo} className="w-24 flex items-center space-x-3 rtl:space-x-reverse" alt="Fem Coder Club Logo" /></Link>
+
+          <Dropdown className='w-full z-20 bg-gradient-to-r from-accent to-secondary'
+            label=""
+            renderTrigger={() => <button type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-primary rounded-lg md:hidden hover:bg-tertiary" aria-controls="navbar-dropdown" aria-expanded="false">
+              <span className="sr-only">Open main menu</span>
+              <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
+              </svg>
+            </button>}
+            arrowIcon={false}
+            inline>
+            <Dropdown.Item><Link className='font-bodyText text-primary text-base w-full text-left' to="/sobrenosotras">Sobre nosotras</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-primary text-base w-full text-left' to="/equipo">Equipo</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-primary text-base w-full text-left' to="/eventos">Eventos</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-primary text-base w-full text-left' to="/contacto">Contacto</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-primary text-base w-full text-left' to="/faqs">FAQs</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-primary text-base w-full text-left' to="/admin">Panel de control</Link></Dropdown.Item>
+            <Dropdown.Divider />
+            <Dropdown.Item>
+              <button className="font-bodyText text-contrast text-base w-full text-left" onClick={handleLogout} >Salir de sesión</button>
+            </Dropdown.Item>
+          </Dropdown>
+
+          <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+            <ul className="flex flex-col font-headerText font-bold p-4 md:p-0 md:space-x-8 md:flex-row flex items-center ">
+              <li className="flex items-center block px-3 text-primary rounded md:bg-transparent md:text-primary md:p-0 hover:text-tertiary">
+                <Link to="/sobrenosotras">Sobre nosotras</Link>
+              </li>
+              <li className="flex items-center block px-3 text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0">
+                <Link to="/equipo">Equipo</Link>
+              </li>
+              <li className="flex items-center block px-3 text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0">
+                <Link to="/eventos">Eventos</Link>
+              </li>
+              <li className="flex items-center block px-3 text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0">
+                <Link to="/contacto">Contacto</Link>
+              </li>
+              <li className="flex items-center block px-3 text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:terciary md:p-0">
+                <Link to="/faqs">FAQs</Link>
+              </li>
+              <div>
+                <Dropdown
+                  label={<Avatar alt="User settings" img={avatarAdmin} rounded />}
+                  arrowIcon={false}
+                  inline>
+                  <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left font-normal' to="/admin">Panel de control</Link></Dropdown.Item>
+                  <Dropdown.Divider />
+                  <Dropdown.Item>
+                    <button className="font-bodyText text-contrast text-base w-full text-left font-normal" onClick={handleLogout} >Salir de sesión</button>
+                  </Dropdown.Item>
+                </Dropdown>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </nav>
         </>
     )
 }

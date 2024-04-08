@@ -9,7 +9,7 @@ const SignUpButton = ({onSubmit, disabled}: Props) => {
         <div className="flex justify-center flex-col w-full">
             <button type="submit" aria-label="signUpBtn" onSubmit={onSubmit} className={`${styles.primaryBtn}`}>
                 {
-                    disabled ? 'Loading...' : 'Regístrarme'
+                    disabled ? 'Cargando...' : 'Registrarme'
                 }
                 </button>
         </div>
