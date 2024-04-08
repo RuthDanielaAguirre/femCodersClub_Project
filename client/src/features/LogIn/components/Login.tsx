@@ -5,16 +5,15 @@ import authApi from "../../../api/authApi";
 import { useMutation } from "@tanstack/react-query";
 import { User } from "../../../types/types";
 import { styles } from "../../../style";
-import GoogleButton from "./GoogleButton";
 import FemCodersClubLogo from '../../../../public/FemCodersClubLogo.png'
-
+import GoogleAuthButton from "../../../components/GoogleAuthButton";
 
 type LoginDto ={
   email: string;
   password: string;
 }
-const Login = () => {
 
+const Login = () => {
   const [email,setEmail]= useState('');
   const [password, setPassword]= useState('');
   const[, setUser] = useLocalStorage('user', '');
@@ -62,7 +61,7 @@ const Login = () => {
           <button className={`${styles.primaryBtn} mt-[20px]`} type="submit">Iniciar Sesión</button>
           
           <p className="w-full text-center mb-2">- ó -</p>   
-          <GoogleButton/>
+          <GoogleAuthButton/>
           <p className="mt-4 text-end text-sm text-contrast/70">
             ¿No tienes cuenta todavia? <a href="/signup" className="font-semibold leading-6 text-tertiary hover:text-contrast/80">Regístrate</a>
           </p>
