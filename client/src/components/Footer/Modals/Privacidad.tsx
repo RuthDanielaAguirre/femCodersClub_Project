@@ -27,7 +27,7 @@ const PrivacyPolicyModal = () => {
 
   return (
     <>
-      <button onClick={openModal} className="text-primary hover:text-tertiary text py-2 rounded text-right">
+      <button onClick={openModal} className="text-primary hover:text-tertiary text py-2 rounded sm:text-right text-center">
         Política de Privacidad
       </button>
       {isOpen && (

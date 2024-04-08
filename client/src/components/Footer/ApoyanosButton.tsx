@@ -6,9 +6,8 @@ export const ApoyanosButton = () => {
         <div className="flex justify-center items-center md:items-end flex-col w-full  ">
             <Link to="/contacto">
                 <div className="w-full   ">
-                <button type="button" aria-label="ApoyanosBtn" className={`${styles.primaryBtn} w-[180px] h-[35px] mb-4
-                `}>
-                   Apóyanos
+                <button type="button" aria-label="ApoyanosBtn" className={`${styles.primaryBtn} w-[180px] w-[210px] h-[35px] mb-4`}>
+                    Apóyanos
                 </button>
                 </div>
             </Link>
