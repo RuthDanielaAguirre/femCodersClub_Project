@@ -6,7 +6,6 @@ import { GoogleAuthenticationService } from './google-authentication.service';
 import { UserModule } from 'src/user/user.module';
 import { AuthModule } from 'src/auth/auth.module';
 
-
 @Module({
   imports: [ConfigModule, UserModule, AuthModule],
   providers: [GoogleAuthenticationService],

@@ -1,7 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UserService } from 'src/user/user.service';
 import { ConfigService } from '@nestjs/config';
-import { google, Auth } from 'googleapis';
+import { Auth } from 'googleapis';
 import { User } from 'src/user/entities/user.entity';
 import { AuthService } from 'src/auth/auth.service';
 import { OAuth2Client } from 'google-auth-library';
@@ -14,7 +14,6 @@ const client = new OAuth2Client(
 @Injectable()
 export class GoogleAuthenticationService {
   oauthClient: Auth.OAuth2Client;
-  // la clase GoogleAuthenticationService define una propiedad oauth de tipo Auth.O-Auth2Client que se utiliza para interactuar con la API de Google OAuth 2.0
   constructor(
     private readonly userService: UserService,
     private readonly configService: ConfigService,
@@ -60,8 +59,6 @@ export class GoogleAuthenticationService {
     }
   }
 
-  // Este método verifica si el token de autenticación de Google es válido y, si es así, obtiene los datos del usuario de la API de Google. Si el usuario ya existe en la base de datos, se llama al método handleRegisteredUser para autenticar al usuario. Si el usuario no existe en la base de datos, se registra al usuario utilizando el método registerUser.
-
   async registerUser(
     userGoogle: { userEmail: string; userName: string; userLastName: string },
     token: string,
@@ -70,7 +67,6 @@ export class GoogleAuthenticationService {
 
     return user;
   }
-  // Este método registra al usuario en la base de datos utilizando la información de la API de Google y, luego, llama al método handleRegisteredUser para autenticar al usuario.
 
   async getCookiesForUser(user: User) {
     const accessTokenCookie = this.authService.getCookieWithJwtAccessToken(
@@ -86,7 +82,6 @@ export class GoogleAuthenticationService {
       refreshTokenCookie,
     };
   }
-  // Este método genera las cookies de acceso y refresco para el usuario autenticado, y las devuelve como un objeto.
 
   async handleRegisteredUser(user: User) {
     if (!user.isRegisteredWithGoogle) {
@@ -105,5 +100,4 @@ export class GoogleAuthenticationService {
       user,
     };
   }
-  // Este método verifica si el usuario está registrado con Google y, si es así, genera las cookies de acceso y refresco y devuelve el usuario autenticado. Si el usuario no está registrado con Google, se lanza una excepción de autenticación.
 }
