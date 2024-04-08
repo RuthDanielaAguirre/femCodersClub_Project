@@ -59,7 +59,7 @@ const CardTeamMember = () => {
             <img src={selectedMember.memberImage} alt="member image" className="w-44 h-44 rounded-full bg-primary/80 h-full self-center mb-4" />
             <h5 className={`${styles.heading5} text-secondary font-bold flex items-center gap-2`}>{selectedMember.memberName} {selectedMember.memberLastName}</h5>  
             <p className={`${styles.text} flex items-center pt-2 gap-2`}>| {selectedMember.memberRole} |</p> 
-            <p className={`${styles.text} flex items-center mt-2`}>{selectedMember.memberLinkedin}</p>
+            <p className={`${styles.text} flex items-center mt-2 text-center text-secondary`}>{selectedMember.memberLinkedin}</p>
            </div> 
            <p className={`${styles.text} flex text-center items-start gap-2 pb-4 pt-4`}>
               <span>{selectedMember.memberDescription}</span>
