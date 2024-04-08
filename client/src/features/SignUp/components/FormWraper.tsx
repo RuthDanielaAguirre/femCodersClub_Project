@@ -10,7 +10,7 @@ const SignUpPage = () => {
                 <FormHeader />
                 <div className="mt-2 lg:px-[32px] px-5 w-full">
                     <SignUpForm /> 
-                    <p className="w-full text-center mb-2">- ó -</p>
+                    <p className="w-full text-center mb-2">- o -</p>
                     <GoogleButton />
                     <p className="mt-4 text-end text-sm text-contrast/70">
                         ¿Ya tienes cuenta? <a href="#" className="font-bold leading-6 text-tertiary hover:text-contrast/80 text-[16px]"><Link to="/login">Iniciar sesión</Link></a>

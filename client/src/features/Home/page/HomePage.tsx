@@ -72,7 +72,7 @@ const HomePage = () => {
       <section className="flex justify-center text-left bg-center py-16" style={{ backgroundImage: `url(${bgValuesHome})`, backgroundSize: 'cover', backgroundRepeat: "no-repeat", height: 'vh' }}>
         <div className='w-full flex flex-col justify-center text-center items-center mt-8'>
           <h3 className={`${styles.heading3} font-headerText py-2 leading-tight`}>En FemCoders Club </h3>
-          <p className="text-2xl text-primary font-bodyText pb-12">Somos un vibrante equipo de mujeres apasionadas por la tecnologia y el desarrollo web</p>
+          <p className="text-2xl text-primary font-bodyText pb-12">Somos un equipo vibrante de mujeres apasionadas por la tecnologia y el desarrollo web</p>
           <CarouselValues />
           <p className={`${styles.heading5} text-primary font-base font-headerText pt-8 mx-8`}>"La tecnología no tiene género, y cada mujer tiene el potencial de ser una líder en este campo si se le brindan las oportunidades y el apoyo adecuados." - Mariana Costa (Perú)</p>
           <Link to="/sobrenosotras"><p className='text-2xl text-primary font-bodyText flex justify-center items-center hover:border-b-2 border-primary'>Ver más</p></Link>
