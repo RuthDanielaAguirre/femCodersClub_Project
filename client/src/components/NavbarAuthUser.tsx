@@ -6,7 +6,7 @@ import { Avatar, Dropdown } from "flowbite-react";
 
 const NavbarAuthUser = () => {
 
-  const [_, setCurrentUser] = useLocalStorage('user', '');
+  const [, setCurrentUser] = useLocalStorage('user', '');
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -17,7 +17,7 @@ const NavbarAuthUser = () => {
   return (
     <>
       <nav className="bg-gradient-to-r from-primary via-accent to-secondary">
-        <div className="flex flex-wrap items-center justify-between w-full px-8 lg:px-16  ">
+        <div className="flex flex-wrap items-center justify-between w-full px-4 lg:px-16  ">
 
           <Link to="/"><img src={FemCodersClubLogo} className="w-24 flex items-center space-x-3 rtl:space-x-reverse" alt="Fem Coder Club Logo" /></Link>
 
@@ -31,24 +31,24 @@ const NavbarAuthUser = () => {
             </button>}
             arrowIcon={false}
             inline>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/sobrenosotras">Sobre nosotras</Link></Dropdown.Item>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/equipo">Equipo</Link></Dropdown.Item>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/eventos">Eventos</Link></Dropdown.Item>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/contacto">Contacto</Link></Dropdown.Item>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/faqs">FAQs</Link></Dropdown.Item>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/usuario">Mi perfil</Link></Dropdown.Item>
+            <Dropdown.Item className="hover:bg-primary/10"><Link className='font-bodyText text-primary hover:text-tertiary text-base w-full text-left' to="/sobrenosotras">Sobre nosotras</Link></Dropdown.Item>
+            <Dropdown.Item className="hover:bg-primary/10"><Link className='font-bodyText text-primary hover:text-tertiary text-base w-full text-left' to="/equipo">Equipo</Link></Dropdown.Item>
+            <Dropdown.Item className="hover:bg-primary/10"><Link className='font-bodyText text-primary hover:text-tertiary text-base w-full text-left' to="/eventos">Eventos</Link></Dropdown.Item>
+            <Dropdown.Item className="hover:bg-primary/10"><Link className='font-bodyText text-primary hover:text-tertiary text-base w-full text-left' to="/contacto">Contacto</Link></Dropdown.Item>
+            <Dropdown.Item className="hover:bg-primary/10"><Link className='font-bodyText text-primary hover:text-tertiary text-base w-full text-left' to="/faqs">FAQs</Link></Dropdown.Item>
+            <Dropdown.Item className="hover:bg-primary/10"><Link className='font-bodyText text-primary hover:text-tertiary text-base w-full text-left' to="/usuario">Mi perfil</Link></Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item>
-              <button className="font-bodyText text-contrast text-base w-full text-left" onClick={handleLogout} >Salir de sesión</button>
+            <Dropdown.Item className="hover:bg-primary/10">
+              <button className="font-bodyText text-primary hover:text-tertiary text-base w-full text-left" onClick={handleLogout} >Salir de sesión</button>
             </Dropdown.Item>
           </Dropdown>
 
           <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-            <ul className="flex flex-col font-headerText font-bold p-4 md:p-0 md:space-x-8 md:flex-row flex items-center ">
+            <ul className="flex flex-col font-headerText font-bold p-4 md:p-0 md:space-x-4 lg:space-x-8 md:flex-row flex items-center ">
               <li className="flex items-center block px-3 text-primary rounded md:bg-transparent md:text-primary md:p-0 hover:text-tertiary">
                 <Link to="/sobrenosotras">Sobre nosotras</Link>
               </li>
-              <li className="flex items-center block px-3 text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0">
+              <li className="flex items-center block px-3 text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-tertiary md:p-0">
                 <Link to="/equipo">Equipo</Link>
               </li>
               <li className="flex items-center block px-3 text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0">
@@ -68,7 +68,7 @@ const NavbarAuthUser = () => {
                   <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left font-normal' to="/usuario">Mi perfil</Link></Dropdown.Item>
                   <Dropdown.Divider />
                   <Dropdown.Item>
-                    <button className="font-bodyText text-contrast text-base w-full text-left font-normal" onClick={handleLogout} >Salir de sesión</button>
+                    <button className="font-bodyText text-primary text-base w-full text-left font-normal" onClick={handleLogout} >Salir de sesión</button>
                   </Dropdown.Item>
                 </Dropdown>
               </div>

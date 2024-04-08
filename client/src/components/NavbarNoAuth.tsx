@@ -7,7 +7,7 @@ import {  Dropdown } from "flowbite-react";
 const NavbarNoAuth = () => {
   return (
     <nav className="bg-gradient-to-r from-primary via-accent to-secondary">
-      <div className="flex flex-wrap items-center justify-between w-full px-16">
+      <div className="flex flex-wrap items-center justify-between w-full xl:px-16 px-4">
        
           <Link to="/"><img src={FemCodersClubLogo} className="w-24 flex items-center space-x-3 rtl:space-x-reverse" alt="Fem Coder Club Logo" /></Link>
 
@@ -21,38 +21,38 @@ const NavbarNoAuth = () => {
             </button>}
             arrowIcon={false}
             inline>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/sobrenosotras">Sobre nosotras</Link></Dropdown.Item>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/equipo">Equipo</Link></Dropdown.Item>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/eventos">Eventos</Link></Dropdown.Item>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/contacto">Contacto</Link></Dropdown.Item>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/faqs">FAQs</Link></Dropdown.Item>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/admin">Panel de control</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-contrast hover:text-tertiary text-base w-full text-left' to="/sobrenosotras">Sobre nosotras</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-contrast hover:text-tertiary text-base w-full text-left' to="/equipo">Equipo</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-contrast hover:text-tertiary text-base w-full text-left' to="/eventos">Eventos</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-contrast hover:text-tertiary text-base w-full text-left' to="/contacto">Contacto</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-contrast hover:text-tertiary text-base w-full text-left' to="/faqs">FAQs</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-contrast hover:text-tertiary text-base w-full text-left' to="/admin">Panel de control</Link></Dropdown.Item>
             <Dropdown.Divider />
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/login">Iniciar sesión</Link></Dropdown.Item>
-            <Dropdown.Item><Link className='font-bodyText text-contrast text-base w-full text-left' to="/signup">Registrarse</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-contrast hover:text-tertiary text-base w-full text-left' to="/login">Iniciar sesión</Link></Dropdown.Item>
+            <Dropdown.Item><Link className='font-bodyText text-contrast hover:text-tertiary text-base w-full text-left' to="/signup">Registrarse</Link></Dropdown.Item>
           
           </Dropdown>
      
         <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-          <ul className="flex flex-col font-headerText font-bold p-4 md:p-0 md:space-x-8 md:flex-row flex items-center">
-            <li className="flex items-center block px-3 text-[18px] font-semibold text-bodyTexttext-primary rounded md:bg-transparent md:text-primary md:p-0 hover:text-tertiary sm: my-4">
+          <ul className="flex flex-col font-headerText font-bold p-4 md:p-0 md:space-x-3 xl:space-x-8 md:flex-row flex items-center">
+            <li className="flex items-center block px-3 lg:text-[18px] text-[16px] font-semibold text-bodyTexttext-primary rounded md:bg-transparent md:text-primary md:p-0 hover:text-tertiary sm: my-4">
               <Link to="/sobrenosotras">Sobre nosotras</Link>
             </li>
-            <li className="flex items-center block px-3 text-[18px] font-semibold text-bodyText text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0 sm: my-4">
+            <li className="flex items-center block px-3 lg:text-[18px] text-[16px] font-semibold text-bodyText text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0 sm: my-4">
               <Link to="/equipo">Equipo</Link>
             </li>
-            <li className="flex items-center block px-3 text-[18px] font-semibold text-bodyText text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0 sm: my-4">
+            <li className="flex items-center block px-3 lg:text-[18px] text-[16px] font-semibold text-bodyText text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0 sm: my-4">
               <Link to="/eventos">Eventos</Link>
             </li>
-            <li className="flex items-center block px-3 text-[18px] font-semibold text-bodyText text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0 sm: my-4">
+            <li className="flex items-center block px-3 lg:text-[18px] text-[16px] font-semibold text-bodyText text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:text-terciary md:p-0 sm: my-4">
               <Link to="/contacto">Contacto</Link>
             </li>
-            <li className="flex items-center block px-3 text-[18px] font-semibold text-bodyText text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:terciary md:p-0 sm: my-4">
+            <li className="flex items-center block px-3 lg:text-[18px] text-[16px] font-semibold text-bodyText text-primary bg-transparent hover:text-tertiary md:hover:bg-transparent md:border-0 md:hover:terciary md:p-0 sm: my-4">
               <Link to="/faqs">FAQs</Link>
             </li>
-            <div className='flex gap-4'>
-              <Link to="/login"><button className={`${styles.primaryBtn} w-[150px] h-[40px]`}>Iniciar sesión</button></Link>
-              <Link to="/signup"><button className={`${styles.outlineBtn} w-[150px] h-[40px]`}>Registrarse</button></Link>
+            <div className='flex lg:gap-4 gap-2'>
+              <Link to="/login"><button className={`text-primary bg-tertiary hover:bg-contrast/80 font-medium rounded-[8px] lg:text-[18px] text-[16px] h-[40px] shadow-lg border-b-2 border-contrast/5 shadow-accent/20 lg:w-[150px] w-[120px] h-[40px]`}>Iniciar sesión</button></Link>
+              <Link to="/signup"><button className={`${styles.outlineBtn} lg:w-[150px] w-[120px] h-[40px]`}>Registrarse</button></Link>
             </div>
           </ul>
         </div>

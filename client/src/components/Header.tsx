@@ -7,11 +7,11 @@ import NavbarAuthAdmin from './NavbarAuthAdmin'
 
 const Header = () => {
   const[currentUser]= useLocalStorage("user","")
- 
+
   if (currentUser?.token && currentUser?.role!=="admin"){
     return <NavbarAuthUser/>
   }
- 
+
   if (currentUser?.token && currentUser?.role==="admin"){
     return <NavbarAuthAdmin/>
   }
