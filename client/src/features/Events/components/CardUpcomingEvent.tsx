@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import { useNavigate } from "react-router-dom";
 
+
 function CardUpcomingEvent({title, image, date, location, description, eventId}:{title:string, image:string, date:string, location:string, description:string, eventId:string}) {
   const [showModal, setShowModal] = useState(false);
   const[currentUser]= useLocalStorage("user","");
