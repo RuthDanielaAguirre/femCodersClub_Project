@@ -1,5 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { IsNotEmpty, IsString } from 'class-validator';
+import { Exclude } from "class-transformer";
 
 
 @Entity()
@@ -42,10 +43,12 @@ userGender: string;
 userTelephone: number;
 
 
+@Exclude()
+public currentHashedRefreshToken?: string;
+// Añadimos una columna en la bbdd para guardar el refresh token 
 
-
-
-
+@Column({ default: false })
+public isRegisteredWithGoogle: boolean;
 
 
 }

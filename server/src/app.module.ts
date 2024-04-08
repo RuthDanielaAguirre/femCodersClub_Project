@@ -13,6 +13,7 @@ import { SponsorModule } from './sponsor/sponsor.module';
 import { AdminModule } from './admin/admin.module';
 import { ConfigModule } from '@nestjs/config';
 import { HttpModule } from '@nestjs/axios';
+import { GoogleAuthenticationModule } from './google-authentication/google-authentication.module';
 
 @Module({
   imports: [
@@ -38,7 +39,8 @@ import { HttpModule } from '@nestjs/axios';
     MemberModule,
     SponsorModule,
     AdminModule,
-    HttpModule
+    HttpModule,
+    GoogleAuthenticationModule
   ],
   controllers: [AppController],
   providers: [AppService],

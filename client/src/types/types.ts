@@ -153,3 +153,7 @@ export type DeleteMemberData = {
     idMember: number;
 
 }
+
+export type TokenVerificationDto = {
+    token: string;
+}
