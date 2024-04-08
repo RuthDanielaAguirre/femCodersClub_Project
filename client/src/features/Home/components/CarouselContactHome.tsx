@@ -11,16 +11,14 @@ function CarouselContactHome() {
             <Carousel slide={false}
         rightControl={" "} leftControl={" "}>
                 <div className="flex justify-center  text-center items-center bg-center" style={{ backgroundImage: `url(${imgContact})`, backgroundSize: 'cover', backgroundRepeat: "no-repeat", height: '100%', borderRadius:"24px" }}>
-                    <h1 className="text-4xl font-semi-bold text-primary font-headerText ">Si quieres recibir información haz click <Link to="/contacto" className="text-tertiary">aquí</Link></h1>
+                    <h1 className="lg:text-4xl text-2xl  font-semi-bold text-primary font-headerText ">Si quieres recibir información haz click <Link to="/contacto" className="text-tertiary">aquí</Link></h1>
                 </div>
-
                 <div className="flex justify-center  text-center items-center bg-center" style={{ backgroundImage: `url(${imgVolunteer})`, backgroundSize: 'cover', backgroundRepeat: "no-repeat", height: '100%', borderRadius:"24px" }}>
-                    <h1 className="text-4xl font-semi-bold text-primary font-headerText ">Si quieres recibir información haz click <Link to="/contacto" className="text-tertiary">aquí</Link></h1>
+                    <h1 className="lg:text-4xl text-2xl font-semi-bold text-primary font-headerText ">Si quieres recibir información haz click <Link to="/contacto" className="text-tertiary">aquí</Link></h1>
                 </div>
-                <div className="flex justify-center  text-center items-center bg-center" style={{ backgroundImage: `url(${imgSponsor})`, backgroundSize: 'cover', backgroundRepeat: "no-repeat", height: '100%', borderRadius:"24px" }}>
-                    <h1 className="text-4xl font-semi-bold text-primary font-headerText ">Si quieres recibir información haz click <Link to="/contacto" className="text-tertiary">aquí</Link></h1>
+                <div className="flex justify-center px-2 text-center items-center bg-center" style={{ backgroundImage: `url(${imgSponsor})`, backgroundSize: 'cover', backgroundRepeat: "no-repeat", height: '100%', borderRadius:"24px" }}>
+                    <h1 className="lg:text-4xl text-2xl px-2 font-semi-bold text-primary font-headerText ">Si quieres recibir información haz click <Link to="/contacto" className="text-tertiary">aquí</Link></h1>
                 </div>
-               
             </Carousel>
         </div>
     );
