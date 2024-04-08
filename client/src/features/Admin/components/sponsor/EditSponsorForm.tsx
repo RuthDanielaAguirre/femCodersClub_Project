@@ -77,7 +77,7 @@ const EditSponsorForm = () => {
             <>
             <h1 className={`${styles.heading4} mb-8 z-[10]`}>¿Que te gustaria editar?</h1>
             <div className="z-[10] flex flex-col content-end bg-primary rounded-[24px]">
-            <form onSubmit={onSubmit} action="#" method="POST" className="flex flex-col bg-accent/90 w-full h-fit rounded-[24px] p-8">
+            <form onSubmit={onSubmit} action="#" method="POST" className="flex flex-col bg-secondary/80 w-full h-fit rounded-[24px] p-8">
 
                 <label htmlFor="name" className={`${styles.label2}`}>Nombre del sponsor:</label>
                 <input 

@@ -6,8 +6,8 @@ import {  Dropdown } from "flowbite-react";
 
 const NavbarNoAuth = () => {
   return (
-    <nav className="bg-gradient-to-r from-primary via-accent to-secondary ">
-      <div className=" flex flex-wrap items-center justify-between w-full px-16">
+    <nav className="bg-gradient-to-r from-primary via-accent to-secondary">
+      <div className="flex flex-wrap items-center justify-between w-full px-16">
        
           <Link to="/"><img src={FemCodersClubLogo} className="w-24 flex items-center space-x-3 rtl:space-x-reverse" alt="Fem Coder Club Logo" /></Link>
 

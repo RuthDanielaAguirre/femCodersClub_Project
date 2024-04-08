@@ -52,7 +52,7 @@ const EditFaqModal = ({ idFaq }: EditFaqFormProps) => {
             {isModalOpen && (
                 <div className="z-[10]">
                     <h1 className={`${styles.heading4} mb-8`}>Editar Pregunta Frecuente</h1>
-                    <form onSubmit={handleSubmit(onSubmit)} action="#" method="PUT" className="flex flex-col bg-accent/90 w-full h-fit rounded-[24px] p-8">
+                    <form onSubmit={handleSubmit(onSubmit)} action="#" method="PUT" className="flex flex-col bg-secondary/80 w-full h-fit rounded-[24px] p-8">
                         <label htmlFor="question" className={`${styles.label2}`}>Pregunta:</label>
                         <input 
                             {...register('faqQuestion')}

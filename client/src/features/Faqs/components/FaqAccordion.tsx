@@ -24,7 +24,7 @@ function FaqAccordion() {
           <div className={`${activeIndex === index ? "bg-primary rounded-t-xl": "bg-primary rounded-xl"}`}>
             <button
               className={`flex justify-between items-center w-full px-8 text-primary 
-                ${activeIndex === index ? "bg-gradient-to-r text-start from-accent/80 to-tertiary/80 font-bold text-xl py-6 rounded-t-xl" : "bg-accent/80 text-xl py-4 rounded-xl"}`}
+                ${activeIndex === index ? "bg-gradient-to-r text-start from-accent/80 to-tertiary/80 font-bold text-xl py-6 rounded-t-xl" : "bg-secondary/80 text-xl py-4 rounded-xl"}`}
               onClick={() => toggleAccordion(index)}
             >
               {faq.faqQuestion}

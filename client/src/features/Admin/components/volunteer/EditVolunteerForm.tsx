@@ -70,7 +70,7 @@ export const EditVolunteerForm = () => {
         <>
           <h1 className={`${styles.heading4} mb-8 z-[10]`} >¿Qué te gustaría editar?</h1>
           <div className="z-[10] flex flex-col content-end bg-primary rounded-[24px]">
-            <form action="" onSubmit={onSubmit} className="flex flex-col bg-accent/90 w-full h-fit rounded-[24px] p-8">
+            <form action="" onSubmit={onSubmit} className="flex flex-col bg-secondary/80 w-full h-fit rounded-[24px] p-8">
 
               <label htmlFor="name" className={`${styles.label2}`}>Nombre:</label>
               <input

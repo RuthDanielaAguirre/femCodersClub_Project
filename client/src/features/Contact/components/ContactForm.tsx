@@ -41,7 +41,7 @@ const ContactForm = () => {
         ):(
           <>
             <div className="z-[10] flex flex-col content-end bg-primary rounded-[24px] md:w-[550px] lg:min-w-[500px] sm:w-[400px] w-[360px]">
-            <form ref={form} onSubmit={handleSubmit} action="#" method="POST" className="flex flex-col bg-accent/90 w-full h-fit rounded-[24px] p-8">
+            <form ref={form} onSubmit={handleSubmit} action="#" method="POST" className="flex flex-col bg-secondary/80 w-full h-fit rounded-[24px] p-8">
 
                 <label htmlFor="name" className={`${styles.label2}`}>Nombre:</label>
                 <input 
