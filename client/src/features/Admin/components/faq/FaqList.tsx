@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import { Faq } from "../../../../types/types";
 import FaqCard from "./Faq";
-import SpinnerModal from "../../../../components/SpinnerModal";
+import Spinner from "../../../../components/Spinner";
 
 
 export const FaqList = () => {
@@ -27,7 +27,9 @@ export const FaqList = () => {
   return (
     <>
         {loading ? ( 
-          <SpinnerModal isVisible={loading} />
+          <div className="flex justify-center items-center w-full">
+            <Spinner />
+          </div>
         ) : (
           faqs.map((faq) => (
             <div className="col-lg-3" key={faq.idFaq} >

@@ -9,6 +9,7 @@ import AdminModal from "../AdminModal";
 import EditMember from "./EditMember";
 import DeleteMember from "./DeleteMember";
 import { getMember } from "../../../../api/memberApi";
+import Spinner from "../../../../components/Spinner";
 
 const CardMember = () => {
   const { data, isLoading, isError } = useQuery<Member[], Error, Member[]>({
@@ -16,9 +17,22 @@ const CardMember = () => {
     queryFn: getMember
   });
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error loading members</div>;
-console.log(data);
+  if (isLoading){
+      return (
+        <div className="flex justify-center items-center w-full h-full">
+          <Spinner />
+        </div>
+      )
+  }
+
+  if (isError) {
+    return (
+      <div className="flex justify-center items-center w-full h-full">
+        <h1>Oh vaya! Parece que algo ha ido mal... </h1>
+        <p>Intentalo de nuevo mas tarde...</p>
+      </div>
+    )
+  }
 
   return (
     <>

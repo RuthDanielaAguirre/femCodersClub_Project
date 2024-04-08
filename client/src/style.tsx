@@ -3,7 +3,7 @@ export const styles = {
     secondaryBtn: "flex justify-center items-center gap-2 text-contrast/60 font-semibold bg-primary hover:text-primary hover:bg-contrast/80 rounded-[8px] text-[18px] h-[40px] w-full border-2 border-accent/5 hover:border-none shadow-lg shadow-accent/20 focus:outline-none",
     tertiaryBtn:"text-accent hover:text-primary hover:bg-contrast/80 font-medium rounded-[8px] text-[18px] h-[40px] shadow-lg border-2 border-accent hover:border-none shadow-accent/20",
     outlineBtn: "text-primary border-primary hover:bg-accent font-medium rounded-[8px] text-[18px] h-[40px] shadow-lg border border-contrast/5 shadow-accent/20",
-    basicModalBtn: "hover:bg-secondary/80 text-primary font-medium rounded-[8px] text-[18px] h-[40px] shadow-lg border-b-2 border-contrast/5 shadow-accent/20", 
+    basicModalBtn: "hover:bg-contrast/90 text-primary font-medium rounded-[8px] text-[18px] h-[40px] shadow-lg border-b-2 border-contrast/5 shadow-accent/20", 
     cancelModalBtn: "text-primary bg-secondary hover:bg-contrast font-semibold rounded-[8px] text-[18px] h-[40px] shadow-lg border-b-2 border-contrast/5 shadow-contrast/30 ",
 
     label: "block text-[16px] leading-6 text-contrast",

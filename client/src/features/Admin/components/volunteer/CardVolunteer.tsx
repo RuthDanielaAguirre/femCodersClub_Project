@@ -8,15 +8,35 @@ import AdminModal from "../AdminModal"
 import { EditVolunteerForm } from "./EditVolunteerForm"
 import { DeleteVolunteer } from "./DeleteVolunteer"
 import { VolunteerContext } from "../../../../hooks/useVolunteerContext"
+import Spinner from "../../../../components/Spinner"
 
 
 export const CardVolunteer = () => {
 
-  const { data } = useQuery(
+  const { data, isLoading, isError } = useQuery(
     {
       queryKey: ['volunteer'],
       queryFn: getVolunteers
     })
+
+    
+  if (isLoading){
+    return (
+      <div className="flex justify-center items-center w-full h-full">
+        <Spinner />
+      </div>
+    )
+  }
+
+  if (isError) {
+    return (
+      <div className="flex justify-center items-center w-full h-full">
+        <h1>Oh vaya! Parece que algo ha ido mal... </h1>
+        <p>Intentalo de nuevo mas tarde...</p>
+      </div>
+    )
+  }
+
 
   return (
     <>

@@ -13,13 +13,30 @@ import { getSponsors } from "../../../../api/sponsorApi";
 import { useQuery } from "@tanstack/react-query";
 import { SponsorContext } from "../../../../hooks/useSponsorContext";
 import { Sponsor } from "../../../../types/types";
+import Spinner from "../../../../components/Spinner";
 
 const SponsorTable = () => {
-  const { data } = useQuery<Sponsor[]>({
+  const { data, isLoading, isError } = useQuery<Sponsor[]>({
     queryKey: ["sponsors"],
     queryFn: getSponsors,
   });
-  console.log(data);
+
+  if (isLoading){
+    return (
+      <div className="flex justify-center items-center w-full h-full">
+        <Spinner />
+      </div>
+    )
+  }
+
+  if (isError) {
+    return (
+      <div className="flex justify-center items-center w-full h-full">
+        <h1>Oh vaya! Parece que algo ha ido mal... </h1>
+        <p>Intentalo de nuevo mas tarde...</p>
+      </div>
+    )
+  }
 
   return (
     <div className="overflow-x-auto">
