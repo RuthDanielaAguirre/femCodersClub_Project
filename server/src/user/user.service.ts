@@ -55,7 +55,6 @@ export class UserService {
 
       await queryRunner.commitTransaction();
 
-      console.log(user);
       return `user successfully modified`;
     } catch (error) {
       await queryRunner.rollbackTransaction();
@@ -98,7 +97,6 @@ export class UserService {
       userGender: 'No definido',
       userTelephone: 0,
     });
-    console.log(newUser);
     await this.userRepository.save(newUser);
     const idUser = newUser.idUser;
     const name = newUser.userName;

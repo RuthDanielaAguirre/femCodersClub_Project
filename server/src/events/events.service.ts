@@ -89,7 +89,6 @@ export class EventbriteService {
     idEvent: number,
     updateEventDto: UpdateEventDto,
   ): Observable<any> {
-    console.log('Iniciando solicitud de actualización del evento...')
     return this.httpService
       .post(
         `https://www.eventbriteapi.com/v3/events/${idEvent}`,
@@ -103,7 +102,6 @@ export class EventbriteService {
       )
       .pipe(
         map((response) => {
-          console.log('Respuesta recibida:', response);
           return response.data}),
         catchError((error) => {
           throw error;

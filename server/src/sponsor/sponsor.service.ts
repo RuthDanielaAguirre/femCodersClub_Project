@@ -46,8 +46,6 @@ export class SponsorService {
         await queryRunner.manager.save(Sponsors, sponsor);
         
         await queryRunner.commitTransaction();
-    
-            console.log(sponsor)
             return `sponsor successfully modified`
         } catch (error) {
             await queryRunner.rollbackTransaction();

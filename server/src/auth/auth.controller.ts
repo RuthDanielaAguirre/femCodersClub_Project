@@ -41,7 +41,6 @@ export class AuthController {
 @ApiOperation({ summary: 'Check user authentication status' })
 @ApiResponse({ status: 200, description: 'User authentication status' })
 user(@Req() request: Request) {
-  console.log(request.user);
   if (request.user) {
     return { msg: 'Authenticated' };
   } else {

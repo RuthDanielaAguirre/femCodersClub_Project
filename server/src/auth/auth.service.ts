@@ -70,7 +70,6 @@ export class AuthService {
       );
     }
 
-    console.log(user.idUser)
     const jwtToken = await this.jwtService.signAsync({ id: user.idUser });
 
     const token = jwtToken;

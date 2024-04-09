@@ -21,14 +21,11 @@ export class GoogleAuthenticationService {
   }
 
   async auth(token: string) {
-    console.log('aquí está el: ' + token);
-
     const ticket = await client.verifyIdToken({
       idToken: token,
       audience: process.env.GOOGLE_CLIENT_ID,
     });
 
-    console.log(ticket);
     const { email, given_name, family_name } = ticket.getPayload();
     const userGoogle = {
       userEmail: email,
@@ -38,8 +35,7 @@ export class GoogleAuthenticationService {
 
     try {
       const user = await this.userService.getByEmail(userGoogle.userEmail);
-      console.log('userfound');
-
+      
       const idUser = user.idUser;
       const name = user.userName;
       const lastName = user.userLastName;
