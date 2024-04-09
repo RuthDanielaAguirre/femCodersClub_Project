@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 import { AdminController } from './admin.controller';
 import { AdminService } from './admin.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Sponsors } from 'src/sponsor/entities/sponsor.entity';
-import { SponsorModule } from 'src/sponsor/sponsor.module';
+import { Sponsors } from '../sponsor/entities/sponsor.entity';
+import { SponsorModule } from '../sponsor/sponsor.module';
 
 @Module({
     imports: [

@@ -19,6 +19,7 @@ const config = new DocumentBuilder()
   bearerFormat:'JWT',
   in:'header'
 })
+.setBasePath('https://femcodersclub-project.onrender.com')
 .build();
 const document = SwaggerModule.createDocument(app, config);
 SwaggerModule.setup('api', app, document);
