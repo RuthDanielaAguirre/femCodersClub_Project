@@ -7,7 +7,7 @@ import { useState } from "react";
 import SpinerModal from "../../../../components/SpinnerModal";
 
 const AddSponsorForm = () => {
-    const [loading, setLoading] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const [showMessage, setShowMessage] = useState<boolean>(false);
     
     const {register, handleSubmit, formState: { isSubmitting }} = useForm<AddSponsorFormData>()
@@ -22,7 +22,7 @@ const AddSponsorForm = () => {
             onSuccess: async () => {
                 queryClient.invalidateQueries();
                 await queryClient.refetchQueries();
-                setLoading(false);
+                setIsLoading(false);
                 setShowMessage(true);
             },
             onError: (error) => console.error('Error:', error),
@@ -37,7 +37,7 @@ const AddSponsorForm = () => {
 
         mutation.mutate({ sponsorsName, sponsorsCompany, sponsorsEmail, sponsorsTelephone });
     
-        setLoading(true);
+        setIsLoading(true);
     }
 
     return (
@@ -89,7 +89,7 @@ const AddSponsorForm = () => {
                     </div>
                 </form>
                 </div>
-                <SpinerModal isVisible={loading} />
+                <SpinerModal isVisible={isLoading} />
                 </>
             )}
             </>
