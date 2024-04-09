@@ -1,9 +1,21 @@
-// import React from 'react'
+import { AuthProvider } from "../../hooks/useAuthContext";
+import FccFooter from "../Footer/Footer";
+import Header from "../Header";
 
-const authLayout = () => {
-  return (
-    <div>authLayout</div>
-  )
+interface LayoutProps {
+  children: React.ReactNode;
 }
 
-export default authLayout
+const AuthLayout = ({children}: LayoutProps) =>
+(
+<AuthProvider>
+  <Header />
+    <main>
+      {children}
+    </main>
+    <FccFooter/>
+</AuthProvider>
+  )
+
+
+export default AuthLayout;

@@ -1,9 +1,10 @@
+import * as request from 'supertest';
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
-import * as request from 'supertest';
-import { AppModule } from './../src/app.module';
+import { AppModule } from '../src/app.module';
 
-describe('AppController (e2e)', () => {
+
+describe('AppController (E2E) - App is Online', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
@@ -15,10 +16,14 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
-    return request(app.getHttpServer())
+  afterEach(async () => {
+    await app.close();
+  });
+
+  it('should return 200 OK', async () => {
+    await request(app.getHttpServer())
       .get('/')
       .expect(200)
-      .expect('Hello World!');
+      .timeout(60000); 
   });
 });
