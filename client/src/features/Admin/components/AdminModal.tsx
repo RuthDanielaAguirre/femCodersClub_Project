@@ -14,7 +14,7 @@ interface ModalProps{
     fonthover?: string,
 }
 
-function AdminModal(element:ModalProps) {
+const AdminModal = (element:ModalProps) => {
     const [openModal, setOpenModal] = useState(false);
     return (
         <>
