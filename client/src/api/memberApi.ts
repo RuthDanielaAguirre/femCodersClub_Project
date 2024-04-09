@@ -22,7 +22,6 @@ export const updateMember = async (idMember: number, updateMemberDto: UpdateMemb
     }
 }
 
-
 export const deleteMember = async (idMember: number): Promise<Member> => {
     const response = await axios.delete(`${import.meta.env.VITE_API_URL}/member/${idMember}`);
     return response.data
