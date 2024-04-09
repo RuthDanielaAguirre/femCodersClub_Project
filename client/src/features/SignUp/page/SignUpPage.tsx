@@ -1,6 +1,6 @@
-import { Layout } from "../../../components/Layout/Layout"
-import FormWraper from "../components/FormWraper"
-import bgSignup from '../../../../public/bgSign.svg'
+import { Layout } from "../../../components/Layout/Layout";
+import FormWraper from "../components/FormWraper";
+import bgSignup from '../../../../public/bgSign.svg';
 
 const SignUpPage = () => {
     return (
@@ -19,4 +19,4 @@ const SignUpPage = () => {
     )
 }
 
-export default SignUpPage
+export default SignUpPage;

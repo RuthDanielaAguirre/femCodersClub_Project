@@ -1,6 +1,6 @@
-import { Layout } from "../../../components/Layout/Layout"
-import Login from "../components/Login"
-import bgLogin from '../../../../public/bgLogin.png'
+import { Layout } from "../../../components/Layout/Layout";
+import Login from "../components/Login";
+import bgLogin from '../../../../public/bgLogin.png';
 
 const LogInPage = () => {
   return (
@@ -18,4 +18,4 @@ const LogInPage = () => {
   )
 }
 
-export default LogInPage
+export default LogInPage;

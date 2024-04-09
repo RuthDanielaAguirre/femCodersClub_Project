@@ -4,7 +4,6 @@ import { useMutation,  } from "@tanstack/react-query";
 import { addFaq } from "../../../../api/faqApi";
 import { AddFaqFormData, Faq } from "../../../../types/types";
 
-
 const AddFaqForm = () => {
     const { register, handleSubmit, formState: { isSubmitting } } = useForm<AddFaqFormData>();
 
@@ -26,8 +25,6 @@ const AddFaqForm = () => {
 
         mutation.mutate({faqQuestion, faqAnswer});
     }
-
-    
 
     return (
         <div className="z-[10]">

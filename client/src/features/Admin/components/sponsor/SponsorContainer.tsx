@@ -1,6 +1,6 @@
-import AdminModal from '../AdminModal'
-import AddSponsorForm from './AddSponsorForm'
-import SponsorTable from './SponsorTable'
+import AdminModal from '../AdminModal';
+import AddSponsorForm from './AddSponsorForm';
+import SponsorTable from './SponsorTable';
 
 const SponsorContainer = () => {
     return (
@@ -18,4 +18,4 @@ const SponsorContainer = () => {
     )
 }
 
-export default SponsorContainer
+export default SponsorContainer;

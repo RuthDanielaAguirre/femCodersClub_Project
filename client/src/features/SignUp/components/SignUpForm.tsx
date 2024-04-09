@@ -1,4 +1,4 @@
-import SignUpButton from './SignUpButton'
+import SignUpButton from './SignUpButton';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import { User, SignUpFormData } from "../../../types/types";
@@ -7,9 +7,12 @@ import TermsAndConditions from './TermsAndConditions';
 import { styles } from '../../../style';
 import { z, ZodType} from 'zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod'
+import { zodResolver } from '@hookform/resolvers/zod';
+import SpinerModal from '../../../components/SpinnerModal';
+import { useState } from 'react';
 
 const SignUpForm = () => {
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const navigate = useNavigate();
 
     const schema: ZodType<SignUpFormData> = z.object({
@@ -29,12 +32,11 @@ const SignUpForm = () => {
 
     const mutationFn = async ({ name, lastName, gender, phoneNumber, email, password }: SignUpFormData) => registerUser(name, lastName, gender, phoneNumber, email, password);
 
-    // const mutationFn = async ({ name, lastName, email, password }: SignUpFormData) => registerUser(name, lastName, email, password);
-
     const mutation = useMutation<User, Error, SignUpFormData>(
         {
             mutationFn,
             onSuccess: () => {
+                setIsLoading(false);
                 navigate('/');
             },
             onError: (error) => console.error('Error:', error),
@@ -53,6 +55,7 @@ const SignUpForm = () => {
         const password = data.password;
 
         mutation.mutate({ name, lastName, gender, phoneNumber, email, password });
+        setIsLoading(true);
     }
 
     return (
@@ -130,8 +133,9 @@ const SignUpForm = () => {
                     <SignUpButton disabled={isSubmitting} onSubmit={handleSubmit(onSubmit)} />
                 </div>
             </form>
+            <SpinerModal isVisible={isLoading}/>
         </>
     )
 }
 
-export default SignUpForm
+export default SignUpForm;

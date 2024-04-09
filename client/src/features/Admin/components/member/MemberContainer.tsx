@@ -1,7 +1,6 @@
-import AdminModal from "../AdminModal"
-import AddMember from "./AddMember"
-import CardMember from "./CardMember"
-
+import AdminModal from "../AdminModal";
+import AddMember from "./AddMember";
+import CardMember from "./CardMember";
 
 export const MemberContainer = () => {
   return (
@@ -19,4 +18,4 @@ export const MemberContainer = () => {
   )
 }
 
-export default MemberContainer
+export default MemberContainer;

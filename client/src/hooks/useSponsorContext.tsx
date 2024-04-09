@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import { Sponsor } from '../types/types'
+import { Sponsor } from '../types/types';
 
 const initialState:Sponsor = {
 	idPotential_Sponsors: "",
@@ -8,6 +8,7 @@ const initialState:Sponsor = {
 	sponsorsEmail: "",
 	sponsorsTelephone: "",
 }
+
 export const SponsorContext = createContext <Sponsor>(initialState);
 
 export const useSponsorContext = () => {

@@ -5,8 +5,9 @@ import authApi from "../../../api/authApi";
 import { useMutation } from "@tanstack/react-query";
 import { User } from "../../../types/types";
 import { styles } from "../../../style";
-import FemCodersClubLogo from '../../../../public/FemCodersClubLogo.png'
+import FemCodersClubLogo from '../../../../public/FemCodersClubLogo.png';
 import GoogleAuthButton from "../../../components/GoogleAuthButton";
+import SpinerModal from "../../../components/SpinnerModal";
 
 type LoginDto ={
   email: string;
@@ -16,6 +17,7 @@ type LoginDto ={
 const Login = () => {
   const [email,setEmail]= useState('');
   const [password, setPassword]= useState('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const[, setUser] = useLocalStorage('user', '');
   const navigate = useNavigate();
   const mutationFn = async ({email, password}: LoginDto) => authApi(email, password);
@@ -23,11 +25,12 @@ const Login = () => {
   const mutation = useMutation<User, Error, LoginDto>({
     mutationFn,
     onSuccess: (data) => {
-      setUser(data)
+      setUser(data);
+      setIsLoading(false);
       navigate('/')
     },
     onError: (error) => console.log('There has been an error',error)
-  })
+  });
 
   const onChangeEmail= (e:ChangeEvent<HTMLInputElement>)=>{
     setEmail(e.target.value);
@@ -39,7 +42,8 @@ const Login = () => {
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) =>{
     e.preventDefault();
-    mutation.mutate({email,password})
+    mutation.mutate({email,password});
+    setIsLoading(true);
   }
 
   return (
@@ -69,6 +73,7 @@ const Login = () => {
       </div>
     </div>
   </div>
+  <SpinerModal isVisible={isLoading}/>
   </>
   )
 }

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { styles } from "../../style";
 
-export const ApoyanosButton = () => {
+const ApoyanosButton = () => {
     return (
         <div className="flex justify-center items-center md:items-end flex-col w-full  ">
             <Link to="/contacto">
@@ -13,4 +13,6 @@ export const ApoyanosButton = () => {
             </Link>
         </div>
     )
-    }
+}
+
+export default ApoyanosButton;

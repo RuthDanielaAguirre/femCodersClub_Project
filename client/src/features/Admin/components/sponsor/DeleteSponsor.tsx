@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { styles } from "../../../../style"
+import { styles } from "../../../../style";
 import { SponsorContext } from "../../../../hooks/useSponsorContext";
 import { deleteSponsor } from "../../../../api/sponsorApi";
 import { useMutation, useQueryClient } from "@tanstack/react-query";

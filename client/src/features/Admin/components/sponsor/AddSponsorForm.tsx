@@ -1,14 +1,13 @@
-import { SubmitHandler, useForm } from "react-hook-form"
-import { styles } from "../../../../style"
-import { AddSponsorFormData, Sponsor } from "../../../../types/types"
-import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { addSponsor } from "../../../../api/sponsorApi"
-
-import { useState } from "react"
-import SpinerModal from "../../../../components/SpinnerModal"
+import { SubmitHandler, useForm } from "react-hook-form";
+import { styles } from "../../../../style";
+import { AddSponsorFormData, Sponsor } from "../../../../types/types";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { addSponsor } from "../../../../api/sponsorApi";
+import { useState } from "react";
+import SpinerModal from "../../../../components/SpinnerModal";
 
 const AddSponsorForm = () => {
-    const [loading, setLoading] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const [showMessage, setShowMessage] = useState<boolean>(false);
     
     const {register, handleSubmit, formState: { isSubmitting }} = useForm<AddSponsorFormData>()
@@ -23,7 +22,7 @@ const AddSponsorForm = () => {
             onSuccess: async () => {
                 queryClient.invalidateQueries();
                 await queryClient.refetchQueries();
-                setLoading(false);
+                setIsLoading(false);
                 setShowMessage(true);
             },
             onError: (error) => console.error('Error:', error),
@@ -38,7 +37,7 @@ const AddSponsorForm = () => {
 
         mutation.mutate({ sponsorsName, sponsorsCompany, sponsorsEmail, sponsorsTelephone });
     
-        setLoading(true);
+        setIsLoading(true);
     }
 
     return (
@@ -90,11 +89,11 @@ const AddSponsorForm = () => {
                     </div>
                 </form>
                 </div>
-                <SpinerModal isVisible={loading} />
+                <SpinerModal isVisible={isLoading} />
                 </>
             )}
             </>
     )
 }
 
-export default AddSponsorForm
+export default AddSponsorForm;

@@ -1,6 +1,6 @@
-import { Layout } from "../../../components/Layout/Layout"
-import FormWrapper from "../components/FormWrapper"
-import bgContact from '../../../../public/bgContact.svg'
+import { Layout } from "../../../components/Layout/Layout";
+import FormWrapper from "../components/FormWrapper";
+import bgContact from '../../../../public/bgContact.svg';
 
 const ContactPage = () => {
   return (
@@ -12,4 +12,4 @@ const ContactPage = () => {
   )
 }
 
-export default ContactPage
+export default ContactPage;

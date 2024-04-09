@@ -4,6 +4,7 @@ type Props = {
     onSubmit: () => void,
     disabled: boolean,
 }
+
 const SignUpButton = ({onSubmit, disabled}: Props) => {
     return (
         <div className="flex justify-center flex-col w-full">
@@ -16,4 +17,4 @@ const SignUpButton = ({onSubmit, disabled}: Props) => {
     )
     }
 
-export default SignUpButton
+export default SignUpButton;

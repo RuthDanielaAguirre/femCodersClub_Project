@@ -2,7 +2,7 @@ import AdminModal from "../AdminModal"
 import { AddVolunteerForm } from "./AddVolunteerForm"
 import CardVolunteer from "./CardVolunteer"
 
-export const VolunteerContainer = () => {
+const VolunteerContainer = () => {
   return (
     <div>
       <div className="flex items-end flex-col w-full mb-5">
@@ -17,3 +17,5 @@ export const VolunteerContainer = () => {
     </div>
   )
 }
+
+export default VolunteerContainer;

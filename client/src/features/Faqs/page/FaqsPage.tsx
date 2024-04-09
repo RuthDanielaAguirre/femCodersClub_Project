@@ -1,11 +1,9 @@
-
-import { Layout } from '../../../components/Layout/Layout'
+import { Layout } from '../../../components/Layout/Layout';
 import { styles } from '../../../style';
 import FaqAccordion from '../components/FaqAccordion';
 import bgFaqs from '../../../../public/bgFaqs.svg'
 
 const FaqsPage = () => {
-
   return (
     <Layout>
             <div className="w-full flex flex-col items-center md:py-[100px] xl:py-[150px] py-10 bg-cover "
@@ -18,4 +16,4 @@ const FaqsPage = () => {
   )
 }
 
-export default FaqsPage
+export default FaqsPage;

@@ -1,13 +1,10 @@
-import { SubmitHandler, useForm } from "react-hook-form"
-import { styles } from "../../../../style"
-
-import { useMutation, useQueryClient } from "@tanstack/react-query"
-
-
-import { useState } from "react"
-import SpinerModal from "../../../../components/SpinnerModal"
-import { addMember } from "../../../../api/memberApi"
-import { AddMemberFormData, Member } from "../../../../types/types"
+import { SubmitHandler, useForm } from "react-hook-form";
+import { styles } from "../../../../style";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useState } from "react";
+import SpinerModal from "../../../../components/SpinnerModal";
+import { addMember } from "../../../../api/memberApi";
+import { AddMemberFormData, Member } from "../../../../types/types";
 
 const AddMember = () => {
     const [loading, setLoading] = useState<boolean>(false);
@@ -115,4 +112,4 @@ const AddMember = () => {
     )
 }
 
-export default AddMember
+export default AddMember;
