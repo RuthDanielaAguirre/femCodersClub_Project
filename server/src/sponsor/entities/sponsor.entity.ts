@@ -1,7 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { IsNotEmpty, IsString } from 'class-validator';
 
-
 @Entity()
 export class Sponsors {
     @PrimaryGeneratedColumn('increment')

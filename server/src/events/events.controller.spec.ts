@@ -1,7 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { EventsController } from './events.controller';
 import { EventbriteService } from './events.service';
-import { HttpService } from '@nestjs/axios';
 import { CreateEventDto } from './dto/create-event.dto';
 import { of } from 'rxjs';
 import { AxiosResponse } from 'axios';
@@ -18,10 +17,10 @@ describe('EventsController', () => {
         {
           provide: EventbriteService,
           useValue: {
-            createEvent: jest.fn().mockImplementation((eventDto) => {
+            createEvent: jest.fn().mockImplementation(() => {
               return of({} as AxiosResponse<any, any>);
             }),
-            updateEvent: jest.fn().mockImplementation((id, eventDto) => {
+            updateEvent: jest.fn().mockImplementation(() => {
               return of({} as AxiosResponse<any, any>);
             }),
             findAll: jest.fn(),

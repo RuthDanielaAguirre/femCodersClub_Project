@@ -15,7 +15,6 @@ function CardUpcomingEvent({title, image, date, location, description, eventId}:
   
   const handleClick = () => {
     const user = currentUser.token;
-    console.log(currentUser.token)
     if (user==null){
       navigate('/login');
     }

@@ -12,7 +12,7 @@ declare global {
   }
 } 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <GoogleOAuthProvider clientId="208630831814-2om7gu45dvrqti9207do7j1kkfosr9bn.apps.googleusercontent.com">
+  <GoogleOAuthProvider clientId={import.meta.env.VITE_API_GOOGLE_CLIENT_ID}>
     <React.StrictMode>
         <App />
       </React.StrictMode>

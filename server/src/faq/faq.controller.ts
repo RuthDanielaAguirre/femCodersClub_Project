@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
 import { FaqService } from './faq.service';
 import { CreateFaqDto } from './dto/create-faq.dto';
 import { UpdateFaqDto } from './dto/update-faq.dto';
@@ -41,7 +41,6 @@ export class FaqController {
   update(@Param('idFaq') idFaq: number, @Body() updateFaqDto: UpdateFaqDto) {
     return this.faqService.update(idFaq, updateFaqDto);
   }
-
 
   @Delete(':idFaq')
   @ApiOperation({ summary: 'Delete an FAQ by id' })

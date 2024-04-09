@@ -2,9 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
 import { HttpService } from '@nestjs/axios';
-import { AxiosResponse } from 'axios';
-import { Observable, catchError, identity, map, tap } from 'rxjs';
-
+import { Observable, catchError, map, tap } from 'rxjs';
 
 @Injectable()
 export class EventbriteService {
@@ -31,7 +29,6 @@ export class EventbriteService {
   }
 
   async findAll() {
-    // console.log(idOrganization);
     return this.httpService
       .get('https://www.eventbriteapi.com/v3/organizations/2076189237573/events'
       ,
@@ -51,7 +48,6 @@ export class EventbriteService {
   }
 
   async findAllPastEvents() {
-    // console.log(idOrganization);
     return this.httpService
       .get('https://www.eventbriteapi.com/v3/organizations/2076189237573/events/?status=ended&expand=venue'
       ,
@@ -71,7 +67,6 @@ export class EventbriteService {
   }
 
   async findAllUpcomingEvents() {
-    // console.log(idOrganization);
     return this.httpService
       .get('https://www.eventbriteapi.com/v3/organizations/2076189237573/events/?status=live&expand=venue'
       ,
@@ -94,7 +89,6 @@ export class EventbriteService {
     idEvent: number,
     updateEventDto: UpdateEventDto,
   ): Observable<any> {
-    console.log('Iniciando solicitud de actualización del evento...')
     return this.httpService
       .post(
         `https://www.eventbriteapi.com/v3/events/${idEvent}`,
@@ -108,7 +102,6 @@ export class EventbriteService {
       )
       .pipe(
         map((response) => {
-          console.log('Respuesta recibida:', response);
           return response.data}),
         catchError((error) => {
           throw error;

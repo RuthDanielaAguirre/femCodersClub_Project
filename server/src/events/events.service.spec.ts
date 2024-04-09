@@ -1,16 +1,14 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { HttpService, HttpModule } from '@nestjs/axios';
+import { HttpService } from '@nestjs/axios';
 import { EventbriteService } from './events.service';
-import { AxiosResponse } from 'axios';
 import { of } from 'rxjs';
 import { CreateEventDto } from './dto/create-event.dto'
-import { firstValueFrom } from 'rxjs';
 
 describe('EventbriteService', () => {
- let service: EventbriteService;
- let httpService: HttpService;
+  let service: EventbriteService;
+  let httpService: HttpService;
 
- beforeEach(async () => {
+  beforeEach(async () => {
 
     process.env.EVENTBRITE_API_KEY = 'mocked_token';
 

@@ -18,7 +18,7 @@ const DeleteFaqModal = ({ idFaq }: DeleteFaqFormProps) => {
 
         try {
             setIsDeleting(true);
-            await axios.delete(`https://femcodersclub-project.onrender.com/faq/${idFaq}`);
+            await axios.delete(`${import.meta.env.VITE_API_URL}/faq/${idFaq}`);
         } catch (error: unknown) { 
             console.error('Error al eliminar la pregunta frecuente:', error); 
         } finally {

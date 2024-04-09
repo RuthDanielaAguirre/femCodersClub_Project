@@ -15,6 +15,5 @@ export class UserController {
   updateUser(@Param('user_id') user_id:number, @Body() editUser: UpdateUserDto){
       return this.userService.updateUser(user_id, editUser);
   }
-
   
 }

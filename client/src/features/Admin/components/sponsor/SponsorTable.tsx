@@ -42,10 +42,10 @@ const SponsorTable = () => {
             Entidad
           </TableHeadCell>
           <TableHeadCell className="text-start font-semibold text-[16px] bg-transparent">
-            Teléfono
+            Correo
           </TableHeadCell>
           <TableHeadCell className="text-start font-semibold text-[16px] bg-transparent">
-            Status
+            Núm. Teléfono
           </TableHeadCell>
           <TableHeadCell className=" bg-transparent"></TableHeadCell>
         </TableHead>

@@ -44,9 +44,6 @@ const SignUpForm = () => {
     );
 
     const onSubmit: SubmitHandler<SignUpFormData> = async (data) => {
-
-        console.log(data);
-
         const  name = data.name;
         const lastName = data.lastName;
         const gender = data.gender;

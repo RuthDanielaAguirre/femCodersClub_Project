@@ -3,9 +3,7 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
-  Delete,
 } from '@nestjs/common';
 import { EventbriteService } from './events.service';
 import { CreateEventDto } from './dto/create-event.dto';
@@ -23,8 +21,6 @@ export class EventsController {
   @ApiBadRequestResponse({ status: 400, description: 'Bad Request' })
   @ApiInternalServerErrorResponse({ status: 500, description: 'Internal Server Error' })
   create(@Body() createEventDto: CreateEventDto) {
-    console.log(createEventDto);
-
     return this.eventbriteService.createEvent(createEventDto);
   }
 
@@ -37,7 +33,6 @@ export class EventsController {
     @Param('idEvent') idEvent: number,
     @Body() event: UpdateEventDto,
   ) {
-    console.log('prueba de si está entrando esta función o no');
     return this.eventbriteService.updateEvent(idEvent, event);
   }
 
@@ -46,7 +41,6 @@ export class EventsController {
   @ApiResponse({ status: 200, description: 'List of events' })
   @ApiNotFoundResponse({ status: 404, description: 'No events found' })
   findAll() {
-    console.log('está entrando esta función?');
     return this.eventbriteService.findAll();
   }
 

@@ -13,12 +13,12 @@ export class VolunteerService {
     private readonly volunteerRepository: Repository<Volunteer>
   ){}
 
-   async create(createVolunteerDto: CreateVolunteerDto) {
+  async create(createVolunteerDto: CreateVolunteerDto) {
     return await this.volunteerRepository.save(this.volunteerRepository.create(createVolunteerDto));
   }
 
   async findVolunteers() {
-   return this.volunteerRepository.find({})
+    return this.volunteerRepository.find({})
   
   }
 

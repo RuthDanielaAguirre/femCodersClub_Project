@@ -10,8 +10,7 @@ export const FaqList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get<Faq[]>('https://femcodersclub-project.onrender.com/faq');
-        console.log('Respuesta del servidor:', response.data);
+        const response = await axios.get<Faq[]>(`${import.meta.env.VITE_API_URL}/faq`);
         setFaqs(response.data);
         setLoading(false); 
       } catch (error) {

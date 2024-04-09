@@ -1,7 +1,6 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { UserService } from '../user/user.service';
 import { ConfigService } from '@nestjs/config';
-import { User } from 'src/user/entities/user.entity';
 import { AuthService } from '../auth/auth.service';
 import { OAuth2Client } from 'google-auth-library';
 
@@ -12,7 +11,7 @@ const client = new OAuth2Client(
 
 @Injectable()
 export class GoogleAuthenticationService {
- 
+
   constructor(
     private readonly userService: UserService,
     private readonly configService: ConfigService,
@@ -22,14 +21,11 @@ export class GoogleAuthenticationService {
   }
 
   async auth(token: string) {
-    console.log('aquí está el: ' + token);
-
     const ticket = await client.verifyIdToken({
       idToken: token,
       audience: process.env.GOOGLE_CLIENT_ID,
     });
 
-    console.log(ticket);
     const { email, given_name, family_name } = ticket.getPayload();
     const userGoogle = {
       userEmail: email,
@@ -39,8 +35,7 @@ export class GoogleAuthenticationService {
 
     try {
       const user = await this.userService.getByEmail(userGoogle.userEmail);
-      console.log('userfound');
-
+      
       const idUser = user.idUser;
       const name = user.userName;
       const lastName = user.userLastName;

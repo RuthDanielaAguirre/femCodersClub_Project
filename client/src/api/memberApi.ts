@@ -2,20 +2,18 @@ import axios from "axios";
 import { Member } from "../types/types";
 import { UpdateMemberDto } from "../../../server/src/member/dto/update-member.dto";
 
-
-const url = 'https://femcodersclub-project.onrender.com/member'
 export const getMember = async (): Promise<Member[]> => {
-    const response = await axios.get(url);
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/member`);
     return response.data;
 };
 
 export const addMember = async (memberName:string, memberLastName:string,memberDescription:string, memberRole:string, memberImage:string, memberLinkedin:string): Promise<Member> => {
-    const result = await axios.post(url, { memberName:memberName, memberLastName:memberLastName,  memberDescription:memberDescription, memberRole:memberRole, memberImage:memberImage, memberLinkedin:memberLinkedin });
+    const result = await axios.post(`${import.meta.env.VITE_API_URL}/member`, { memberName:memberName, memberLastName:memberLastName,  memberDescription:memberDescription, memberRole:memberRole, memberImage:memberImage, memberLinkedin:memberLinkedin });
     return result.data;
 };
 
 export const updateMember = async (idMember: number, updateMemberDto: UpdateMemberDto): Promise<void> => {
-    const url = `https://femcodersclub-project.onrender.com/member/${idMember}`; 
+    const url = `${import.meta.env.VITE_API_URL}/member/${idMember}`; 
     try {
         const response = await axios.put(url, updateMemberDto);
         return response.data; 
@@ -24,8 +22,7 @@ export const updateMember = async (idMember: number, updateMemberDto: UpdateMemb
     }
 }
 
-
 export const deleteMember = async (idMember: number): Promise<Member> => {
-    const response = await axios.delete(`${url}/${idMember}`);
+    const response = await axios.delete(`${import.meta.env.VITE_API_URL}/member/${idMember}`);
     return response.data
 };
