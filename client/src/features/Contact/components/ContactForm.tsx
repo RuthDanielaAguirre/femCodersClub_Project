@@ -12,9 +12,9 @@ const ContactForm = () => {
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    const serviceId = 'service_xx2o8l7';
-    const templateId = 'template_pr7h1l8';
-    const apiKey = 'TBmjF3GSLrwvZGnc5';
+    const serviceId = import.meta.env.VITE_API_SERVICE_ID;
+    const templateId = import.meta.env.VITE_API_TEMPLATE_ID;
+    const apiKey = import.meta.env.VITE_API_EMAILJS_KEY;
 
     if (!form.current) {
       throw new Error("The form element is not found");
