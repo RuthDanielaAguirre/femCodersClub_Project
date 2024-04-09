@@ -1,4 +1,3 @@
-"use client";
 import { Carousel } from "flowbite-react";
 import { Link } from "react-router-dom";
 import imgContact from '../../../../public/imgContact.svg';
