@@ -3,9 +3,7 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
-  Delete,
 } from '@nestjs/common';
 import { EventbriteService } from './events.service';
 import { CreateEventDto } from './dto/create-event.dto';
