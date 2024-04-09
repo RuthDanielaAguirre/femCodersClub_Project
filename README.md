@@ -15,7 +15,7 @@
 1. [Descripción de proyecto](#descripción-de-proyecto)
 2. [Metodología de trabajo](#metodología-de-trabajo)
 3. [Sprint goals and MVP](#sprint-goals-and-mvp)
-4. [Herramientas utilizadas](#sprint-goals-and-mvp)
+4. [Herramientas utilizadas](#herramientas-utilizadas)
 5. [Carta gráfica e identidad visual](#carta-gráfica-e-identidad-visual)
 6. [Deployment](#deployment)
 7. [Fichero Dump](#fichero-dump)
@@ -51,6 +51,10 @@ La metodología de trabajo seleccionada fue Scrum, empleando Jira como herramien
 Se decidió dividir los sprints en cuatro semanas. Durante el primer sprint, se organizó el equipo y se establecieron las reglas fundamentales, así como la identidad visual y la arquitectura. El segundo sprint se dedicó a la configuración y desarrollo de la base de datos y las páginas principales. En el tercero, se implementó la autenticación con Google y códigos QR, junto con otras mejoras. Finalmente, en el cuarto sprint, se realizaron correcciones, se desarrollaron páginas adicionales y se limpió el código. El MVP final fue una aplicación funcional que permitía a las administradoras de FemCoders Club gestionar la creación de eventos, su promoción y el control de usuarios."
 
 <a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/gJxnZyd5/Sprint-1-Estableciendo-las-bases-1.jpg'  alt='Sprint-1-Estableciendo-las-bases-1'/></a>
+
+## Herramientas utilizadas:
+
+[Zoom](https://zoom.us/), [Jira](https://kn1.atlassian.net/jira/core/projects/PROYEC/board), [Figma](https://www.figma.com/file/L0JWNg1ac1OhXOSrhMvaFk/FemCoders-Club-Project?type=design&mode=design&t=tx9FyWtbUnTCwve0-0), [Visual Studio Code](https://code.visualstudio.com/), [Typescript](https://www.typescriptlang.org/), [NestJS](https://docs.nestjs.com/), [React](https://react.dev/), [Flowbite](https://flowbite.com/), [Eventbrite](https://www.eventbrite.com/), [Eventbrite API](https://www.eventbrite.com/platform/api), [Google Cloud Platform](https://console.cloud.google.com/), [MySQL](https://www.mysql.com/), [Swagger](https://swagger.io/), [Postman](https://www.postman.com/), [Aiven](https://aiven.io/), [Vercel](https://vercel.com/), [Render](https://render.com/), [Canva](https://www.canva.com/).
 
 ## Carta gráfica e identidad visual:
 
