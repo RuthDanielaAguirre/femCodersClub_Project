@@ -21,7 +21,7 @@ const EditFaqModal = ({ idFaq }: EditFaqFormProps) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get<FaqData>(`https://femcodersclub-project.onrender.com/faq/${idFaq}`);
+                const response = await axios.get<FaqData>(`${import.meta.env.VITE_API_URL}/faq/${idFaq}`);
                 const faqData = response.data;
                 setValue('idFaq', faqData.idFaq);
                 setValue('faqQuestion', faqData.faqQuestion);
