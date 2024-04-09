@@ -8,8 +8,11 @@ import { styles } from '../../../style';
 import { z, ZodType} from 'zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import SpinerModal from '../../../components/SpinnerModal';
+import { useState } from 'react';
 
 const SignUpForm = () => {
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const navigate = useNavigate();
 
     const schema: ZodType<SignUpFormData> = z.object({
@@ -33,6 +36,7 @@ const SignUpForm = () => {
         {
             mutationFn,
             onSuccess: () => {
+                setIsLoading(false);
                 navigate('/');
             },
             onError: (error) => console.error('Error:', error),
@@ -51,6 +55,7 @@ const SignUpForm = () => {
         const password = data.password;
 
         mutation.mutate({ name, lastName, gender, phoneNumber, email, password });
+        setIsLoading(true);
     }
 
     return (
@@ -128,6 +133,7 @@ const SignUpForm = () => {
                     <SignUpButton disabled={isSubmitting} onSubmit={handleSubmit(onSubmit)} />
                 </div>
             </form>
+            <SpinerModal isVisible={isLoading}/>
         </>
     )
 }
