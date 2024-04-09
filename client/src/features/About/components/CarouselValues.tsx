@@ -1,4 +1,3 @@
-"use client";
 import { useEffect, useState } from 'react';
 import { Carousel } from "flowbite-react";
 import iconArrowR from "../../../../public/iconArrowR.png";

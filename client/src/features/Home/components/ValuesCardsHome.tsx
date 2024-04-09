@@ -1,4 +1,3 @@
-"use client"
 import iconEquity from '../../../../public/iconEquity.png';
 import iconInclusion from '../../../../public/iconInclusion.png';
 import iconVisibility from '../../../../public/iconVisibility.png';

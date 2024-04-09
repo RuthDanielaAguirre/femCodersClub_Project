@@ -1,5 +1,3 @@
-"use client";
-
 import { Modal } from "flowbite-react";
 import { useState } from "react";
 import { styles } from "../../../style";

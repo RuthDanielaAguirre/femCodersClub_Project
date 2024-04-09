@@ -1,4 +1,3 @@
-"use client";
 import { styles } from "../../../../style";
 import { createPortal } from "react-dom";
 

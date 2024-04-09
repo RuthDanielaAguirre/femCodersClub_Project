@@ -1,4 +1,3 @@
-"use client"
 import { Card } from "flowbite-react";
 import { styles } from "../../../style";
 import imgEvents from '../../../../public/imgEvents.png'

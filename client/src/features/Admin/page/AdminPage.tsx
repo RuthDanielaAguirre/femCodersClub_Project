@@ -15,8 +15,6 @@ import  VolunteerContainer  from '../components/volunteer/VolunteerContainer';
 import QrScanner from '../components/qrCode/QrScanner';
 import MemberContainer from '../components/member/MemberContainer';
 
-'use client';
-
 const AdminPage = () => {
   const [selectedTab, setSelectedTab] = useState<number>(1);
 
