@@ -1,7 +1,7 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { CreateSponsorDto } from 'src/sponsor/dto/create-sponsor.dto';
-import { ModifySponsorDto } from 'src/sponsor/dto/modify-sponsor.dto';
-import { SponsorService } from 'src/sponsor/sponsor.service';
+import { CreateSponsorDto } from '../sponsor/dto/create-sponsor.dto';
+import { ModifySponsorDto } from '../sponsor/dto/modify-sponsor.dto';
+import { SponsorService } from '../sponsor/sponsor.service';
 
 @Injectable()
 export class AdminService {

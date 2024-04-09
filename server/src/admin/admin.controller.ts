@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { AdminService } from './admin.service';
-import { CreateSponsorDto } from 'src/sponsor/dto/create-sponsor.dto';
-import { ModifySponsorDto } from 'src/sponsor/dto/modify-sponsor.dto';
+import { CreateSponsorDto } from '../sponsor/dto/create-sponsor.dto';
+import { ModifySponsorDto } from '../sponsor/dto/modify-sponsor.dto';
 import { ApiBadRequestResponse, ApiInternalServerErrorResponse, ApiNotFoundResponse, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Admin Dashboard')

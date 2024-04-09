@@ -1,14 +1,10 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards, Req } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { CreateAuthDto } from './dto/create-auth.dto';
-import { UpdateAuthDto } from './dto/update-auth.dto';
 import { SignupDto } from './dto/signup.dto';
 import { LoginDto } from './dto/login.dto';
 import { Request } from 'express';
-import { User } from 'src/user/entities/user.entity';
 import { ApiBadRequestResponse, ApiInternalServerErrorResponse, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import TokenVerificationDto from '../google-authentication/dto/tokenVerificationDto.dto';
-import { UserService } from 'src/user/user.service';
+import { UserService } from '../user/user.service';
 
 
 

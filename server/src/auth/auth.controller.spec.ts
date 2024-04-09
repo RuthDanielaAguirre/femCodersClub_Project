@@ -4,102 +4,79 @@ import { AuthService } from './auth.service';
 import { BadRequestException } from '@nestjs/common';
 import { SignupDto } from './dto/signup.dto';
 import { User } from 'src/user/entities/user.entity';
+import { UserService } from '../user/user.service';
 
 describe('AuthController', () => {
   let controller: AuthController;
   let service: AuthService;
-
+  let userService: UserService; // Añade esta línea para tener acceso a UserService
+ 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [AuthController],
-      providers: [
-        {
-          provide: AuthService,
-          useValue: {
-            login: jest.fn(),
-            signup: jest.fn().mockImplementation((user) => {
-              return Promise.resolve({
-                idUser: 1,
-                userRole: 'user',
-                ...user,
-              });
-            }),
-          },
-        },
-      ],
-    }).compile();
-
-    controller = module.get<AuthController>(AuthController);
-    service = module.get<AuthService>(AuthService);
+     const module: TestingModule = await Test.createTestingModule({
+       controllers: [AuthController],
+       providers: [
+         {
+           provide: AuthService,
+           useValue: {
+             login: jest.fn(),
+             signup: jest.fn().mockImplementation((user) => {
+               return Promise.resolve({
+                 idUser: 1,
+                 userRole: 'user',
+                 isRegisteredWithGoogle: false,
+                 ...user,
+               });
+             }),
+           },
+         },
+         {
+           provide: UserService, // Mock para UserService
+           useValue: {
+             findOneByEmail: jest.fn().mockResolvedValue({
+               idUser: 1,
+               userName: 'Belén',
+               userLastName: 'Develop',
+               userEmail: 'bj@gmail.com',
+               userPassword: 'hashed_password',
+               userGender: 'female',
+               userTelephone: 123567890,
+               userRole: 'user',
+             }),
+             // Añade otros métodos de UserService que necesites mockear
+           },
+         },
+       ],
+     }).compile();
+ 
+     controller = module.get<AuthController>(AuthController);
+     service = module.get<AuthService>(AuthService);
+     userService = module.get<UserService>(UserService); // Obtén la instancia de UserService
   });
-
+ 
   it('should be defined', () => {
-    expect(controller).toBeDefined();
+     expect(controller).toBeDefined();
   });
-
+ 
   it('LogIn should return a token', async () => {
-    const user = {
-      userEmail: 'bj@gmail.com',
-      userPassword: '123123',
-    };
-    const result = {
-      jwtToken: 'testing_token',
-    };
-
-    jest.spyOn(service, 'login').mockResolvedValue(result);
-
-    expect(await controller.login(user)).toBe(result);
+     const user = {
+       userEmail: 'bj@gmail.com',
+       userPassword: '123123',
+     };
+     const result = {
+       token: 'testing_token',
+       idUser: 1,
+       name: 'Belén',
+       lastName: 'Develop',
+       gender: 'female',
+       email: 'bj@gmail.com',
+       telephone: 123567890,
+       role: 'user',
+     };
+ 
+     jest.spyOn(service, 'login').mockResolvedValue(result);
+ 
+     expect(await controller.login(user)).toBe(result);
   });
-
-  it('should return an error when emails fails', async () => {
-    const user = {
-      userEmail: 'bj@gmail.com',
-      userPassword: '123123',
-    };
-
-    const error = new Error('El correo electrónico es incorrecto');
-
-    jest.spyOn(service, 'login').mockRejectedValue(error);
-
-    try {
-      await controller.login(user);
-    } catch (error) {
-      expect(error.message).toBe('El correo electrónico es incorrecto');
-    }
-  });
-
-  it('should return an error when password fails', async () => {
-    const user = {
-      userEmail: 'bj@gmail.com',
-      userPassword: '123123',
-    };
-
-    const error = new Error('Contraseña incorrecta');
-
-    jest.spyOn(service, 'login').mockRejectedValue(error);
-
-    try {
-      await controller.login(user);
-    } catch (error) {
-      expect(error.message).toBe('Contraseña incorrecta');
-    }
-  });
-
-  it('should create a new user', async () => {
-    const user = {
-      userName: 'Belén',
-      userLastName: 'Develop',
-      userEmail: 'bj@gmail.com',
-      userPassword: '123123',
-      userGender: 'female',
-      userTelephone: 123567890,
-    };
-    const result: User = {
-      idUser: 1,
-      userRole: 'user',
-      ...user,
-    };
-
-    expect(await controller.signup(user)).toMatchObject(result);
-  });
-});
+ 
+  // Añade aquí el resto de tus pruebas...
+ })

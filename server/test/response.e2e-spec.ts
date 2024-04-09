@@ -4,10 +4,11 @@ import { INestApplication } from '@nestjs/common';
 import { AppModule } from '../src/app.module';
 
 
-describe('AppController (E2E) - App is Online', () => {
+describe('AppController (E2E) - Response Format', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
+    
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
@@ -17,13 +18,19 @@ describe('AppController (E2E) - App is Online', () => {
   });
 
   afterEach(async () => {
+   
     await app.close();
   });
 
-  it('should return 200 OK', async () => {
-    await request(app.getHttpServer())
+  it('should return HTML content with status code 200', async () => {
+   
+    const response = await request(app.getHttpServer())
       .get('/')
-      .expect(200)
-      .timeout(60000); 
+      .expect('Content-Type', /html/)
+      .expect(200);
+
+ 
+    expect(response.text).toContain('Hello World!');
   });
 });
+  
