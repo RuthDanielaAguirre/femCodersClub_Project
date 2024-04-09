@@ -1,14 +1,11 @@
 import axios from "axios";
 
-const url = 'https://femcodersclub-project.onrender.com/events';
-// const url = 'http://localhost:3000/events';
-
-export const getPastEvents = async (): Promise<any> => {
-        const response = await axios.get(`${url}/api/list/past`);
+export const getPastEvents = async () => {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/events/api/list/past`);
         return response.data;
 };
 
-export const getUpcomingEvents = async (): Promise<any> => {
-        const response = await axios.get(`${url}/api/list/upcoming`);
+export const getUpcomingEvents = async () => {
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/events/api/list/upcoming`);
         return response.data;
 };
