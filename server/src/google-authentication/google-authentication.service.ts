@@ -1,7 +1,6 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { UserService } from '../user/user.service';
 import { ConfigService } from '@nestjs/config';
-import { User } from 'src/user/entities/user.entity';
 import { AuthService } from '../auth/auth.service';
 import { OAuth2Client } from 'google-auth-library';
 
@@ -12,7 +11,7 @@ const client = new OAuth2Client(
 
 @Injectable()
 export class GoogleAuthenticationService {
- 
+
   constructor(
     private readonly userService: UserService,
     private readonly configService: ConfigService,

@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-
 import { ConfigModule } from '@nestjs/config';
 import { GoogleAuthenticationController } from './google-authentication.controller';
 import { GoogleAuthenticationService } from './google-authentication.service';
