@@ -113,30 +113,4 @@ export class UserService {
 
   }
 
-  async setCurrentRefreshToken(refreshToken: string, userId: number) {
-    const currentHashedRefreshToken = await bcrypt.hash(refreshToken, 10);
-    await this.userRepository.update(userId, {
-      currentHashedRefreshToken,
-    });
-    // currentHashedRefreshToken habría que ponerlo en la tabla user de la bbdd y ponerlo en la entity
-  }
-
-  async getUserIfRefreshTokenMatches(refreshToken: string, userId: number) {
-    const user = await this.getById(userId);
-
-    const isRefreshTokenMatching = await bcrypt.compare(
-      refreshToken,
-      user.currentHashedRefreshToken,
-    );
-
-    if (isRefreshTokenMatching) {
-      return user;
-    }
-  }
-
-  async removeRefreshToken(userId: number) {
-    return this.userRepository.update(userId, {
-      currentHashedRefreshToken: null,
-    });
-  }
 }

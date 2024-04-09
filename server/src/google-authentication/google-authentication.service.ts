@@ -67,36 +67,4 @@ export class GoogleAuthenticationService {
     return user;
   }
 
-  async getCookiesForUser(user: User) {
-    const accessTokenCookie = this.authService.getCookieWithJwtAccessToken(
-      user.idUser,
-    );
-    const { cookie: refreshTokenCookie, token: refreshToken } =
-      this.authService.getCookieWithJwtRefreshToken(user.idUser);
-
-    await this.userService.setCurrentRefreshToken(refreshToken, user.idUser);
-
-    return {
-      accessTokenCookie,
-      refreshTokenCookie,
-    };
-  }
-
-  async handleRegisteredUser(user: User) {
-    if (!user.isRegisteredWithGoogle) {
-      throw new UnauthorizedException();
-    }
-
-    console.log(user);
-
-    const { accessTokenCookie, refreshTokenCookie } =
-      await this.getCookiesForUser(user);
-    console.log(accessTokenCookie);
-
-    return {
-      accessTokenCookie,
-      refreshTokenCookie,
-      user,
-    };
-  }
 }
