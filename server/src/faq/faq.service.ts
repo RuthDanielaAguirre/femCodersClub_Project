@@ -36,8 +36,6 @@ async findAll() {
     return "La pregunta frecuente fue actualizada";
   }
 
-
-
   async remove(idFaq: number) {
     const faq = await this.findOne(idFaq);
     await this.faqRepository.delete(faq);

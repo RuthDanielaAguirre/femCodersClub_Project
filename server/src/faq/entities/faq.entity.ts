@@ -7,14 +7,14 @@ export class Faq {
     @PrimaryGeneratedColumn('increment')
     idFaq: number;
 
-@Column()
-@IsNotEmpty()
-@IsString()
-faqQuestion: string;
+    @Column()
+    @IsNotEmpty()
+    @IsString()
+    faqQuestion: string;
 
-@Column()
-@IsNotEmpty()
-@IsString()
-faqAnswer: string;
+    @Column()
+    @IsNotEmpty()
+    @IsString()
+    faqAnswer: string;
 
 }
