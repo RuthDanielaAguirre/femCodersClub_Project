@@ -5,7 +5,6 @@ import { useState } from "react";
 import { styles } from "../../../style";
 import bgModal from '../../../../public/bgModal.svg'
 
-
 interface ModalProps{
     children: React.ReactNode,
     text: string,

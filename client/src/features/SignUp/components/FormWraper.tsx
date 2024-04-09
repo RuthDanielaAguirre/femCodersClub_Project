@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom"
-import SignUpForm from "../components/SignUpForm"
-import FormHeader from "./FormHeader"
-import GoogleAuthButton from "../../../components/GoogleAuthButton"
+import { Link } from "react-router-dom";
+import SignUpForm from "../components/SignUpForm";
+import FormHeader from "./FormHeader";
+import GoogleAuthButton from "../../../components/GoogleAuthButton";
 
 const SignUpPage = () => {
     return (
@@ -21,4 +21,4 @@ const SignUpPage = () => {
     )
 }
 
-export default SignUpPage
+export default SignUpPage;

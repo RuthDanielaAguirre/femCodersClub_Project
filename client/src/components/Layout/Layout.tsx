@@ -1,4 +1,3 @@
-
 import Header from "../Header";
 import FccFooter from "../Footer/Footer";
 

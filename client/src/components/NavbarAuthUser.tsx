@@ -1,11 +1,10 @@
 import { Link, useNavigate } from 'react-router-dom';
-import avatarUser from "../../public/avatarUser.png"
-import FemCodersClubLogo from '../../public/FemCodersClubLogo.png'
+import avatarUser from "../../public/avatarUser.png";
+import FemCodersClubLogo from '../../public/FemCodersClubLogo.png';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { Avatar, Dropdown } from "flowbite-react";
 
 const NavbarAuthUser = () => {
-
   const [, setCurrentUser] = useLocalStorage('user', '');
   const navigate = useNavigate();
 
@@ -80,4 +79,4 @@ const NavbarAuthUser = () => {
   )
 }
 
-export default NavbarAuthUser
+export default NavbarAuthUser;

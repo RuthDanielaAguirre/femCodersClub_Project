@@ -4,7 +4,6 @@ import { Faq } from "../../../../types/types";
 import FaqCard from "./Faq";
 import Spinner from "../../../../components/Spinner";
 
-
 export const FaqList = () => {
   const [faqs, setFaqs] = useState<Faq[]>([]);
   const [loading, setLoading] = useState<boolean>(true); 

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-
 export const useLocalStorage = (keyName: string,defaultValue: string) => {
     const[storedValue, setStoredValue] = useState(()=>{
         const value = localStorage.getItem(keyName)
@@ -38,5 +37,6 @@ export const useLocalStorage = (keyName: string,defaultValue: string) => {
         addEventListener("storage", listenStorageChange);
         return () => removeEventListener("storage", listenStorageChange);
     }, [])
-  return [storedValue, setValue];
+    
+    return [storedValue, setValue];
 }

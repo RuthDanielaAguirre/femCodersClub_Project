@@ -1,10 +1,10 @@
-import { styles } from "../../../../style"
-import { EditSponsorFormData, Sponsor } from "../../../../types/types"
-import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { updateSponsor } from "../../../../api/sponsorApi"
-import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react"
-import { SponsorContext } from "../../../../hooks/useSponsorContext"
-import SpinerModal from "../../../../components/SpinnerModal"
+import { styles } from "../../../../style";
+import { EditSponsorFormData, Sponsor } from "../../../../types/types";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { updateSponsor } from "../../../../api/sponsorApi";
+import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
+import { SponsorContext } from "../../../../hooks/useSponsorContext";
+import SpinerModal from "../../../../components/SpinnerModal";
 
 const EditSponsorForm = () => {
     const [sponsorsName, setSponsorsName] = useState('');
@@ -56,8 +56,6 @@ const EditSponsorForm = () => {
     const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
 		setSponsorsEmail(e.target.value);
     }
-
-
 
 	const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -124,4 +122,4 @@ const EditSponsorForm = () => {
     )
 }
 
-export default EditSponsorForm
+export default EditSponsorForm;

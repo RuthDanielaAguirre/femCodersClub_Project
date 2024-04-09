@@ -1,4 +1,3 @@
-
 import { Spinner } from "flowbite-react";
 
 function femSpinner() {
@@ -9,4 +8,4 @@ function femSpinner() {
   );
 }
 
-export default femSpinner
+export default femSpinner;

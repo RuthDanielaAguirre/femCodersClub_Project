@@ -1,11 +1,11 @@
 "use client";
 import { Carousel } from "flowbite-react";
 import { Link } from "react-router-dom";
-import imgContact from '../../../../public/imgContact.svg'
-import imgVolunteer from '../../../../public/imgVolunteer.png'
-import imgSponsor from '../../../../public/imgSponsor.svg'
+import imgContact from '../../../../public/imgContact.svg';
+import imgVolunteer from '../../../../public/imgVolunteer.png';
+import imgSponsor from '../../../../public/imgSponsor.svg';
 
-function CarouselContactHome() {
+const CarouselContactHome = () => {
     return (
         <div className="h-96 w-full lg:h-full lg:max-w-[1700px]  rounded-3xl flex flex-col items-center justify-center">
             <Carousel slide={false}
@@ -23,4 +23,4 @@ function CarouselContactHome() {
         </div>
     );
 }
-export default CarouselContactHome
+export default CarouselContactHome;

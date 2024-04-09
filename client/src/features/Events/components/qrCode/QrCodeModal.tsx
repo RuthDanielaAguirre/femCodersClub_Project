@@ -3,7 +3,6 @@ import { styles } from "../../../../style";
 import { createPortal } from "react-dom";
 
 function QrCodeModal({showQr, onClose, qrCode}: {showQr:boolean, onClose: ()=>void, qrCode: string}) {
-
     return (
         <div>
         {showQr?

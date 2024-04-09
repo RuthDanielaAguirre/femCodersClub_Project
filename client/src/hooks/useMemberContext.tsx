@@ -3,7 +3,6 @@ import { Member } from '../types/types';
 
 
 const initialState:Member = {
-
     idMember: 0,
     memberName: "",
     memberLastName: "",

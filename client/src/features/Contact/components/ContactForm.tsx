@@ -1,15 +1,12 @@
 import { FormEvent, useRef, useState } from 'react';
-
 import emailjs from '@emailjs/browser';
 import { styles } from '../../../style';
 import SpinerModal from '../../../components/SpinnerModal';
-
+import ConfirmationModal from './ConfirmationModal';
 
 const ContactForm = () => {
-
   const [loading, setLoading] = useState<boolean>(false);
   const [showMessage, setShowMessage] = useState<boolean>(false);
-
   const form = useRef<HTMLFormElement | null>(null);
 
 	const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -34,12 +31,6 @@ const ContactForm = () => {
 
     return (
         <>
-        {showMessage ? (
-          <div className="bg-primary z-[1] py-20 rounded-[24px]">
-              <h1 className="text-center text-xl font-semibold text-contrast">¡Mensaje enviado!</h1>
-          </div>
-        ):(
-          <>
             <div className="z-[10] flex flex-col content-end bg-primary rounded-[24px] md:w-[550px] lg:min-w-[500px] sm:w-[400px] w-[360px]">
             <form ref={form} onSubmit={handleSubmit} action="#" method="POST" className="flex flex-col bg-secondary/80 w-full h-fit rounded-[24px] p-8">
 
@@ -87,12 +78,10 @@ const ContactForm = () => {
             </form>
         </div>
         <SpinerModal isVisible={loading} />
+        <ConfirmationModal isVisible={showMessage} onClose={()=>setShowMessage(false)}/>
         </>
-        )}
-        </>
+
     )
 }
-
-
 
 export default ContactForm;

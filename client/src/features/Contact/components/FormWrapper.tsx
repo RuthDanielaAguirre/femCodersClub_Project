@@ -1,7 +1,5 @@
-import { styles } from '../../../style'
-import ContactForm from './ContactForm'
-
-
+import { styles } from '../../../style';
+import ContactForm from './ContactForm';
 
 const FormWrapper = () => {
   return (
@@ -16,4 +14,4 @@ const FormWrapper = () => {
   )
 }
 
-export default FormWrapper
+export default FormWrapper;

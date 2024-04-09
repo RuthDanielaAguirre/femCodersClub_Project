@@ -1,4 +1,4 @@
-import SignUpButton from './SignUpButton'
+import SignUpButton from './SignUpButton';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import { User, SignUpFormData } from "../../../types/types";
@@ -7,7 +7,7 @@ import TermsAndConditions from './TermsAndConditions';
 import { styles } from '../../../style';
 import { z, ZodType} from 'zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod'
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const SignUpForm = () => {
     const navigate = useNavigate();
@@ -28,8 +28,6 @@ const SignUpForm = () => {
     const {register, handleSubmit, formState: { errors, isSubmitting }} = useForm<SignUpFormData>({resolver: zodResolver(schema)})
 
     const mutationFn = async ({ name, lastName, gender, phoneNumber, email, password }: SignUpFormData) => registerUser(name, lastName, gender, phoneNumber, email, password);
-
-    // const mutationFn = async ({ name, lastName, email, password }: SignUpFormData) => registerUser(name, lastName, email, password);
 
     const mutation = useMutation<User, Error, SignUpFormData>(
         {
@@ -134,4 +132,4 @@ const SignUpForm = () => {
     )
 }
 
-export default SignUpForm
+export default SignUpForm;

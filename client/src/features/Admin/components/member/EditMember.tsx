@@ -12,7 +12,6 @@ export const EditMember = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [showMessage, setShowMessage] = useState<boolean>(false);
   
-
   const memberContext = useContext(MemberContext);
 
   useEffect(() => {
@@ -140,4 +139,4 @@ export const EditMember = () => {
   )
 }
 
-export default EditMember
+export default EditMember;

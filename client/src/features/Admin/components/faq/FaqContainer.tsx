@@ -1,7 +1,6 @@
-import AdminModal from '../AdminModal'
-import AddFaqForm from './AddFaqForm'
-import FaqList from './FaqList'
-
+import AdminModal from '../AdminModal';
+import AddFaqForm from './AddFaqForm';
+import FaqList from './FaqList';
 
 const FaqContainer = () => {
     return (
@@ -19,4 +18,4 @@ const FaqContainer = () => {
     )
 }
 
-export default FaqContainer
+export default FaqContainer;

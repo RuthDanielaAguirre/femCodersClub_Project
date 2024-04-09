@@ -1,5 +1,5 @@
 
-import { Layout } from '../../../components/Layout/Layout'
+import { Layout } from '../../../components/Layout/Layout';
 import { useState } from 'react';
 import { styles } from '../../../style';
 import { IoPeopleSharp } from "react-icons/io5";
@@ -11,7 +11,7 @@ import { BsQrCodeScan } from "react-icons/bs";
 import SponsorContainer from '../components/sponsor/SponsorContainer';
 import bgAdmin2 from '../../../../public/bgAdmin2.svg'
 import FaqContainer from '../components/faq/FaqContainer';
-import { VolunteerContainer } from '../components/volunteer/VolunteerContainer';
+import  VolunteerContainer  from '../components/volunteer/VolunteerContainer';
 import QrScanner from '../components/qrCode/QrScanner';
 import MemberContainer from '../components/member/MemberContainer';
 
@@ -100,4 +100,4 @@ const AdminPage = () => {
   )
 }
 
-export default AdminPage
+export default AdminPage;

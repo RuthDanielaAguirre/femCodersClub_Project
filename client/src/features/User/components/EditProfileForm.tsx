@@ -1,10 +1,10 @@
-import { styles } from "../../../style"
-import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { ChangeEvent, FormEvent, useEffect, useState } from "react"
-import SpinerModal from "../../../components/SpinnerModal"
-import { updateUser } from "../../../api/userApi"
-import { EditUserFormData, User } from "../../../types/types"
-import { useLocalStorage } from "../../../hooks/useLocalStorage"
+import { styles } from "../../../style";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import SpinerModal from "../../../components/SpinnerModal";
+import { updateUser } from "../../../api/userApi";
+import { EditUserFormData, User } from "../../../types/types";
+import { useLocalStorage } from "../../../hooks/useLocalStorage";
 
 const EditProfileForm = () => {
     const [userId, setUserId] = useState('');
