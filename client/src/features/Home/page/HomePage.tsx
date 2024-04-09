@@ -40,6 +40,7 @@ const HomePage = () => {
             const date = new Date(event?.start?.local)
             const formateDate = date.toLocaleDateString("es-ES", { weekday: "long", month: "long", day: "numeric", hour: "numeric", minute: "numeric", hour12: true })
             return <CardUpcomingEvent
+              key={upcomingEventsData.id}
               title={event.name.text}
               image={event?.logo?.original?.url}
               date={formateDate}
