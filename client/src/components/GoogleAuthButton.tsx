@@ -12,7 +12,6 @@ const GoogleAuthButton = () => {
         try{
             const result = await axios.post(`${import.meta.env.VITE_API_URL}/google-authentication`, {token:credentialResponse.credential});
             const googleUser = result.data;
-            console.log(googleUser);
             setUser(googleUser);
             navigate('/')
         }catch(err){

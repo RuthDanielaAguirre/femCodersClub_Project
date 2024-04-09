@@ -19,7 +19,6 @@ const EditProfileForm = () => {
     const[currentUser, setCurrentUser] = useLocalStorage('user', '');
     
     useEffect(() => {
-        console.log(currentUser);
         if(currentUser !== null){
             const { idUser, name, lastName, email, gender, telephone} = currentUser
             setUserId(idUser);

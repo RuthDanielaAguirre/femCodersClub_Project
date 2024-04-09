@@ -21,13 +21,11 @@ export const AddVolunteerForm = () => {
         await queryClient.refetchQueries();
         setLoading(false);
         setShowMessage(true);
-        console.log(mutation)
       }, 
       onError: (error) => console.log('Error', error)
     })
 
     const onSubmit: SubmitHandler<AddVolunteerData>= async (data) =>{  
-      console.log(data)
       const volunteerName = data.volunteerName;
       const volunteerLastName= data.volunteerLastName;
       const volunteerEmail= data.volunteerEmail;

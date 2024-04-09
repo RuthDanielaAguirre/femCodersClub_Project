@@ -19,7 +19,6 @@ const AddFaqForm = () => {
     );
 
     const onSubmit: SubmitHandler<AddFaqFormData> = async (data) => {
-        console.log(data);
         const faqQuestion = data.faqQuestion;
         const faqAnswer = data.faqAnswer;
 

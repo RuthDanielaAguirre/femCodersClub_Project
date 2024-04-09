@@ -11,7 +11,6 @@ export const FaqList = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get<Faq[]>(`${import.meta.env.VITE_API_URL}/faq`);
-        console.log('Respuesta del servidor:', response.data);
         setFaqs(response.data);
         setLoading(false); 
       } catch (error) {
