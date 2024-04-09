@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Layout } from "../../../components/Layout/Layout";
 import { styles } from "../../../style";
 import { BsCalendarHeart, BsFillPersonFill } from "react-icons/bs";
-import bgUserDashboard from '../../../../public/bgUserDashboard.svg'
+import bgUserDashboard from '../../../../public/bgUserDashboard.svg';
 import UserProfile from "../components/UserProfile";
 
 const UserPage = () => {
@@ -49,4 +49,4 @@ const UserPage = () => {
   )
 }
 
-export default UserPage
+export default UserPage;

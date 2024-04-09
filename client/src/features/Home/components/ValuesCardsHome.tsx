@@ -1,10 +1,10 @@
 "use client"
-import iconEquity from '../../../../public/iconEquity.png'
-import iconInclusion from '../../../../public/iconInclusion.png'
-import iconVisibility from '../../../../public/iconVisibility.png'
+import iconEquity from '../../../../public/iconEquity.png';
+import iconInclusion from '../../../../public/iconInclusion.png';
+import iconVisibility from '../../../../public/iconVisibility.png';
 import { styles } from "../../../style";
 
-function ValuesCardsHome() {
+const ValuesCardsHome = () => {
     return (
         <>
             <div className="flex justify-center items-center relative">
@@ -29,4 +29,4 @@ function ValuesCardsHome() {
         </>
     );
 }
-export default ValuesCardsHome
+export default ValuesCardsHome;

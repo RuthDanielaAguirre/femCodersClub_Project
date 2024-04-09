@@ -1,7 +1,7 @@
 import { Layout } from '../../../components/Layout/Layout';
 import { styles } from '../../../style';
 import CardTeamMember from '../components/CardTeamMember';
-import bgTeam from '../../../../public/bgTeamP1.png'
+import bgTeam from '../../../../public/bgTeamP1.png';
 
 const TeamPage = () => {
 

@@ -1,17 +1,15 @@
-import { Layout } from '../../../components/Layout/Layout'
+import { Layout } from '../../../components/Layout/Layout';
 import { styles } from "../../../style";
 import CarouselValues from '../components/CarouselValues';
-import bgAbout from '../../../../public/bgAbout.png'
-import AboutUs2 from '../../../../public/AboutUs2.png'
-import iconMission from '../../../../public/iconMission.png'
-import iconVision from '../../../../public/iconVision.png'
-import iconCommitment from '../../../../public/iconCommitment.png'
-import imgCommitment from '../../../../public/imgCommitment.png'
-import iconIdea from '../../../../public/iconIdea.png'
-import FemCodersClubLogo from '../../../../public/FemCodersClubLogo.png'
+import bgAbout from '../../../../public/bgAbout.png';
+import AboutUs2 from '../../../../public/AboutUs2.png';
+import iconMission from '../../../../public/iconMission.png';
+import iconVision from '../../../../public/iconVision.png';
+import iconCommitment from '../../../../public/iconCommitment.png';
+import imgCommitment from '../../../../public/imgCommitment.png';
+import iconIdea from '../../../../public/iconIdea.png';
+import FemCodersClubLogo from '../../../../public/FemCodersClubLogo.png';
 import ContactForm from '../../Contact/components/ContactForm';
-
-
 
 const AboutPage = () => {
   return (
@@ -118,4 +116,4 @@ const AboutPage = () => {
   )
 }
 
-export default AboutPage
+export default AboutPage;

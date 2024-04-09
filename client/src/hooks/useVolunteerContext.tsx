@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext } from "react";
 import { createContext } from "react";
 import { Volunteer } from "../types/types";
 
@@ -16,5 +16,5 @@ export const useVolunteerContext = () => {
     if(volunteer === undefined){
         throw new Error('must be used with a VolunteerContext')
     }
-  return volunteer 
+    return volunteer 
 }

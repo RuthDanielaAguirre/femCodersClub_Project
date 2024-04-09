@@ -1,18 +1,15 @@
-import { Layout } from '../../../components/Layout/Layout'
+import { Layout } from '../../../components/Layout/Layout';
 import { Link } from "react-router-dom";
-import CarouselContactHome from '../components/CarouselContactHome'
+import CarouselContactHome from '../components/CarouselContactHome';
 import CardUpcomingEvent from '../../Events/components/CardUpcomingEvent';
 import { styles } from "../../../style";
-import heroImg2 from '../../../../public/heroImg2.png'
-import bgValuesHome from '../../../../public/bgValuesHome.png'
+import heroImg2 from '../../../../public/heroImg2.png';
+import bgValuesHome from '../../../../public/bgValuesHome.png';
 import CarouselValues from '../../About/components/CarouselValues';
 import { useQuery } from '@tanstack/react-query';
 import { getUpcomingEvents } from '../../../api/eventsApi';
 
-
-
 const HomePage = () => {
-
   const { data: upcomingEventsData, isLoading: isLoadingUpcomingEvents } = useQuery(
     {
       queryKey: ['upcomingEvents'],
@@ -75,4 +72,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default HomePage;

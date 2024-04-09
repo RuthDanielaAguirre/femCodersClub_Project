@@ -4,7 +4,6 @@ import { useLocalStorage } from '../hooks/useLocalStorage';
 import { useNavigate } from 'react-router-dom';
 import { styles } from '../style';
 
-
 const GoogleAuthButton = () => {
     const[, setUser] = useLocalStorage('user', '');
     const navigate = useNavigate();

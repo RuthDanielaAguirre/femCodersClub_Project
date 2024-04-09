@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import HomePage from '../features/Home/page/HomePage'
+import HomePage from '../features/Home/page/HomePage';
 import ContactPage from "../features/Contact/page/ContactPage";
 import LogInPage from "../features/LogIn/page/LogInPage";
 import SignUpPage from "../features/SignUp/page/SignUpPage";
@@ -29,4 +29,4 @@ const Router = () => {
   )
 }
 
-export default Router
+export default Router;

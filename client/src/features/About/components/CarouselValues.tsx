@@ -15,7 +15,6 @@ import iconInnovation from '../../../../public/iconInnovation.png';
 import iconBalance from '../../../../public/iconBalance.png';
 import iconResponsibility from '../../../../public/iconResponsibility.png';
 
-
 function getInitialDeviceWidth() {
 
   if (window.innerWidth <= 976) {
@@ -29,10 +28,8 @@ function getInitialDeviceWidth() {
   return "desktop"
 }
 
-
 function CarouselValues() {
   const [deviceType, setDeviceType] = useState<"desktop" | "tablet" | "mobile">(getInitialDeviceWidth);
-
 
   useEffect(() => {
     const handleResize = () => {
@@ -53,7 +50,6 @@ function CarouselValues() {
 
     window.addEventListener('resize', handleResize);
 
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -73,7 +69,6 @@ function CarouselValues() {
             sin discriminación por género.</p>
         </div>
 
-
         <div className="flex flex-col items-center justify-center bg-primary py-8 rounded-3xl  w-[300px] h-[350px]"
           style={{ boxShadow: 'rgba(0, 0, 0, 0.1) 6px 4px 12px 3px' }}>
           <img src={iconInclusion} className="" alt="" />
@@ -82,14 +77,12 @@ function CarouselValues() {
             independientemente de sus antecedentes o experiencias.</p>
         </div>
 
-
         <div className="flex flex-col items-center justify-center bg-primary py-8 rounded-3xl  w-[300px] h-[350px]"
           style={{ boxShadow: 'rgba(0, 0, 0, 0.1) 6px 4px 12px 3px' }}>
           <img src={iconVisibility} className="" alt="" />
           <h1 className="text-xl font-bold text-secondary font-headerText my-4">Visibilidad</h1>
           <p className="text-center px-6">Los logros de las mujeres en el sector IT deben ser reconocidos y celebrados.</p>
         </div>
-
 
         <div className="flex flex-col items-center justify-center bg-primary py-8 rounded-3xl  w-[300px] h-[350px]"
           style={{ boxShadow: 'rgba(0, 0, 0, 0.1) 6px 4px 12px 3px' }}>
@@ -122,7 +115,6 @@ function CarouselValues() {
           <p className="text-center px-6">Reconocer y valorar las diversas perspectivas,
             habilidades y experiencias que cada mujer aporta al campo de la tecnología, promoviendo un entorno inclusivo y enriquecedor.</p>
         </div>
-
 
         <div className="flex flex-col items-center justify-center bg-primary py-8 rounded-3xl  w-[300px] h-[350px]"
           style={{ boxShadow: 'rgba(0, 0, 0, 0.1) 6px 4px 12px 3px' }}>
@@ -265,7 +257,6 @@ function CarouselValues() {
 
       </Carousel>}
 
-
       {deviceType === "desktop" && <Carousel indicators={false} slide={false}
         rightControl={<img className="pr-8" src={iconArrowR} />} leftControl={<img className="pl-8" src={iconArrowL} />}>
 
@@ -348,7 +339,6 @@ function CarouselValues() {
           </div>
         </div>
 
-
         <div className="grid justify-items-center items-center md:grid-cols-2 max-w-6xl">
           <div className="flex flex-col items-center justify-center bg-primary py-8 rounded-3xl w-[350px] h-[280px]"
             style={{ boxShadow: 'rgba(0, 0, 0, 0.1) 6px 4px 12px 3px' }}>
@@ -372,4 +362,4 @@ function CarouselValues() {
     </div>
   );
 }
-export default CarouselValues
+export default CarouselValues;

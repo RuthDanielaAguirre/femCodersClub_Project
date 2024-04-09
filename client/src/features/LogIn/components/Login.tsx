@@ -5,7 +5,7 @@ import authApi from "../../../api/authApi";
 import { useMutation } from "@tanstack/react-query";
 import { User } from "../../../types/types";
 import { styles } from "../../../style";
-import FemCodersClubLogo from '../../../../public/FemCodersClubLogo.png'
+import FemCodersClubLogo from '../../../../public/FemCodersClubLogo.png';
 import GoogleAuthButton from "../../../components/GoogleAuthButton";
 
 type LoginDto ={
@@ -27,7 +27,7 @@ const Login = () => {
       navigate('/')
     },
     onError: (error) => console.log('There has been an error',error)
-  })
+  });
 
   const onChangeEmail= (e:ChangeEvent<HTMLInputElement>)=>{
     setEmail(e.target.value);
@@ -39,7 +39,7 @@ const Login = () => {
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) =>{
     e.preventDefault();
-    mutation.mutate({email,password})
+    mutation.mutate({email,password});
   }
 
   return (

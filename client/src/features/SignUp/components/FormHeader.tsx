@@ -1,7 +1,7 @@
-import { styles } from "../../../style"
-import FemCodersClubLogo from '../../../../public/FemCodersClubLogo.png'
+import { styles } from "../../../style";
+import FemCodersClubLogo from '../../../../public/FemCodersClubLogo.png';
 
-function FormHeader() {
+const FormHeader = () => {
   return (
     <div className="w-full flex flex-col items-center">
       <img src={FemCodersClubLogo} className="w-[120px]"/>
@@ -10,4 +10,4 @@ function FormHeader() {
   )
 }
 
-export default FormHeader
+export default FormHeader;

@@ -1,15 +1,14 @@
-import { useQuery } from "@tanstack/react-query"
-import { getVolunteers } from "../../../../api/volunteerApi"
-import { styles } from "../../../../style"
-import { IoTransgender } from "react-icons/io5"
-import { FaUser } from "react-icons/fa"
-import { IoIosMail } from "react-icons/io"
-import AdminModal from "../AdminModal"
-import { EditVolunteerForm } from "./EditVolunteerForm"
-import { DeleteVolunteer } from "./DeleteVolunteer"
-import { VolunteerContext } from "../../../../hooks/useVolunteerContext"
-import Spinner from "../../../../components/Spinner"
-
+import { useQuery } from "@tanstack/react-query";
+import { getVolunteers } from "../../../../api/volunteerApi";
+import { styles } from "../../../../style";
+import { IoTransgender } from "react-icons/io5";
+import { FaUser } from "react-icons/fa";
+import { IoIosMail } from "react-icons/io";
+import AdminModal from "../AdminModal";
+import { EditVolunteerForm } from "./EditVolunteerForm";
+import DeleteVolunteer from "./DeleteVolunteer";
+import { VolunteerContext } from "../../../../hooks/useVolunteerContext";
+import Spinner from "../../../../components/Spinner";
 
 export const CardVolunteer = () => {
 
@@ -18,7 +17,6 @@ export const CardVolunteer = () => {
       queryKey: ['volunteer'],
       queryFn: getVolunteers
     })
-
     
   if (isLoading){
     return (
@@ -37,7 +35,6 @@ export const CardVolunteer = () => {
     )
   }
 
-
   return (
     <>
       <div className="flex flex-wrap">
@@ -52,21 +49,20 @@ export const CardVolunteer = () => {
               </div>
               <div className="z-10 mt-5 w-full flex justify-center gap-3">
                 <VolunteerContext.Provider value={volunteer}>
-                   <AdminModal
-                    text='Editar'
-                    width='100px'
-                    bg='tertiary'
-                  >
-                    <EditVolunteerForm />
-                  </AdminModal>
-                  <AdminModal
-                    text='Borrar'
-                    width='100px'
-                    bg='secondary'
-                  >
-                    <DeleteVolunteer />
-                  </AdminModal>
-                 
+                    <AdminModal
+                      text='Editar'
+                      width='100px'
+                      bg='tertiary'
+                    >
+                      <EditVolunteerForm />
+                    </AdminModal>
+                    <AdminModal
+                      text='Borrar'
+                      width='100px'
+                      bg='secondary'
+                    >
+                      <DeleteVolunteer />
+                    </AdminModal>
                 </VolunteerContext.Provider>
               </div>
           </div>
@@ -75,4 +71,4 @@ export const CardVolunteer = () => {
     </>
   )
 }
-export default CardVolunteer
+export default CardVolunteer;

@@ -3,7 +3,6 @@ import { getFaq } from '../../../api/faqApi';
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useState } from "react";
 
-
 function FaqAccordion() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -15,7 +14,6 @@ function FaqAccordion() {
     queryKey: ["faq"],
     queryFn: getFaq,
   });
-
 
   return (
     <div className='z-10'>
@@ -43,4 +41,4 @@ function FaqAccordion() {
     </div>
   );
 }
-export default FaqAccordion
+export default FaqAccordion;

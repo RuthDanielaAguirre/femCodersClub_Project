@@ -1,11 +1,4 @@
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeadCell,
-  TableRow,
-} from "flowbite-react";
+import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from "flowbite-react";
 import AdminModal from "../AdminModal";
 import EditSponsorForm from "./EditSponsorForm";
 import DeleteSponsor from "./DeleteSponsor";

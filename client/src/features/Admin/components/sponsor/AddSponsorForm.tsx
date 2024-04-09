@@ -1,11 +1,10 @@
-import { SubmitHandler, useForm } from "react-hook-form"
-import { styles } from "../../../../style"
-import { AddSponsorFormData, Sponsor } from "../../../../types/types"
-import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { addSponsor } from "../../../../api/sponsorApi"
-
-import { useState } from "react"
-import SpinerModal from "../../../../components/SpinnerModal"
+import { SubmitHandler, useForm } from "react-hook-form";
+import { styles } from "../../../../style";
+import { AddSponsorFormData, Sponsor } from "../../../../types/types";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { addSponsor } from "../../../../api/sponsorApi";
+import { useState } from "react";
+import SpinerModal from "../../../../components/SpinnerModal";
 
 const AddSponsorForm = () => {
     const [loading, setLoading] = useState<boolean>(false);
@@ -97,4 +96,4 @@ const AddSponsorForm = () => {
     )
 }
 
-export default AddSponsorForm
+export default AddSponsorForm;

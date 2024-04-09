@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react";
 import { VolunteerContext } from "../../../../hooks/useVolunteerContext";
 import { deleteVolunteer } from "../../../../api/volunteerApi";
 import { DeleteVolunteerData, Volunteer } from "../../../../types/types";
@@ -6,8 +6,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { styles } from "../../../../style";
 import SpinerModal from "../../../../components/SpinnerModal";
 
-export const DeleteVolunteer = () => {
-
+const DeleteVolunteer = () => {
   const [idVolunteer,setIdVolunteer] = useState('');
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -52,3 +51,5 @@ export const DeleteVolunteer = () => {
     </>
   )
 }
+
+export default DeleteVolunteer;
