@@ -66,7 +66,7 @@ La creación de la carta gráfica y la identidad visual se desarrolló según la
 
 ## Deployment:
 
-- [CLIENT (FRONT-END)](https://femcodersclub-project.onrender.com/)
+- [CLIENT (FRONT-END)](https://fem-coders-club-project.vercel.app/)
 - [SERVER (BACK-END)](https://femcodersclub-project.onrender.com)
 
 Optamos por implementar el deployment de la aplicación de la siguiente manera: el front end se desplegó en Vercel, mientras que el backend encontró su lugar en Render. Esta elección estratégica nos permitió aprovechar las características y ventajas específicas de cada plataforma para garantizar un despliegue eficiente y confiable de nuestra aplicación
